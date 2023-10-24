@@ -3,17 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>HighTech - IT Solutions Website Template</title>
+    <title>Infrastructure 2 Division</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,6 +24,9 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('templateLanding/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 </head>
 
 <body>
@@ -73,80 +72,56 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+    <div class="container-fluid footer bg wow fadeIn" style="background-color: #002D60; border-color: #2AABE2;" data-wow-delay=".3s">
         <div class="container pt-5 pb-4">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <a href="index.html">
-                        <h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span> </h1>
+                        <img src="{{ asset('templateLanding/img/logo.png') }}" class="w-50">
                     </a>
-                    <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere
-                        delectus qui placeat inventore consectetur repellendus optio debitis.</p>
+                    <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere delectus qui placeat inventore consectetur repellendus optio debitis.</p>
                     <div class="d-flex hightech-link">
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
-                                class="fab fa-facebook-f text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
-                                class="fab fa-twitter text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
-                                class="fab fa-instagram text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i
-                                class="fab fa-linkedin-in text-primary"></i></a>
+                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
+                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>
+                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-instagram text-primary"></i></a>
+                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text-secondary">Short Link</a>
+                    <a href="#" class="h3 text" style="color: #2AABE2;">Short Link</a>
                     <div class="mt-4 d-flex flex-column short-link">
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>About us</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Contact us</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Our Services</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Our Projects</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Latest Blog</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>About us</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Contact us</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Our Services</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Our Projects</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Latest Blog</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text-secondary">Help Link</a>
+                    <a href="#" class="h3 text" style="color: #2AABE2;">Help Link</a>
                     <div class="mt-4 d-flex flex-column help-link">
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Terms Of use</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Privacy Policy</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Helps</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>FQAs</a>
-                        <a href="" class="mb-2 text-white"><i
-                                class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Terms Of use</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Privacy Policy</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Helps</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>FQAs</a>
+                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Contact</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text-secondary">Contact Us</a>
+                    <a href="#" class="h3 text" style="color: #2AABE2;">Contact Us</a>
                     <div class="text-white mt-4 d-flex flex-column contact-link">
-                        <a href="#" class="pb-3 text-light border-bottom border-primary"><i
-                                class="fas fa-map-marker-alt text-secondary me-2"></i> 123 Street, New York, USA</a>
-                        <a href="#" class="py-3 text-light border-bottom border-primary"><i
-                                class="fas fa-phone-alt text-secondary me-2"></i> +123 456 7890</a>
-                        <a href="#" class="py-3 text-light border-bottom border-primary"><i
-                                class="fas fa-envelope text-secondary me-2"></i> info@exmple.con</a>
+                        <a href="#" class="pb-3 text-light border-bottom border-primary"><i class="fas fa-map-marker-alt text-primary me-2"></i> JL. D.I. Panjaitan Kav. 9-10, Jakarta 13340</a>
+                        <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-phone-alt text-primary me-2"></i> +6221 8067 9200</a>
+                        <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-envelope text-primary me-2"></i> adwijaya@wika.co.id</a>
                     </div>
                 </div>
             </div>
             <hr class="text-light mt-5 mb-4">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <span class="text-light"><a href="#" class="text-secondary"><i
-                                class="fas fa-copyright text-secondary me-2"></i>Your Site Name</a>, All right
-                        reserved.</span>
+                    <span class="text-light"><a href="#" class="text-primary"><i class="fas fa-copyright text me-2" style="color: #2AABE2;"></i>Tim Digitalisasi</a>, All right reserved.</span>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    <span class="text-light">Designed By<a href="https://htmlcodex.com" class="text-secondary">HTML
-                            Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a></span>
-                </div>
+
             </div>
         </div>
     </div>
@@ -154,8 +129,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i
-            class="fa fa-arrow-up text-white"></i></a>
+    <a href="#" class="btn btn btn-square rounded-circle back-to-top" style="background-color: #3293D0">
+        <i class="fa fa-arrow-up text-white"></i></a>
 
 
     <!-- JavaScript Libraries -->

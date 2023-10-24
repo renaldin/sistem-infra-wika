@@ -256,7 +256,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="{{ asset('templateLanding/img/project-4.jpg') }}"
+                                <img src="{{ asset('templateLanding/img/project-1.jpg') }}"
                                     class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
@@ -270,7 +270,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="{{ asset('templateLanding/img/project-5.jpg') }}"
+                                <img src="{{ asset('templateLanding/img/project-2.jpg') }}"
                                     class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
@@ -284,7 +284,7 @@
                     <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="{{ asset('templateLanding/img/project-6.jpg') }}"
+                                <img src="{{ asset('templateLanding/img/project-3.jpg') }}"
                                     class="img-fluid w-100 rounded" alt="">
                                 <div class="project-content">
                                     <a href="#" class="text-center">
@@ -354,49 +354,49 @@
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg"') }} class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg"') }} class="img-fluid" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <div class="supporter-logo">
-                        <img src="{{ asset('templateLanding/img/project-6.jpg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('templateLanding/img/project-1.jpg') }}" class="img-fluid" alt="">
                     </div>
                 </div>
 
