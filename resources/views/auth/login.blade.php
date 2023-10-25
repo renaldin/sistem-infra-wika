@@ -11,7 +11,7 @@
                                 <a href="{{ asset('template/html/dashboard/index.html') }}"
                                     class="navbar-brand d-flex align-items-center mb-3">
                                     <!--Logo start-->
-                                    <img src="{{ asset('templateLanding/img/infra2.png') }}" width="175"
+                                    <img src="{{ asset('templateLanding/img/infra2 black.png') }}" width="175"
                                         alt="Logo Jawer.id">
                                 </a>
                                 <h2 class="mb-2 text-center">{{ $title }}</h2>

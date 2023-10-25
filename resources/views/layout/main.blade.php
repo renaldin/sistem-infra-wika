@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SI UKT | {{ $subTitle }}</title>
+    <title>Infrastructure 2 Division| {{ $subTitle }}</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
@@ -55,7 +55,7 @@
                     <a href="#" class="navbar-brand">
                         <!--Logo start-->
                         <!--logo End-->
-                        <h4 class="logo-title">SI UKT</h4>
+                        <h4 class="logo-title">Infrastructure 2 Division</h4>
                     </a>
                     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
                         <i class="icon">
@@ -111,7 +111,7 @@
                                     @if ($subTitle === 'Dashboard')
                                         <h1>Hello, {{ $user->nama_user }}
                                         </h1>
-                                        <p>Selamat Datang Di Website Sistem Informasi Uang Kuliah Tunggal (UKT).</p>
+                                        <p>Selamat Datang Di Website Monitoring Dashboard Infrastructure 2 Division.</p>
                                     @else
                                         <h1>{{ $subTitle }}</h1>
                                         <p>Silahkan Jelajahi {{ $subTitle }}.</p>
@@ -165,7 +165,7 @@
         <footer class="footer">
             <div class="footer-body">
                 <ul class="left-panel list-inline mb-0 p-0">
-                    <li class="list-inline-item"><a href="#">Politeknik Negeri Subang</a></li>
+                    <li class="list-inline-item"><a href="#">PT. Wijaya Karya (Persero) Tbk</a></li>
                 </ul>
                 <div class="right-panel">
                     ©

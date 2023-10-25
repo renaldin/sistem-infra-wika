@@ -101,7 +101,7 @@
                         <img src="{{ asset('templateLanding/img/gedung.jpg') }}" class="img-fluid w-75 rounded"
                             alt="" style="margin-bottom: 25%;">
                         <div class="position-absolute w-75" style="top: 25%; left: 25%;">
-                            <img src="{{ asset('templateLanding/img/gedung2.jpeg"') }} class="img-fluid w-100 rounded"
+                            <img src="{{ asset('templateLanding/img/gedung2.jpeg') }}" class="img-fluid w-100 rounded"
                                 alt="">
                         </div>
                     </div>
