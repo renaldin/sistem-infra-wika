@@ -2,20 +2,21 @@
     <div class="sidebar-header d-flex align-items-center justify-content-start">
         <a href="#" class="navbar-brand">
             <h4 class="logo-title">
-                <img src="{{ asset('gambar/logo.png') }}" width="175" alt="Logo Jawer.id">
+                <img src="{{ asset('templateLanding/img/infra2.png') }}" width="175" alt="Logo Jawer.id">
             </h4>
         </a>
-        <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
-            <i class="icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </i>
-        </div>
+            <div class="sidebar-toggle" data-toggle="sidebar" data-active="true" style="background-color: #004899;">
+                <i class="icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.25 12.2744L19.25 12.2744" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </i>
+            </div>
+     
     </div>
     <div class="sidebar-body pt-0 data-scrollbar">
         <div class="sidebar-list mb-5">
@@ -29,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if ($subTitle === 'Dashboard') active @endif" aria-current="page"
-                        href="/dashboard">
+                       style="background-color: #004899" href="/dashboard">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.4"
@@ -56,3 +57,4 @@
     </div>
     <div class="sidebar-footer"></div>
 </aside>
+
