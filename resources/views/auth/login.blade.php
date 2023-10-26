@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <div class="card card-transparent shadow-none d-flex justify-content-center mb-0 auth-card" style="width: 80%; max-width: 400px;">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
+                    <div class="card-body" style="background-color: blue @media">
+                        <div class="d-flex justify-content-between align-items-center" >
                             <div class="d-flex align-items-center" style="justify-content: space-between;">
                                 <a href="{{ asset('template/html/dashboard/index.html') }}" class="navbar-brand">
                                     <!-- Logo kiri -->
@@ -18,7 +18,7 @@
                                 </a>
                                 <a href="{{ asset('template/html/dashboard/index.html') }}" class="navbar-brand">
                                     <!-- Logo kanan -->
-                                    <img src="{{ asset('templateLanding/img/wikainfra.png') }}" width="200" alt="Logo Kanan" style="margin-left:47px;">
+                                    <img src="{{ asset('templateLanding/img/wikainfra.png') }}" width="200" alt="Logo Kanan" style="margin-left:60px;" class="logo-kanan w-100">
                                 </a>
                             </div>
                         </div>

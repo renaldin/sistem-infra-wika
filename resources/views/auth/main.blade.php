@@ -36,6 +36,18 @@
             return true;
         }
       </script>
+      <style>
+        @media (max-width: 768px) {
+          .logo-kanan {
+              /* padding-right: 180px !important; */
+              /* display: flex; */
+              /* margin-right: 100px; */
+              width: 200px !important;
+              margin-left: -45px !important;
+              /* height: 150%; */
+          }
+        }
+      </style>
   </head>
   <body class=" " data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
     <!-- loader Start -->
