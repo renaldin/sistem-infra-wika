@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if ($subTitle === 'Dashboard') active @endif" aria-current="page"
-                       style="background-color: #004899" href="/dashboard">
+                    @if ($subTitle === 'Dashboard') style="background-color: #004899" @endif href="/dashboard">
                         <i class="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.4"
@@ -47,7 +47,131 @@
                 <li>
                     <hr class="hr-horizontal">
                 </li>
-                {{-- disini --}}
+                @if ($user->role === 'Admin')
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Data Master</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Data User') active @endif" data-bs-toggle="collapse"
+                        @if ($title === 'Data User') style="background-color: #004899" @endif href="#sidebar-user" role="button" aria-expanded="false" aria-controls="sidebar-user">
+                            <i class="icon">
+                                <svg width="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.4"
+                                        d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
+                                        fill="currentColor"></path>
+                                    <path
+                                        d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
+                                        fill="currentColor"></path>
+                                    <path opacity="0.4"
+                                        d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </i>
+                            <span class="item-name">User</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah User') active @endif" @if ($subTitle === 'Tambah User') style="background-color: #004899" @endif href="/tambah-user">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah User</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') active @endif" href="/daftar-user" @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') style="background-color: #004899" @endif>
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Daftar User</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Data Projek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Projek') style="background-color: #004899" @endif href="#sidebar-user" role="button" aria-expanded="false" aria-controls="sidebar-user">
+                            <i class="icon">
+                                <svg width="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.4"
+                                        d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
+                                        fill="currentColor"></path>
+                                    <path
+                                        d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
+                                        fill="currentColor"></path>
+                                    <path opacity="0.4"
+                                        d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </i>
+                            <span class="item-name">Projek</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah Projek') active @endif" @if ($subTitle === 'Tambah Projek') style="background-color: #004899" @endif href="/tambah-projek">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah Projek</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Daftar Projek' || $subTitle === 'Edit Projek') active @endif" href="/daftar-projek" @if ($subTitle === 'Daftar Projek' || $subTitle === 'Edit Projek') style="background-color: #004899" @endif>
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Daftar Projek</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <br><br>
                 </li>
