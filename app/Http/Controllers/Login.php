@@ -56,7 +56,7 @@ class Login extends Controller
                 return back()->with('fail', 'Login gagal! Password tidak sesuai.');
             }
         } else {
-            return back()->with('fail', 'Login gagal! NIM belum terdaftar.');
+            return back()->with('fail', 'Login gagal! NIP belum terdaftar.');
         }
     }
 

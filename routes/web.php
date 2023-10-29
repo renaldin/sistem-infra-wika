@@ -3,9 +3,11 @@
 use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
-use App\Http\Controllers\Projek;
+use App\Http\Controllers\Proyek;
+use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,12 +50,23 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/edit-user/{id}', [User::class, 'prosesEdit']);
         Route::get('/hapus-user/{id}', [User::class, 'prosesHapus']);
 
-        Route::get('/daftar-projek', [Projek::class, 'index'])->name('daftar-projek');
-        Route::get('/tambah-projek', [Projek::class, 'tambah'])->name('tambah-projek');
-        Route::post('/tambah-projek', [Projek::class, 'prosesTambah']);
-        Route::get('/edit-projek/{id}', [Projek::class, 'edit'])->name('edit-projek');
-        Route::post('/edit-projek/{id}', [Projek::class, 'prosesEdit']);
-        Route::get('/hapus-projek/{id}', [Projek::class, 'prosesHapus']);
+        Route::get('/daftar-proyek', [Proyek::class, 'index'])->name('daftar-proyek');
+        Route::get('/tambah-proyek', [Proyek::class, 'tambah'])->name('tambah-proyek');
+        Route::post('/tambah-proyek', [Proyek::class, 'prosesTambah']);
+        Route::get('/edit-proyek/{id}', [Proyek::class, 'edit'])->name('edit-proyek');
+        Route::post('/edit-proyek/{id}', [Proyek::class, 'prosesEdit']);
+        Route::get('/hapus-proyek/{id}', [Proyek::class, 'prosesHapus']);
+
+        Route::get('/daftar-tim-proyek', [TimProyek::class, 'index'])->name('daftar-tim-proyek');
+        Route::get('/tambah-tim-proyek', [TimProyek::class, 'tambah'])->name('tambah-tim-proyek');
+        Route::post('/tambah-tim-proyek', [TimProyek::class, 'prosesTambah']);
+        Route::get('/edit-tim-proyek/{id}', [TimProyek::class, 'edit'])->name('edit-tim-proyek');
+        Route::post('/edit-tim-proyek/{id}', [TimProyek::class, 'prosesEdit']);
+        Route::get('/hapus-tim-proyek/{id}', [TimProyek::class, 'prosesHapus']);
+        
+        Route::post('/tambah-detail-tim-proyek', [DetailTimProyek::class, 'prosesTambah']);
+        Route::get('/hapus-detail-tim-proyek/{id}', [DetailTimProyek::class, 'prosesHapus']);
+
     });
 
     Route::group(['middleware' => 'headoffice'], function () {

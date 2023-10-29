@@ -30,16 +30,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if ($subTitle === 'Dashboard') active @endif" aria-current="page"
-                    @if ($subTitle === 'Dashboard') style="background-color: #004899" @endif href="/dashboard">
+                    @if ($subTitle === 'Dashboard') @endif href="/dashboard">
                         <i class="icon">
-                            <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path opacity="0.4"
-                                    d="M16.0756 2H19.4616C20.8639 2 22.0001 3.14585 22.0001 4.55996V7.97452C22.0001 9.38864 20.8639 10.5345 19.4616 10.5345H16.0756C14.6734 10.5345 13.5371 9.38864 13.5371 7.97452V4.55996C13.5371 3.14585 14.6734 2 16.0756 2Z"
-                                    fill="currentColor"></path>
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M4.53852 2H7.92449C9.32676 2 10.463 3.14585 10.463 4.55996V7.97452C10.463 9.38864 9.32676 10.5345 7.92449 10.5345H4.53852C3.13626 10.5345 2 9.38864 2 7.97452V4.55996C2 3.14585 3.13626 2 4.53852 2ZM4.53852 13.4655H7.92449C9.32676 13.4655 10.463 14.6114 10.463 16.0255V19.44C10.463 20.8532 9.32676 22 7.92449 22H4.53852C3.13626 22 2 20.8532 2 19.44V16.0255C2 14.6114 3.13626 13.4655 4.53852 13.4655ZM19.4615 13.4655H16.0755C14.6732 13.4655 13.537 14.6114 13.537 16.0255V19.44C13.537 20.8532 14.6732 22 16.0755 22H19.4615C20.8637 22 22 20.8532 22 19.44V16.0255C22 14.6114 20.8637 13.4655 19.4615 13.4655Z"
-                                    fill="currentColor"></path>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                         </i>
                         <span class="item-name">Dashboard</span>
                     </a>
@@ -56,20 +49,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if ($title === 'Data User') active @endif" data-bs-toggle="collapse"
-                        @if ($title === 'Data User') style="background-color: #004899" @endif href="#sidebar-user" role="button" aria-expanded="false" aria-controls="sidebar-user">
+                        @if ($title === 'Data User') @endif href="#sidebar-user" role="button" aria-expanded="false" aria-controls="sidebar-user">
                             <i class="icon">
-                                <svg width="20" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.4"
-                                        d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
-                                        fill="currentColor"></path>
-                                    <path
-                                        d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
-                                        fill="currentColor"></path>
-                                    <path opacity="0.4"
-                                        d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
-                                        fill="currentColor"></path>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
                             <span class="item-name">User</span>
                             <i class="right-icon">
@@ -82,7 +64,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Tambah User') active @endif" @if ($subTitle === 'Tambah User') style="background-color: #004899" @endif href="/tambah-user">
+                                <a class="nav-link @if ($subTitle === 'Tambah User') active @endif" @if ($subTitle === 'Tambah User') @endif href="/tambah-user">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -97,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') active @endif" href="/daftar-user" @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') style="background-color: #004899" @endif>
+                                <a class="nav-link @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') active @endif" href="/daftar-user" @if ($subTitle === 'Daftar User' || $subTitle === 'Edit User') @endif>
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -114,22 +96,11 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($title === 'Data Projek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Projek') style="background-color: #004899" @endif href="#sidebar-user" role="button" aria-expanded="false" aria-controls="sidebar-user">
+                        <a class="nav-link @if ($title === 'Data Tim Proyek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Tim Proyek') @endif href="#sidebar-tim-proyek" role="button" aria-expanded="false" aria-controls="sidebar-tim-proyek">
                             <i class="icon">
-                                <svg width="20" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.4"
-                                        d="M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z"
-                                        fill="currentColor"></path>
-                                    <path
-                                        d="M9.5 15.0156C5.45422 15.0156 2 15.6625 2 18.2467C2 20.83 5.4332 21.5001 9.5 21.5001C13.5448 21.5001 17 20.8533 17 18.269C17 15.6848 13.5668 15.0156 9.5 15.0156Z"
-                                        fill="currentColor"></path>
-                                    <path opacity="0.4"
-                                        d="M9.50023 12.5542C12.2548 12.5542 14.4629 10.3177 14.4629 7.52761C14.4629 4.73754 12.2548 2.5 9.50023 2.5C6.74566 2.5 4.5376 4.73754 4.5376 7.52761C4.5376 10.3177 6.74566 12.5542 9.50023 12.5542Z"
-                                        fill="currentColor"></path>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
-                            <span class="item-name">Projek</span>
+                            <span class="item-name">Tim Proyek</span>
                             <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -138,9 +109,9 @@
                                 </svg>
                             </i>
                         </a>
-                        <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
+                        <ul class="sub-nav collapse" id="sidebar-tim-proyek" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Tambah Projek') active @endif" @if ($subTitle === 'Tambah Projek') style="background-color: #004899" @endif href="/tambah-projek">
+                                <a class="nav-link @if ($subTitle === 'Tambah Tim Proyek') active @endif" href="/tambah-tim-proyek">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -151,11 +122,11 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Tambah Projek</span>
+                                    <span class="item-name">Tambah Tim Proyek</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Daftar Projek' || $subTitle === 'Edit Projek') active @endif" href="/daftar-projek" @if ($subTitle === 'Daftar Projek' || $subTitle === 'Edit Projek') style="background-color: #004899" @endif>
+                                <a class="nav-link @if ($subTitle === 'Daftar Tim Proyek' || $subTitle === 'Edit Tim Proyek') active @endif" href="/daftar-tim-proyek" @if ($subTitle === 'Daftar Tim Proyek' || $subTitle === 'Edit Tim Proyek') @endif>
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -166,11 +137,112 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">Daftar Projek</span>
+                                    <span class="item-name">Daftar Proyek</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Data Proyek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Proyek') @endif href="#sidebar-proyek" role="button" aria-expanded="false" aria-controls="sidebar-proyek">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Proyek</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="sidebar-proyek" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah Proyek') active @endif" href="/tambah-proyek">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah Proyek</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Daftar Proyek' || $subTitle === 'Edit Proyek') active @endif" href="/daftar-proyek" @if ($subTitle === 'Daftar Proyek' || $subTitle === 'Edit Proyek') @endif>
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Daftar Proyek</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @elseif ($user->role === 'Tim Proyek')
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Operasi</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Monthly Report') active @endif" data-bs-toggle="collapse" @if ($title === 'Monthly Report') @endif href="#monthly-report" role="button" aria-expanded="false" aria-controls="monthly-report">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Monthly Report</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="monthly-report" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah Monthly Report') active @endif" href="/tambah-monthly-report">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah Report</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report') active @endif" href="/daftar-monthly-report">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Daftar Report</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li> --}}
                 @endif
                 <li class="nav-item">
                     <br><br>

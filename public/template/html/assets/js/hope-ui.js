@@ -259,6 +259,11 @@ if($.fn.DataTable){
       "dom": '<"row align-items-center"<"col-md-6" l><"col-md-6" f>><"table-responsive border-bottom my-3" rt><"row align-items-center" <"col-md-6" i><"col-md-6" p>><"clear">',
     });
   }
+  if($('[data-toggle="data-table-2"]').length) {
+    const table = $('[data-toggle="data-table-2"]').DataTable({
+      "dom": '<"row align-items-center"<"col-md-6" l><"col-md-6" f>><"table-responsive border-bottom my-3" rt><"row align-items-center" <"col-md-6" i><"col-md-6" p>><"clear">',
+    });
+  }
 }
 
 /*---------------------------------------------------------------------

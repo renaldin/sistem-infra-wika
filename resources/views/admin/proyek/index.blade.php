@@ -37,32 +37,34 @@
                     <thead>
                         <tr class="ligth">
                             <th>No</th>
-                            <th>Nama Projek</th>
+                            <th>Nama Proyek</th>
                             <th>Tanggal</th>
                             <th>Tipe Konstruksi</th>
                             <th>Prioritas</th>
-                            <th>Kesie Eng</th>
+                            <th>Nama Tim Proyek</th>
                             <th style="min-width: 100px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;?>
-                        @foreach ($daftarProjek as $item)
+                        @foreach ($daftarProyek as $item)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$item->nama_projek}}</td>
+                            <td>{{$item->nama_proyek}}</td>
                             <td>{{$item->tanggal}}</td>
                             <td>{{$item->tipe_konstruksi}}</td>
                             <td>{{$item->prioritas}}</td>
-                            <td>{{$item->nama_user}}</td>
+                            <td>
+                                <span class="badge bg-primary" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#tim-proyek{{$item->id_proyek}}">{{$item->nama_tim_proyek}}</span>
+                            </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
-                                    <button type="button" class="btn btn-sm btn-icon btn-primary" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detail{{$item->id_projek}}" data-placement="top" title="Detail Projek" data-original-title="Detail">
+                                    <button type="button" class="btn btn-sm btn-icon btn-primary" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#detail{{$item->id_proyek}}" data-placement="top" title="Detail Proyek" data-original-title="Detail">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" stroke="currentColor"></path>                                    <circle cx="12" cy="12" r="5" stroke="currentColor"></circle>                                    <circle cx="12" cy="12" r="3" fill="#130F26"></circle>                                    <mask mask-type="alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="6" height="6">                                    <circle cx="12" cy="12" r="3" fill="#130F26"></circle>                                    </mask>                                    <circle opacity="0.89" cx="13.5" cy="10.5" r="1.5" fill="white"></circle>                                    </svg>                                
                                         </span>
                                     </button>
-                                    <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Edit User" data-original-title="Edit" href="/edit-projek/{{$item->id_projek}}">
+                                    <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Edit User" data-original-title="Edit" href="/edit-proyek/{{$item->id_proyek}}">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -71,7 +73,7 @@
                                             </svg>
                                         </span>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#hapus{{$item->id_projek}}" data-placement="top" title="Hapus User" data-original-title="Delete">
+                                    <button type="button" class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#hapus{{$item->id_proyek}}" data-placement="top" title="Hapus User" data-original-title="Delete">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                                             <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -92,41 +94,41 @@
     </div>
 </div>
 
-@foreach ($daftarProjek as $item)
-<div class="modal fade" id="hapus{{$item->id_projek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach ($daftarProyek as $item)
+<div class="modal fade" id="hapus{{$item->id_proyek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hapus Projek</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Proyek</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Apakah Anda yakin akan hapus projek bernama <strong>{{$item->nama_projek}}</strong>?</p>
+                <p>Apakah Anda yakin akan hapus proyek bernama <strong>{{$item->nama_proyek}}</strong>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <a href="/hapus-projek/{{$item->id_projek}}" type="button" class="btn btn-danger">Hapus</a>
+                <a href="/hapus-proyek/{{$item->id_proyek}}" type="button" class="btn btn-danger">Hapus</a>
             </div>
         </div>
     </div>
 </div>
 @endforeach
 
-@foreach ($daftarProjek as $item)
-<div class="modal fade" id="detail{{$item->id_projek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach ($daftarProyek as $item)
+<div class="modal fade" id="detail{{$item->id_proyek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Projek</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Proyek</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th>Nama Projek</th>
+                            <th>Nama Proyek</th>
                             <td>:</td>
-                            <td>{{$item->nama_projek}}</td>
+                            <td>{{$item->nama_proyek}}</td>
                         </tr>
                         <tr>
                             <th>Tanggal</th>
@@ -149,15 +151,76 @@
                             <td>{{$item->status}}</td>
                         </tr>
                         <tr>
-                            <th>Kesie Eng</th>
+                            <th>Nama Tim Proyek</th>
                             <td>:</td>
-                            <td>{{$item->nama_user}}</td>
+                            <td>{{$item->nama_tim_proyek}}</td>
                         </tr>
                         <tr>
                             <th>Coordinat</th>
                             <td>:</td>
                             <td>{{$item->coordinat}}</td>
                         </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
+@foreach ($daftarProyek as $item)
+<div class="modal fade" id="tim-proyek{{$item->id_proyek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tim Proyek</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Nama Tim Proyek</th>
+                            <td>:</td>
+                            <td>{{$item->nama_tim_proyek}}</td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal Dibuat</th>
+                            <td>:</td>
+                            <td>{{$item->tanggal_dibuat}}</td>
+                        </tr>
+                        <tr>
+                            <th>Deskripsi</th>
+                            <td>:</td>
+                            <td>{{$item->deskripsi}}</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table id="user-list-table" class="table table-striped" role="grid" data-toggle="data-table">
+                        <thead>
+                            <tr class="ligth">
+                                <th>No</th>
+                                <th>Nama Anggota</th>
+                                <th>Jabatan</th>
+                                <th>No HP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;?>
+                            @foreach ($daftarDetailTimProyek as $row)
+                                @if ($row->id_tim_proyek === $item->id_tim_proyek)
+                                    <tr>
+                                        <td>{{$no++}}</td>
+                                        <td>{{$row->nama_user}}</td>
+                                        <td>{{$row->jabatan}}</td>
+                                        <td>{{$row->telepon}}</td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

@@ -55,7 +55,7 @@
                     <a href="#" class="navbar-brand">
                         <!--Logo start-->
                         <!--logo End-->
-                        <h4 class="logo-title">Infrastructure 2 Division</h4>
+                        <h4 class="logo-title">Infra 2 Division</h4>
                     </a>
                     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
                         <i class="icon">

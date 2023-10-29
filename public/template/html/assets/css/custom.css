@@ -568,3 +568,7 @@ body.uikit .btn-download {
 .top-1 {
   top: 1rem;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
