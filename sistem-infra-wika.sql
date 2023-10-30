@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2023 at 07:51 PM
+-- Generation Time: Oct 30, 2023 at 05:13 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -39,55 +39,8 @@ CREATE TABLE `detail_tim_proyek` (
 
 INSERT INTO `detail_tim_proyek` (`id_detail_tim_proyek`, `id_tim_proyek`, `id_user`) VALUES
 (5, 3, 14),
-(6, 3, 15);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `engineering_issue`
---
-
-CREATE TABLE `engineering_issue` (
-  `id_engineering_issue` int(11) NOT NULL,
-  `id_proyek` int(11) DEFAULT NULL,
-  `kendala_implementasi_bim` text DEFAULT NULL,
-  `engineering_issue_berjalan` text DEFAULT NULL,
-  `masalah_produksi_berjalan` text DEFAULT NULL,
-  `tanggal_engineering_issue` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lean_construction`
---
-
-CREATE TABLE `lean_construction` (
-  `id_lean_construction` int(11) NOT NULL,
-  `id_proyek` int(11) NOT NULL,
-  `konsep_lean_construction_berjalan` text NOT NULL,
-  `feedback_untuk_perusahaan` text NOT NULL,
-  `tanggal_lean_construction` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monitoring_bim`
---
-
-CREATE TABLE `monitoring_bim` (
-  `id_monitoring_bim` int(11) NOT NULL,
-  `id_proyek` int(11) DEFAULT NULL,
-  `progress` int(11) DEFAULT NULL,
-  `tanggal_monitoring_bim` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(6, 3, 15),
+(7, 4, 15);
 
 -- --------------------------------------------------------
 
@@ -194,6 +147,28 @@ CREATE TABLE `monitoring_rkp` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `monthly_report`
+--
+
+CREATE TABLE `monthly_report` (
+  `id_monthly_report` int(11) NOT NULL,
+  `id_proyek` int(11) DEFAULT NULL,
+  `realisasi_proyek` varchar(255) DEFAULT NULL,
+  `implementasi_bim` varchar(255) DEFAULT NULL,
+  `kesiapan_bim5d` varchar(255) DEFAULT NULL,
+  `kendala_implementasi_bim` text DEFAULT NULL,
+  `engineering_issue_berjalan` text DEFAULT NULL,
+  `masalah_produksi_berjalan` text DEFAULT NULL,
+  `konsep_lean_construction_berjalan` text DEFAULT NULL,
+  `feedback_untuk_perusahaan` text DEFAULT NULL,
+  `progress` varchar(255) DEFAULT NULL,
+  `evidence_link` text DEFAULT NULL,
+  `tanggal_report` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `proyek`
 --
 
@@ -205,22 +180,22 @@ CREATE TABLE `proyek` (
   `prioritas` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `id_tim_proyek` int(11) DEFAULT NULL,
-  `coordinat` varchar(255) DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL,
   `status_implementasi` varchar(255) DEFAULT NULL,
-  `3d` int(11) NOT NULL DEFAULT 0,
-  `4d` int(11) NOT NULL DEFAULT 0,
-  `5d` int(11) NOT NULL DEFAULT 0,
-  `cde` int(11) NOT NULL DEFAULT 0,
-  `evidence` text DEFAULT NULL
+  `tiga_d` int(11) NOT NULL DEFAULT 0,
+  `empat_d` int(11) NOT NULL DEFAULT 0,
+  `lima_d` int(11) NOT NULL DEFAULT 0,
+  `cde` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `coordinat`, `status_implementasi`, `3d`, `4d`, `5d`, `cde`, `evidence`) VALUES
-(3, 'Projek 1', '2023-10-29', 'Road & Bridge', 'Prioritas 2', 'Proyek Besar', 1, 'Coordinat', NULL, 0, 0, 0, 0, NULL),
-(4, 'Proyek A', '2023-10-29', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, 'Coordinat', NULL, 0, 0, 0, 0, NULL);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
+(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 0, 0, 0, 0),
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -288,24 +263,6 @@ ALTER TABLE `detail_tim_proyek`
   ADD PRIMARY KEY (`id_detail_tim_proyek`);
 
 --
--- Indexes for table `engineering_issue`
---
-ALTER TABLE `engineering_issue`
-  ADD PRIMARY KEY (`id_engineering_issue`);
-
---
--- Indexes for table `lean_construction`
---
-ALTER TABLE `lean_construction`
-  ADD PRIMARY KEY (`id_lean_construction`);
-
---
--- Indexes for table `monitoring_bim`
---
-ALTER TABLE `monitoring_bim`
-  ADD PRIMARY KEY (`id_monitoring_bim`);
-
---
 -- Indexes for table `monitoring_ki_km`
 --
 ALTER TABLE `monitoring_ki_km`
@@ -336,6 +293,12 @@ ALTER TABLE `monitoring_rkp`
   ADD PRIMARY KEY (`id_monitoring_rkp`);
 
 --
+-- Indexes for table `monthly_report`
+--
+ALTER TABLE `monthly_report`
+  ADD PRIMARY KEY (`id_monthly_report`);
+
+--
 -- Indexes for table `proyek`
 --
 ALTER TABLE `proyek`
@@ -361,25 +324,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_tim_proyek`
 --
 ALTER TABLE `detail_tim_proyek`
-  MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `engineering_issue`
---
-ALTER TABLE `engineering_issue`
-  MODIFY `id_engineering_issue` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `lean_construction`
---
-ALTER TABLE `lean_construction`
-  MODIFY `id_lean_construction` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `monitoring_bim`
---
-ALTER TABLE `monitoring_bim`
-  MODIFY `id_monitoring_bim` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `monitoring_ki_km`
@@ -412,10 +357,16 @@ ALTER TABLE `monitoring_rkp`
   MODIFY `id_monitoring_rkp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `monthly_report`
+--
+ALTER TABLE `monthly_report`
+  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tim_proyek`

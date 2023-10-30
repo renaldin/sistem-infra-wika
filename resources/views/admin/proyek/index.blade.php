@@ -156,9 +156,14 @@
                             <td>{{$item->nama_tim_proyek}}</td>
                         </tr>
                         <tr>
-                            <th>Coordinat</th>
+                            <th>Latitude</th>
                             <td>:</td>
-                            <td>{{$item->coordinat}}</td>
+                            <td>{{$item->latitude}}</td>
+                        </tr>
+                        <tr>
+                            <th>Longitude</th>
+                            <td>:</td>
+                            <td>{{$item->longitude}}</td>
                         </tr>
                     </table>
                 </div>

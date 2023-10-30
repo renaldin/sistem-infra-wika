@@ -192,11 +192,11 @@
                 @elseif ($user->role === 'Tim Proyek')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Operasi</span>
+                            <span class="default-icon">Form</span>
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link @if ($title === 'Monthly Report') active @endif" data-bs-toggle="collapse" @if ($title === 'Monthly Report') @endif href="#monthly-report" role="button" aria-expanded="false" aria-controls="monthly-report">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
@@ -212,7 +212,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="monthly-report" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Tambah Monthly Report') active @endif" href="/tambah-monthly-report">
+                                <a class="nav-link @if ($subTitle === 'Tambah Monthly Report') active @endif" href="/pilih-proyek">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -223,7 +223,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Tambah Report</span>
+                                    <span class="item-name">Tambah</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -238,11 +238,11 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">Daftar Report</span>
+                                    <span class="item-name">Daftar</span>
                                 </a>
                             </li>
                         </ul>
-                    </li> --}}
+                    </li>
                 @endif
                 <li class="nav-item">
                     <br><br>

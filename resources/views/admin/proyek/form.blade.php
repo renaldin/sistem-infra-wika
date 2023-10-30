@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="form-label" for="nama_proyek">Nama Proyek</label>
-                            <input type="text" class="form-control @error('nama_proyek') is-invalid @enderror" id="nama_proyek" name="nama_proyek" value="@if($form === 'Tambah'){{ old('nama_proyek') }}@elseif($form === 'Edit'){{$detail->nama_proyek}}@endif" @if($form === 'Detail') disabled @endif autofocus placeholder="Masukkan Nama Lengkap ">
+                            <input type="text" class="form-control @error('nama_proyek') is-invalid @enderror" id="nama_proyek" name="nama_proyek" value="@if($form === 'Tambah'){{ old('nama_proyek') }}@elseif($form === 'Edit'){{$detail->nama_proyek}}@endif" @if($form === 'Detail') disabled @endif autofocus placeholder="Masukkan Nama Tim">
                             @error('nama_proyek')
                                 <div class="invalid-feedback">
                                 {{ $message }}
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label" for="tanggal">Tanggal</label>
-                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="@if($form === 'Tambah'){{ old('tanggal') }}@elseif($form === 'Edit'){{$detail->tanggal}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan tanggal">
+                            <input type="date" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" name="tanggal" value="@if($form === 'Tambah'){{ old('tanggal') }}@elseif($form === 'Edit'){{$detail->tanggal}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan Tanggal">
                             @error('tanggal')
                                 <div class="invalid-feedback">
                                 {{ $message }}
@@ -78,9 +78,18 @@
                         </div>
                         
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="coordinat">Coordinat</label>
-                            <input type="text" class="form-control @error('coordinat') is-invalid @enderror" id="coordinat" name="coordinat" value="@if($form === 'Tambah'){{ old('coordinat') }}@elseif($form === 'Edit'){{$detail->coordinat}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan Nomor coordinat">
-                            @error('coordinat')
+                            <label class="form-label" for="latitude">Latitude</label>
+                            <input type="text" class="form-control @error('latitude') is-invalid @enderror" id="latitude" name="latitude" value="@if($form === 'Tambah'){{ old('latitude') }}@elseif($form === 'Edit'){{$detail->latitude}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan Latitude">
+                            @error('latitude')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="longitude">Longitude</label>
+                            <input type="text" class="form-control @error('longitude') is-invalid @enderror" id="longitude" name="longitude" value="@if($form === 'Tambah'){{ old('longitude') }}@elseif($form === 'Edit'){{$detail->longitude}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan Longitude">
+                            @error('longitude')
                                 <div class="invalid-feedback">
                                 {{ $message }}
                                 </div>

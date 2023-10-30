@@ -64,7 +64,8 @@ class Proyek extends Controller
             'prioritas'         => 'required',
             'status'            => 'required',
             'id_tim_proyek'     => 'required',
-            'coordinat'         => 'required'
+            'latitude'          => 'required',
+            'longitude'         => 'required'
         ], [
             'nama_proyek.required'      => 'Nama proyek harus diisi!',
             'tanggal.required'          => 'Tanggal harus diisi!',
@@ -72,7 +73,8 @@ class Proyek extends Controller
             'prioritas.required'        => 'Prioritas harus diisi!',
             'status.required'           => 'Status harus diisi!',
             'id_tim_proyek.required'    => 'Kesie Eng harus diisi!',
-            'coordinat.required'        => 'Coordinat harus diisi!',
+            'latitude.required'         => 'Latitude harus diisi!',
+            'longitude.required'        => 'Longitude harus diisi!',
         ]);
 
         $data = [
@@ -81,8 +83,9 @@ class Proyek extends Controller
             'tipe_konstruksi'   => Request()->tipe_konstruksi,
             'prioritas'         => Request()->prioritas,
             'status'            => Request()->status,
-            'id_tim_proyek'      => Request()->id_tim_proyek,
-            'coordinat'         => Request()->coordinat,
+            'id_tim_proyek'     => Request()->id_tim_proyek,
+            'latitude'          => Request()->latitude,
+            'longitude'         => Request()->longitude,
         ];
 
         $this->ModelProyek->tambah($data);
@@ -116,7 +119,8 @@ class Proyek extends Controller
             'prioritas'         => 'required',
             'status'            => 'required',
             'id_tim_proyek'      => 'required',
-            'coordinat'         => 'required'
+            'latitude'          => 'required',
+            'longitude'         => 'required'
         ], [
             'nama_proyek.required'      => 'Nama proyek harus diisi!',
             'tanggal.required'          => 'Tanggal harus diisi!',
@@ -124,7 +128,8 @@ class Proyek extends Controller
             'prioritas.required'        => 'Prioritas harus diisi!',
             'status.required'           => 'Status harus diisi!',
             'id_tim_proyek.required'     => 'Kesie Eng harus diisi!',
-            'coordinat.required'        => 'Coordinat harus diisi!',
+            'latitude.required'         => 'Latitude harus diisi!',
+            'longitude.required'        => 'Longitude harus diisi!',
         ]);
 
         $data = [
@@ -135,7 +140,8 @@ class Proyek extends Controller
             'prioritas'         => Request()->prioritas,
             'status'            => Request()->status,
             'id_tim_proyek'      => Request()->id_tim_proyek,
-            'coordinat'         => Request()->coordinat,
+            'latitude'          => Request()->latitude,
+            'longitude'         => Request()->longitude,
         ];
 
         $this->ModelProyek->edit($data);

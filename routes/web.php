@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\Proyek;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
@@ -73,5 +74,9 @@ Route::group(['middleware' => 'revalidate'], function () {
     });
 
     Route::group(['middleware' => 'timproyek'], function () {
+        Route::get('/pilih-proyek', [MonthlyReport::class, 'pilihProyek'])->name('pilih-proyek');
+        Route::post('/pilih-proyek', [MonthlyReport::class, 'prosesPilihProyek']);
+        Route::get('/tambah-monthly-report', [MonthlyReport::class, 'tambah'])->name('tambah-monthly-report');
+        Route::post('/tambah-monthly-report', [MonthlyReport::class, 'prosesTambah']);
     });
 });

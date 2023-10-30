@@ -19,6 +19,15 @@ class ModelDetailTimProyek extends Model
             ->get();
     }
 
+    public function dataWhere($field, $value)
+    {
+        return DB::table('detail_tim_proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'detail_tim_proyek.id_tim_proyek')
+            ->join('user', 'user.id_user', '=', 'detail_tim_proyek.id_user')
+            ->where($field, $value)
+            ->get();
+    }
+
     public function detail($id_detail_tim_proyek)
     {
         return DB::table('detail_tim_proyek')

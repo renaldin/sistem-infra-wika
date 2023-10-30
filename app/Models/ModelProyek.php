@@ -18,6 +18,14 @@ class ModelProyek extends Model
             ->get();
     }
 
+    public function dataWhere($field, $value)
+    {
+        return DB::table('proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek', 'proyek')
+            ->where($field, $value)
+            ->first();
+    }
+
     public function detail($id_proyek)
     {
         return DB::table('proyek')
