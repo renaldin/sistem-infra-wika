@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Infrastructure 2 Division| {{ $subTitle }}</title>
-
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
-
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="{{ asset('template/html/assets/css/core/libs.min.css') }}" />
 
@@ -32,7 +32,12 @@
 
     <!-- RTL Css -->
     <link rel="stylesheet" href="{{ asset('template/html/assets/css/rtl.min.css') }}" />
+   <style>
+    body {
+    font-family: 'Montserrat', sans-serif;
+}
 
+   </style>
 </head>
 
 <body class="  ">

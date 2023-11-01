@@ -4,10 +4,10 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Infrastructure2 Division | {{$title}}</title>
-      
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       <!-- Favicon -->
       <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
-      
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
       <!-- Library / Plugin Css Build -->
       <link rel="stylesheet" href="{{ asset('template/html/assets/css/core/libs.min.css') }}" />
       
@@ -26,7 +26,8 @@
       
       <!-- RTL Css -->
       <link rel="stylesheet" href="{{ asset('template/html/assets/css/rtl.min.css') }}"/>
-      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" />
+
       <script>
         function hanyaAngka(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode;
@@ -47,9 +48,14 @@
               /* height: 150%; */
           }
         }
+        body {
+    font-family: 'Montserrat', sans-serif;
+}
+
       </style>
   </head>
   <body class=" " data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
+    
     <!-- loader Start -->
     <div id="loading">
       <div class="loader simple-loader">

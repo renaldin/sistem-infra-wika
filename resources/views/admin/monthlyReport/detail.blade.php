@@ -31,12 +31,6 @@
                                 </label>
                             </div>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="kesiapan_bim5d" id="kesiapan_bim5d" @if($detail->kesiapan_bim5d === 1) checked @endif disabled>
-                                <label class="form-check-label" for="kesiapan_bim5d">
-                                    Kesiapan Bim 5d
-                                </label>
-                            </div>
-                            <div class="form-check d-block">
                                 <input class="form-check-input" type="checkbox" name="lima_d" id="lima_d" @if($detail->lima_d === 1) checked @endif disabled>
                                 <label class="form-check-label" for="lima_d">
                                     5D
@@ -50,7 +44,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="id_proyek">Tanggal MUlai</label>
+                            <label class="form-label" for="id_proyek">Tanggal Mulai</label>
                             <input type="text" class="form-control" value="{{$detail->tanggal}}" readonly>
                         </div>
                         <div class="form-group col-md-6">
@@ -58,7 +52,7 @@
                             <input type="text" class="form-control" value="{{$detail->tipe_konstruksi}}" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="id_proyek">Prioritas</label>
+                            <label class="form-label" for="id_proyek">Prioritas BIM</label>
                             <input type="text" class="form-control" value="{{$detail->prioritas}}" readonly>
                         </div>
                         <div class="form-group col-md-6">
