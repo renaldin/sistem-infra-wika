@@ -13,7 +13,7 @@ class ModelMonthlyReport extends Model
     public function data()
     {
         return DB::table('monthly_report')
-            ->join('proyek', 'proyek.id_proyek', '=', 'proyek.id_proyek', 'monthly_report')
+            ->join('proyek', 'proyek.id_proyek', '=', 'monthly_report.id_proyek', 'monthly_report')
             ->orderBy('id_monthly_report', 'DESC')
             ->get();
     }
@@ -21,7 +21,7 @@ class ModelMonthlyReport extends Model
     public function detail($id_monthly_report)
     {
         return DB::table('monthly_report')
-            ->join('proyek', 'proyek.id_proyek', '=', 'proyek.id_proyek', 'monthly_report')
+            ->join('proyek', 'proyek.id_proyek', '=', 'monthly_report.id_proyek', 'monthly_report')
             ->where('id_monthly_report', $id_monthly_report)
             ->first();
     }

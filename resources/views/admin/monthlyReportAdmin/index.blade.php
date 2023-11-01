@@ -59,7 +59,7 @@
                             </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
-                                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Monthly Report" data-original-title="Edit" href="/detail-monthly-report/{{$item->id_proyek}}">
+                                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Monthly Report" data-original-title="Edit" href="/detail-monthly-report-admin/{{$item->id_proyek}}">
                                         <span class="btn-inner">
                                             Monthly Report
                                         </span>

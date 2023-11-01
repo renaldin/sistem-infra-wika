@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\MonthlyReport;
+use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Proyek;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,12 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/tambah-detail-tim-proyek', [DetailTimProyek::class, 'prosesTambah']);
         Route::get('/hapus-detail-tim-proyek/{id}', [DetailTimProyek::class, 'prosesHapus']);
 
+        Route::get('/daftar-monthly-report-admin', [MonthlyReportAdmin::class, 'index'])->name('daftar-monthly-report-admin');
+        Route::get('/detail-monthly-report-admin/{id_proyek}', [MonthlyReportAdmin::class, 'detail'])->name('detail-monthly-report-admin');
+        Route::get('/edit-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'edit'])->name('edit-monthly-report-admin');
+        Route::post('/edit-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesEdit']);
+        Route::get('/hapus-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesHapus']);
+
     });
 
     Route::group(['middleware' => 'headoffice'], function () {
@@ -78,5 +85,10 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/pilih-proyek', [MonthlyReport::class, 'prosesPilihProyek']);
         Route::get('/tambah-monthly-report', [MonthlyReport::class, 'tambah'])->name('tambah-monthly-report');
         Route::post('/tambah-monthly-report', [MonthlyReport::class, 'prosesTambah']);
+        Route::get('/daftar-monthly-report', [MonthlyReport::class, 'index'])->name('daftar-monthly-report');
+        Route::get('/detail-monthly-report/{id_proyek}', [MonthlyReport::class, 'detail'])->name('detail-monthly-report');
+        Route::get('/edit-monthly-report/{id}', [MonthlyReport::class, 'edit'])->name('edit-monthly-report');
+        Route::post('/edit-monthly-report/{id}', [MonthlyReport::class, 'prosesEdit']);
+        Route::get('/hapus-monthly-report/{id}', [MonthlyReport::class, 'prosesHapus']);
     });
 });

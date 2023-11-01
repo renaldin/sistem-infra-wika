@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<form action="@if($form === 'Tambah') /tambah-monthly-report @elseif($form === 'Edit') /edit-monthly-report/{{$detail->id_monthly_report}} @endif" method="POST">
+<form action="@if($form === 'Edit') /edit-monthly-report-admin/{{$detail->id_monthly_report}} @endif" method="POST">
     @csrf
     <div class="row">
         <div class="col-xl-12 col-lg-12">

@@ -189,6 +189,20 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Operasi</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report' || $subTitle === 'Detail Monthly Report') active @endif" aria-current="page" @if ($subTitle === 'Daftar Monthly Report') @endif href="/daftar-monthly-report-admin">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Monthly Report</span>
+                        </a>
+                    </li>
                 @elseif ($user->role === 'Tim Proyek')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -227,7 +241,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report') active @endif" href="/daftar-monthly-report">
+                                <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report' || $subTitle === 'Detail Monthly Report') active @endif" href="/daftar-monthly-report">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">

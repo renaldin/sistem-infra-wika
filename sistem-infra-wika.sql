@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 05:13 PM
+-- Generation Time: Nov 01, 2023 at 01:50 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -153,18 +153,23 @@ CREATE TABLE `monitoring_rkp` (
 CREATE TABLE `monthly_report` (
   `id_monthly_report` int(11) NOT NULL,
   `id_proyek` int(11) DEFAULT NULL,
-  `realisasi_proyek` varchar(255) DEFAULT NULL,
-  `implementasi_bim` varchar(255) DEFAULT NULL,
-  `kesiapan_bim5d` varchar(255) DEFAULT NULL,
+  `realisasi_proyek` int(11) DEFAULT NULL,
   `kendala_implementasi_bim` text DEFAULT NULL,
   `engineering_issue_berjalan` text DEFAULT NULL,
   `masalah_produksi_berjalan` text DEFAULT NULL,
   `konsep_lean_construction_berjalan` text DEFAULT NULL,
   `feedback_untuk_perusahaan` text DEFAULT NULL,
-  `progress` varchar(255) DEFAULT NULL,
   `evidence_link` text DEFAULT NULL,
+  `remarks` text DEFAULT NULL,
   `tanggal_report` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `monthly_report`
+--
+
+INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proyek`, `kendala_implementasi_bim`, `engineering_issue_berjalan`, `masalah_produksi_berjalan`, `konsep_lean_construction_berjalan`, `feedback_untuk_perusahaan`, `evidence_link`, `remarks`, `tanggal_report`) VALUES
+(2, 1, 40, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-01');
 
 -- --------------------------------------------------------
 
@@ -183,6 +188,7 @@ CREATE TABLE `proyek` (
   `latitude` varchar(255) DEFAULT NULL,
   `longitude` varchar(255) DEFAULT NULL,
   `status_implementasi` varchar(255) DEFAULT NULL,
+  `kesiapan_bim5d` int(11) NOT NULL DEFAULT 0,
   `tiga_d` int(11) NOT NULL DEFAULT 0,
   `empat_d` int(11) NOT NULL DEFAULT 0,
   `lima_d` int(11) NOT NULL DEFAULT 0,
@@ -193,9 +199,9 @@ CREATE TABLE `proyek` (
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
-(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 0, 0, 0, 0),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, 0, 0, 0, 0);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
+(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 0, 1, 0, 0, 0),
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -360,7 +366,7 @@ ALTER TABLE `monitoring_rkp`
 -- AUTO_INCREMENT for table `monthly_report`
 --
 ALTER TABLE `monthly_report`
-  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `proyek`
