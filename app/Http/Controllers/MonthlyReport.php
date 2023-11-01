@@ -139,6 +139,7 @@ class MonthlyReport extends Controller
         ];
 
         $data = [
+            'id_proyek'                         => Request()->id_proyek,
             'tanggal_report'                    => Request()->tanggal_report,
             'realisasi_proyek'                  => Request()->realisasi_proyek,
             'kendala_implementasi_bim'          => Request()->kendala_implementasi_bim,
