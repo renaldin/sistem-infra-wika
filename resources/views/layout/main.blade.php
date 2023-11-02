@@ -93,9 +93,12 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Profil</a>
+                                    <li>
+                                        <a href="/profil" class="dropdown-item" href="#">Profil</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Ubah Password</a></li>
+                                    <li>
+                                        <a href="/ubah-password" class="dropdown-item" href="#">Ubah Password</a>
+                                    </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

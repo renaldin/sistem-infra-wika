@@ -215,122 +215,109 @@ class User extends Controller
         return redirect()->route('daftar-user')->with('success', 'Data user berhasil dihapus !');
     }
 
-    // public function profil()
-    // {
-    //     if (!Session()->get('status')) {
-    //         return redirect()->route('admin');
-    //     }
+    public function profil()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
 
-    //     $data = [
-    //         'title'     => 'Profil',
-    //         'subTitle'  => 'Edit Profil',
-    //         'user'      => $this->ModelUser->detail(Session()->get('id_user'))
-    //     ];
+        $data = [
+            'title'     => 'Profil',
+            'subTitle'  => 'Edit Profil',
+            'user'      => $this->ModelUser->detail(Session()->get('id_user'))
+        ];
 
-    //     return view('profil.dataProfil', $data);
-    // }
+        return view('profil.index', $data);
+    }
 
-    // public function prosesEditProfil($id_user)
-    // {
-    //     Request()->validate([
-    //         'nama_user'         => 'required',
-    //         'nik'               => 'required|numeric',
-    //         'nomor_telepon'     => 'required|numeric',
-    //         'email'             => 'required|unique:mahasiswa,email|email',
-    //         'foto_user'         => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //     ], [
-    //         'nama_user.required'        => 'Nama lengkap harus diisi!',
-    //         'nik.required'              => 'NIP/NIK harus diisi!',
-    //         'nik.numeric'               => 'NIP/NIK harus angka!',
-    //         'nomor_telepon.required'    => 'Nomor Telepon harus diisi!',
-    //         'nomor_telepon.numeric'     => 'Nomor Telepon harus angka!',
-    //         'email.required'            => 'Email harus diisi!',
-    //         'email.unique'              => 'Email sudah digunakan!',
-    //         'email.email'               => 'Email harus sesuai format! Contoh: contoh@gmail.com',
-    //         'foto_user.mimes'           => 'Format Foto Anda harus jpg/jpeg/png!',
-    //         'foto_user.max'             => 'Ukuran Foto Anda maksimal 2 mb',
-    //     ]);
+    public function prosesEditProfil($id_user)
+    {
+        Request()->validate([
+            'nama_user'     => 'required',
+            'telepon'       => 'required',
+            'nip'           => 'required|numeric',
+            'foto_user'     => 'mimes:jpeg,png,jpg|max:2048'
+        ], [
+            'nama_user.required'    => 'Nama lengkap harus diisi!',
+            'telepon.required'      => 'Nomor telepon harus diisi!',
+            'nip.required'          => 'NIP harus diisi!',
+            'nip.numeric'           => 'NIP harus angka!',
+            'foto_user.mimes'       => 'Format Foto User harus jpg/jpeg/png!',
+            'foto_user.max'         => 'Ukuran Foto User maksimal 2 mb',
+        ]);
 
-    //     if (Request()->foto_user <> "") {
-    //         $user = $this->ModelUser->detail($id_user);
-    //         if ($user->foto_user <> "") {
-    //             unlink(public_path($this->public_path) . '/' . $user->foto_user);
-    //         }
+        if (Request()->foto_user <> "") {
+            
+            $user = $this->ModelUser->detail($id_user);
 
-    //         $file = Request()->foto_user;
-    //         $fileName = date('mdYHis') . ' ' . Request()->nama_user . '.' . $file->extension();
-    //         $file->move(public_path($this->public_path), $fileName);
+            if ($user->foto_user <> "") {
+                unlink(public_path($this->public_path) . '/' . $user->foto_user);
+            }
 
-    //         $data = [
-    //             'id_user'          => $id_user,
-    //             'nama_user'        => Request()->nama_user,
-    //             'nik'               => Request()->nik,
-    //             'nomor_telepon'     => Request()->nomor_telepon,
-    //             'email'             => Request()->email,
-    //             'foto_user'         => $fileName,
-    //         ];
-    //     } else {
-    //         $data = [
-    //             'id_user'          => $id_user,
-    //             'nama_user'        => Request()->nama_user,
-    //             'nik'               => Request()->nik,
-    //             'nomor_telepon'     => Request()->nomor_telepon,
-    //             'email'             => Request()->email,
-    //         ];
-    //     }
+            $file = Request()->foto_user;
+            $fileUser = date('mdYHis') . Request()->nama_user . '.' . $file->extension();
+            $file->move(public_path($this->public_path), $fileUser);
 
-    //     // log
-    //     $dataLog = [
-    //         'id_user'       => Session()->get('id_user'),
-    //         'keterangan'    => 'Melakukan edit profil',
-    //         'status_user'   => session()->get('status')
-    //     ];
-    //     $this->ModelLog->tambah($dataLog);
-    //     // end log
+            $data = [
+                'id_user'       => $id_user,
+                'nama_user'     => Request()->nama_user,
+                'telepon'       => Request()->telepon,
+                'nip'           => Request()->nip,
+                'foto_user'     => $fileUser
+            ];
+        } else {
+            $data = [
+                'id_user'       => $id_user,
+                'nama_user'     => Request()->nama_user,
+                'telepon'       => Request()->telepon,
+                'nip'           => Request()->nip
+            ];
+        }
 
-    //     $this->ModelUser->edit($data);
-    //     return redirect()->route('profil')->with('success', 'Profil berhasil diedit !');
-    // }
 
-    // public function ubahPassword()
-    // {
-    //     if (!Session()->get('status')) {
-    //         return redirect()->route('admin');
-    //     }
+        $this->ModelUser->edit($data);
+        return redirect()->route('profil')->with('success', 'Profil berhasil diedit !');
+    }
 
-    //     $data = [
-    //         'title'     => 'Profil',
-    //         'subTitle'  => 'Ubah Password',
-    //         'user'      => $this->ModelUser->detail(Session()->get('id_user'))
-    //     ];
+    public function ubahPassword()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
 
-    //     return view('profil.ubahPassword', $data);
-    // }
+        $data = [
+            'title'     => 'Profil',
+            'subTitle'  => 'Ubah Password',
+            'user'      => $this->ModelUser->detail(Session()->get('id_user'))
+        ];
 
-    // public function prosesUbahPassword($id_user)
-    // {
-    //     Request()->validate([
-    //         'password_lama'     => 'required|min:6',
-    //         'password_baru'     => 'required|min:6',
-    //     ], [
-    //         'password_lama.required'    => 'Password Lama harus diisi!',
-    //         'password_lama.min'         => 'Password Lama minikal 6 karakter!',
-    //         'password_baru.required'    => 'Password Baru harus diisi!',
-    //         'password_baru.min'         => 'Password Lama minikal 6 karakter!',
-    //     ]);
+        return view('profil.ubahPassword', $data);
+    }
 
-    //     $user = $this->ModelUser->detail($id_user);
+    public function prosesUbahPassword($id_user)
+    {
+        Request()->validate([
+            'password_lama'     => 'required|min:6',
+            'password_baru'     => 'required|min:6',
+        ], [
+            'password_lama.required'    => 'Password Lama harus diisi!',
+            'password_lama.min'         => 'Password Lama minikal 6 karakter!',
+            'password_baru.required'    => 'Password Baru harus diisi!',
+            'password_baru.min'         => 'Password Lama minikal 6 karakter!',
+        ]);
 
-    //     if (Hash::check(Request()->password_lama, $user->password)) {
-    //         $data = [
-    //             'id_user'         => $id_user,
-    //             'password'         => Hash::make(Request()->password_baru)
-    //         ];
+        $user = $this->ModelUser->detail($id_user);
 
-    //         $this->ModelUser->edit($data);
-    //         return back()->with('success', 'Password berhasil diubah !');
-    //     } else {
-    //         return back()->with('fail', 'Password Lama tidak sesuai.');
-    //     }
-    // }
+        if (Hash::check(Request()->password_lama, $user->password)) {
+            $data = [
+                'id_user'         => $id_user,
+                'password'         => Hash::make(Request()->password_baru)
+            ];
+
+            $this->ModelUser->edit($data);
+            return back()->with('success', 'Password berhasil diubah !');
+        } else {
+            return back()->with('fail', 'Password Lama tidak sesuai.');
+        }
+    }
 }

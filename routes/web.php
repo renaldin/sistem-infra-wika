@@ -27,22 +27,17 @@ Route::get('/unduh-format-excel', [KelolaMahasiswa::class, 'unduhFormatExcel']);
 
 Route::group(['middleware' => 'revalidate'], function () {
 
-    // Home
     Route::get('/', [Landing::class, 'index'])->name('landing');
     Route::get('/about', [Landing::class, 'about'])->name('about');
     Route::get('/contact', [Landing::class, 'contact'])->name('contact');
-
-    // Login User
     Route::get('/login', [Login::class, 'index'])->name('login');
     Route::post('/login', [Login::class, 'loginProcess']);
-    // Route::get('/admin', [Login::class, 'admin'])->name('admin');
-
-    // Logout
     Route::get('/logout', [Login::class, 'logout'])->name('logout');
-
-    // dashboard
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
-    
+    Route::get('/profil', [User::class, 'profil'])->name('profil');
+    Route::post('/edit-profil/{id}', [User::class, 'prosesEditProfil']);
+    Route::get('/ubah-password', [User::class, 'ubahPassword'])->name('ubah-password');
+    Route::post('/ubah-password/{id}', [User::class, 'prosesUbahPassword']);
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');

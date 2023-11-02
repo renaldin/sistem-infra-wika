@@ -42,6 +42,9 @@
                                     CDE
                                 </label>
                             </div>
+                            <div>
+                                <input type="text" class="form-control" value="{{$detail->kesiapan_bim5d}}" readonly>
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label" for="id_proyek">Tanggal MUlai</label>

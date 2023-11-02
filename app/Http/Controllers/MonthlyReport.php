@@ -108,18 +108,19 @@ class MonthlyReport extends Controller
 
         if(Request()->tiga_d === 'on') {
             $tiga_d = 1;
+            $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
         } else {
             $tiga_d = 0;
         }
         if(Request()->empat_d === 'on') {
             $empat_d = 1;
-            $kesiapan_bim5d = 1;
+            $kesiapan_bim5d = 'Persiapan Implementasi BIM 5D';
         } else {
             $empat_d = 0;
-            $kesiapan_bim5d = 0;
         }
         if(Request()->lima_d === 'on') {
             $lima_d = 1;
+            $kesiapan_bim5d = 'Siap Implementasi BIM 5D';
         } else {
             $lima_d = 0;
         }
@@ -177,18 +178,19 @@ class MonthlyReport extends Controller
 
         if(Request()->tiga_d === 'on') {
             $tiga_d = 1;
+            $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
         } else {
             $tiga_d = 0;
         }
         if(Request()->empat_d === 'on') {
             $empat_d = 1;
-            $kesiapan_bim5d = 1;
+            $kesiapan_bim5d = 'Persiapan Implementasi BIM 5D';
         } else {
             $empat_d = 0;
-            $kesiapan_bim5d = 0;
         }
         if(Request()->lima_d === 'on') {
             $lima_d = 1;
+            $kesiapan_bim5d = 'Siap Implementasi BIM 5D';
         } else {
             $lima_d = 0;
         }

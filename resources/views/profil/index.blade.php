@@ -12,7 +12,7 @@
                      </div>
                      <div class="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
                         <h4 class="me-2 h4">{{$user->nama_user}}</h4>
-                        <span> - {{$user->status}}</span>
+                        <span> - {{$user->role}}</span>
                      </div>
                   </div>
                </div>
@@ -26,23 +26,27 @@
             </div>
             <div class="card-body">
                <div class="user-bio">
-                  <p>Jika ingin merubah data profil Anda, silahkan ubah di form edit profil.</p>
+                <p>Jika ingin merubah data profil Anda, silahkan ubah di form edit profil.</p>
                </div>
                <div class="mt-2">
-               <h6 class="mb-1">Nama Lengkap:</h6>
-               <p>{{$user->nama_user}}</p>
+                <h6 class="mb-1">Nama Lengkap:</h6>
+                <p>{{$user->nama_user}}</p>
                </div>
                <div class="mt-2">
-               <h6 class="mb-1">NIK/NIP:</h6>
-               <p>{{$user->nik}}</p>
+                <h6 class="mb-1">NIP:</h6>
+                <p>{{$user->nip}}</p>
                </div>
                <div class="mt-2">
-               <h6 class="mb-1">Nomor Telepon:</h6>
-               <p>{{$user->nomor_telepon}}</p>
+                <h6 class="mb-1">Nomor Telepon:</h6>
+                <p>{{$user->telepon}}</p>
                </div>
                <div class="mt-2">
-               <h6 class="mb-1">Email:</h6>
-               <p>{{$user->email}}</p>
+                <h6 class="mb-1">Jabatan</h6>
+                <p>{{$user->jabatan}}</p>
+               </div>
+               <div class="mt-2">
+                <h6 class="mb-1">Role</h6>
+                <p>{{$user->role}}</p>
                </div>
             </div>
          </div>
@@ -89,27 +93,18 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="nik">NIP/NIK</label>
-                            <input type="number" class="form-control @error('nik') is-invalid @enderror" id="nik" name="nik" value="{{$user->nik}}" placeholder="Masukkan NIP/NIK ">
-                            @error('nik')
+                            <label class="form-label" for="nip">NIP</label>
+                            <input type="number" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{$user->nip}}" placeholder="Masukkan NIP/NIp ">
+                            @error('nip')
                                 <div class="invalid-feedback">
                                 {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="nomor_telepon">Nomor Telepon</label>
-                            <input type="number" class="form-control @error('nomor_telepon') is-invalid @enderror" id="nomor_telepon" name="nomor_telepon" value="{{$user->nomor_telepon}}" placeholder="Masukkan NIP/nomor_telepon ">
-                            @error('nomor_telepon')
-                                <div class="invalid-feedback">
-                                {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="form-label" for="email">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{$user->email}}" placeholder="Masukkan Email ">
-                            @error('email')
+                            <label class="form-label" for="telepon">Nomor Telepon</label>
+                            <input type="number" class="form-control @error('telepon') is-invalid @enderror" id="telepon" name="telepon" value="{{$user->telepon}}" placeholder="Masukkan NIP/telepon ">
+                            @error('telepon')
                                 <div class="invalid-feedback">
                                 {{ $message }}
                                 </div>
