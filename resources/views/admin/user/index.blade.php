@@ -140,6 +140,13 @@
                             <td>:</td>
                             <td>{{$item->jabatan}}</td>
                         </tr>
+                        @if($item->role === "Head Office" && $item->fungsi !== null)
+                            <tr>
+                                <th>Fungsi</th>
+                                <td>:</td>
+                                <td>{{$item->fungsi}}</td>
+                            </tr>
+                        @endif
                         <tr>
                             <th>Nomor Telepon</th>
                             <td>:</td>

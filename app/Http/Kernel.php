@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'revalidate' => \App\Http\Middleware\RevalidateBackHistory::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'timproyek' => \App\Http\Middleware\TimProyek::class,
+        'headoffice' => \App\Http\Middleware\HeadOffice::class,
     ];
 }

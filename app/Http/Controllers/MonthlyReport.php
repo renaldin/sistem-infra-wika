@@ -106,6 +106,12 @@ class MonthlyReport extends Controller
     public function prosesTambah()
     {
 
+        if(Request()->dua_d === 'on') {
+            $dua_d = 1;
+            $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
+        } else {
+            $dua_d = 0;
+        }
         if(Request()->tiga_d === 'on') {
             $tiga_d = 1;
             $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
@@ -132,6 +138,7 @@ class MonthlyReport extends Controller
 
         $dataProyek = [
             'id_proyek'             => Request()->id_proyek,
+            'dua_d'                 => $dua_d,
             'tiga_d'                => $tiga_d,
             'empat_d'               => $empat_d,
             'lima_d'                => $lima_d,
@@ -176,6 +183,12 @@ class MonthlyReport extends Controller
     public function prosesEdit($id_monthly_report)
     {
 
+        if(Request()->dua_d === 'on') {
+            $dua_d = 1;
+            $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
+        } else {
+            $dua_d = 0;
+        }
         if(Request()->tiga_d === 'on') {
             $tiga_d = 1;
             $kesiapan_bim5d = 'Belum Siap Implementasi BIM 5D';
@@ -202,6 +215,7 @@ class MonthlyReport extends Controller
 
         $dataProyek = [
             'id_proyek'             => Request()->id_proyek,
+            'dua_d'                 => $dua_d,
             'tiga_d'                => $tiga_d,
             'empat_d'               => $empat_d,
             'lima_d'                => $lima_d,

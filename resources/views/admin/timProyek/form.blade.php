@@ -42,10 +42,8 @@
                                 @enderror
                             </div>
                         </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
-                        <a href="/daftar-proyek" class="btn btn-secondary">Kembali</a>
+                        {{-- Component: tombolForm --}}
+                        @include('components.tombolForm', ['linkKembali' => '/daftar-tim-proyek'])
                     </form>
                 </div>
             </div>

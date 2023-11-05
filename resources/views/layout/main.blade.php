@@ -12,6 +12,14 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="{{ asset('template/html/assets/css/core/libs.min.css') }}" />
 
@@ -259,16 +267,43 @@
             }, 6000);
         </script>
 
-        {{-- <script>
-  $(function() {
-      $("#tahun_angkatan").on("change", function() {
-          var tahun_angkatan = $(this).val();
-          if (tahun_angkatan != '') {
-             console.log('masuk')
-          }
-      });
-  });
-</script> --}}
+        <script>
+            $(function() {
+                $("#role").on("change", function() {
+                    var role = $(this).val();
+                    if (role == 'Head Office') {
+                        $(".fungsi").append('<div class="form-group col-md-6 fungsi2">\
+                            <label class="form-label" for="fungsi">Fungsi</label>\
+                            <select name="fungsi" id="fungsi" class="selectpicker form-control" data-style="py-0" required>\
+                                <option value="" selected disabled>-- Pilih --</option>\
+                                <option value="Design & Analysis")>Design & Analysis</option>\
+                                <option value="BIM & Digitalization Engineering">BIM & Digitalization Engineering</option>\
+                                <option value="System Engineering & Lean Construction">System Engineering & Lean Construction</option>\
+                                <option value="Manager of Engineering">Manager of Engineering</option>\
+                                <option value="Expert of Engineering">Expert of Engineering</option>\
+                            </select>\
+                        </div>');
+                    } else {
+                        $('#fungsi').closest('#fungsi').remove();
+                        $('.fungsi2').closest('.fungsi2').remove();
+                    }
+                });
+            });
+        </script>
+
+        <!-- Select2 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#jabatan").select2({
+                    theme: 'bootstrap4',
+                    placeholder: "-- Pilih --"
+                });
+            });
+        </script>
 </body>
 
 </html>

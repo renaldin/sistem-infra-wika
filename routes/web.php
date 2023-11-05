@@ -4,8 +4,11 @@ use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetailTimProyek;
+use App\Http\Controllers\EngineeringActivity;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\MasterAcitvity;
+use App\Http\Controllers\MasterActivity;
 use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Proyek;
@@ -30,14 +33,19 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/', [Landing::class, 'index'])->name('landing');
     Route::get('/about', [Landing::class, 'about'])->name('about');
     Route::get('/contact', [Landing::class, 'contact'])->name('contact');
+    
     Route::get('/login', [Login::class, 'index'])->name('login');
     Route::post('/login', [Login::class, 'loginProcess']);
     Route::get('/logout', [Login::class, 'logout'])->name('logout');
+
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+
     Route::get('/profil', [User::class, 'profil'])->name('profil');
     Route::post('/edit-profil/{id}', [User::class, 'prosesEditProfil']);
     Route::get('/ubah-password', [User::class, 'ubahPassword'])->name('ubah-password');
     Route::post('/ubah-password/{id}', [User::class, 'prosesUbahPassword']);
+
+    Route::get('/daftar-activity', [EngineeringActivity::class, 'index'])->name('daftar-activity');
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
@@ -70,9 +78,23 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/edit-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesEdit']);
         Route::get('/hapus-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesHapus']);
 
+        Route::get('/pilih-bulan', [MasterActivity::class, 'pilihBulan'])->name('pilih-bulan');
+        Route::post('/pilih-bulan', [MasterActivity::class, 'index']);
+        Route::post('/tambah-master-activity', [MasterActivity::class, 'prosesTambah']);
+        Route::post('/hapus-master-activity', [MasterActivity::class, 'prosesHapus']);
+
     });
 
     Route::group(['middleware' => 'headoffice'], function () {
+
+        Route::get('/tambah-activity', [EngineeringActivity::class, 'tambah'])->name('tambah-activity');
+        Route::post('/tambah-activity', [EngineeringActivity::class, 'prosesTambah']);
+        Route::get('/check-activity', [EngineeringActivity::class, 'check'])->name('check-activity');
+        Route::get('/check-activity/{id}', [EngineeringActivity::class, 'checkProses']);
+        Route::get('/edit-activity/{id}', [EngineeringActivity::class, 'edit'])->name('edit-activity');
+        Route::post('/edit-activity/{id}', [EngineeringActivity::class, 'prosesEdit']);
+        Route::get('/hapus-activity/{id}', [EngineeringActivity::class, 'prosesHapus']);
+
     });
 
     Route::group(['middleware' => 'timproyek'], function () {

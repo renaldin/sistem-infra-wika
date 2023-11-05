@@ -22,6 +22,12 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label">Implementasi Bim</label>
                                 <div class="form-check d-block">
+                                    <input class="form-check-input" type="checkbox" name="dua_d" id="dua_d" @if($detail->dua_d === 1) checked @endif>
+                                    <label class="form-check-label" for="dua_d">
+                                        2D
+                                    </label>
+                                </div>
+                                <div class="form-check d-block">
                                     <input class="form-check-input" type="checkbox" name="tiga_d" id="tiga_d" @if($detail->tiga_d === 1) checked @endif>
                                     <label class="form-check-label" for="tiga_d">
                                         3D
@@ -138,10 +144,8 @@
                                 @enderror
                             </div>
                         </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
-                        <a href="/daftar-monthly-report" class="btn btn-secondary">Kembali</a>
+                        {{-- Component: tombolForm --}}
+                        @include('components.tombolForm', ['linkKembali' => '/daftar-monthly-report-admin'])
                     </div>
                 </div>
             </div>

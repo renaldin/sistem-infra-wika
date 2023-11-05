@@ -78,11 +78,18 @@ class User extends Controller
         $fileUser = date('mdYHis') . ' ' . Request()->nama_user . '.' . $file1->extension();
         $file1->move(public_path($this->public_path), $fileUser);
 
+        if (Request()->fungsi !== null && Request()->role === 'Head Office') {
+            $fungsi = Request()->fungsi;
+        }  else {
+            $fungsi = null;
+        }
+
         $data = [
             'nama_user'     => Request()->nama_user,
             'telepon'       => Request()->telepon,
             'nip'           => Request()->nip,
             'jabatan'       => Request()->jabatan,
+            'fungsi'        => $fungsi,
             'foto_user'     => $fileUser,
             'role'          => Request()->role,
             'password'      => Hash::make(Request()->password),
@@ -129,6 +136,16 @@ class User extends Controller
             'foto_user.max'         => 'Ukuran Foto User maksimal 2 mb',
         ]);
 
+        $detail = $this->ModelUser->detail($id_user);
+
+        if (Request()->fungsi !== null && Request()->role === 'Head Office') {
+            $fungsi = Request()->fungsi;
+        } else if (Request()->fungsi === null && Request()->role === 'Head Office') {
+            $fungsi = $detail->fungsi;
+        } else {
+            $fungsi = null;
+        }
+
         if (Request()->password) {
 
             $user = $this->ModelUser->detail($id_user);
@@ -148,6 +165,7 @@ class User extends Controller
                     'telepon'       => Request()->telepon,
                     'nip'           => Request()->nip,
                     'jabatan'       => Request()->jabatan,
+                    'fungsi'        => $fungsi,
                     'foto_user'     => $fileUser,
                     'role'          => Request()->role,
                     'password'      => Hash::make(Request()->password),
@@ -161,6 +179,7 @@ class User extends Controller
                     'nip'           => Request()->nip,
                     'jabatan'       => Request()->jabatan,
                     'role'          => Request()->role,
+                    'fungsi'        => $fungsi,
                     'password'      => Hash::make(Request()->password),
                 ];
                 $this->ModelUser->edit($data);
@@ -184,6 +203,7 @@ class User extends Controller
                     'nip'           => Request()->nip,
                     'jabatan'       => Request()->jabatan,
                     'foto_user'     => $fileUser,
+                    'fungsi'        => $fungsi,
                     'role'          => Request()->role,
                 ];
                 $this->ModelUser->edit($data);
@@ -193,6 +213,7 @@ class User extends Controller
                     'nama_user'     => Request()->nama_user,
                     'telepon'       => Request()->telepon,
                     'nip'           => Request()->nip,
+                    'fungsi'        => $fungsi,
                     'jabatan'       => Request()->jabatan,
                     'role'          => Request()->role,
                 ];

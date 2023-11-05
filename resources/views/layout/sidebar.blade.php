@@ -203,6 +203,28 @@
                             <span class="item-name">Monthly Report</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Master Activity') active @endif" aria-current="page" href="/pilih-bulan">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Master Activity</span>
+                        </a>
+                    </li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Informasi</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Daftar Activity') active @endif" aria-current="page"  href="/daftar-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Daftar Activity</span>
+                        </a>
+                    </li>
                 @elseif ($user->role === 'Tim Proyek')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -256,6 +278,43 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                @elseif ($user->role === 'Head Office')
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Form</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Tambah Activity') active @endif" aria-current="page"  href="/tambah-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Tambah Activity</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Check Activity' || $subTitle === 'Edit Activity') active @endif" aria-current="page"  href="/check-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Check Activity</span>
+                        </a>
+                    </li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Informasi</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Daftar Activity') active @endif" aria-current="page"  href="/daftar-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Daftar Activity</span>
+                        </a>
                     </li>
                 @endif
                 <li class="nav-item">
