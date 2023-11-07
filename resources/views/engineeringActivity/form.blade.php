@@ -33,13 +33,14 @@
                         <div class="form-group col-md-6">
                             <label class="form-label" for="tanggal_masuk_kerja">Tanggal Masuk Kerja</label>
                             <input type="hidden" name="id_user" value="{{$user->id_user}}">
-                            <input type="date" class="form-control @error('tanggal_masuk_kerja') is-invalid @enderror" id="tanggal_masuk_kerja" name="tanggal_masuk_kerja" value="@if($form === 'Tambah'){{ date('Y-m-d') }}@elseif($form === 'Edit'){{$detail->tanggal_masuk_kerja}}@endif" placeholder="Masukkan Tanggal Masuk Kerja" readonly>
+                            <input type="date" class="form-control @error('tanggal_masuk_kerja') is-invalid @enderror" id="tanggal_masuk_kerja" name="tanggal_masuk_kerja" value="{{$form === 'Edit' ? $detail->tanggal_masuk_kerja : ''}}" placeholder="Masukkan Tanggal Masuk Kerja" required>
                             @error('tanggal_masuk_kerja')
                                 <div class="invalid-feedback">
-                                {{ $message }}
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>
+                        
                         <div class="form-group col-md-6">
                             <label class="form-label" for="status_kerja">Status Kerja</label>
                             <select name="status_kerja" id="status_kerja" class="selectpicker form-control @error('status_kerja') is-invalid @enderror" data-style="py-0" @if($form === 'Detail') disabled @endif required>
@@ -71,10 +72,9 @@
                                     <option value="" selected disabled>-- Pilih --</option>
                                 @endif
                                 @foreach ($daftarPekerjaan as $item)
-                                    @if ($user->fungsi === $item->fungsi)
-                                        <option value="{{$item->id_kategori_pekerjaan}}">{{$item->kategori_pekerjaan}}</option>
-                                    @endif
+                                    <option value="{{ $item->id_kategori_pekerjaan }}">{{ $item->kategori_pekerjaan }}</option>
                                 @endforeach
+
                                 {{-- @if($user->fungsi === 'Design & Analysis')
                                     <option value="CSI Collecting, Monitoring & Feedback Follow Up" @if($form === "Tambah" && old("kategori_pekerjaan") === "CSI Collecting, Monitoring & Feedback Follow Up") selected @elseif($form === "Edit" && $detail->kategori_pekerjaan === "CSI Collecting, Monitoring & Feedback Follow Up") selected @endif)>CSI Collecting, Monitoring & Feedback Follow Up</option>
                                     <option value="Project Technical Supporting" @if($form === "Tambah" && old("kategori_pekerjaan") === "Project Technical Supporting") selected @elseif($form === "Edit" && $detail->kategori_pekerjaan === "Project Technical Supporting") selected @endif>Project Technical Supporting</option>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
     <title>Infrastructure 2 Division</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -48,7 +49,7 @@
     <!-- Topbar End -->
 
     <!-- Navbar Start -->
-    <div class="container-fluid " style="background-color: #002D60; border-color: #2AABE2;">
+    <div class="container-fluid " style="background-color: #093464; border-color: #2AABE2;">
         <div class="container">
             <nav class="navbar navbar-dark navbar-expand-lg py-0">
                 <a href="index.html" class="navbar-brand">
