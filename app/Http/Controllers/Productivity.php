@@ -31,11 +31,12 @@ class Productivity extends Controller
             return redirect()->route('login');
         }
 
-        if(!Request()->bulan) {
+        if (!Request()->bulan) {
             $data = [
                 'title'                     => 'Productivity',
                 'subTitle'                  => 'By Team',
                 'bulan'                     => false,
+                'detailBulan'               => false,
                 'daftarUser'                => $this->ModelUser->dataUser(),
                 'daftar'                    => $this->ModelMasterActivity->whereMonthYear(Request()->bulan),
                 'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
@@ -45,12 +46,12 @@ class Productivity extends Controller
             $activity = $this->ModelEngineeringActivity->data();
             $daftarActivity = [];
             $workHours = 0;
-            foreach($activity as $item) {
-                if(date('Y-m', strtotime($item->tanggal_masuk_kerja)) === Request()->bulan) {
+            foreach ($activity as $item) {
+                if (date('Y-m', strtotime($item->tanggal_masuk_kerja)) === Request()->bulan) {
                     $workHours = $workHours + floatval($item->durasi);
                 }
             }
-            dd($workHours);
+
 
             $data = [
                 'title'                     => 'Productivity',
@@ -159,17 +160,17 @@ class Productivity extends Controller
     // public function networkDays($start, $end) {
     //     $startDate = new DateTime($start);
     //     $endDate = new DateTime($end);
-    
+
     //     $weekendDays = [6, 7];
     //     $totalDays = 0;
-    
+
     //     while ($startDate <= $endDate) {
     //         if (!in_array($startDate->format('N'), $weekendDays)) {
     //             $totalDays++;
     //         }
     //         $startDate->modify('+1 day');
     //     }
-    
+
     //     return $totalDays;
     // }
 }
