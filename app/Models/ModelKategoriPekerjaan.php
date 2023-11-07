@@ -14,4 +14,12 @@ class ModelKategoriPekerjaan extends Model
     {
         return DB::table('kategori_pekerjaan')->get();
     }
+
+    public function dataFungsi()
+    {
+        return DB::table('kategori_pekerjaan')
+            ->select('fungsi')
+            ->distinct()
+            ->get();
+    }
 }

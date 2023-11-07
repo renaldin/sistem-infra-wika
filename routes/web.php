@@ -11,6 +11,7 @@ use App\Http\Controllers\MasterAcitvity;
 use App\Http\Controllers\MasterActivity;
 use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
+use App\Http\Controllers\Productivity;
 use App\Http\Controllers\Proyek;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +83,9 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/pilih-bulan', [MasterActivity::class, 'index']);
         Route::post('/tambah-master-activity', [MasterActivity::class, 'prosesTambah']);
         Route::post('/hapus-master-activity', [MasterActivity::class, 'prosesHapus']);
+
+        Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
+        Route::post('/productivity-by-team', [Productivity::class, 'index']);
 
     });
 
