@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label" for="nip">NIP</label>
-                            <input type="number" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="@if($form === 'Tambah'){{ old('nip') }}@elseif($form === 'Edit' || $form === 'Detail'){{$detail->nip}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan nip">
+                            <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="@if($form === 'Tambah'){{ old('nip') }}@elseif($form === 'Edit' || $form === 'Detail'){{$detail->nip}}@endif"  @if($form === 'Detail') disabled @endif placeholder="Masukkan nip">
                             @error('nip')
                                 <div class="invalid-feedback">
                                 {{ $message }}

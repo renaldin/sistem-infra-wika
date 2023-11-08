@@ -78,6 +78,8 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'edit'])->name('edit-monthly-report-admin');
         Route::post('/edit-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesEdit']);
         Route::get('/hapus-monthly-report-admin/{id}', [MonthlyReportAdmin::class, 'prosesHapus']);
+        Route::get('/export-all-monthly-report-admin', [MonthlyReportAdmin::class, 'exportExcel']);
+        Route::get('/export-proyek-monthly-report-admin/{id_proyek}', [MonthlyReportAdmin::class, 'exportExcel']);
 
         Route::get('/pilih-bulan', [MasterActivity::class, 'pilihBulan'])->name('pilih-bulan');
         Route::post('/pilih-bulan', [MasterActivity::class, 'index']);
@@ -111,5 +113,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-monthly-report/{id}', [MonthlyReport::class, 'edit'])->name('edit-monthly-report');
         Route::post('/edit-monthly-report/{id}', [MonthlyReport::class, 'prosesEdit']);
         Route::get('/hapus-monthly-report/{id}', [MonthlyReport::class, 'prosesHapus']);
+        Route::get('/export-all-monthly-report', [MonthlyReport::class, 'exportExcel']);
+        Route::get('/export-proyek-monthly-report/{id_proyek}', [MonthlyReport::class, 'exportExcel']);
     });
 });

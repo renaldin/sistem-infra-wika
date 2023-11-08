@@ -48,7 +48,6 @@ class TimProyek extends Controller
             'user'      => $this->ModelUser->detail(Session()->get('id_user')),
             'form'      => 'Tambah',
         ];
-
         return view('admin.timProyek.form', $data);
     }
 
@@ -87,10 +86,11 @@ class TimProyek extends Controller
             'form'                  => 'Edit',
             'daftarUser'            => $this->ModelUser->dataUser(),
             'daftarDetailTimProyek' => $this->ModelDetailTimProyek->data(),
+            'anggota'   => $this->ModelDetailTimProyek->dataNonDuplicate(),
             'user'                  => $this->ModelUser->detail(Session()->get('id_user')),
             'detail'                => $this->ModelTimProyek->detail($id_tim_proyek)
         ];
-
+        
         return view('admin.timProyek.form', $data);
     }
 

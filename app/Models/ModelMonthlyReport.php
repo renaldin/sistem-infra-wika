@@ -13,7 +13,8 @@ class ModelMonthlyReport extends Model
     public function data()
     {
         return DB::table('monthly_report')
-            ->join('proyek', 'proyek.id_proyek', '=', 'monthly_report.id_proyek', 'monthly_report')
+            ->join('proyek', 'proyek.id_proyek', '=', 'monthly_report.id_proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek')
             ->orderBy('id_monthly_report', 'DESC')
             ->get();
     }

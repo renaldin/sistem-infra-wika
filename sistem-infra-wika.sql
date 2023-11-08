@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2023 at 11:36 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Waktu pembuatan: 07 Nov 2023 pada 22.36
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,17 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_tim_proyek`
+-- Struktur dari tabel `detail_tim_proyek`
 --
 
 CREATE TABLE `detail_tim_proyek` (
   `id_detail_tim_proyek` int(11) NOT NULL,
   `id_tim_proyek` int(11) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detail_tim_proyek`
+-- Dumping data untuk tabel `detail_tim_proyek`
 --
 
 INSERT INTO `detail_tim_proyek` (`id_detail_tim_proyek`, `id_tim_proyek`, `id_user`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `detail_tim_proyek` (`id_detail_tim_proyek`, `id_tim_proyek`, `id_us
 -- --------------------------------------------------------
 
 --
--- Table structure for table `engineering_activity`
+-- Struktur dari tabel `engineering_activity`
 --
 
 CREATE TABLE `engineering_activity` (
@@ -58,10 +58,10 @@ CREATE TABLE `engineering_activity` (
   `durasi` varchar(255) DEFAULT NULL,
   `evidence` varchar(255) DEFAULT NULL,
   `checked` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `engineering_activity`
+-- Dumping data untuk tabel `engineering_activity`
 --
 
 INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_kategori_pekerjaan`, `tanggal_masuk_kerja`, `status_kerja`, `judul_pekerjaan`, `durasi`, `evidence`, `checked`) VALUES
@@ -75,60 +75,59 @@ INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_ka
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_pekerjaan`
+-- Struktur dari tabel `kategori_pekerjaan`
 --
 
 CREATE TABLE `kategori_pekerjaan` (
   `id_kategori_pekerjaan` int(11) NOT NULL,
   `kategori_pekerjaan` varchar(255) DEFAULT NULL,
-  `fungsi` varchar(255) DEFAULT NULL,
-  `sub_fungsi` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `fungsi` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kategori_pekerjaan`
+-- Dumping data untuk tabel `kategori_pekerjaan`
 --
 
-INSERT INTO `kategori_pekerjaan` (`id_kategori_pekerjaan`, `kategori_pekerjaan`, `fungsi`, `sub_fungsi`) VALUES
-(1, 'CSI Collecting, Monitoring & Feedback Follow Up', 'Design & Analysis', 'Team Managing'),
-(2, 'Project Technical Supporting', 'Design & Analysis', 'Technical Works'),
-(3, 'Engineering Clinic', 'Design & Analysis', 'Technical Works'),
-(4, 'Quality Engineering Committee (If Any)', 'Design & Analysis', 'Technical Works'),
-(5, 'Engineering Work Optimation dan Efficiency Collecting', 'Design & Analysis', 'Technical Works'),
-(6, 'Engineering Lesson Learn Register', 'Design & Analysis', 'Technical Works'),
-(7, 'Monitoring & Collecting KI/KM Div Infra 2', 'Design & Analysis', 'Technical Works'),
-(8, 'Technical Code & Standard Control', 'Design & Analysis', 'Technical Works'),
-(9, 'Technical Software Renewing & Personel Capability', 'Design & Analysis', 'Team Managing'),
-(10, 'Soil Investigation and Project Data Collecting', 'Design & Analysis', 'Technical Works'),
-(11, 'Strategic Programs Planning', 'BIM & Digitalization Engineering', 'Strategic Works'),
-(12, 'Management Review (MR) Content Planning', 'BIM & Digitalization Engineering', 'Strategic Works'),
-(13, 'Monitoring Project Technical Issue, Production & BIM', 'BIM & Digitalization Engineering', 'Technical Works'),
-(14, 'Personnel Time Frame Management', 'BIM & Digitalization Engineering', 'Team Managing'),
-(15, 'Submission & Monitoring Engineering Expertise Certification', 'BIM & Digitalization Engineering', 'Team Managing'),
-(16, 'BIM Project Monitoring', 'BIM & Digitalization Engineering', 'Building Information Modelling (BIM) Project'),
-(17, 'BIM Project Supporting', 'BIM & Digitalization Engineering', 'Building Information Modelling (BIM) Project'),
-(18, 'BIM & Engineering Learning Center', 'BIM & Digitalization Engineering', 'Building Information Modelling (BIM) Project'),
-(19, 'BIM Software Controlling & Submission', 'BIM & Digitalization Engineering', 'Building Information Modelling (BIM) Project'),
-(20, 'Data Dashboard Design System', 'BIM & Digitalization Engineering', 'Data Controlling Digitalize'),
-(21, 'Data Center Controlling & Reviewing', 'BIM & Digitalization Engineering', 'Data Controlling Digitalize'),
-(22, 'Project Technical Support Report Collecting & Uploading', 'BIM & Digitalization Engineering', 'Data Controlling Digitalize'),
-(23, 'Sub-Contractor Technical Verification', 'System Engineering & Lean Construction', 'Strategic Works'),
-(24, 'WIKA Procedure Reviewing Person', 'System Engineering & Lean Construction', 'Strategic Works'),
-(25, 'Project Technical Risk Management', 'System Engineering & Lean Construction', 'Strategic Works'),
-(26, 'WIKA Work Instruction Reviewing Person', 'System Engineering & Lean Construction', 'Strategic Works'),
-(27, 'Project RKP Reviewing Person', 'System Engineering & Lean Construction', 'Strategic Works'),
-(28, 'Project LPS Reviewing Person', 'System Engineering & Lean Construction', 'Strategic Works'),
-(29, 'Pelatihan, Webinar, Internal Training Sub-Divisi Engineering', 'System Engineering & Lean Construction', 'Team Managing'),
-(30, 'CMC Personnel Collecting', 'System Engineering & Lean Construction', 'Team Managing'),
-(31, 'Memorandum of Understanding (MOU) With Partner Team', 'System Engineering & Lean Construction', 'Strategic Works'),
-(32, 'Lean Construction', 'System Engineering & Lean Construction', 'Lean Construction'),
-(33, 'Lain-lain', 'Manager of Engineering', 'Lain-lain'),
-(34, 'Lain-lain', 'Expert of Engineering', 'Lain-lain');
+INSERT INTO `kategori_pekerjaan` (`id_kategori_pekerjaan`, `kategori_pekerjaan`, `fungsi`) VALUES
+(1, 'A1. CSI Collecting, Monitoring & Feedback Follow Up', 'Design & Analysis'),
+(2, 'A2. Project Technical Supporting', 'Design & Analysis'),
+(3, 'A3. Engineering Clinic', 'Design & Analysis'),
+(4, 'A4. Quality Engineering Committee (If Any)', 'Design & Analysis'),
+(5, 'A5. Engineering Work Optimation dan Efficiency Collecting', 'Design & Analysis'),
+(6, 'A6. Engineering Lesson Learn Register', 'Design & Analysis'),
+(7, 'A7. Monitoring & Collecting KI/KM Div Infra 2', 'Design & Analysis'),
+(8, 'A8. Technical Code & Standard Control', 'Design & Analysis'),
+(9, 'A9. Technical Software Renewing & Personel Capability', 'Design & Analysis'),
+(10, 'A10. Soil Investigation and Project Data Collecting', 'Design & Analysis'),
+(11, 'B1. Strategic Programs Planning', 'BIM & Digitalization Engineering'),
+(12, 'B2. Management Review (MR) Content Planning', 'BIM & Digitalization Engineering'),
+(13, 'B3. Monitoring Project Technical Issue, Production & BIM', 'BIM & Digitalization Engineering'),
+(14, 'B4. Personnel Time Frame Management', 'BIM & Digitalization Engineering'),
+(15, 'B5. Submission & Monitoring Engineering Expertise Certification', 'BIM & Digitalization Engineering'),
+(16, 'B6. BIM Project Monitoring', 'BIM & Digitalization Engineering'),
+(17, 'B7. BIM Project Supporting', 'BIM & Digitalization Engineering'),
+(18, 'B8. BIM & Engineering Learning Center', 'BIM & Digitalization Engineering'),
+(19, 'B9. BIM Software Controlling & Submission', 'BIM & Digitalization Engineering'),
+(20, 'B10. Data Dashboard Design System', 'BIM & Digitalization Engineering'),
+(21, 'B11. Data Center Controlling & Reviewing', 'BIM & Digitalization Engineering'),
+(22, 'B12. Project Technical Support Report Collecting & Uploading', 'BIM & Digitalization Engineering'),
+(23, 'C1. Sub-Contractor Technical Verification', 'System Engineering & Lean Construction'),
+(24, 'C2. WIKA Procedure Reviewing Person', 'System Engineering & Lean Construction'),
+(25, 'C3. Project Technical Risk Management', 'System Engineering & Lean Construction'),
+(26, 'C4. WIKA Work Instruction Reviewing Person', 'System Engineering & Lean Construction'),
+(27, 'C5. Project RKP Reviewing Person', 'System Engineering & Lean Construction'),
+(28, 'C6. Project LPS Reviewing Person', 'System Engineering & Lean Construction'),
+(29, 'C7. Pelatihan, Webinar, Internal Training Sub-Divisi Engineering', 'System Engineering & Lean Construction'),
+(30, 'C8. CMC Personnel Collecting', 'System Engineering & Lean Construction'),
+(31, 'C9. Memorandum of Understanding (MOU) With Partner Team', 'System Engineering & Lean Construction'),
+(32, 'C10. Lean Construction', 'System Engineering & Lean Construction'),
+(35, 'D. Lain-lain', 'Expert of Engineering'),
+(36, 'B13. BIM Valuasi & Benefit Dampak Implementasi', 'BIM & Digitalization Engineering');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `master_activity`
+-- Struktur dari tabel `master_activity`
 --
 
 CREATE TABLE `master_activity` (
@@ -139,10 +138,10 @@ CREATE TABLE `master_activity` (
   `work_days` int(11) DEFAULT NULL,
   `work_hours` int(11) DEFAULT NULL,
   `tanggal_master` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `master_activity`
+-- Dumping data untuk tabel `master_activity`
 --
 
 INSERT INTO `master_activity` (`id_master_activity`, `id_user`, `absense_start`, `absense_end`, `work_days`, `work_hours`, `tanggal_master`) VALUES
@@ -154,7 +153,7 @@ INSERT INTO `master_activity` (`id_master_activity`, `id_user`, `absense_start`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitoring_ki_km`
+-- Struktur dari tabel `monitoring_ki_km`
 --
 
 CREATE TABLE `monitoring_ki_km` (
@@ -169,12 +168,12 @@ CREATE TABLE `monitoring_ki_km` (
   `progress` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitoring_kolaborasi_ki_km`
+-- Struktur dari tabel `monitoring_kolaborasi_ki_km`
 --
 
 CREATE TABLE `monitoring_kolaborasi_ki_km` (
@@ -196,22 +195,22 @@ CREATE TABLE `monitoring_kolaborasi_ki_km` (
   `kategori` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitoring_license_software`
+-- Struktur dari tabel `monitoring_license_software`
 --
 
 CREATE TABLE `monitoring_license_software` (
   `id_monitoring_license_software` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitoring_lps`
+-- Struktur dari tabel `monitoring_lps`
 --
 
 CREATE TABLE `monitoring_lps` (
@@ -232,12 +231,12 @@ CREATE TABLE `monitoring_lps` (
   `native_seitai` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monitoring_rkp`
+-- Struktur dari tabel `monitoring_rkp`
 --
 
 CREATE TABLE `monitoring_rkp` (
@@ -251,12 +250,12 @@ CREATE TABLE `monitoring_rkp` (
   `tanggal_monitoring_rkp` date DEFAULT NULL,
   `created_by` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_by` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monthly_report`
+-- Struktur dari tabel `monthly_report`
 --
 
 CREATE TABLE `monthly_report` (
@@ -271,10 +270,10 @@ CREATE TABLE `monthly_report` (
   `evidence_link` text DEFAULT NULL,
   `remarks` text DEFAULT NULL,
   `tanggal_report` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `monthly_report`
+-- Dumping data untuk tabel `monthly_report`
 --
 
 INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proyek`, `kendala_implementasi_bim`, `engineering_issue_berjalan`, `masalah_produksi_berjalan`, `konsep_lean_construction_berjalan`, `feedback_untuk_perusahaan`, `evidence_link`, `remarks`, `tanggal_report`) VALUES
@@ -282,12 +281,13 @@ INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proye
 (3, 1, 46, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-02'),
 (4, 1, 50, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-02'),
 (5, 1, 60, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-22'),
-(6, 1, 70, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-12-09');
+(6, 1, 70, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-12-09'),
+(7, 1, 60, 'a', 'a', 'a', 'a', 'a', 'a', NULL, '2023-11-14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek`
+-- Struktur dari tabel `proyek`
 --
 
 CREATE TABLE `proyek` (
@@ -307,10 +307,10 @@ CREATE TABLE `proyek` (
   `empat_d` int(11) NOT NULL DEFAULT 0,
   `lima_d` int(11) NOT NULL DEFAULT 0,
   `cde` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `proyek`
+-- Dumping data untuk tabel `proyek`
 --
 
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
@@ -320,7 +320,7 @@ INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tim_proyek`
+-- Struktur dari tabel `tim_proyek`
 --
 
 CREATE TABLE `tim_proyek` (
@@ -328,10 +328,10 @@ CREATE TABLE `tim_proyek` (
   `nama_tim_proyek` varchar(255) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
   `tanggal_dibuat` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tim_proyek`
+-- Dumping data untuk tabel `tim_proyek`
 --
 
 INSERT INTO `tim_proyek` (`id_tim_proyek`, `nama_tim_proyek`, `deskripsi`, `tanggal_dibuat`) VALUES
@@ -344,7 +344,7 @@ INSERT INTO `tim_proyek` (`id_tim_proyek`, `nama_tim_proyek`, `deskripsi`, `tang
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -357,10 +357,10 @@ CREATE TABLE `user` (
   `password` text DEFAULT NULL,
   `role` enum('Admin','Tim Proyek','Head Office') NOT NULL,
   `foto_user` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon`, `password`, `role`, `foto_user`) VALUES
@@ -374,171 +374,172 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 (18, 'Tim Proyek 5', 'Staf', NULL, '52222', '089998923432543', '$2y$10$bZBZdvRy9QKaBSRM7KdZhOsYi2WwaBhtLA8JQ3f2iYlgj5or4jt6C', 'Tim Proyek', '10292023085320 Tim Proyek 5.jpg'),
 (23, 'Head Office 1', 'Staff of Engineering', 'Design & Analysis', '333331', '089979792324', '$2y$10$ZEQxnEsqEbsc1AOoX8uoRux2ESLgP6yZlT3nALgzRmCZXjIgyN0je', 'Head Office', '11042023061636 Head Office 1.jpg'),
 (24, 'Head Office 2', 'Staff of Engineering', 'Design & Analysis', '333332', '089897898323', '$2y$10$Vkwjr3Gmo1o4uHp7EF1wVukGphlVPJ9NMCYpi4SAecVtt.uBDD0QG', 'Head Office', '11042023061727 Head Office 2.jpg'),
-(25, 'Head Office 3', 'Staff of Engineering', 'Design & Analysis', '333333', '089978686878', '$2y$10$URcpbBLvxaGkUpI.Oob9E.lM7NVYlMEMwg019euLFVcNsn8jKuMYK', 'Head Office', '11042023061813 Head Office 3.jpg');
+(25, 'Head Office 3', 'Staff of Engineering', 'Design & Analysis', '333333', '089978686878', '$2y$10$URcpbBLvxaGkUpI.Oob9E.lM7NVYlMEMwg019euLFVcNsn8jKuMYK', 'Head Office', '11042023061813 Head Office 3.jpg'),
+(26, 'Head Office 4', 'Staff of Engineering', 'BIM & Digitalization Engineering', '333334', '08989813412421', '$2y$10$WDVWReivpdkA22aUE1SA6OYThRdvMMLp4fR3HDYVmKg4FTof5AZOe', 'Head Office', '11062023034654 Head Office 4.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_tim_proyek`
+-- Indeks untuk tabel `detail_tim_proyek`
 --
 ALTER TABLE `detail_tim_proyek`
   ADD PRIMARY KEY (`id_detail_tim_proyek`);
 
 --
--- Indexes for table `engineering_activity`
+-- Indeks untuk tabel `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
   ADD PRIMARY KEY (`id_engineering_activity`);
 
 --
--- Indexes for table `kategori_pekerjaan`
+-- Indeks untuk tabel `kategori_pekerjaan`
 --
 ALTER TABLE `kategori_pekerjaan`
   ADD PRIMARY KEY (`id_kategori_pekerjaan`);
 
 --
--- Indexes for table `master_activity`
+-- Indeks untuk tabel `master_activity`
 --
 ALTER TABLE `master_activity`
   ADD PRIMARY KEY (`id_master_activity`);
 
 --
--- Indexes for table `monitoring_ki_km`
+-- Indeks untuk tabel `monitoring_ki_km`
 --
 ALTER TABLE `monitoring_ki_km`
   ADD PRIMARY KEY (`id_monitoring_ki_km`);
 
 --
--- Indexes for table `monitoring_kolaborasi_ki_km`
+-- Indeks untuk tabel `monitoring_kolaborasi_ki_km`
 --
 ALTER TABLE `monitoring_kolaborasi_ki_km`
   ADD PRIMARY KEY (`id_monitoring_kolaborasi_ki_km`);
 
 --
--- Indexes for table `monitoring_license_software`
+-- Indeks untuk tabel `monitoring_license_software`
 --
 ALTER TABLE `monitoring_license_software`
   ADD PRIMARY KEY (`id_monitoring_license_software`);
 
 --
--- Indexes for table `monitoring_lps`
+-- Indeks untuk tabel `monitoring_lps`
 --
 ALTER TABLE `monitoring_lps`
   ADD PRIMARY KEY (`id_monitoring_lps`);
 
 --
--- Indexes for table `monitoring_rkp`
+-- Indeks untuk tabel `monitoring_rkp`
 --
 ALTER TABLE `monitoring_rkp`
   ADD PRIMARY KEY (`id_monitoring_rkp`);
 
 --
--- Indexes for table `monthly_report`
+-- Indeks untuk tabel `monthly_report`
 --
 ALTER TABLE `monthly_report`
   ADD PRIMARY KEY (`id_monthly_report`);
 
 --
--- Indexes for table `proyek`
+-- Indeks untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`);
 
 --
--- Indexes for table `tim_proyek`
+-- Indeks untuk tabel `tim_proyek`
 --
 ALTER TABLE `tim_proyek`
   ADD PRIMARY KEY (`id_tim_proyek`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_tim_proyek`
+-- AUTO_INCREMENT untuk tabel `detail_tim_proyek`
 --
 ALTER TABLE `detail_tim_proyek`
   MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `engineering_activity`
+-- AUTO_INCREMENT untuk tabel `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
   MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `kategori_pekerjaan`
+-- AUTO_INCREMENT untuk tabel `kategori_pekerjaan`
 --
 ALTER TABLE `kategori_pekerjaan`
-  MODIFY `id_kategori_pekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_kategori_pekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `master_activity`
+-- AUTO_INCREMENT untuk tabel `master_activity`
 --
 ALTER TABLE `master_activity`
   MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `monitoring_ki_km`
+-- AUTO_INCREMENT untuk tabel `monitoring_ki_km`
 --
 ALTER TABLE `monitoring_ki_km`
   MODIFY `id_monitoring_ki_km` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monitoring_kolaborasi_ki_km`
+-- AUTO_INCREMENT untuk tabel `monitoring_kolaborasi_ki_km`
 --
 ALTER TABLE `monitoring_kolaborasi_ki_km`
   MODIFY `id_monitoring_kolaborasi_ki_km` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monitoring_license_software`
+-- AUTO_INCREMENT untuk tabel `monitoring_license_software`
 --
 ALTER TABLE `monitoring_license_software`
   MODIFY `id_monitoring_license_software` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monitoring_lps`
+-- AUTO_INCREMENT untuk tabel `monitoring_lps`
 --
 ALTER TABLE `monitoring_lps`
   MODIFY `id_monitoring_lps` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monitoring_rkp`
+-- AUTO_INCREMENT untuk tabel `monitoring_rkp`
 --
 ALTER TABLE `monitoring_rkp`
   MODIFY `id_monitoring_rkp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monthly_report`
+-- AUTO_INCREMENT untuk tabel `monthly_report`
 --
 ALTER TABLE `monthly_report`
-  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `proyek`
+-- AUTO_INCREMENT untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
   MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tim_proyek`
+-- AUTO_INCREMENT untuk tabel `tim_proyek`
 --
 ALTER TABLE `tim_proyek`
   MODIFY `id_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

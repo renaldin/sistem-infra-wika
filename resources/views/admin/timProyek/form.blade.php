@@ -142,8 +142,9 @@
                                 <input type="hidden" name="id_tim_proyek" value="{{ $detail->id_tim_proyek }}" required>
                                 <select name="id_user" id="id_user" class="selectpicker form-control @error('id_user') is-invalid @enderror" data-style="py-0" required>
                                     <option value="" selected disabled>-- Pilih --</option>
+                                    
                                     @foreach ($daftarUser as $item)
-                                        @if ($item->role === 'Tim Proyek')
+                                        @if ($item->role === 'Tim Proyek' && !in_array($item->id_user, $anggota->pluck('id_user')->toArray()))
                                             <option value="{{$item->id_user}}">{{$item->nama_user}}</option>
                                         @endif
                                     @endforeach

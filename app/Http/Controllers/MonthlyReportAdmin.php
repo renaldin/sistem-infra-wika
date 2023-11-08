@@ -8,11 +8,13 @@ use App\Models\ModelTimProyek;
 use App\Models\ModelMonthlyReport;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class MonthlyReportAdmin extends Controller
 {
 
-    private $ModelProyek, $ModelTimProyek, $ModelMonthlyReport, $ModelDetailTimProyek, $ModelUser;
+    private $ModelProyek, $ModelTimProyek, $MonthlyReportAll, $ModelMonthlyReport, $ModelDetailTimProyek, $ModelUser;
 
     public function __construct()
     {
@@ -28,7 +30,7 @@ class MonthlyReportAdmin extends Controller
         if (!Session()->get('role')) {
             return redirect()->route('login');
         }
-
+        
         $data = [
             'title'             => 'Monthly Report',
             'subTitle'          => 'Daftar Monthly Report',
@@ -132,5 +134,67 @@ class MonthlyReportAdmin extends Controller
         $this->ModelMonthlyReport->edit($data);
         $this->ModelProyek->edit($dataProyek);
         return redirect('/detail-monthly-report-admin/'.Request()->id_proyek)->with('success', 'Data Monthly Report berhasil diedit!');
+    }
+
+    public function exportExcel($id_proyek = null)
+    {
+        $data = $this->ModelMonthlyReport->data();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Proyek');
+        $sheet->setCellValue('C1', 'Realisasi Proyek');
+        $sheet->setCellValue('D1', 'Kendala Implementasi BIM');
+        $sheet->setCellValue('E1', 'Engineering Issue Berjalan');
+        $sheet->setCellValue('F1', 'Masalah Produksi Berjalan');
+        $sheet->setCellValue('G1', 'Konsep Lean Construction Berjalan');
+        $sheet->setCellValue('H1', 'Feedback Untuk Perusahaan');
+        $sheet->setCellValue('I1', 'Evidence Link');
+        $sheet->setCellValue('J1', 'Remarks');
+        $sheet->setCellValue('K1', 'Tanggal Report');
+
+        $row = 2;
+        $no = 1;
+        if($id_proyek === null) {
+            foreach ($data as $item) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->nama_proyek);
+                $sheet->setCellValue('C' . $row, $item->realisasi_proyek);
+                $sheet->setCellValue('D' . $row, $item->kendala_implementasi_bim);
+                $sheet->setCellValue('E' . $row, $item->engineering_issue_berjalan);
+                $sheet->setCellValue('F' . $row, $item->masalah_produksi_berjalan);
+                $sheet->setCellValue('G' . $row, $item->konsep_lean_construction_berjalan);
+                $sheet->setCellValue('H' . $row, $item->feedback_untuk_perusahaan);
+                $sheet->setCellValue('I' . $row, $item->evidence_link);
+                $sheet->setCellValue('J' . $row, $item->remarks);
+                $sheet->setCellValue('K' . $row, $item->tanggal_report);
+                $row++;
+            }
+        } else {
+            foreach ($data as $item) {
+                if($item->id_proyek == $id_proyek) {
+                    $sheet->setCellValue('A' . $row, $no++);
+                    $sheet->setCellValue('B' . $row, $item->nama_proyek);
+                    $sheet->setCellValue('C' . $row, $item->realisasi_proyek);
+                    $sheet->setCellValue('D' . $row, $item->kendala_implementasi_bim);
+                    $sheet->setCellValue('E' . $row, $item->engineering_issue_berjalan);
+                    $sheet->setCellValue('F' . $row, $item->masalah_produksi_berjalan);
+                    $sheet->setCellValue('G' . $row, $item->konsep_lean_construction_berjalan);
+                    $sheet->setCellValue('H' . $row, $item->feedback_untuk_perusahaan);
+                    $sheet->setCellValue('I' . $row, $item->evidence_link);
+                    $sheet->setCellValue('J' . $row, $item->remarks);
+                    $sheet->setCellValue('K' . $row, $item->tanggal_report);
+                    $row++;
+                }
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'monthly-report.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }
