@@ -281,7 +281,6 @@
                                 <option value="BIM & Digitalization Engineering">BIM & Digitalization Engineering</option>\
                                 <option value="System Engineering & Lean Construction">System Engineering & Lean Construction</option>\
                                 <option value="Manager of Engineering">Manager of Engineering</option>\
-                                <option value="Expert of Engineering">Expert of Engineering</option>\
                             </select>\
                         </div>');
                     } else {

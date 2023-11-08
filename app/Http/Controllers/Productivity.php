@@ -43,16 +43,6 @@ class Productivity extends Controller
             ];
         } else {
 
-            $activity = $this->ModelEngineeringActivity->data();
-            $daftarActivity = [];
-            $workHours = 0;
-            foreach ($activity as $item) {
-                if (date('Y-m', strtotime($item->tanggal_masuk_kerja)) === Request()->bulan) {
-                    $workHours = $workHours + floatval($item->durasi);
-                }
-            }
-
-
             $data = [
                 'title'                     => 'Productivity',
                 'subTitle'                  => 'By Team',
@@ -60,11 +50,65 @@ class Productivity extends Controller
                 'detailBulan'               => Request()->bulan,
                 'daftarUser'                => $this->ModelUser->dataUser(),
                 'daftarKategoriPekerjaan'   => $this->ModelKategoriPekerjaan->dataFungsi(),
+                'activity'                  => $this->ModelEngineeringActivity->dataProductivityTeam(Request()->bulan),
+                'masterActivity'            => $this->ModelMasterActivity->masterFungsi(Request()->bulan),
                 'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
             ];
         }
 
         return view('productivity.index', $data);
+    }
+
+    public function byPerson()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        if (!Request()->bulan) {
+            $data = [
+                'title'                     => 'Productivity',
+                'subTitle'                  => 'By Person',
+                'bulan'                     => false,
+                'detailBulan'               => false,
+                'daftarUser'                => $this->ModelUser->dataUser(),
+                'daftar'                    => $this->ModelMasterActivity->whereMonthYear(Request()->bulan),
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+            ];
+        } else {
+
+            $data = [
+                'title'                     => 'Productivity',
+                'subTitle'                  => 'By Person',
+                'bulan'                     => true,
+                'detailBulan'               => Request()->bulan,
+                'activity'                  => $this->ModelEngineeringActivity->activityPerson(Request()->bulan),
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+            ];
+        }
+
+        return view('productivity.byPerson', $data);
+    }
+
+    public function detailByPerson($id_user, $detailBulan) 
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = [
+            'title'                     => 'Productivity',
+            'subTitle'                  => 'By Person',
+            'bulan'                     => true,
+            'detailBulan'               => $detailBulan,
+            'detailUser'                => $this->ModelUser->detail($id_user),
+            'daftarKategoriPekerjaan'   => $this->ModelKategoriPekerjaan->dataFungsi(),
+            'activity'                  => $this->ModelEngineeringActivity->dataProductivityPerson($id_user, $detailBulan),
+            'masterActivity'            => $this->ModelMasterActivity->masterPerson($id_user, $detailBulan),
+            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+        ];
+     
+        return view('productivity.detailByPerson', $data);
     }
 
     // public function pilihBulan()

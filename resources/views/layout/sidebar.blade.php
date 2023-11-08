@@ -268,7 +268,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">By Personr</span>
+                                    <span class="item-name">By Person</span>
                                 </a>
                             </li>
                         </ul>

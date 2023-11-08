@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             @if ($detailBulan)
                                 <div class="mt-3">
-                                    <label>Productivity by Team di bulan <strong>{{date('F Y', strtotime($detailBulan))}}</strong></label>
+                                    <label>Productivity by Team di bulan <strong>{{ date('F Y', strtotime($detailBulan)) }}</strong></label>
                                 </div>
                             @endif
                         </div>
@@ -40,29 +40,94 @@
 </div>
 
 @if($bulan === true)
+    @php
+        $totalSubtotal = 0;
+        $totalWork = 0;
+    @endphp
     @foreach ($daftarKategoriPekerjaan as $item)
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                            <h4 class="card-title">{{$item->fungsi}}</h4>
+        @if ($item->fungsi !== null)
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h4 class="card-title">{{$item->fungsi}}</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body" style="margin-bottom: -50px;">
-                        <div class="row">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="user-list-table" class="table" role="grid">
+                                            <thead>
+                                                <tr class="ligth">
+                                                    <th>No</th>
+                                                    <th>Nam User</th>
+                                                    <th>Jumlah Durasi Pekerjaan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                    $no = 1; 
+                                                    $subTotal = 0;   
+                                                    $totalWorkHours = 0;
+                                                    foreach($masterActivity as $row) {
+                                                        if($row->fungsi === $item->fungsi) {
+                                                            $totalWorkHours = $totalWorkHours + $row->work_hours;
+                                                        }
+                                                    }
+                                                @endphp
+                                                @foreach ($activity as $row)
+                                                    @if ($row->fungsi === $item->fungsi)
+                                                        <tr>
+                                                            <td>{{$no++}}</td>
+                                                            <td>{{$row->nama_user}}</td>
+                                                            <td>{{$row->jumlah_durasi}}</td>
+                                                        </tr>
+                                                        @php
+                                                            $subTotal = $subTotal + $row->jumlah_durasi;
+                                                        @endphp
+                                                    @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    @php
+                                        if ($totalWorkHours == 0){
+                                            $persen = 0;
+                                        } else {
+                                            $persen = round(($subTotal / $totalWorkHours) * 100, 1);
+                                        }
 
-                        </div>
-                    </div>
-                    <div class="card-body px-0">
-                        <div class="table-responsive">
-
+                                        $totalSubtotal = $totalSubtotal + $subTotal;
+                                        $totalWork = $totalWork + $totalWorkHours;
+                                    @endphp
+                                    <span>Sub Total: <strong>{{$subTotal}}</strong></span><br>
+                                    <span>Hourly Working Requirement: <strong>{{$totalWorkHours}}</strong></span><br>
+                                    <span>Achievement Rate Current Month: <strong>{{ $persen }}%</strong></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     @endforeach
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title mb-2">
+                        <label>Hourly Work Productive Job Item (a) : <strong>{{ $totalSubtotal }}</strong></label><br>
+                        <label>Hourly Working Requirement (b) : <strong>{{ $totalWork }}</strong></label><br>
+                        <label>Achievement Rate Current Month (a/b) : <strong>{{ round($totalWork == 0? 0 : ($totalSubtotal / $totalWork) * 100) }}%</strong></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endif
 
 

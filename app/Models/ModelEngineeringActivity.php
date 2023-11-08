@@ -19,6 +19,28 @@ class ModelEngineeringActivity extends Model
             ->get();
     }
 
+    public function dataProductivityTeam($monthYear)
+    {
+        return DB::table('engineering_activity') 
+            ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
+            ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
+            ->whereRaw('DATE_FORMAT(tanggal_masuk_kerja, "%Y-%m") = ?', $monthYear)
+            ->select('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi', DB::raw('SUM(durasi) as jumlah_durasi'))
+            ->groupBy('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi')
+            ->get();
+    }
+
+    public function activityPerson($monthYear)
+    {
+        return DB::table('engineering_activity') 
+        ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
+        ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
+        ->whereRaw('DATE_FORMAT(tanggal_masuk_kerja, "%Y-%m") = ?', $monthYear)
+        ->select('engineering_activity.id_user', 'nama_user', 'nip', 'jabatan')
+        ->distinct('engineering_activity.id_user')
+        ->get();
+    }
+
     public function whereMonthYear($monthYear)
     {
         return DB::table('engineering_activity')
@@ -53,5 +75,17 @@ class ModelEngineeringActivity extends Model
     public function hapus($id_engineering_activity)
     {
         DB::table('engineering_activity')->where('id_engineering_activity', $id_engineering_activity)->delete();
+    }
+
+    public function dataProductivityPerson($id_user, $monthYear)
+    {
+        return DB::table('engineering_activity') 
+            ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
+            ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
+            ->whereRaw('DATE_FORMAT(tanggal_masuk_kerja, "%Y-%m") = ?', $monthYear)
+            ->select('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.kategori_pekerjaan', 'kategori_pekerjaan.fungsi', DB::raw('SUM(durasi) as jumlah_durasi'))
+            ->groupBy('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.kategori_pekerjaan', 'kategori_pekerjaan.fungsi')
+            ->where('engineering_activity.id_user', $id_user)
+            ->get();
     }
 }

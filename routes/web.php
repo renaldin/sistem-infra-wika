@@ -88,6 +88,10 @@ Route::group(['middleware' => 'revalidate'], function () {
 
         Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
         Route::post('/productivity-by-team', [Productivity::class, 'index']);
+        
+        Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
+        Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
+        Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
 
     });
 

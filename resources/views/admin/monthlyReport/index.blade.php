@@ -11,9 +11,6 @@
             </div>
             <div class="card-body px-4" style="margin-bottom: -50px;">
                 <div class="row">
-                    {{-- <div class="col-lg-12">
-                        <a href="/export-all-monthly-report" class="btn btn-primary mb-4">Export Excel</a>
-                    </div> --}}
                     @if (session('success'))
                         <div class="col-lg-12">
                             <div class="alert bg-primary text-white alert-dismissible">
