@@ -13,6 +13,7 @@ use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Productivity;
 use App\Http\Controllers\Proyek;
+use App\Http\Controllers\TechnicalSupporting;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,13 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/ubah-password/{id}', [User::class, 'prosesUbahPassword']);
 
     Route::get('/daftar-activity', [EngineeringActivity::class, 'index'])->name('daftar-activity');
+
+    Route::get('/permintaan-technical-supporting', [TechnicalSupporting::class, 'permintaan'])->name('permintaan-technical-supporting');
+    Route::get('/update-technical-supporting', [TechnicalSupporting::class, 'update'])->name('update-technical-supporting');
+    Route::get('/receive-technical-supporting/{id}', [TechnicalSupporting::class, 'receive']);
+    Route::get('/updated-technical-supporting/{id}', [TechnicalSupporting::class, 'edit']);
+    Route::post('/edit-technical-supporting/{id}', [TechnicalSupporting::class, 'prosesEdit']);
+    
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
@@ -119,5 +127,9 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/hapus-monthly-report/{id}', [MonthlyReport::class, 'prosesHapus']);
         Route::get('/export-all-monthly-report', [MonthlyReport::class, 'exportExcel']);
         Route::get('/export-proyek-monthly-report/{id_proyek}', [MonthlyReport::class, 'exportExcel']);
+
+        Route::get('/monitoring-technical-supporting', [TechnicalSupporting::class, 'indeX'])->name('monitoring-technical-supporting');
+        Route::get('/tambah-technical-supporting', [TechnicalSupporting::class, 'tambah'])->name('tambah-technical-supporting');
+        Route::post('/tambah-technical-supporting', [TechnicalSupporting::class, 'prosesTambah']);
     });
 });

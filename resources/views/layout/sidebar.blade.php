@@ -211,6 +211,53 @@
                             <span class="item-name">Master Activity</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Technical Supporting') active @endif" data-bs-toggle="collapse" @if ($title === 'Technical Supporting') @endif href="#technical-supporting" role="button" aria-expanded="false" aria-controls="technical-supporting">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Technical Support</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Permintaan' || $subTitle === 'Form Permintaan') active @endif" href="/permintaan-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Permintaan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Update' || $subTitle === 'Form Update') active @endif" href="/update-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Update</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Informasi</span>
@@ -327,10 +374,57 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Technical Supporting') active @endif" data-bs-toggle="collapse" @if ($title === 'Technical Supporting') @endif href="#technical-supporting" role="button" aria-expanded="false" aria-controls="technical-supporting">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Technical Support</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah Technical Supporting') active @endif" href="/tambah-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Monitoring' || $subTitle === 'Edit Technical Supporting') active @endif" href="/monitoring-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Daftar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 @elseif ($user->role === 'Head Office')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Form</span>
+                            <span class="default-icon">Operasi</span>
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
@@ -349,6 +443,53 @@
                             </i>
                             <span class="item-name">Check Activity</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Technical Supporting') active @endif" data-bs-toggle="collapse" @if ($title === 'Technical Supporting') @endif href="#technical-supporting" role="button" aria-expanded="false" aria-controls="technical-supporting">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Technical Support</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Permintaan' || $subTitle === 'Form Permintaan') active @endif" href="/permintaan-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Permintaan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Update' || $subTitle === 'Form Update') active @endif" href="/update-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Update</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">

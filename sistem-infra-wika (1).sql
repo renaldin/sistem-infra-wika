@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 12:37 AM
+-- Generation Time: Nov 09, 2023 at 07:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -288,27 +288,6 @@ INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proye
 -- --------------------------------------------------------
 
 --
--- Table structure for table `project_technical_supporting`
---
-
-CREATE TABLE `project_technical_supporting` (
-  `id_technical_supporting` int(11) NOT NULL,
-  `id_proyek` int(11) NOT NULL,
-  `nama_proyek` varchar(100) NOT NULL,
-  `PIC` varchar(100) NOT NULL,
-  `nomor_laporan` varchar(100) DEFAULT NULL,
-  `kode` varchar(100) DEFAULT NULL,
-  `topik` varchar(100) DEFAULT NULL,
-  `tanggal_submit` date DEFAULT NULL,
-  `tanggal_selesai` date DEFAULT NULL,
-  `status` varchar(100) DEFAULT NULL,
-  `note` varchar(100) DEFAULT NULL,
-  `dokumen` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `proyek`
 --
 
@@ -338,6 +317,37 @@ CREATE TABLE `proyek` (
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
 (1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0),
 (2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `technical_supporting`
+--
+
+CREATE TABLE `technical_supporting` (
+  `id_technical_supporting` int(11) NOT NULL,
+  `id_proyek` int(11) DEFAULT NULL,
+  `pic` varchar(255) DEFAULT NULL,
+  `nomor_laporan` varchar(255) DEFAULT NULL,
+  `kode` varchar(255) DEFAULT NULL,
+  `topik` varchar(255) DEFAULT NULL,
+  `tanggal_submit` date DEFAULT NULL,
+  `tanggal_selesai` date DEFAULT NULL,
+  `status_support` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `dokumen` text DEFAULT NULL,
+  `kendala` text DEFAULT NULL,
+  `is_respon` int(11) NOT NULL DEFAULT 0,
+  `id_user` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `technical_supporting`
+--
+
+INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic`, `nomor_laporan`, `kode`, `topik`, `tanggal_submit`, `tanggal_selesai`, `status_support`, `note`, `dokumen`, `kendala`, `is_respon`, `id_user`) VALUES
+(2, 1, 'Admin', 'D00002', 'Kode', 'Topik', '2023-11-09', '2023-11-24', 'NO DATA', 'Note', 'Dokumen', 'Kendala Proyek A 1', 1, 1),
+(3, 1, 'Head Office 1', 'D00001', 'Kode 1', 'Topik 1', '2023-11-08', NULL, 'HOLD', 'Note', 'Dokeumen', 'Kendala Proyek A 2', 1, 23);
 
 -- --------------------------------------------------------
 
@@ -464,16 +474,16 @@ ALTER TABLE `monthly_report`
   ADD PRIMARY KEY (`id_monthly_report`);
 
 --
--- Indexes for table `project_technical_supporting`
---
-ALTER TABLE `project_technical_supporting`
-  ADD PRIMARY KEY (`id_technical_supporting`);
-
---
 -- Indexes for table `proyek`
 --
 ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`);
+
+--
+-- Indexes for table `technical_supporting`
+--
+ALTER TABLE `technical_supporting`
+  ADD PRIMARY KEY (`id_technical_supporting`);
 
 --
 -- Indexes for table `tim_proyek`
@@ -516,12 +526,6 @@ ALTER TABLE `master_activity`
   MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `monitoring_ki_km`
---
-ALTER TABLE `monitoring_ki_km`
-  MODIFY `id_monitoring_ki_km` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `monitoring_kolaborasi_ki_km`
 --
 ALTER TABLE `monitoring_kolaborasi_ki_km`
@@ -552,16 +556,16 @@ ALTER TABLE `monthly_report`
   MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `project_technical_supporting`
---
-ALTER TABLE `project_technical_supporting`
-  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
   MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `technical_supporting`
+--
+ALTER TABLE `technical_supporting`
+  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tim_proyek`
