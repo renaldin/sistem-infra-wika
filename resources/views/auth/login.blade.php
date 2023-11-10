@@ -77,7 +77,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="nik" class="form-label" style="color: black">NIP</label>
-                                        <input type="text" onkeydown="return hanyaAngka(event)"
+                                        <input type="text"
                                             class="form-control @error('nip') is-invalid @enderror" name="nip"
                                             id="nip" aria-describedby="nip" placeholder=" " autofocus style="border-radius: 13px">
                                         @error('nip')

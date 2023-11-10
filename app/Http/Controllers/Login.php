@@ -33,11 +33,10 @@ class Login extends Controller
     {
 
         Request()->validate([
-            'nip'             => 'required|numeric',
+            'nip'             => 'required',
             'password'        => 'min:6|required',
         ], [
             'nip.required'              => 'NIP harus diisi!',
-            'nip.numeric'               => 'Format NIP harus angka!',
             'password.required'         => 'Password harus diisi!',
             'password.min'              => 'Password minimal 6 karakter!',
         ]);

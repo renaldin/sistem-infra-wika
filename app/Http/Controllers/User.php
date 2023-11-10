@@ -54,7 +54,7 @@ class User extends Controller
         Request()->validate([
             'nama_user'     => 'required',
             'telepon'       => 'required',
-            'nip'           => 'required|numeric|unique:user,nip',
+            'nip'           => 'required|unique:user,nip',
             'jabatan'       => 'required',
             'password'      => 'min:6|required',
             'role'          => 'required',
@@ -63,7 +63,6 @@ class User extends Controller
             'nama_user.required'    => 'Nama lengkap harus diisi!',
             'telepon.required'      => 'Nomor telepon harus diisi!',
             'nip.required'          => 'NIP harus diisi!',
-            'nip.numeric'           => 'NIP harus angka!',
             'nip.unique'            => 'niP sudah digunakan!',
             'jabatan.required'      => 'Jabatan harus diisi!',
             'password.required'     => 'Password harus diisi!',
@@ -80,7 +79,7 @@ class User extends Controller
 
         if (Request()->fungsi !== null && Request()->role === 'Head Office') {
             $fungsi = Request()->fungsi;
-        }  else {
+        } else {
             $fungsi = null;
         }
 
@@ -121,7 +120,7 @@ class User extends Controller
         Request()->validate([
             'nama_user'     => 'required',
             'telepon'       => 'required',
-            'nip'           => 'required|numeric',
+            'nip'           => 'required',
             'jabatan'       => 'required',
             'role'          => 'required',
             'foto_user'     => 'mimes:jpeg,png,jpg|max:2048'
@@ -129,7 +128,6 @@ class User extends Controller
             'nama_user.required'    => 'Nama lengkap harus diisi!',
             'telepon.required'      => 'Nomor telepon harus diisi!',
             'nip.required'          => 'NIP harus diisi!',
-            'nip.numeric'           => 'NIP harus angka!',
             'jabatan.required'      => 'Jabatan harus diisi!',
             'role.required'         => 'Role harus diisi!',
             'foto_user.mimes'       => 'Format Foto User harus jpg/jpeg/png!',
@@ -256,19 +254,18 @@ class User extends Controller
         Request()->validate([
             'nama_user'     => 'required',
             'telepon'       => 'required',
-            'nip'           => 'required|numeric',
+            'nip'           => 'required',
             'foto_user'     => 'mimes:jpeg,png,jpg|max:2048'
         ], [
             'nama_user.required'    => 'Nama lengkap harus diisi!',
             'telepon.required'      => 'Nomor telepon harus diisi!',
             'nip.required'          => 'NIP harus diisi!',
-            'nip.numeric'           => 'NIP harus angka!',
             'foto_user.mimes'       => 'Format Foto User harus jpg/jpeg/png!',
             'foto_user.max'         => 'Ukuran Foto User maksimal 2 mb',
         ]);
 
         if (Request()->foto_user <> "") {
-            
+
             $user = $this->ModelUser->detail($id_user);
 
             if ($user->foto_user <> "") {

@@ -55,13 +55,19 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label" for="kode">Kode</label>
-                            <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="@if($detail->kode === null){{ old('kode') }}@else{{$detail->kode}}@endif"  placeholder="Masukkan Kode">
+                            <select class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" placeholder="Pilih Kode">
+                                <option value="" selected disabled>Pilih Kode</option>
+                                <option value="G" @if($detail->kode === 'G') selected @endif>G</option>
+                                <option value="S" @if($detail->kode === 'S') selected @endif>S</option>
+                                <option value="G/S" @if($detail->kode === 'G/S') selected @endif>G/S</option>
+                            </select>
                             @error('kode')
                                 <div class="invalid-feedback">
-                                {{ $message }}
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>
+                        
                         <div class="form-group col-md-6">
                             <label class="form-label" for="topik">Topik</label>
                             <input type="text" class="form-control @error('topik') is-invalid @enderror" id="topik" name="topik" value="@if($detail->topik === null){{ old('topik') }}@else{{$detail->topik}}@endif"  placeholder="Masukkan Topik">
