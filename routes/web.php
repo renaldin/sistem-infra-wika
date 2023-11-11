@@ -101,6 +101,9 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
         Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
 
+        Route::get('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
+        Route::post('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
+
     });
 
     Route::group(['middleware' => 'headoffice'], function () {

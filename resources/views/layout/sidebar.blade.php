@@ -273,6 +273,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Progress') active @endif" aria-current="page"  href="/progress-technical-supporting">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Progress TS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link @if ($title === 'Data Productivity') active @endif" data-bs-toggle="collapse"
                         @if ($title === 'Data Productivity') @endif href="#sidebar-productivity" role="button" aria-expanded="false" aria-controls="sidebar-productivity">
                             <i class="icon">

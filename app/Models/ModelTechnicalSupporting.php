@@ -41,4 +41,23 @@ class ModelTechnicalSupporting extends Model
     {
         DB::table('technical_supporting')->where('id_technical_supporting', $id_technical_supporting)->delete();
     }
+
+    public function progress($year)
+    {
+        $data = [
+            'januari' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '01')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'februari' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '02')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'maret' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '03')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'april' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '04')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'mei' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '05')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'juni' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '06')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'juli' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '07')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'agustus' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '08')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'september' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '09')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'oktober' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '10')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'november' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '11')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+            'desember' => DB::table('technical_supporting')->whereRaw('DATE_FORMAT(tanggal_submit, "%Y") = ?', $year)->whereRaw('DATE_FORMAT(tanggal_submit, "%m") = ?', '12')->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))->first(),
+        ];
+        return $data;
+    }
 }

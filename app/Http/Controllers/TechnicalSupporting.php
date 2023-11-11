@@ -29,10 +29,16 @@ class TechnicalSupporting extends Controller
             return redirect()->route('login');
         }
 
+        $detailTimProyek = $this->ModelDetailTimProyek->dataWhere('detail_tim_proyek.id_user', Session()->get('id_user'));
+        $idTimProyek = [];
+        foreach($detailTimProyek as $item) {
+            $idTimProyek[] = $item->id_tim_proyek;
+        }
+
         $data = [
             'title'                     => 'Technical Supporting',
             'subTitle'                  => 'Monitoring',
-            'daftarDetailTimProyek'     => $this->ModelDetailTimProyek->data(),
+            'idTimProyek'               => $idTimProyek,
             'daftarTechnicalSupporting' => $this->ModelTechnicalSupporting->data(),
             'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
         ];
@@ -207,5 +213,31 @@ class TechnicalSupporting extends Controller
 
         $this->ModelTechnicalSupporting->edit($data);
         return redirect()->route('update-technical-supporting')->with('success', 'Data berhasil ditambahkan!');
+    }
+
+    public function progress()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        if(!Request()->tahun) {
+            $data = [
+                'title'                     => 'Technical Supporting',
+                'subTitle'                  => 'Progress',
+                'tahun'                     => false,
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+            ];
+        } else {
+            $data = [
+                'title'                     => 'Technical Supporting',
+                'subTitle'                  => 'Progress',
+                'tahun'                     => Request()->tahun,
+                'detailProgress'            => $this->ModelTechnicalSupporting->progress(Request()->tahun),
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+            ];
+        }
+
+        return view('technicalSupporting.progress', $data);
     }
 }

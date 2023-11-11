@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 07:27 PM
+-- Generation Time: Nov 11, 2023 at 01:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -40,7 +40,10 @@ CREATE TABLE `detail_tim_proyek` (
 INSERT INTO `detail_tim_proyek` (`id_detail_tim_proyek`, `id_tim_proyek`, `id_user`) VALUES
 (5, 3, 14),
 (6, 3, 15),
-(7, 4, 15);
+(7, 4, 15),
+(8, 8, 54),
+(9, 9, 55),
+(10, 10, 56);
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,11 @@ INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_ka
 (4, 24, 2, '2023-11-05', 'WFO', 'Judul 1', '2', '11052023222826 24.jpg', 1),
 (5, 24, 7, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222854 24.jpg', 1),
 (6, 24, 8, '2023-10-05', 'WFO', 'Judul 3', '2', '11052023222915 24.jpg', 1),
-(7, 24, 15, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222854 24.jpg', 1);
+(7, 24, 15, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222854 24.jpg', 1),
+(8, 37, 17, '2023-11-08', 'WFO', 'meeting', '8', '11102023052022 37.png', 1),
+(9, 37, 5, '2023-11-09', 'WFO', 'meeting', '8', '11102023052109 37.png', 1),
+(10, 42, 10, '2023-11-08', 'WFO', 'meeting', '8', '11102023052213 42.png', 1),
+(11, 42, 31, '2023-11-09', 'WFO', 'meeting', '8', '11102023052248 42.png', 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +290,8 @@ INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proye
 (4, 1, 50, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-02'),
 (5, 1, 60, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-22'),
 (6, 1, 70, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-12-09'),
-(7, 1, 60, 'a', 'a', 'a', 'a', 'a', 'a', NULL, '2023-11-14');
+(7, 1, 60, 'a', 'a', 'a', 'a', 'a', 'a', NULL, '2023-11-14'),
+(9, 5, 100, '-', '-', '-', 'Di proyek ini konsep lean constrution sudah di terapkan bersinergi dengan fungsionalitas BIM yang sudah di implementasikan dan fase 4D dalam BIM, terutama di aspek Project Schedule & Planning, Just In Time Schedule, Installation Schedule, Payent Approval, dan Last Planner Schedule', 'Di Tengah kondisi perusahaan yang Sedang kurang Baik dan recovery dan di tengah implementasi Transformasi Wika yang Sedang di gencarkan, peningkatan produktivitas dan mutu dalam sinergi yang berkelanjutan menjadi tantangan tersendiri seiring dengan pesatnya perkembangan dunia industri dan teknologi informasi. Dalam konsteks tersebut ada 2  pendekatan yang sering di bahas di lingkungan akademik dan para praktisi dunia konstruksi, yaitu lean construction (LC) dan Building Information Modelling (BIM). Oleh karena itu harapan proyek agar, sosialisasi,pelatihan dan wokshop terkait Lean Construction bisa lebih d gencakan dan di rutinkn lagi, prosedurnya segera di bakukan, dan juga dijadikan salah satu indikator KPI Proyek dan individu', 'https://docs.google.com/presentation/d/1t8w1b-3MkEefYWSQEsVjhLptwuo0fXtL/edit?rtpof=true&sd=true', NULL, '2023-11-10');
 
 -- --------------------------------------------------------
 
@@ -316,7 +324,10 @@ CREATE TABLE `proyek` (
 
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
 (1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0);
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0),
+(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0),
+(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0),
+(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -347,7 +358,53 @@ CREATE TABLE `technical_supporting` (
 
 INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic`, `nomor_laporan`, `kode`, `topik`, `tanggal_submit`, `tanggal_selesai`, `status_support`, `note`, `dokumen`, `kendala`, `is_respon`, `id_user`) VALUES
 (2, 1, 'Admin', 'D00002', 'Kode', 'Topik', '2023-11-09', '2023-11-24', 'NO DATA', 'Note', 'Dokumen', 'Kendala Proyek A 1', 1, 1),
-(3, 1, 'Head Office 1', 'D00001', 'Kode 1', 'Topik 1', '2023-11-08', NULL, 'HOLD', 'Note', 'Dokeumen', 'Kendala Proyek A 2', 1, 23);
+(3, 1, 'Head Office 1', 'D00001', 'Kode 1', 'Topik 1', '2023-11-08', NULL, 'HOLD', 'Note', 'Dokeumen', 'Kendala Proyek A 2', 1, 23),
+(4, 1, 'Head Office 1', 'sjqnnmad2', 'S', 'barang', '2023-11-10', NULL, 'ON GOING', NULL, NULL, 'belum datang barang', 1, 23),
+(5, 5, 'Admin', 'sjqnnmad2', 'G', 'barang', '2023-11-10', '2023-11-11', 'SENT', 'Note', 'Dddsdds', 'Terjadi potensi longsoran timbunan surcharge di area lahan utara sisi utara', 1, 1),
+(6, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G/S', 'Topik', '2023-01-01', NULL, 'OPEN', NULL, NULL, 'Kendala', 1, 53),
+(7, 1, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-01-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
+(8, 1, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-01-19', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
+(9, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-29', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 53),
+(10, 1, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-07', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(11, 1, NULL, NULL, NULL, NULL, '2023-02-20', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(12, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-02-22', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(13, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-03-02', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
+(14, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-04-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
+(15, 3, NULL, NULL, NULL, NULL, '2023-05-17', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(16, 3, NULL, NULL, NULL, NULL, '2023-06-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(17, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-07-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
+(18, 3, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-08-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
+(19, 3, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(20, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-10-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
+(21, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(22, 3, NULL, NULL, NULL, NULL, '2023-12-04', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(23, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-01-16', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(24, 4, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(25, 4, NULL, NULL, NULL, NULL, '2023-03-14', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(26, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-04-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(27, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-16', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
+(28, 4, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(29, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-06-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(30, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-06-14', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(31, 4, NULL, NULL, NULL, NULL, '2023-07-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(32, 4, NULL, NULL, NULL, NULL, '2023-08-22', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(33, 4, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(34, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-17', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(35, 4, NULL, NULL, NULL, NULL, '2023-11-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(36, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-12-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(37, 5, NULL, NULL, NULL, NULL, '2023-01-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(38, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-02-06', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 25),
+(39, 5, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-03-15', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
+(40, 5, NULL, NULL, NULL, NULL, '2023-04-05', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(41, 5, NULL, NULL, NULL, NULL, '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(42, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
+(43, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-20', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 52),
+(44, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-07-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(45, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-08-15', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 52),
+(46, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-09-25', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
+(47, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-24', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
+(48, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-11-08', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 25),
+(49, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-12-19', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25);
 
 -- --------------------------------------------------------
 
@@ -371,7 +428,10 @@ INSERT INTO `tim_proyek` (`id_tim_proyek`, `nama_tim_proyek`, `deskripsi`, `tang
 (4, 'Tim Proyek B', 'Deskripsi Tim Proyek B', '2023-10-29'),
 (5, 'Tim Proyek C', 'Deskripsi Tim Proyek C', '2023-10-29'),
 (6, 'Tim Proyek D', 'Deskripsi Tim Proyek D', '2023-10-29'),
-(7, 'Tim Proyek E', 'Deskripsi Tim Proyek E', '2023-10-29');
+(7, 'Tim Proyek E', 'Deskripsi Tim Proyek E', '2023-10-29'),
+(8, 'Tim Akses Tol makassar New Port', 'Akses Tol makassar New Port', '2023-11-09'),
+(9, 'Tim Bandar Udara Banggai', 'Bandar Udara Banggai', '2023-11-09'),
+(10, 'Tim Bendungan Ameroro', 'Bendungan Ameroro', '2023-11-09');
 
 -- --------------------------------------------------------
 
@@ -407,7 +467,37 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 (23, 'Head Office 1', 'Staff of Engineering', 'Design & Analysis', '333331', '089979792324', '$2y$10$ZEQxnEsqEbsc1AOoX8uoRux2ESLgP6yZlT3nALgzRmCZXjIgyN0je', 'Head Office', '11042023061636 Head Office 1.jpg'),
 (24, 'Head Office 2', 'Staff of Engineering', 'Design & Analysis', '333332', '089897898323', '$2y$10$Vkwjr3Gmo1o4uHp7EF1wVukGphlVPJ9NMCYpi4SAecVtt.uBDD0QG', 'Head Office', '11042023061727 Head Office 2.jpg'),
 (25, 'Head Office 3', 'Staff of Engineering', 'Design & Analysis', '333333', '089978686878', '$2y$10$URcpbBLvxaGkUpI.Oob9E.lM7NVYlMEMwg019euLFVcNsn8jKuMYK', 'Head Office', '11042023061813 Head Office 3.jpg'),
-(26, 'Head Office 4', 'Staff of Engineering', 'BIM & Digitalization Engineering', '333334', '08989813412421', '$2y$10$WDVWReivpdkA22aUE1SA6OYThRdvMMLp4fR3HDYVmKg4FTof5AZOe', 'Head Office', '11062023034654 Head Office 4.jpg');
+(26, 'Head Office 4', 'Staff of Engineering', 'BIM & Digitalization Engineering', '333334', '08989813412421', '$2y$10$WDVWReivpdkA22aUE1SA6OYThRdvMMLp4fR3HDYVmKg4FTof5AZOe', 'Head Office', '11062023034654 Head Office 4.jpg'),
+(27, 'Luthfi Bina', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET032190', '123456789', '$2y$10$4B4HKg1oDiPD.lmjtCvLTucPc7W1X6v0dV6PQHYMl0enrpe39odT2', 'Head Office', '11102023043204 Luthfi Bina.jpg'),
+(28, 'Aliq Taufan Arisono', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET173874', '123456789', '$2y$10$LPB/DSpZ.o9COJZv5gr/z.WiQBs3NC/i0aVTjQYcUTyQbJl77FLy.', 'Head Office', '11102023043306 Aliq Taufan Arisono.jpg'),
+(29, 'Muhammad Risyad Alditio, ST.', 'Staff Corporate', 'Design & Analysis', 'ET194333', '123456789', '$2y$10$cNDjGrpv1sTb6qXJ3MxYS.RB6dl3pJAZEe1vNXjYT4Z7i1jAjJ.Sm', 'Head Office', '11102023043430 Muhammad Risyad Alditio, ST..jpg'),
+(30, 'R.M. Ihsan', 'Staff Corporate', 'Design & Analysis', 'ET194334', '123456789', '$2y$10$qJ1YkMb4YMyyM61TO4ecWub5X08Tjey2DYj1PhGzDF8CAi.TP5Cly', 'Head Office', '11102023043522 R.M. Ihsan.jpg'),
+(31, 'Wahyu Imam Pambudi', 'Staff Corporate', 'Design & Analysis', 'ET173858', '123456789', '$2y$10$LjDR6yfZpeFV7WWUpuu8Y.xlnhbXTnhhkpRY1.qXE/uXBE.HDe/4S', 'Head Office', '11102023043621 Wahyu Imam Pambudi.jpg'),
+(32, 'Rizky Dhewandaru', 'Staff Corporate', 'Design & Analysis', 'ET194389', '123456789', '$2y$10$.8wmL2Ydi.Zjb2CuoFa6v.NJ2.VDdwJ/isGB7/8JttlKFmqj5XooG', 'Head Office', '11102023043714 Rizky Dhewandaru.jpg'),
+(33, 'Andrian Wibisono', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET224521', '123456789', '$2y$10$t5kbRbpSjF6qbkfD6CQhA..4Il5owS/lfKVo1XJasgN314ppjNhZG', 'Head Office', '11102023044026 Andrian Wibisono.jpg'),
+(34, 'Aswadi Irsyadillah', 'Staff Corporate', 'Design & Analysis', 'ET194363', '123456789', '$2y$10$u/zVDd.jr3Hv7yuo.oYgcOk6H0luu0GGcS6XE.mEIbUfG8moCE8gK', 'Head Office', '11102023044131 Aswadi Irsyadillah.jpg'),
+(35, 'Aryo Bimantoro', 'Staff Corporate', 'Design & Analysis', 'ET184207', '123456789', '$2y$10$ud7JEqN.KLAQMZlY8c0dSeWS.kGX3LwglNhByUm87p4s.YmwPDBea', 'Head Office', '11102023044225 Aryo Bimantoro.jpg'),
+(36, 'Anan Febyanto Sanjaya', 'Staff Corporate', 'Design & Analysis', 'LS193837', '123456789', '$2y$10$c5QpeaBDVBM/2aPuy91Ower1LEqDFqwNWimVY0TQ16n8CQRLY6Dw.', 'Head Office', '11102023044318 Anan Febyanto Sanjaya.jpg'),
+(37, 'Agus Ubaidillah', 'Coordinator', 'BIM & Digitalization Engineering', 'ET122830', '123456789', '$2y$10$MYbeRJhk4FrK.2zjgnmXn.wVcDmqPRS2RrRX4/.hPePH1T7XvDsyu', 'Head Office', '11102023044435 Agus Ubaidillah.jpg'),
+(38, 'Nico Okto Wahyu Hartama', 'Staff Corporate', 'BIM & Digitalization Engineering', 'K.19.0573', '123456789', '$2y$10$26kgnbDP2JTZnI5MpIGQ1ujwCOARKJG9denMY3hSDvrLJraG.H3Le', 'Head Office', '11102023044526 Nico Okto Wahyu Hartama.jpg'),
+(39, 'Herlambang Bagus Sulistyo', 'Staff Corporate', 'BIM & Digitalization Engineering', 'ET163730', '123456789', '$2y$10$upMlbbkVTKLDxmxVJSnFkOyrIwtafDtl6LRxxAc//ocUDyX9nYaAu', 'Head Office', '11102023044645 Herlambang Bagus Sulistyo.jpg'),
+(40, 'Rifki Rahmadian Pangestu', 'Staff Corporate', 'BIM & Digitalization Engineering', 'ET204480', '123456789', '$2y$10$ANcu4APoKHmVS6.7oNA7xuMRW56uUgcXatUIWMHQol152hddUJsyK', 'Head Office', '11102023044740 Rifki Rahmadian Pangestu.jpg'),
+(41, 'Prita Nur Rifdah', 'Staff Corporate', 'BIM & Digitalization Engineering', 'Magang', '085860500814', '$2y$10$gMniWGgLKu9abJhW/iGnt.DtcCKVV8SD9McqKU7pHGriMk0c/6jUm', 'Head Office', '11102023044842 Prita Nur Rifdah.jpg'),
+(42, 'Muhammad Aqrobin', 'Coordinator', 'System Engineering & Lean Construction', 'ET082466', '123456789', '$2y$10$AmAjaX18pwub3m4MfpynSO6ZqRlIMlz3Is2pIgaRv5u/7Nb6dJQ9C', 'Head Office', '11102023044940 Muhammad Aqrobin.jpg'),
+(43, 'Muhammad Ariful Akbar', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET163808', '123456789', '$2y$10$HRjJ7JaU0XZR1GkT4jmNPeOBjP60Kr6rJRrgjcf9XHn5u7ZM4Seka', 'Head Office', '11102023045032 Muhammad Ariful Akbar.jpg'),
+(44, 'Ahmad Najib', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET133080', '123456789', '$2y$10$9wDgvz92nCizjonDrVD1w.HdzpZXDGjseuLL0WwQet7CnQURbwFxW', 'Head Office', '11102023045150 Ahmad Najib.jpg'),
+(45, 'Antonius Herdianto Gultom', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS153485', '123456789', '$2y$10$dJOot.VnnLuDV1g2TzAEIOjqkRF7TI47giwnHmeCzWg95TgqErMeS', 'Head Office', '11102023045243 Antonius Herdianto Gultom.jpg'),
+(46, 'Meiko Yogatama', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS193812', '123456789', '$2y$10$KE5veszgrtVwVHFuEc2nduG2JrllF1fABifP1zhOudbBd36m5OdFW', 'Head Office', '11102023045348 Meiko Yogatama.jpg'),
+(47, 'Marjukih', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS203851', '123456789', '$2y$10$5DoEaX6qNCJ3FlykfWGECuk2V6DwzsORgXkbo9F6/FcniA.VSa.c.', 'Head Office', '11102023045433 Marjukih.jpg'),
+(48, 'Herru Kusuma Praja', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET163721', '123456789', '$2y$10$v3KIE5WWiGhP60enqazXMuCsZtmccdS7EZIWMUGNui1/.zeSaQzDC', 'Head Office', '11102023045541 Herru Kusuma Praja.jpg'),
+(49, 'M. Zaenal Muttaqin', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET153447', '123456789', '$2y$10$AH7BkLcPXeyfRi7vdJsF0ueetdn4OJtirxTRbGMPPG29qKGUl5X.i', 'Head Office', '11102023045647 M. Zaenal Muttaqin.jpg'),
+(50, 'Muhamad Ali', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS153456', '123456789', '$2y$10$ibnlPIb8MUNfXLs5eyfbI.iBPJ2pUVE0bNBlheERXmBXqE4dafzhS', 'Head Office', '11102023045733 Muhamad Ali.jpg'),
+(51, 'Paraserian Firdaus', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET163687', '13456789', '$2y$10$nXsKheBL.i9hvY2ndvSL.e5di9sv48VzdnzOpGhwmoBp5GMB3m/Ou', 'Head Office', '11102023045830 Paraserian Firdaus.jpg'),
+(52, 'Soleh', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS193784', '123456789', '$2y$10$bxv/eZ7vo40uM3Pi1WLqAOVJL4QKi4Rd149Z0BsMEMJpbngk2nZ6S', 'Head Office', '11102023045922 Soleh.jpg'),
+(53, 'Yanto Agus Wahyudi', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS962699', '123456789', '$2y$10$mcCSVirxtxck3u1k.Ngq.evDK0M0n2pgCeKNFIRuvBfrN21bCDjTS', 'Head Office', '11102023050011 Yanto Agus Wahyudi.jpg'),
+(54, 'Alve Yunus', 'Kepala Seksi', NULL, 'makassar', '081294304555', '$2y$10$t7APuzXSaJ/uNhRaVlCyEe/GcluZTMaKaCOK2oxttPVFCOFzsk51C', 'Tim Proyek', '11102023050257 Alve Yunus.jpg'),
+(55, 'Agustinus Dimas', 'Kepala Seksi', NULL, 'banggai', '081230000706', '$2y$10$HAzI7mO4Pm1miYuSPvkZwO0P22S10Du1JlFxf.NTn.DRknaAJeymO', 'Tim Proyek', '11102023050353 081294304555.jpg'),
+(56, 'Dedi Chandra', 'Kepala Seksi', NULL, 'ameroro', '081230000706', '$2y$10$DHO3lsNI1x6zA/.wrGnF4OxtXiVFVdGSJ/.aUonPdbHe.gwEWiODS', 'Tim Proyek', '11102023050631 Dedi Chandra.jpg');
 
 --
 -- Indexes for dumped tables
@@ -505,13 +595,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_tim_proyek`
 --
 ALTER TABLE `detail_tim_proyek`
-  MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
-  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kategori_pekerjaan`
@@ -553,31 +643,31 @@ ALTER TABLE `monitoring_rkp`
 -- AUTO_INCREMENT for table `monthly_report`
 --
 ALTER TABLE `monthly_report`
-  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_monthly_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `technical_supporting`
 --
 ALTER TABLE `technical_supporting`
-  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tim_proyek`
 --
 ALTER TABLE `tim_proyek`
-  MODIFY `id_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
