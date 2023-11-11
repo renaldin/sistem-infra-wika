@@ -5,6 +5,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\EngineeringActivity;
+use App\Http\Controllers\KiKm;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\MasterAcitvity;
@@ -54,6 +55,8 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/receive-technical-supporting/{id}', [TechnicalSupporting::class, 'receive']);
     Route::get('/updated-technical-supporting/{id}', [TechnicalSupporting::class, 'edit']);
     Route::post('/edit-technical-supporting/{id}', [TechnicalSupporting::class, 'prosesEdit']);
+
+    Route::get('/update-ki-km', [KiKm::class, 'update'])->name('update-ki-km');
     
     
     Route::group(['middleware' => 'admin'], function () {
@@ -103,6 +106,9 @@ Route::group(['middleware' => 'revalidate'], function () {
 
         Route::get('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
         Route::post('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
+        
+        Route::get('/progress-ki-km', [KiKm::class, 'progress']);
+        Route::post('/progress-ki-km', [KiKm::class, 'progress']);
 
     });
 
@@ -115,6 +121,11 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-activity/{id}', [EngineeringActivity::class, 'edit'])->name('edit-activity');
         Route::post('/edit-activity/{id}', [EngineeringActivity::class, 'prosesEdit']);
         Route::get('/hapus-activity/{id}', [EngineeringActivity::class, 'prosesHapus']);
+
+        Route::get('/pengajuan-ki-km', [KiKm::class, 'pengajuan'])->name('pengajuan-ki-km');
+        Route::get('/receive-ki-km/{id}', [KiKm::class, 'receive']);
+        Route::get('/edit-ki-km/{id}', [KiKm::class, 'edit']);
+        Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
     });
 
@@ -134,5 +145,9 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/monitoring-technical-supporting', [TechnicalSupporting::class, 'indeX'])->name('monitoring-technical-supporting');
         Route::get('/tambah-technical-supporting', [TechnicalSupporting::class, 'tambah'])->name('tambah-technical-supporting');
         Route::post('/tambah-technical-supporting', [TechnicalSupporting::class, 'prosesTambah']);
+
+        Route::get('/monitoring-ki-km', [KiKm::class, 'index'])->name('monitoring-ki-km');
+        Route::get('/tambah-ki-km', [KiKm::class, 'tambah'])->name('tambah-ki-km');
+        Route::post('/tambah-ki-km', [KiKm::class, 'prosesTambah']);
     });
 });

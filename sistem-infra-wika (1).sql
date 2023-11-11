@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 01:55 AM
+-- Generation Time: Nov 11, 2023 at 05:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -135,6 +135,41 @@ INSERT INTO `kategori_pekerjaan` (`id_kategori_pekerjaan`, `kategori_pekerjaan`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ki_km`
+--
+
+CREATE TABLE `ki_km` (
+  `id_ki_km` int(11) NOT NULL,
+  `id_proyek` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `status_ki_km` varchar(255) DEFAULT NULL,
+  `kategori` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `tanggal_upload` date DEFAULT NULL,
+  `proses_penulisan` int(11) NOT NULL DEFAULT 0,
+  `approval_atasan` int(11) NOT NULL DEFAULT 0,
+  `approval_pic_divisi` int(11) NOT NULL DEFAULT 0,
+  `approval_pic_pusat` int(11) NOT NULL DEFAULT 0,
+  `approval_published` int(11) NOT NULL DEFAULT 0,
+  `tanggal_published` date DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `is_respon` int(11) NOT NULL DEFAULT 0,
+  `id_user_respon` int(11) DEFAULT NULL,
+  `tanggal_input` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ki_km`
+--
+
+INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`, `kategori`, `department`, `tanggal_upload`, `proses_penulisan`, `approval_atasan`, `approval_pic_divisi`, `approval_pic_pusat`, `approval_published`, `tanggal_published`, `note`, `is_respon`, `id_user_respon`, `tanggal_input`) VALUES
+(1, 3, 54, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 0, 0, NULL, 'note', 1, 52, '2023-11-11'),
+(2, 5, 56, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 1, 1, '2023-11-25', 'Note', 1, 53, '2023-11-11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `master_activity`
 --
 
@@ -157,53 +192,6 @@ INSERT INTO `master_activity` (`id_master_activity`, `id_user`, `absense_start`,
 (2, 24, '2023-11-05', '2023-11-30', 19, 152, '2023-11-30'),
 (3, 23, '2023-10-05', '2023-10-31', 19, 152, '2023-10-31'),
 (4, 24, '2023-10-05', '2023-10-31', 19, 152, '2023-10-31');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monitoring_ki_km`
---
-
-CREATE TABLE `monitoring_ki_km` (
-  `id_monitoring_ki_km` int(11) NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
-  `nama_proyek` varchar(255) DEFAULT NULL,
-  `kategori` varchar(255) DEFAULT NULL,
-  `judul` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `tanggal_update` date DEFAULT NULL,
-  `realisasi` int(11) DEFAULT 0,
-  `progress` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monitoring_kolaborasi_ki_km`
---
-
-CREATE TABLE `monitoring_kolaborasi_ki_km` (
-  `id_monitoring_kolaborasi_ki_km` int(11) NOT NULL,
-  `jenis_departemen` varchar(255) DEFAULT NULL,
-  `nama_proyek` varchar(255) DEFAULT NULL,
-  `judul` varchar(255) DEFAULT NULL,
-  `penulis` varchar(255) DEFAULT NULL,
-  `nip_penulis` varchar(255) DEFAULT NULL,
-  `proses_penulisan` int(11) DEFAULT NULL,
-  `proses_upload` int(11) DEFAULT NULL,
-  `approval_atasan_langsung` int(11) DEFAULT NULL,
-  `approval_pic_divisi` int(11) DEFAULT NULL,
-  `approval_pic_pusat` int(11) DEFAULT NULL,
-  `published` int(11) DEFAULT NULL,
-  `tanggal_published` date DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL,
-  `pic_divisi` varchar(255) DEFAULT NULL,
-  `kategori` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -396,7 +384,7 @@ INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic
 (38, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-02-06', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 25),
 (39, 5, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-03-15', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
 (40, 5, NULL, NULL, NULL, NULL, '2023-04-05', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(41, 5, NULL, NULL, NULL, NULL, '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(41, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 1, 53),
 (42, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
 (43, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-20', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 52),
 (44, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-07-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
@@ -522,22 +510,16 @@ ALTER TABLE `kategori_pekerjaan`
   ADD PRIMARY KEY (`id_kategori_pekerjaan`);
 
 --
+-- Indexes for table `ki_km`
+--
+ALTER TABLE `ki_km`
+  ADD PRIMARY KEY (`id_ki_km`);
+
+--
 -- Indexes for table `master_activity`
 --
 ALTER TABLE `master_activity`
   ADD PRIMARY KEY (`id_master_activity`);
-
---
--- Indexes for table `monitoring_ki_km`
---
-ALTER TABLE `monitoring_ki_km`
-  ADD PRIMARY KEY (`id_monitoring_ki_km`);
-
---
--- Indexes for table `monitoring_kolaborasi_ki_km`
---
-ALTER TABLE `monitoring_kolaborasi_ki_km`
-  ADD PRIMARY KEY (`id_monitoring_kolaborasi_ki_km`);
 
 --
 -- Indexes for table `monitoring_license_software`
@@ -610,16 +592,16 @@ ALTER TABLE `kategori_pekerjaan`
   MODIFY `id_kategori_pekerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
+-- AUTO_INCREMENT for table `ki_km`
+--
+ALTER TABLE `ki_km`
+  MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `master_activity`
 --
 ALTER TABLE `master_activity`
   MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `monitoring_kolaborasi_ki_km`
---
-ALTER TABLE `monitoring_kolaborasi_ki_km`
-  MODIFY `id_monitoring_kolaborasi_ki_km` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `monitoring_license_software`

@@ -241,7 +241,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Update') active @endif" href="/update-technical-supporting">
+                                <a class="nav-link @if ($title === 'Technical Supporting' && $subTitle === 'Update') active @endif" href="/update-technical-supporting">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -256,7 +256,54 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Progress') active @endif" href="/progress-technical-supporting">
+                                <a class="nav-link @if ($title === 'Technical Supporting' && $subTitle === 'Progress') active @endif" href="/progress-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Progress</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Kolaborasi KI/KM') active @endif" data-bs-toggle="collapse" @if ($title === 'Kolaborasi KI/KM') @endif href="#ki-km" role="button" aria-expanded="false" aria-controls="ki-km">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">KI/KM</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="ki-km" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'Kolaborasi KI/KM' && $subTitle === 'Update') active @endif" href="/update-ki-km">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Daftar Update</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'Kolaborasi KI/KM' && $subTitle === 'Progress') active @endif" href="/progress-ki-km">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -405,7 +452,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Monitoring' || $subTitle === 'Edit Technical Supporting') active @endif" href="/monitoring-technical-supporting">
+                                <a class="nav-link @if ($title === 'Technical Supporting' && $subTitle === 'Monitoring' || $subTitle === 'Edit Technical Supporting') active @endif" href="/monitoring-technical-supporting">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -417,6 +464,53 @@
                                     </i>
                                     <i class="sidenav-mini-icon"> U </i>
                                     <span class="item-name">Daftar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Kolaborasi KI/KM') active @endif" data-bs-toggle="collapse" @if ($title === 'Kolaborasi KI/KM') @endif href="#ki-km" role="button" aria-expanded="false" aria-controls="ki-km">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">KI/KM</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="ki-km" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Tambah KI/KM') active @endif" href="/tambah-ki-km">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Tambah</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'Kolaborasi KI/KM' && $subTitle === 'Monitoring') active @endif" href="/monitoring-ki-km">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Monitoring</span>
                                 </a>
                             </li>
                         </ul>
@@ -475,7 +569,54 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Update' || $subTitle === 'Form Update') active @endif" href="/update-technical-supporting">
+                                <a class="nav-link @if ($title === 'Technical Supporting' && $subTitle === 'Update' || $subTitle === 'Form Update') active @endif" href="/update-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Update</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Kolaborasi KI/KM') active @endif" data-bs-toggle="collapse" @if ($title === 'Kolaborasi KI/KM') @endif href="#ki-km" role="button" aria-expanded="false" aria-controls="ki-km">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">KI/KM</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="ki-km" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Pengajuan' || $subTitle === 'Form Pengajuan') active @endif" href="/pengajuan-ki-km">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Pengajuan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'Kolaborasi KI/KM' && $subTitle === 'Update' || $subTitle === 'Form Update KI/KM') active @endif" href="/update-ki-km">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
