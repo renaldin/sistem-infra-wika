@@ -99,7 +99,7 @@
                 <div class="header-title mb-2">
                     <label>Hourly Work Productive Job Item (a) : <strong>{{ $totalSubtotal }}</strong></label><br>
                     <label>85% Hourly Working Requirement (b) : <strong>{{ $masterActivity->work_hours }}</strong></label><br>
-                    <label>Achievement Rate Current Month (a/b) : <strong>{{ round($masterActivity->work_hours == 0? 0 : ($totalSubtotal / $masterActivity->work_hours) * 100) }}%</strong></label>
+                    <label>Achievement Rate Current Month (a/b) : <strong>{{ $masterActivity->work_hours == 0 ? 0 : round(($totalSubtotal / $masterActivity->work_hours) * 100) }}%</strong></label>
                 </div>
             </div>
         </div>

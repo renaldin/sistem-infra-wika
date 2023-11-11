@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 05:44 PM
+-- Generation Time: Nov 11, 2023 at 08:37 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -68,17 +68,47 @@ CREATE TABLE `engineering_activity` (
 --
 
 INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_kategori_pekerjaan`, `tanggal_masuk_kerja`, `status_kerja`, `judul_pekerjaan`, `durasi`, `evidence`, `checked`) VALUES
-(1, 23, 4, '2023-11-05', 'WFA', 'Judul 1', '2', '11052023222554 23.jpg', 1),
-(2, 23, 7, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222649 23.jpg', 1),
-(3, 23, 7, '2023-10-05', 'WFO', 'Judul 3', '2', '11052023222725 23.jpg', 1),
-(4, 24, 2, '2023-11-05', 'WFO', 'Judul 1', '2', '11052023222826 24.jpg', 1),
-(5, 24, 7, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222854 24.jpg', 1),
-(6, 24, 8, '2023-10-05', 'WFO', 'Judul 3', '2', '11052023222915 24.jpg', 1),
-(7, 24, 15, '2023-11-05', 'WFO', 'Judul 2', '2', '11052023222854 24.jpg', 1),
-(8, 37, 17, '2023-11-08', 'WFO', 'meeting', '8', '11102023052022 37.png', 1),
-(9, 37, 5, '2023-11-09', 'WFO', 'meeting', '8', '11102023052109 37.png', 1),
-(10, 42, 10, '2023-11-08', 'WFO', 'meeting', '8', '11102023052213 42.png', 1),
-(11, 42, 31, '2023-11-09', 'WFO', 'meeting', '8', '11102023052248 42.png', 1);
+(1, 53, 1, '2023-11-01', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181016 53.jpg', 1),
+(2, 53, 5, '2023-11-02', 'WFA', 'Judul / Deskripsi Pekerjaan', '8', '11112023181108 53.jpg', 1),
+(3, 53, 14, '2023-11-03', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181143 53.jpg', 1),
+(4, 53, 16, '2023-11-06', 'WFA', 'Judul / Deskripsi Pekerjaan', '8', '11112023181243 53.jpg', 1),
+(5, 53, 26, '2023-11-07', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181317 53.jpg', 1),
+(6, 53, 14, '2023-11-08', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181345 53.jpg', 1),
+(7, 53, 5, '2023-11-09', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181439 53.jpg', 1),
+(8, 53, 5, '2023-11-10', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181506 53.jpg', 1),
+(9, 53, 27, '2023-11-13', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181539 53.jpg', 1),
+(10, 53, 27, '2023-11-14', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181634 53.jpg', 1),
+(11, 53, 28, '2023-11-15', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181707 53.jpg', 1),
+(12, 53, 30, '2023-11-15', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181743 53.jpg', 1),
+(13, 53, 26, '2023-11-16', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181810 53.jpg', 1),
+(14, 53, 26, '2023-11-17', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181838 53.jpg', 1),
+(15, 53, 25, '2023-11-21', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023181941 53.jpg', 1),
+(16, 53, 26, '2023-11-23', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182029 53.jpg', 1),
+(17, 53, 26, '2023-11-24', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182057 53.jpg', 1),
+(18, 53, 27, '2023-11-27', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182125 53.jpg', 1),
+(19, 53, 9, '2023-11-29', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182154 53.jpg', 1),
+(20, 53, 21, '2023-11-30', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182220 53.jpg', 1),
+(21, 52, 24, '2023-11-01', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182339 52.jpg', 1),
+(22, 52, 26, '2023-11-02', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182406 52.jpg', 1),
+(23, 52, 28, '2023-11-03', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182434 52.jpg', 1),
+(24, 52, 31, '2023-11-06', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182502 52.jpg', 1),
+(25, 52, 26, '2023-11-07', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182528 52.jpg', 1),
+(26, 52, 31, '2023-11-08', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182555 52.jpg', 1),
+(27, 52, 26, '2023-11-09', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182621 52.jpg', 1),
+(28, 52, 32, '2023-11-10', 'WFA', 'Judul / Deskripsi Pekerjaan', '8', '11112023182650 52.jpg', 1),
+(29, 52, 32, '2023-11-13', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182716 52.jpg', 1),
+(30, 52, 29, '2023-11-14', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182744 52.jpg', 1),
+(31, 52, 25, '2023-11-15', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182813 52.jpg', 1),
+(32, 52, 25, '2023-11-16', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182838 52.jpg', 1),
+(33, 52, 23, '2023-11-17', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182904 52.jpg', 1),
+(34, 52, 26, '2023-11-20', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023182944 52.jpg', 1),
+(35, 52, 26, '2023-11-21', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183026 52.jpg', 1),
+(36, 52, 26, '2023-11-22', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183059 52.jpg', 1),
+(37, 52, 29, '2023-11-24', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183131 52.jpg', 1),
+(38, 52, 25, '2023-11-27', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183156 52.jpg', 1),
+(39, 52, 25, '2023-11-28', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183221 52.jpg', 1),
+(40, 52, 23, '2023-11-29', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183248 52.jpg', 1),
+(41, 52, 24, '2023-11-30', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183308 52.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -188,10 +218,8 @@ CREATE TABLE `master_activity` (
 --
 
 INSERT INTO `master_activity` (`id_master_activity`, `id_user`, `absense_start`, `absense_end`, `work_days`, `work_hours`, `tanggal_master`) VALUES
-(1, 23, '2023-11-05', '2023-11-30', 19, 152, '2023-11-30'),
-(2, 24, '2023-11-05', '2023-11-30', 19, 152, '2023-11-30'),
-(3, 23, '2023-10-05', '2023-10-31', 19, 152, '2023-10-31'),
-(4, 24, '2023-10-05', '2023-10-31', 19, 152, '2023-10-31');
+(5, 53, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30'),
+(6, 52, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30');
 
 -- --------------------------------------------------------
 
@@ -583,7 +611,7 @@ ALTER TABLE `detail_tim_proyek`
 -- AUTO_INCREMENT for table `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
-  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `kategori_pekerjaan`
@@ -601,7 +629,7 @@ ALTER TABLE `ki_km`
 -- AUTO_INCREMENT for table `master_activity`
 --
 ALTER TABLE `master_activity`
-  MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `monitoring_license_software`

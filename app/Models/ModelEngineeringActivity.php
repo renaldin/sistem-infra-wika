@@ -25,10 +25,20 @@ class ModelEngineeringActivity extends Model
             ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
             ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
             ->whereRaw('DATE_FORMAT(tanggal_masuk_kerja, "%Y-%m") = ?', $monthYear)
-            ->select('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi', DB::raw('SUM(durasi) as jumlah_durasi'))
-            ->groupBy('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi')
+            ->select('engineering_activity.id_user', 'nama_user', 'user.fungsi', DB::raw('SUM(durasi) as jumlah_durasi'))
+            ->groupBy('engineering_activity.id_user', 'nama_user', 'user.fungsi')
             ->get();
     }
+    // public function dataProductivityTeam($monthYear)
+    // {
+    //     return DB::table('engineering_activity') 
+    //         ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
+    //         ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
+    //         ->whereRaw('DATE_FORMAT(tanggal_masuk_kerja, "%Y-%m") = ?', $monthYear)
+    //         ->select('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi', DB::raw('SUM(durasi) as jumlah_durasi'))
+    //         ->groupBy('engineering_activity.id_user', 'nama_user', 'kategori_pekerjaan.fungsi')
+    //         ->get();
+    // }
 
     public function activityPerson($monthYear)
     {

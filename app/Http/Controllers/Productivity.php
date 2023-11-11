@@ -84,6 +84,7 @@ class Productivity extends Controller
                 'detailBulan'               => Request()->bulan,
                 'activity'                  => $this->ModelEngineeringActivity->activityPerson(Request()->bulan),
                 'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+                'pesanError'                => null
             ];
         }
 
@@ -96,19 +97,36 @@ class Productivity extends Controller
             return redirect()->route('login');
         }
 
-        $data = [
-            'title'                     => 'Productivity',
-            'subTitle'                  => 'By Person',
-            'bulan'                     => true,
-            'detailBulan'               => $detailBulan,
-            'detailUser'                => $this->ModelUser->detail($id_user),
-            'daftarKategoriPekerjaan'   => $this->ModelKategoriPekerjaan->dataFungsi(),
-            'activity'                  => $this->ModelEngineeringActivity->dataProductivityPerson($id_user, $detailBulan),
-            'masterActivity'            => $this->ModelMasterActivity->masterPerson($id_user, $detailBulan),
-            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-        ];
+        $masterActivity = $this->ModelMasterActivity->masterPerson($id_user, $detailBulan);
+        
+        if($masterActivity === null) {
+            $data = [
+                'title'                     => 'Productivity',
+                'subTitle'                  => 'By Person',
+                'bulan'                     => true,
+                'detailBulan'               => $detailBulan,
+                'activity'                  => $this->ModelEngineeringActivity->activityPerson($detailBulan),
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+                'pesanError'                => 'Maaf! Data master activity belum dibuat. Silahkan buat dulu di menu Master Activity!'
+            ];
+
+            return view('productivity.byPerson', $data);
+        } else {
+            $data = [
+                'title'                     => 'Productivity',
+                'subTitle'                  => 'By Person',
+                'bulan'                     => true,
+                'detailBulan'               => $detailBulan,
+                'detailUser'                => $this->ModelUser->detail($id_user),
+                'daftarKategoriPekerjaan'   => $this->ModelKategoriPekerjaan->dataFungsi(),
+                'activity'                  => $this->ModelEngineeringActivity->dataProductivityPerson($id_user, $detailBulan),
+                'masterActivity'            => $masterActivity,
+                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+            ];
+
+            return view('productivity.detailByPerson', $data);
+        }
      
-        return view('productivity.detailByPerson', $data);
     }
 
     // public function pilihBulan()
