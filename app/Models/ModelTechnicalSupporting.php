@@ -19,6 +19,16 @@ class ModelTechnicalSupporting extends Model
             ->get();
     }
 
+    public function dataIsRespon($isRespon)
+    {
+        return DB::table('technical_supporting')
+            ->join('proyek', 'proyek.id_proyek', '=', 'technical_supporting.id_proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek')
+            ->where('is_respon', $isRespon)
+            ->orderBy('id_technical_supporting', 'DESC')
+            ->get();
+    }
+
     public function detail($id_technical_supporting)
     {
         return DB::table('technical_supporting')

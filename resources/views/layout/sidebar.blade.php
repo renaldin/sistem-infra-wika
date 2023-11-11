@@ -211,6 +211,20 @@
                             <span class="item-name">Master Activity</span>
                         </a>
                     </li>
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Informasi</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Daftar Activity') active @endif" aria-current="page"  href="/daftar-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Daftar Activity</span>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link @if ($title === 'Technical Supporting') active @endif" data-bs-toggle="collapse" @if ($title === 'Technical Supporting') @endif href="#technical-supporting" role="button" aria-expanded="false" aria-controls="technical-supporting">
                             <i class="icon">
@@ -227,7 +241,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Permintaan' || $subTitle === 'Form Permintaan') active @endif" href="/permintaan-technical-supporting">
+                                <a class="nav-link @if ($subTitle === 'Update') active @endif" href="/update-technical-supporting">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -238,11 +252,11 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Permintaan</span>
+                                    <span class="item-name">Daftar Update</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Update' || $subTitle === 'Form Update') active @endif" href="/update-technical-supporting">
+                                <a class="nav-link @if ($subTitle === 'Progress') active @endif" href="/progress-technical-supporting">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -253,32 +267,10 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">Update</span>
+                                    <span class="item-name">Progress</span>
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item static-item">
-                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Informasi</span>
-                            <span class="mini-icon">-</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if ($subTitle === 'Daftar Activity') active @endif" aria-current="page"  href="/daftar-activity">
-                            <i class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
-                            </i>
-                            <span class="item-name">Daftar Activity</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if ($subTitle === 'Progress') active @endif" aria-current="page"  href="/progress-technical-supporting">
-                            <i class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
-                            </i>
-                            <span class="item-name">Progress TS</span>
-                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if ($title === 'Data Productivity') active @endif" data-bs-toggle="collapse"

@@ -49,7 +49,7 @@
                     <tbody>
                         <?php $no = 1;?>
                         @foreach ($daftarTechnicalSupporting as $item)
-                            @if ($item->id_user !== null && $item->id_user === $user->id_user && $item->is_respon === 1)
+                            @if ($user->role === 'Admin' || $item->id_user !== null && $item->id_user === $user->id_user && $item->is_respon === 1)
                                 <tr>
                                     <td>{{$no++}}</td>
                                     <td>

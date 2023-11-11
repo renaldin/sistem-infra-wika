@@ -118,7 +118,7 @@ class TechnicalSupporting extends Controller
             'title'                     => 'Technical Supporting',
             'subTitle'                  => 'Update',
             'daftarDetailTimProyek'     => $this->ModelDetailTimProyek->data(),
-            'daftarTechnicalSupporting' => $this->ModelTechnicalSupporting->data(),
+            'daftarTechnicalSupporting' => $this->ModelTechnicalSupporting->dataIsRespon(1),
             'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
         ];
 
