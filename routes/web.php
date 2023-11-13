@@ -127,6 +127,11 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-ki-km/{id}', [KiKm::class, 'edit']);
         Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
+        Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
+        Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
+        Route::get('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'edit']);
+        Route::post('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'prosesEdit']);
+
     });
 
     Route::group(['middleware' => 'timproyek'], function () {

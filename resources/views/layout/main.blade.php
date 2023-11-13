@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 
     <!-- select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ asset('template/html/assets/css/rtl.min.css') }}" />
    <style>
     body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
    </style>
