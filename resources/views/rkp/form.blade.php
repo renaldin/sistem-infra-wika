@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="form-label" for="id_proyek">Nama Proyek</label>
-                            <input type="hidden" name="id_proyek" value="{{$detail->id_proyek}}">
+                            <input type="hidden" name="id_proyek" value="@if($form === 'Edit'){{$detail->id_proyek}}@endif">
                             <select name="id_proyek" id="id_proyek" class="selectpicker form-control @error('id_proyek') is-invalid @enderror" data-style="py-0" required @if($form === 'Edit') disabled @endif>
                                 @if ($form === 'Tambah')
                                     <option value="" selected disabled>-- Pilih --</option>
