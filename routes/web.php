@@ -61,11 +61,8 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/edit-ki-km/{id}', [KiKm::class, 'edit']);
     Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
-    Route::get('/terima-rkp', [Rkp::class, 'terima'])->name('terima-rkp');
-    Route::get('/proses-terima-rkp/{id}', [Rkp::class, 'prosesEdit'])->name('proses-terima-rkp');
-    Route::get('/update-rkp', [Rkp::class, 'update'])->name('update-rkp');
-    Route::get('/edit-rkp/{id}', [Rkp::class, 'edit']);
-    Route::post('/edit-rkp/{id}', [Rkp::class, 'prosesEdit']);
+    Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
+    
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
@@ -132,6 +129,13 @@ Route::group(['middleware' => 'revalidate'], function () {
 
         Route::get('/pengajuan-ki-km', [KiKm::class, 'pengajuan'])->name('pengajuan-ki-km');
         Route::get('/receive-ki-km/{id}', [KiKm::class, 'receive']);
+
+        // Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
+        Route::get('/tambah-rkp', [Rkp::class, 'tambah'])->name('tambah-rkp');
+        Route::post('/tambah-rkp', [Rkp::class, 'prosesTambah']);
+        Route::get('/update-rkp', [Rkp::class, 'update'])->name('update-rkp');
+        Route::get('/edit-rkp/{id}', [Rkp::class, 'edit']);
+        Route::post('/edit-rkp/{id}', [Rkp::class, 'prosesEdit']);
         
 
         // Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
@@ -162,8 +166,5 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/tambah-ki-km', [KiKm::class, 'tambah'])->name('tambah-ki-km');
         Route::post('/tambah-ki-km', [KiKm::class, 'prosesTambah']);
 
-        Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
-        Route::get('/tambah-rkp', [Rkp::class, 'tambah'])->name('tambah-rkp');
-        Route::post('/tambah-rkp', [Rkp::class, 'prosesTambah']);
     });
 });

@@ -1,155 +1,245 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta charset="utf-8">
-    <title>Infrastructure 2 Division</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <!-- Google Web Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <title>Infrastruktur 2 Dvision</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('templateLanding/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('templateLanding/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="{{ asset('templateLand/assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('templateLand/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('templateLanding/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('templateLanding/css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-  <style>
-    body {
-    font-family: 'Open Sans', sans-serif;
-}
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('templateLand/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('templateLand/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('templateLand/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('templateLand/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('templateLand/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('templateLand/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  </style>
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('templateLand/assets/css/main.css') }}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: UpConstruction - v1.3.0
+  * Template URL: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>UpConstruction<span>.</span></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="/login">Login</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                    class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
     </div>
-    <!-- Spinner End -->
+  </header><!-- End Header -->
 
-    <!-- Topbar Start -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
 
-    <!-- Topbar End -->
-
-    <!-- Navbar Start -->
-    <div class="container-fluid " style="background-color: #093464; border-color: #2AABE2;">
-        <div class="container">
-            <nav class="navbar navbar-dark navbar-expand-lg py-0">
-                <a href="index.html" class="navbar-brand">
-                    <img src="{{ asset('templateLanding/img/infra2.png') }}" class="w-25">
-                </a>
-                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse bg-transparent " id="navbarCollapse">
-                    <div class="navbar-nav ms-auto mx-xl-auto p-0">
-                        <a href="/" class="nav-item nav-link active text-primary"><b>HOME</b></a>
-                        <a href="/about" class="nav-item nav-link"><b>ABOUT</b></a>
-                        <a href="/login" class="nav-item nav-link"><b>WIKAENGINEES</b></a>
-                        <a href="/contact" class="nav-item nav-link"><b>CONTACT</b></a>
-                    </div>
-                </div>
-                <div class="d-none d-xl-flex flex-shirink-0">
-
-                </div>
-            </nav>
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 data-aos="fade-down">Welcome to <span>UpConstruction</span></h2>
+            <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Navbar End -->
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-1.jpg') }})">
+      </div>
+      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-2.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-3.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-4.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-5.jpg') }})"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+  </section><!-- End Hero Section -->
+
+  <main id="main">
 
     @yield('content')
 
+  </main><!-- End #main -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer bg wow fadeIn" style="background-color: #002D60; border-color: #2AABE2;" data-wow-delay=".3s">
-        <div class="container pt-5 pb-4">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <a href="index.html">
-                        <img src="{{ asset('templateLanding/img/logo.png') }}" class="w-50">
-                    </a>
-                    <p class="mt-4 text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere delectus qui placeat inventore consectetur repellendus optio debitis.</p>
-                    <div class="d-flex hightech-link">
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-facebook-f text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-twitter text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i class="fab fa-instagram text-primary"></i></a>
-                        <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i class="fab fa-linkedin-in text-primary"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text" style="color: #2AABE2;">Short Link</a>
-                    <div class="mt-4 d-flex flex-column short-link">
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>About us</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Contact us</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Our Services</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Our Projects</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Latest Blog</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text" style="color: #2AABE2;">Help Link</a>
-                    <div class="mt-4 d-flex flex-column help-link">
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Terms Of use</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Privacy Policy</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Helps</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>FQAs</a>
-                        <a href="" class="mb-2 text-white"><i class="fas fa-angle-right text-primary me-2"></i>Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <a href="#" class="h3 text" style="color: #2AABE2;">Contact Us</a>
-                    <div class="text-white mt-4 d-flex flex-column contact-link">
-                        <a href="#" class="pb-3 text-light border-bottom border-primary"><i class="fas fa-map-marker-alt text-primary me-2"></i> JL. D.I. Panjaitan Kav. 9-10, Jakarta 13340</a>
-                        <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-phone-alt text-primary me-2"></i> +6221 8067 9200</a>
-                        <a href="#" class="py-3 text-light border-bottom border-primary"><i class="fas fa-envelope text-primary me-2"></i> adwijaya@wika.co.id</a>
-                    </div>
-                </div>
-            </div>
-            <hr class="text-light mt-5 mb-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <span class="text-light"><a href="#" class="text-primary"><i class="fas fa-copyright text me-2" style="color: #2AABE2;"></i>Tim Digitalisasi</a>, All right reserved.</span>
-                </div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
 
+    <div class="footer-content position-relative">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>UpConstruction</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links d-flex mt-3">
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              </div>
             </div>
+          </div><!-- End footer info column-->
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Product Management</a></li>
+              <li><a href="#">Marketing</a></li>
+              <li><a href="#">Graphic Design</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Hic solutasetp</h4>
+            <ul>
+              <li><a href="#">Molestiae accusamus iure</a></li>
+              <li><a href="#">Excepturi dignissimos</a></li>
+              <li><a href="#">Suscipit distinctio</a></li>
+              <li><a href="#">Dilecta</a></li>
+              <li><a href="#">Sit quas consectetur</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nobis illum</h4>
+            <ul>
+              <li><a href="#">Ipsam</a></li>
+              <li><a href="#">Laudantium dolorum</a></li>
+              <li><a href="#">Dinera</a></li>
+              <li><a href="#">Trodelas</a></li>
+              <li><a href="#">Flexo</a></li>
+            </ul>
+          </div><!-- End footer links column-->
+
         </div>
+      </div>
     </div>
-    <!-- Footer End -->
 
+    <div class="footer-legal text-center position-relative">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
+            href="https://themewagon.com">ThemeWagon</a>
+        </div>
+      </div>
+    </div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn btn-square rounded-circle back-to-top" style="background-color: #3293D0">
-        <i class="fa fa-arrow-up text-white"></i></a>
+  </footer>
+  <!-- End Footer -->
 
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('templateLanding/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('templateLanding/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('templateLanding/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('templateLanding/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <div id="preloader"></div>
 
-    <!-- Template Javascript -->
-    <script src="{{ asset('templateLanding/js/main.js') }}"></script>
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('templateLand/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('templateLand/assets/vendor/php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('templateLand/assets/js/main.js') }}"></script>
+
 </body>
 
 </html>

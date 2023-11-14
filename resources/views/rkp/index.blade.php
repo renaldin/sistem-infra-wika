@@ -39,6 +39,7 @@
                         <thead>
                             <tr class="ligth">
                                 <th>No</th>
+                                <th>Reviewer</th>
                                 <th>Kode SPK</th>
                                 <th>Proyek</th>
                                 <th class="text-center text-wrap">Review RKP Tahap 1</th>
@@ -53,9 +54,10 @@
                         <tbody>
                             <?php $no = 1;?>
                             @foreach ($daftarRkp as $item)
-                                @if (in_array($item->id_tim_proyek, $idTimProyek))
+                                @if ($item->is_respon === 1)
                                     <tr>
                                         <td>{{$no++}}</td>
+                                        <td>{{$item->nama_user}}</td>
                                         <td>{{$item->kode_spk}}</td>
                                         <td>
                                             <span class="badge bg-primary">{{$item->nama_proyek}}</span>

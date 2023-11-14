@@ -13,6 +13,7 @@ class ModelRkp extends Model
     public function data()
     {
         return DB::table('rkp')
+            ->join('user', 'user.id_user', '=', 'rkp.id_user_respon')
             ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
             ->orderBy('id_rkp', 'DESC')
             ->get();
@@ -21,6 +22,7 @@ class ModelRkp extends Model
     public function dataIsRespon($isRespon)
     {
         return DB::table('rkp')
+            ->join('user', 'user.id_user', '=', 'rkp.id_user_respon')
             ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
             ->where('is_respon', $isRespon)
             ->orderBy('id_rkp', 'DESC')
@@ -30,6 +32,7 @@ class ModelRkp extends Model
     public function detail($id_rkp)
     {
         return DB::table('rkp')
+            ->join('user', 'user.id_user', '=', 'rkp.id_user_respon')
             ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
             ->where('id_rkp', $id_rkp)
             ->first();

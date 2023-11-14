@@ -28,16 +28,9 @@ class Rkp extends Controller
             return redirect()->route('login');
         }
 
-        $detailTimProyek = $this->ModelDetailTimProyek->dataWhere('detail_tim_proyek.id_user', Session()->get('id_user'));
-        $idTimProyek = [];
-        foreach($detailTimProyek as $item) {
-            $idTimProyek[] = $item->id_tim_proyek;
-        }
-
         $data = [
-            'title'                     => 'RKP',
-            'subTitle'                  => 'Monitoring',
-            'idTimProyek'               => $idTimProyek,
+            'title'                     => null,
+            'subTitle'                  => 'Monitoring RKP',
             'daftarRkp'                 => $this->ModelRkp->data(),
             'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
         ];
@@ -51,16 +44,10 @@ class Rkp extends Controller
             return redirect()->route('login');
         }
 
-        $detailTimPRoyek = $this->ModelDetailTimProyek->dataWhere('detail_tim_proyek.id_user', Session()->get('id_user'));
-        $dataProyekByUser = [];
-        foreach($detailTimPRoyek as $item) {
-            $dataProyekByUser[] = $this->ModelProyek->dataWhere('proyek.id_tim_proyek', $item->id_tim_proyek);
-        }
-
         $data = [
             'title'             => 'RKP',
             'subTitle'          => 'Tambah',
-            'daftarProyek'      => $dataProyekByUser,
+            'daftarProyek'      => $this->ModelProyek->data(),
             'user'              => $this->ModelUser->detail(Session()->get('id_user')),
             'form'              => 'Tambah',
         ];
@@ -81,11 +68,19 @@ class Rkp extends Controller
         $data = [
             'id_proyek'     => Request()->id_proyek,
             'kode_spk'      => Request()->kode_spk,
+            'id_user_respon'=> Session()->get('id_user'),
+            'is_respon'     => 1,
             'tanggal_rkp'   => date('Y-m-d')
         ];
 
+        $dataProyek = [
+          'id_proyek'       => Request()->id_proyek,
+          'status_rkp'      => 1
+        ];
+
+        $this->ModelProyek->edit($dataProyek);
         $this->ModelRkp->tambah($data);
-        return redirect()->route('monitoring-rkp')->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->route('update-rkp')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function terima()
@@ -135,62 +130,50 @@ class Rkp extends Controller
             return redirect()->route('login');
         }
 
-        if(!Request()->id_proyek) {
-            $data = [
-                'id_rkp'            => $id_rkp,
-                'id_user_respon'    => Session()->get('id_user'),
-                'is_respon'         => 1
-            ];
-            $pesan = 'Data berhasil diterima!';
+        if(Request()->review1) {
+          $review1 = 1;
         } else {
-
-          if(Request()->review1) {
-            $review1 = 1;
-          } else {
-            $review1 = 0;
-          }
-          if(Request()->review2) {
-            $review2 = 1;
-          } else {
-            $review2 = 0;
-          }
-          if(Request()->review3) {
-            $review3 = 1;
-          } else {
-            $review3 = 0;
-          }
-          if(Request()->review4) {
-            $review4 = 1;
-          } else {
-            $review4 = 0;
-          }
-          if(Request()->review5) {
-            $review5 = 1;
-          } else {
-            $review5 = 0;
-          }
-          if(Request()->review6) {
-            $review6 = 1;
-          } else {
-            $review6 = 0;
-          }
-
-          $data = [
-            'id_rkp'      => $id_rkp,
-            'review1'     => $review1,
-            'review2'     => $review2,
-            'review3'     => $review3,
-            'review4'     => $review4,
-            'review5'     => $review5,
-            'review6'     => $review6,
-            'note'        => Request()->note
-          ];
-
-          $pesan = 'Data berhasil diedit!';
+          $review1 = 0;
+        }
+        if(Request()->review2) {
+          $review2 = 1;
+        } else {
+          $review2 = 0;
+        }
+        if(Request()->review3) {
+          $review3 = 1;
+        } else {
+          $review3 = 0;
+        }
+        if(Request()->review4) {
+          $review4 = 1;
+        } else {
+          $review4 = 0;
+        }
+        if(Request()->review5) {
+          $review5 = 1;
+        } else {
+          $review5 = 0;
+        }
+        if(Request()->review6) {
+          $review6 = 1;
+        } else {
+          $review6 = 0;
         }
 
+        $data = [
+          'id_rkp'      => $id_rkp,
+          'review1'     => $review1,
+          'review2'     => $review2,
+          'review3'     => $review3,
+          'review4'     => $review4,
+          'review5'     => $review5,
+          'review6'     => $review6,
+          'note'        => Request()->note
+        ];
+
         $this->ModelRkp->edit($data);
-        return redirect()->route('update-rkp')->with('success', $pesan);
+        return redirect()->route('update-rkp')->with('success', 'Data berhasil diupdate!');
     }
 
     public function update()

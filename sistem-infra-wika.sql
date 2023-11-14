@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 07:36 PM
+-- Generation Time: Nov 14, 2023 at 11:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -44,6 +44,20 @@ INSERT INTO `detail_tim_proyek` (`id_detail_tim_proyek`, `id_tim_proyek`, `id_us
 (8, 8, 54),
 (9, 9, 55),
 (10, 10, 56);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dokumen_lps`
+--
+
+CREATE TABLE `dokumen_lps` (
+  `id_dokumen_lps` int(11) NOT NULL,
+  `nama_dokumen` varchar(255) DEFAULT NULL,
+  `no_urut` varchar(10) DEFAULT NULL,
+  `jenis_dokumen` enum('Utama','Pendukung') NOT NULL,
+  `tanggal_input` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -203,6 +217,22 @@ INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lps`
+--
+
+CREATE TABLE `lps` (
+  `id_lps` int(11) NOT NULL,
+  `id_proyek` int(11) NOT NULL,
+  `pdf` int(11) NOT NULL DEFAULT 0,
+  `native` int(11) NOT NULL DEFAULT 0,
+  `tanggal_lps` date DEFAULT NULL,
+  `id_user_respon` int(11) DEFAULT NULL,
+  `is_respon` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `master_activity`
 --
 
@@ -316,19 +346,20 @@ CREATE TABLE `proyek` (
   `tiga_d` int(11) NOT NULL DEFAULT 0,
   `empat_d` int(11) NOT NULL DEFAULT 0,
   `lima_d` int(11) NOT NULL DEFAULT 0,
-  `cde` int(11) NOT NULL DEFAULT 0
+  `cde` int(11) NOT NULL DEFAULT 0,
+  `status_rkp` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`) VALUES
-(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0),
-(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0),
-(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0),
-(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`) VALUES
+(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1),
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1),
+(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0),
+(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0),
+(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -357,7 +388,8 @@ CREATE TABLE `rkp` (
 --
 
 INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`) VALUES
-(1, 3, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Cataan 2', '2023-11-13', 53, 1);
+(1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1),
+(2, 2, 'Kode SPK', 0, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1);
 
 -- --------------------------------------------------------
 
@@ -540,6 +572,12 @@ ALTER TABLE `detail_tim_proyek`
   ADD PRIMARY KEY (`id_detail_tim_proyek`);
 
 --
+-- Indexes for table `dokumen_lps`
+--
+ALTER TABLE `dokumen_lps`
+  ADD PRIMARY KEY (`id_dokumen_lps`);
+
+--
 -- Indexes for table `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
@@ -556,6 +594,12 @@ ALTER TABLE `kategori_pekerjaan`
 --
 ALTER TABLE `ki_km`
   ADD PRIMARY KEY (`id_ki_km`);
+
+--
+-- Indexes for table `lps`
+--
+ALTER TABLE `lps`
+  ADD PRIMARY KEY (`id_lps`);
 
 --
 -- Indexes for table `master_activity`
@@ -622,6 +666,12 @@ ALTER TABLE `detail_tim_proyek`
   MODIFY `id_detail_tim_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `dokumen_lps`
+--
+ALTER TABLE `dokumen_lps`
+  MODIFY `id_dokumen_lps` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
@@ -638,6 +688,12 @@ ALTER TABLE `kategori_pekerjaan`
 --
 ALTER TABLE `ki_km`
   MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `lps`
+--
+ALTER TABLE `lps`
+  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `master_activity`
@@ -673,7 +729,7 @@ ALTER TABLE `proyek`
 -- AUTO_INCREMENT for table `rkp`
 --
 ALTER TABLE `rkp`
-  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `technical_supporting`

@@ -24,7 +24,9 @@
                                     <option value="{{$detail->id_proyek}}">{{$detail->nama_proyek}}</option>
                                 @endif
                                 @foreach ($daftarProyek as $item)
-                                    <option value="{{$item->id_proyek}}">{{$item->nama_proyek}}</option>
+                                    @if($item->status_rkp === 0)
+                                        <option value="{{$item->id_proyek}}">{{$item->nama_proyek}}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             @error('id_proyek')

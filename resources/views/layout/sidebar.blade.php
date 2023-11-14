@@ -213,7 +213,7 @@
                     </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Informasi</span>
+                            <span class="default-icon">Monitoring</span>
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
@@ -367,6 +367,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Monitoring RKP') active @endif" aria-current="page"  href="/monitoring-rkp">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">RKP</span>
+                        </a>
+                    </li>
                 @elseif ($user->role === 'Tim Proyek')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -515,53 +523,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link @if ($title === 'RKP') active @endif" data-bs-toggle="collapse" @if ($title === 'RKP') @endif href="#rkp" role="button" aria-expanded="false" aria-controls="rkp">
-                            <i class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
-                            </i>
-                            <span class="item-name">RKP</span>
-                            <i class="right-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="rkp" data-bs-parent="#sidebar-menu">
-                            <li class="nav-item">
-                                <a class="nav-link @if ($title === 'RKP' && $subTitle === 'Tambah') active @endif" href="/tambah-rkp">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor">
-                                                </circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Tambah</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link @if ($title === 'RKP' && $subTitle === 'Monitoring' || $title === 'RKP' && $subTitle === 'Edit') active @endif" href="/monitoring-rkp">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor">
-                                                </circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">Monitoring</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                 @elseif ($user->role === 'Head Office')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -695,7 +656,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="rkp" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($title === 'RKP' && $subTitle === 'Terima') active @endif" href="/terima-rkp">
+                                <a class="nav-link @if ($title === 'RKP' && $subTitle === 'Tambah') active @endif" href="/tambah-rkp">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -706,7 +667,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Terima</span>
+                                    <span class="item-name">Tambah</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -728,7 +689,7 @@
                     </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                            <span class="default-icon">Informasi</span>
+                            <span class="default-icon">Monitoring</span>
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
@@ -738,6 +699,14 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
                             <span class="item-name">Daftar Activity</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Monitoring RKP') active @endif" aria-current="page"  href="/monitoring-rkp">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Monitoring RKP</span>
                         </a>
                     </li>
                 @endif
