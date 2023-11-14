@@ -14,6 +14,7 @@ use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Productivity;
 use App\Http\Controllers\Proyek;
+use App\Http\Controllers\Rkp;
 use App\Http\Controllers\TechnicalSupporting;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
@@ -57,7 +58,14 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-technical-supporting/{id}', [TechnicalSupporting::class, 'prosesEdit']);
 
     Route::get('/update-ki-km', [KiKm::class, 'update'])->name('update-ki-km');
-    
+    Route::get('/edit-ki-km/{id}', [KiKm::class, 'edit']);
+    Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
+
+    Route::get('/terima-rkp', [Rkp::class, 'terima'])->name('terima-rkp');
+    Route::get('/proses-terima-rkp/{id}', [Rkp::class, 'prosesEdit'])->name('proses-terima-rkp');
+    Route::get('/update-rkp', [Rkp::class, 'update'])->name('update-rkp');
+    Route::get('/edit-rkp/{id}', [Rkp::class, 'edit']);
+    Route::post('/edit-rkp/{id}', [Rkp::class, 'prosesEdit']);
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
@@ -124,13 +132,12 @@ Route::group(['middleware' => 'revalidate'], function () {
 
         Route::get('/pengajuan-ki-km', [KiKm::class, 'pengajuan'])->name('pengajuan-ki-km');
         Route::get('/receive-ki-km/{id}', [KiKm::class, 'receive']);
-        Route::get('/edit-ki-km/{id}', [KiKm::class, 'edit']);
-        Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
+        
 
-        Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
-        Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
-        Route::get('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'edit']);
-        Route::post('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'prosesEdit']);
+        // Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
+        // Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
+        // Route::get('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'edit']);
+        // Route::post('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'prosesEdit']);
 
     });
 
@@ -154,5 +161,9 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/monitoring-ki-km', [KiKm::class, 'index'])->name('monitoring-ki-km');
         Route::get('/tambah-ki-km', [KiKm::class, 'tambah'])->name('tambah-ki-km');
         Route::post('/tambah-ki-km', [KiKm::class, 'prosesTambah']);
+
+        Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
+        Route::get('/tambah-rkp', [Rkp::class, 'tambah'])->name('tambah-rkp');
+        Route::post('/tambah-rkp', [Rkp::class, 'prosesTambah']);
     });
 });

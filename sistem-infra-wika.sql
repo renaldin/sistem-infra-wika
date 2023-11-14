@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 08:37 PM
+-- Generation Time: Nov 13, 2023 at 07:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -108,7 +108,9 @@ INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_ka
 (38, 52, 25, '2023-11-27', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183156 52.jpg', 1),
 (39, 52, 25, '2023-11-28', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183221 52.jpg', 1),
 (40, 52, 23, '2023-11-29', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183248 52.jpg', 1),
-(41, 52, 24, '2023-11-30', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183308 52.jpg', 1);
+(41, 52, 24, '2023-11-30', 'WFO', 'Judul / Deskripsi Pekerjaan', '8', '11112023183308 52.jpg', 1),
+(42, 37, 4, '2023-11-12', 'WFO', 'meeting', '5.5', '11122023033442 37.png', 1),
+(43, 37, 32, '2023-11-12', 'WFO', 'meeting', '7.5', '11122023033530 37.png', 1);
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,8 @@ CREATE TABLE `ki_km` (
 
 INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`, `kategori`, `department`, `tanggal_upload`, `proses_penulisan`, `approval_atasan`, `approval_pic_divisi`, `approval_pic_pusat`, `approval_published`, `tanggal_published`, `note`, `is_respon`, `id_user_respon`, `tanggal_input`) VALUES
 (1, 3, 54, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 0, 0, NULL, 'note', 1, 52, '2023-11-11'),
-(2, 5, 56, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 1, 1, '2023-11-25', 'Note', 1, 53, '2023-11-11');
+(2, 5, 56, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 1, 1, '2023-11-25', 'Note', 1, 53, '2023-11-11'),
+(3, 4, 55, 'PTOYEK', 'Non Engineering', 'Knowledge Management', 'Departemen Operasi 3', '2023-11-12', 1, 1, 0, 0, 0, NULL, NULL, 1, 37, '2023-11-12');
 
 -- --------------------------------------------------------
 
@@ -218,8 +221,9 @@ CREATE TABLE `master_activity` (
 --
 
 INSERT INTO `master_activity` (`id_master_activity`, `id_user`, `absense_start`, `absense_end`, `work_days`, `work_hours`, `tanggal_master`) VALUES
-(5, 53, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30'),
-(6, 52, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30');
+(10, 53, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30'),
+(11, 52, '2023-11-01', '2023-11-30', 22, 176, '2023-11-30'),
+(12, 37, '2023-11-12', '2023-11-30', 14, 112, '2023-11-30');
 
 -- --------------------------------------------------------
 
@@ -255,25 +259,6 @@ CREATE TABLE `monitoring_lps` (
   `native_seitai` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `monitoring_rkp`
---
-
-CREATE TABLE `monitoring_rkp` (
-  `id_monitoring_rkp` int(11) NOT NULL,
-  `id_proyek` int(11) DEFAULT NULL,
-  `kode_spk` varchar(255) DEFAULT NULL,
-  `pic` varchar(255) DEFAULT NULL,
-  `prepared_by_divisi` varchar(255) DEFAULT NULL,
-  `checked_by` varchar(255) DEFAULT NULL,
-  `form_evaluasi` text DEFAULT NULL,
-  `tanggal_monitoring_rkp` date DEFAULT NULL,
-  `created_by` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_by` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -348,6 +333,35 @@ INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rkp`
+--
+
+CREATE TABLE `rkp` (
+  `id_rkp` int(11) NOT NULL,
+  `id_proyek` int(11) DEFAULT NULL,
+  `kode_spk` varchar(255) DEFAULT NULL,
+  `review1` int(11) NOT NULL DEFAULT 0,
+  `review2` int(11) NOT NULL DEFAULT 0,
+  `review3` int(11) NOT NULL DEFAULT 0,
+  `review4` int(11) NOT NULL DEFAULT 0,
+  `review5` int(11) NOT NULL DEFAULT 0,
+  `review6` int(11) NOT NULL DEFAULT 0,
+  `note` text DEFAULT NULL,
+  `tanggal_rkp` date NOT NULL,
+  `id_user_respon` int(11) DEFAULT NULL,
+  `is_respon` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rkp`
+--
+
+INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`) VALUES
+(1, 3, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Cataan 2', '2023-11-13', 53, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `technical_supporting`
 --
 
@@ -411,7 +425,7 @@ INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic
 (37, 5, NULL, NULL, NULL, NULL, '2023-01-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
 (38, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-02-06', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 25),
 (39, 5, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-03-15', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
-(40, 5, NULL, NULL, NULL, NULL, '2023-04-05', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
+(40, 5, 'Agus Ubaidillah', 'nmpp', 'S', 'barang', '2023-04-05', '2023-11-12', 'SENT', NULL, NULL, 'Kendala Teknis', 1, 37),
 (41, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 1, 53),
 (42, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
 (43, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-20', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 52),
@@ -562,12 +576,6 @@ ALTER TABLE `monitoring_lps`
   ADD PRIMARY KEY (`id_monitoring_lps`);
 
 --
--- Indexes for table `monitoring_rkp`
---
-ALTER TABLE `monitoring_rkp`
-  ADD PRIMARY KEY (`id_monitoring_rkp`);
-
---
 -- Indexes for table `monthly_report`
 --
 ALTER TABLE `monthly_report`
@@ -578,6 +586,12 @@ ALTER TABLE `monthly_report`
 --
 ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`);
+
+--
+-- Indexes for table `rkp`
+--
+ALTER TABLE `rkp`
+  ADD PRIMARY KEY (`id_rkp`);
 
 --
 -- Indexes for table `technical_supporting`
@@ -611,7 +625,7 @@ ALTER TABLE `detail_tim_proyek`
 -- AUTO_INCREMENT for table `engineering_activity`
 --
 ALTER TABLE `engineering_activity`
-  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `kategori_pekerjaan`
@@ -623,13 +637,13 @@ ALTER TABLE `kategori_pekerjaan`
 -- AUTO_INCREMENT for table `ki_km`
 --
 ALTER TABLE `ki_km`
-  MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `master_activity`
 --
 ALTER TABLE `master_activity`
-  MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_master_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `monitoring_license_software`
@@ -644,12 +658,6 @@ ALTER TABLE `monitoring_lps`
   MODIFY `id_monitoring_lps` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `monitoring_rkp`
---
-ALTER TABLE `monitoring_rkp`
-  MODIFY `id_monitoring_rkp` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `monthly_report`
 --
 ALTER TABLE `monthly_report`
@@ -660,6 +668,12 @@ ALTER TABLE `monthly_report`
 --
 ALTER TABLE `proyek`
   MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `rkp`
+--
+ALTER TABLE `rkp`
+  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `technical_supporting`

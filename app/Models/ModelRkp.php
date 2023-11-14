@@ -12,37 +12,42 @@ class ModelRkp extends Model
 
     public function data()
     {
-        return DB::table('monitoring_rkp')
-            ->join('proyek', 'proyek.id_proyek', '=', 'monitoring_rkp.id_proyek')
-            ->orderBy('id_monitoring_rkp', 'DESC')
+        return DB::table('rkp')
+            ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
+            ->orderBy('id_rkp', 'DESC')
             ->get();
     }
-
+    
     public function dataIsRespon($isRespon)
     {
-        return DB::table('ki_km')
-        ->join('proyek', 'proyek.id_proyek', '=', 'monitoring_rkp.id_proyek')
+        return DB::table('rkp')
+            ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
             ->where('is_respon', $isRespon)
-            ->orderBy('id_monitoring_rkp', 'DESC')
+            ->orderBy('id_rkp', 'DESC')
             ->get();
     }
 
-    public function detail($id_monitoring_rkp)
+    public function detail($id_rkp)
     {
-        return DB::table('ki_km')
-        ->join('proyek', 'proyek.id_proyek', '=', 'monitoring_rkp.id_proyek')
-            ->where('id_monitoring_rkp', $id_monitoring_rkp)
+        return DB::table('rkp')
+            ->join('proyek', 'proyek.id_proyek', '=', 'rkp.id_proyek')
+            ->where('id_rkp', $id_rkp)
             ->first();
     }
 
     public function tambah($data)
     {
-        DB::table('monitoring_rkp')->insert($data);
+        DB::table('rkp')->insert($data);
     }
 
     public function edit($data)
     {
-        DB::table('monitoring_rkp')->where('id_monitoring_rkp', $data['id_monitoring_rkp'])->update($data);
+        DB::table('rkp')->where('id_rkp', $data['id_rkp'])->update($data);
+    }
+
+    public function hapus($id_rkp)
+    {
+        DB::table('rkp')->where('id_rkp', $id_rkp)->delete();
     }
 
 }
