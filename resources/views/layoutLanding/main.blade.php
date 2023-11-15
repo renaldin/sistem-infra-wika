@@ -20,7 +20,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
-
+<!-- Maps -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
   <!-- Vendor CSS Files -->
   <link href="{{ asset('templateLand/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('templateLand/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -48,19 +51,19 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>UpConstruction<span>.</span></h1>
-      </a>
+        <img src="{{ asset('image/logoputih.png') }}" alt="Logo">
+    </a>
+    
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Activity</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="/login">Login</a></li>
+          <li><a href="/login">Wikaenginees</a></li>
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -94,10 +97,6 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
-            <h2 data-aos="fade-down">Welcome to <span>UpConstruction</span></h2>
-            <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</p>
             <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
           </div>
         </div>
@@ -105,13 +104,10 @@
     </div>
 
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-      <div class="carousel-item active" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-1.jpg') }})">
-      </div>
-      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-2.jpg') }})"></div>
-      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-3.jpg') }})"></div>
-      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-4.jpg') }})"></div>
-      <div class="carousel-item" style="background-image: url({{ asset('templateLand/assets/img/hero-carousel/hero-carousel-5.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('image/carousel1.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('image/carousel2.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('image/carousel3.jpg') }})"></div>
+      <div class="carousel-item" style="background-image: url({{ asset('image/carousel4.jpg') }})"></div>
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -140,10 +136,11 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>UpConstruction</h3>
+              <h3>Infrastructure 2 Division</h3>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
+               
+JL. D.I. Panjaitan Kav. 9-10, <br>
+Jakarta 13340<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>
@@ -207,15 +204,15 @@
     <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>Infrastructure 2 Division</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/upconstruction-bootstrap-construction-website-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a
-            href="https://themewagon.com">ThemeWagon</a>
+          Designed by <a href="https://bootstrapmade.com/">BIM & Digilization</a> Distributed by <a
+            href="https://themewagon.com">Infrastructure 2 Division</a>
         </div>
       </div>
     </div>

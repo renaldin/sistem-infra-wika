@@ -11,7 +11,7 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-default: "Open Sans";
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Work Sans", sans-serif;
 }
@@ -19,7 +19,7 @@
 /* Colors */
 :root {
   --color-default: #364d59;
-  --color-primary: #feb900;
+  --color-primary: #2AABE2;
   --color-secondary: #52565e;
 }
 
@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #ffc732;
+  color: #004899;
   text-decoration: none;
 }
 
@@ -188,7 +188,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #ffc732;
+  background: #004899;
   color: #fff;
 }
 
@@ -668,7 +668,7 @@ section {
 }
 
 .get-started .php-email-form button[type=submit]:hover {
-  background: rgba(254, 185, 0, 0.8);
+  background: #2AABE2;
 }
 
 @-webkit-keyframes animate-loading {
@@ -689,6 +689,16 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/*--------------------------------------------------------------
+# maps Section
+--------------------------------------------------------------*/
+.maps .card-item {
+  border: 1px solid rgba(82, 86, 94, 0.2);
+  background: #fff;
+  position: relative;
+  border-radius: 0;
 }
 
 /*--------------------------------------------------------------
@@ -935,6 +945,11 @@ section {
   transition: 0.3s;
 }
 
+.portfolio-item img {
+  border-radius: 20px;
+  /* Adjust the value as needed */
+}
+
 .projects .portfolio-content .portfolio-info {
   opacity: 0;
   position: absolute;
@@ -1001,6 +1016,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials .testimonial-wrap {
   padding-left: 50px;
+  border-radius: 20px;
 }
 
 .testimonials .testimonials-carousel,
@@ -1026,6 +1042,12 @@ section {
   left: -45px;
 }
 
+.testimonial-wrap .testimonial-img {
+  border-radius: 20px;
+  /* Adjust the value as needed */
+}
+
+
 .testimonials .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
@@ -1044,13 +1066,13 @@ section {
 }
 
 .testimonials .testimonial-item .stars i {
-  color: #ffc107;
+  color: #2AABE2;
   margin: 0 1px;
 }
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #ffd565;
+  color: #2AABE2;
   font-size: 26px;
   line-height: 0;
 }
@@ -1514,7 +1536,7 @@ section {
 }
 
 .project-details .portfolio-info .btn-visit:hover {
-  background: #ffc019;
+  background: #2AABE2;
 }
 
 .project-details .portfolio-description h2 {
@@ -1559,7 +1581,7 @@ section {
 
 .project-details .portfolio-description .testimonial-item .quote-icon-left,
 .project-details .portfolio-description .testimonial-item .quote-icon-right {
-  color: #ffd565;
+  color: #2AABE2;
   font-size: 26px;
   line-height: 0;
 }
@@ -1666,7 +1688,7 @@ section {
   line-height: 0;
   color: var(--color-primary);
   border-radius: 50%;
-  border: 2px dotted #ffd565;
+  border: 2px dotted #2AABE2;
 }
 
 .contact .info-item h3 {
@@ -1766,7 +1788,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: rgba(254, 185, 0, 0.8);
+  background: #2AABE2;
 }
 
 @keyframes animate-loading {
@@ -1854,6 +1876,30 @@ section {
   transform: scale(1.1);
 }
 
+.post-item .post-img {
+  overflow: hidden;
+  border-radius: 10px;
+  /* Adjust the value as needed */
+}
+
+.post-item .post-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  /* Adjust the value as needed */
+}
+
+.post-item {
+  border-radius: 10px;
+  /* Adjust the value as needed */
+  overflow: hidden;
+}
+
+.post-item .post-content {
+  border-radius: 0 0 10px 10px;
+  /* Adjust the value as needed */
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -1883,7 +1929,7 @@ section {
 
 .hero .carousel-item::before {
   content: "";
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(48, 44, 44, 0.432);
   position: absolute;
   inset: 0;
 }
@@ -2367,7 +2413,7 @@ section {
 }
 
 .blog .sidebar .search-form form button:hover {
-  background: rgba(254, 185, 0, 0.8);
+  background: #2AABE2;
 }
 
 .blog .sidebar .categories ul {
@@ -2545,7 +2591,7 @@ section {
 
 .blog .comments .reply-form input:focus {
   box-shadow: none;
-  border-color: rgba(254, 185, 0, 0.8);
+  border-color: #2AABE2;
 }
 
 .blog .comments .reply-form textarea {
@@ -2556,7 +2602,7 @@ section {
 
 .blog .comments .reply-form textarea:focus {
   box-shadow: none;
-  border-color: rgba(254, 185, 0, 0.8);
+  border-color: #2AABE2;
 }
 
 .blog .comments .reply-form .form-group {

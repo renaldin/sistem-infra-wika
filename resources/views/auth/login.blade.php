@@ -4,7 +4,7 @@
     <section class="login-content" style="height: 100vh; overflow: hidden; position: relative;">
         <div class="row m-0" style="height: 100%;">
             <div class="col-md-12 p-0" style="height: 100%;">
-                <img src="{{ asset('templateLanding/img/bglogin.jpg') }}"
+                <img src="{{ asset('image/bglogin.jpg') }}"
                     class="img-fluid gradient-main" alt="images" style="height: 100%; width: 100%; object-fit: cover;">
             </div>
             <div class="col-md-6 d-flex align-items-center">
@@ -14,11 +14,11 @@
                             <div class="d-flex align-items-center" style="justify-content: space-between;">
                                 <a href="{{ asset('template/html/dashboard/index.html') }}" class="navbar-brand">
                                     <!-- Logo kiri -->
-                                    <img src="{{ asset('templateLanding/img/bumn.png') }}" width="150" alt="Logo Kiri" style="margin-left: -56px;">
+                                    <img src="{{ asset('image/bumn.png') }}" width="150" alt="Logo Kiri" style="margin-left: -56px;">
                                 </a>
                                 <a href="{{ asset('template/html/dashboard/index.html') }}" class="navbar-brand">
                                     <!-- Logo kanan -->
-                                    <img src="{{ asset('templateLanding/img/wikainfra.png') }}" width="200" alt="Logo Kanan" style="margin-left:60px;" class="logo-kanan w-100">
+                                    <img src="{{ asset('image/wikainfra.png') }}" width="200" alt="Logo Kanan" style="margin-left:60px;" class="logo-kanan w-100">
                                 </a>
                             </div>
                         </div>

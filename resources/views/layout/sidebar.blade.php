@@ -2,7 +2,7 @@
     <div class="sidebar-header d-flex align-items-center justify-content-start">
         <a href="#" class="navbar-brand">
             <h4 class="logo-title">
-                <img src="{{ asset('templateLanding/img/infra2.png') }}" width="175" alt="Logo Jawer.id">
+                <img src="{{ asset('image/infra2black.png') }}" width="175" alt="Logo Jawer.id">
             </h4>
         </a>
             <div class="sidebar-toggle" data-toggle="sidebar" data-active="true" style="background-color: #004899;">
@@ -522,6 +522,14 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Monitoring RKP') active @endif" aria-current="page"  href="/monitoring-rkp">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Monitoring RKP</span>
+                        </a>
                     </li>
                 @elseif ($user->role === 'Head Office')
                     <li class="nav-item static-item">
