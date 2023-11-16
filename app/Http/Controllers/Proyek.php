@@ -7,6 +7,8 @@ use App\Models\ModelProyek;
 use App\Models\ModelTimProyek;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Proyek extends Controller
 {
@@ -153,5 +155,44 @@ class Proyek extends Controller
     {
         $this->ModelProyek->hapus($id_proyek);
         return redirect()->route('daftar-proyek')->with('success', 'Data Proyek berhasil dihapus !');
+    }
+
+    public function exportExcel()
+    {
+        $data = $this->ModelProyek->data();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Proyek');
+        $sheet->setCellValue('C1', 'Tanggal');
+        $sheet->setCellValue('D1', 'Tipe Konstruksi');
+        $sheet->setCellValue('E1', 'Prioritas');
+        $sheet->setCellValue('F1', 'Status');
+        $sheet->setCellValue('G1', 'Latitude');
+        $sheet->setCellValue('H1', 'Longitude');
+        $sheet->setCellValue('I1', 'Nama Tim Proyek');
+
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            $sheet->setCellValue('A' . $row, $no++);
+            $sheet->setCellValue('B' . $row, $item->nama_proyek);
+            $sheet->setCellValue('C' . $row, $item->tanggal);
+            $sheet->setCellValue('D' . $row, $item->tipe_konstruksi);
+            $sheet->setCellValue('E' . $row, $item->prioritas);
+            $sheet->setCellValue('F' . $row, $item->status);
+            $sheet->setCellValue('G' . $row, $item->latitude);
+            $sheet->setCellValue('H' . $row, $item->longitude);
+            $sheet->setCellValue('I' . $row, $item->nama_tim_proyek);
+            $row++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-proyek.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

@@ -63,6 +63,14 @@ Route::group(['middleware' => 'revalidate'], function () {
 
     Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
     
+    // export
+    Route::post('/export-activity', [EngineeringActivity::class, 'exportExcel']);
+    Route::get('/export-rkp', [Rkp::class, 'exportExcel']);
+    Route::get('/export-ki-km', [KiKm::class, 'exportExcel']);
+    Route::post('/export-technical-support', [TechnicalSupporting::class, 'exportExcel']);
+    Route::post('/export-by-team', [Productivity::class, 'exportExcel']);
+
+    
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
@@ -78,6 +86,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-proyek/{id}', [Proyek::class, 'edit'])->name('edit-proyek');
         Route::post('/edit-proyek/{id}', [Proyek::class, 'prosesEdit']);
         Route::get('/hapus-proyek/{id}', [Proyek::class, 'prosesHapus']);
+        Route::get('/export-proyek', [Proyek::class, 'exportExcel']);
 
         Route::get('/daftar-tim-proyek', [TimProyek::class, 'index'])->name('daftar-tim-proyek');
         Route::get('/tambah-tim-proyek', [TimProyek::class, 'tambah'])->name('tambah-tim-proyek');

@@ -9,6 +9,8 @@ use App\Models\ModelDetailTimProyek;
 use App\Models\ModelEngineeringActivity;
 use App\Models\ModelUser;
 use App\Models\ModelKategoriPekerjaan;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Productivity extends Controller
 {
@@ -129,110 +131,54 @@ class Productivity extends Controller
      
     }
 
-    // public function pilihBulan()
-    // {
-    //     if (!Session()->get('role')) {
-    //         return redirect()->route('login');
-    //     }
+    public function exportExcel()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
 
-    //     $data = [
-    //         'title'                     => 'Master Activity',
-    //         'subTitle'                  => 'Pilih Bulan',
-    //         'bulan'                     => false,
-    //         'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-    //     ];
+        $data = $this->ModelEngineeringActivity->dataIsRespon(1);
 
-    //     return view('admin.masterActivity.index', $data);
-    // }
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
 
-    // public function prosesTambah()
-    // {
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Proyek');
+        $sheet->setCellValue('C1', 'PIC');
+        $sheet->setCellValue('D1', 'Nomor Laporan');
+        $sheet->setCellValue('E1', 'Kode');
+        $sheet->setCellValue('F1', 'Topik');
+        $sheet->setCellValue('G1', 'Tanggal Submit');
+        $sheet->setCellValue('H1', 'Tanggal Selesai');
+        $sheet->setCellValue('I1', 'Status');
+        $sheet->setCellValue('J1', 'Note');
+        $sheet->setCellValue('K1', 'Kendala');
+        $sheet->setCellValue('L1', 'Link Dokumen');
 
-    //     $detailBulan = Request()->detail_bulan;
-    //     $absenseEnd = Request()->absense_end;
-    //     $absenseEndBulan = date('Y-m', strtotime($absenseEnd));
-    //     if($detailBulan !== $absenseEndBulan) {
-    //         $data = [
-    //             'title'                     => 'Master Activity',
-    //             'subTitle'                  => 'Daftar Master Activity',
-    //             'bulan'                     => true,
-    //             'detailBulan'               => $detailBulan,
-    //             'daftarUser'                => $this->ModelUser->dataUser(),
-    //             'daftar'                    => $this->ModelMasterActivity->whereMonthYear($detailBulan),
-    //             'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-    //             'pesanError'                => 'Gagal! Anda tidak memilih tanggal di bulan '.date('F Y', strtotime($detailBulan)),
-    //             'pesanSuccess'              => null,
-    //         ];
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            if(date('Y-m', strtotime($item->tanggal_submit)) === Request()->bulan) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->nama_proyek);
+                $sheet->setCellValue('C' . $row, $item->pic);
+                $sheet->setCellValue('D' . $row, $item->nomor_laporan);
+                $sheet->setCellValue('E' . $row, $item->kode);
+                $sheet->setCellValue('F' . $row, $item->topik);
+                $sheet->setCellValue('G' . $row, $item->tanggal_submit);
+                $sheet->setCellValue('H' . $row, $item->tanggal_selesai ? $item->tanggal_selesai : '-');
+                $sheet->setCellValue('I' . $row, $item->status_support ? $item->status_support : '-');
+                $sheet->setCellValue('J' . $row, $item->note ? $item->note : '-');
+                $sheet->setCellValue('K' . $row, $item->kendala);
+                $sheet->setCellValue('L' . $row, $item->dokumen ? $item->dokumen : '-');
+                $row++;
+            }
+        }
 
-    //         return view('admin.masterActivity.index', $data);
-    //     }
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-technical-supportiing-bulan-'.strtolower(date('F', strtotime(Request()->bulan))).'.xlsx';
+        $writer->save($filename);
 
-    //     $activity = $this->ModelEngineeringActivity->whereMonthYear($detailBulan);
-    //     foreach($activity as $item) {
-
-    //         $workDays = $this->networkDays($item->tanggal_masuk_kerja, $absenseEnd);
-    //         $workHours = $workDays * 8;
-
-    //         $data = [
-    //             'id_user'           => $item->id_user,
-    //             'absense_start'     => $item->tanggal_masuk_kerja,
-    //             'absense_end'       => $absenseEnd,
-    //             'work_days'         => $workDays,  
-    //             'work_hours'        => $workHours,  
-    //             'tanggal_master'    => $absenseEnd
-    //         ];
-    //         $this->ModelMasterActivity->tambah($data);
-    //     }
-
-    //     $data = [
-    //         'title'                     => 'Master Activity',
-    //         'subTitle'                  => 'Daftar Master Activity',
-    //         'bulan'                     => true,
-    //         'detailBulan'               => $detailBulan,
-    //         'daftarUser'                => $this->ModelUser->dataUser(),
-    //         'daftar'                    => $this->ModelMasterActivity->whereMonthYear($detailBulan),
-    //         'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-    //         'pesanError'                => null,
-    //         'pesanSuccess'              => 'Data master activity berhasil ditambahkan!'
-    //     ];
-
-    //     return view('admin.masterActivity.index', $data);
-    // }
-
-    // public function prosesHapus()
-    // {
-    //     $detailBulan = Request()->detail_bulan;
-    //     $this->ModelMasterActivity->hapus($detailBulan);
-
-    //     $data = [
-    //         'title'                     => 'Master Activity',
-    //         'subTitle'                  => 'Daftar Master Activity',
-    //         'bulan'                     => true,
-    //         'detailBulan'               => $detailBulan,
-    //         'daftarUser'                => $this->ModelUser->dataUser(),
-    //         'daftar'                    => $this->ModelMasterActivity->whereMonthYear($detailBulan),
-    //         'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-    //         'pesanError'                => null,
-    //         'pesanSuccess'              => 'Data master activity berhasil dihapus!'
-    //     ];
-
-    //     return view('admin.masterActivity.index', $data);
-    // }
-
-    // public function networkDays($start, $end) {
-    //     $startDate = new DateTime($start);
-    //     $endDate = new DateTime($end);
-
-    //     $weekendDays = [6, 7];
-    //     $totalDays = 0;
-
-    //     while ($startDate <= $endDate) {
-    //         if (!in_array($startDate->format('N'), $weekendDays)) {
-    //             $totalDays++;
-    //         }
-    //         $startDate->modify('+1 day');
-    //     }
-
-    //     return $totalDays;
-    // }
+        return response()->download($filename)->deleteFileAfterSend(true);
+    }
 }

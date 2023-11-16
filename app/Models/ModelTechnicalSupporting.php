@@ -25,7 +25,7 @@ class ModelTechnicalSupporting extends Model
             ->join('proyek', 'proyek.id_proyek', '=', 'technical_supporting.id_proyek')
             ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek')
             ->where('is_respon', $isRespon)
-            ->orderBy('id_technical_supporting', 'DESC')
+            ->orderBy('tanggal_submit', 'DESC')
             ->get();
     }
 

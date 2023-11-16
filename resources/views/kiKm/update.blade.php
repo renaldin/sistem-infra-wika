@@ -11,6 +11,11 @@
             </div>
             <div class="card-body px-4" style="margin-bottom: -50px;">
                 <div class="row">
+                    @if ($user->role === 'Admin')
+                        <div class="col-lg-12">
+                            <A href="/export-ki-km" class="btn btn-primary mb-4">Export Excel</A>
+                        </div>
+                    @endif
                     @if (session('success'))
                         <div class="col-lg-12">
                             <div class="alert bg-primary text-white alert-dismissible">

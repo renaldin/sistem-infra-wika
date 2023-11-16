@@ -15,7 +15,7 @@ class ModelEngineeringActivity extends Model
         return DB::table('engineering_activity')
             ->join('user', 'user.id_user', '=', 'engineering_activity.id_user')
             ->join('kategori_pekerjaan', 'kategori_pekerjaan.id_kategori_pekerjaan', '=', 'engineering_activity.id_kategori_pekerjaan')
-            ->orderBy('id_engineering_activity', 'DESC')
+            ->orderBy('user.nama_user', 'ASC')
             ->get();
     }
 

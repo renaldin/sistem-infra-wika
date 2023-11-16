@@ -8,6 +8,8 @@ use App\Models\ModelTimProyek;
 use App\Models\ModelKiKm;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class KiKm extends Controller
 {
@@ -253,5 +255,64 @@ class KiKm extends Controller
         }
 
         return view('kiKm.progress', $data);
+    }
+
+    public function exportExcel()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelKiKm->data();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Proyek');
+        $sheet->setCellValue('C1', 'Judul');
+        $sheet->setCellValue('D1', 'Status');
+        $sheet->setCellValue('E1', 'Kategori');
+        $sheet->setCellValue('F1', 'Nama Penulis');
+        $sheet->setCellValue('G1', 'NIP');
+        $sheet->setCellValue('H1', 'Department');
+        $sheet->setCellValue('I1', 'Tanggal Upload');
+        $sheet->setCellValue('J1', 'Proses Penulisan');
+        $sheet->setCellValue('K1', 'Approval Atasan Langsung');
+        $sheet->setCellValue('L1', 'Approval PIC KM Divisi/AP');
+        $sheet->setCellValue('M1', 'Approval PIC KM Pusat');
+        $sheet->setCellValue('N1', 'Approval Published');
+        $sheet->setCellValue('O1', 'Tanggal Published');
+        $sheet->setCellValue('P1', 'Note');
+
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            if($item->is_respon === 1) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->nama_proyek);
+                $sheet->setCellValue('C' . $row, $item->judul);
+                $sheet->setCellValue('D' . $row, $item->status_ki_km);
+                $sheet->setCellValue('E' . $row, $item->kategori);
+                $sheet->setCellValue('F' . $row, $item->nama_user);
+                $sheet->setCellValue('G' . $row, $item->nip);
+                $sheet->setCellValue('H' . $row, $item->department);
+                $sheet->setCellValue('I' . $row, $item->tanggal_upload ? $item->tanggal_upload : '-');
+                $sheet->setCellValue('J' . $row, $item->proses_penulisan  == 0 ? 'X' : 'V' );
+                $sheet->setCellValue('K' . $row, $item->approval_atasan  == 0 ? 'X' : 'V' );
+                $sheet->setCellValue('L' . $row, $item->approval_pic_divisi  == 0 ? 'X' : 'V' );
+                $sheet->setCellValue('M' . $row, $item->approval_pic_pusat  == 0 ? 'X' : 'V' );
+                $sheet->setCellValue('N' . $row, $item->approval_published  == 0 ? 'X' : 'V' );
+                $sheet->setCellValue('O' . $row, $item->tanggal_published ? $item->tanggal_published : '-');
+                $sheet->setCellValue('P' . $row, $item->note ? $item->note : '-');
+                $row++;
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-ki-km.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

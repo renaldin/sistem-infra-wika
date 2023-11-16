@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelEngineeringActivity;
 use App\Models\ModelUser;
 use App\Models\ModelKategoriPekerjaan;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class EngineeringActivity extends Controller
 {
@@ -202,5 +204,54 @@ class EngineeringActivity extends Controller
     {
         $this->ModelEngineeringActivity->hapus($id_engineering_activity);
         return back()->with('success', 'Data activity berhasil dihapus!');
+    }
+
+    public function exportExcel()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelEngineeringActivity->data();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Tanggal Masuk Kerja');
+        $sheet->setCellValue('C1', 'Nama Lengkap');
+        $sheet->setCellValue('D1', 'NIP');
+        $sheet->setCellValue('E1', 'Jabatan');
+        $sheet->setCellValue('F1', 'Fungsi');
+        $sheet->setCellValue('G1', 'Nomor Telepon');
+        $sheet->setCellValue('H1', 'Status Kerja');
+        $sheet->setCellValue('I1', 'Judul / Deskripsi Pekerjaan');
+        $sheet->setCellValue('J1', 'Kategori Pekerjaan');
+        $sheet->setCellValue('K1', 'Durasi');
+
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            if(date('Y-m', strtotime($item->tanggal_masuk_kerja)) === Request()->bulan) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->tanggal_masuk_kerja);
+                $sheet->setCellValue('C' . $row, $item->nama_user);
+                $sheet->setCellValue('D' . $row, "$item->nip");
+                $sheet->setCellValue('E' . $row, $item->jabatan);
+                $sheet->setCellValue('F' . $row, $item->fungsi);
+                $sheet->setCellValue('G' . $row, "$item->telepon");
+                $sheet->setCellValue('H' . $row, $item->status_kerja);
+                $sheet->setCellValue('I' . $row, $item->judul_pekerjaan);
+                $sheet->setCellValue('J' . $row, $item->kategori_pekerjaan);
+                $sheet->setCellValue('K' . $row, $item->durasi);
+                $row++;
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-activity-bulan-'.strtolower(date('F', strtotime(Request()->bulan))).'.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

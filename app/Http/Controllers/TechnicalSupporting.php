@@ -8,6 +8,8 @@ use App\Models\ModelTimProyek;
 use App\Models\ModelTechnicalSupporting;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class TechnicalSupporting extends Controller
 {
@@ -239,5 +241,56 @@ class TechnicalSupporting extends Controller
         }
 
         return view('technicalSupporting.progress', $data);
+    }
+
+    public function exportExcel()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelTechnicalSupporting->dataIsRespon(1);
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Proyek');
+        $sheet->setCellValue('C1', 'PIC');
+        $sheet->setCellValue('D1', 'Nomor Laporan');
+        $sheet->setCellValue('E1', 'Kode');
+        $sheet->setCellValue('F1', 'Topik');
+        $sheet->setCellValue('G1', 'Tanggal Submit');
+        $sheet->setCellValue('H1', 'Tanggal Selesai');
+        $sheet->setCellValue('I1', 'Status');
+        $sheet->setCellValue('J1', 'Note');
+        $sheet->setCellValue('K1', 'Kendala');
+        $sheet->setCellValue('L1', 'Link Dokumen');
+
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            if(date('Y-m', strtotime($item->tanggal_submit)) === Request()->bulan) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->nama_proyek);
+                $sheet->setCellValue('C' . $row, $item->pic);
+                $sheet->setCellValue('D' . $row, $item->nomor_laporan);
+                $sheet->setCellValue('E' . $row, $item->kode);
+                $sheet->setCellValue('F' . $row, $item->topik);
+                $sheet->setCellValue('G' . $row, $item->tanggal_submit);
+                $sheet->setCellValue('H' . $row, $item->tanggal_selesai ? $item->tanggal_selesai : '-');
+                $sheet->setCellValue('I' . $row, $item->status_support ? $item->status_support : '-');
+                $sheet->setCellValue('J' . $row, $item->note ? $item->note : '-');
+                $sheet->setCellValue('K' . $row, $item->kendala);
+                $sheet->setCellValue('L' . $row, $item->dokumen ? $item->dokumen : '-');
+                $row++;
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-technical-supportiing-bulan-'.strtolower(date('F', strtotime(Request()->bulan))).'.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

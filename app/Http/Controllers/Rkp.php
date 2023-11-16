@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ModelProyek;
-use App\Models\ModelTimProyek;
 use App\Models\ModelRkp;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Rkp extends Controller
 {
@@ -191,5 +192,54 @@ class Rkp extends Controller
         ];
 
         return view('rkp.update', $data);
+    }
+
+    public function exportExcel()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelRkp->data();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Kode SPK');
+        $sheet->setCellValue('C1', 'Proyek');
+        $sheet->setCellValue('D1', 'Review RKP Tahap 1');
+        $sheet->setCellValue('E1', 'Review RKP Tahap 2');
+        $sheet->setCellValue('F1', 'Review RKP Tahap 3');
+        $sheet->setCellValue('G1', 'Review RKP Tahap 4');
+        $sheet->setCellValue('H1', 'Review RKP Tahap 5');
+        $sheet->setCellValue('I1', 'Review RKP Tahap 6');
+        $sheet->setCellValue('J1', 'Reviewer');
+        $sheet->setCellValue('K1', 'Note');
+
+        $row = 2;
+        $no = 1;
+        foreach ($data as $item) {
+            if($item->is_respon === 1) {
+                $sheet->setCellValue('A' . $row, $no++);
+                $sheet->setCellValue('B' . $row, $item->kode_spk);
+                $sheet->setCellValue('C' . $row, $item->nama_proyek);
+                $sheet->setCellValue('D' . $row, $item->review1 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('E' . $row, $item->review2 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('F' . $row, $item->review3 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('G' . $row, $item->review4 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('H' . $row, $item->review5 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('I' . $row, $item->review6 == 0 ? 'X' : 'V');
+                $sheet->setCellValue('J' . $row, $item->nama_user);
+                $sheet->setCellValue('K' . $row, $item->note);
+                $row++;
+            }
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = 'daftar-rkp.xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }
