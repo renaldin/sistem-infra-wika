@@ -1924,15 +1924,16 @@ section {
   background-repeat: no-repeat;
   overflow: hidden;
   z-index: 1;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
 }
 
 .hero .carousel-item::before {
   content: "";
-  background-color: rgba(48, 44, 44, 0.432);
   position: absolute;
   inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.445), transparent);
 }
+
 
 .hero .info {
   position: absolute;
@@ -1945,6 +1946,33 @@ section {
     padding: 0 50px;
   }
 }
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  /* Warna teks menjadi transparan */
+  background-color: rgba(0, 0, 0, 0);
+  /* Warna background menjadi transparan */
+}
+
+/* Style tambahan agar tampilan lebih baik (opsional) */
+.dropdown {
+  border-radius: 10px;
+  /* Sesuaikan nilai border-radius sesuai keinginan Anda */
+}
+
+.dropdown ul {
+  border-radius: 0 0 10px 10px;
+  /* Border radius hanya pada sudut bawah */
+}
+
+.dropdown ul li {
+  border-bottom: 1px solid rgba(221, 221, 221, 0.726);
+  /* Garis pemisah antar item */
+}
+
 
 .hero .info h2 {
   color: #fff;
@@ -1985,16 +2013,23 @@ section {
   font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 12px 40px;
-  border-radius: 50px;
+  padding: 7px 30px;
+  border-radius: 15px;
   transition: 0.5s;
   margin: 10px;
   color: #fff;
   border: 2px solid var(--color-primary);
+
 }
 
+.info {
+  margin-top: 20px;
+  /* Sesuaikan angka sesuai dengan kebutuhan Anda */
+}
+
+
 .hero .info .btn-get-started:hover {
-  background: var(--color-primary);
+  background: rgba(0, 0, 0, 0.479);
 }
 
 .hero .carousel-control-prev {

@@ -51,7 +51,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{{ asset('image/logoputih.png') }}" alt="Logo">
+        <img src="{{ asset('image/infra2white.png') }}" alt="Logo">
     </a>
     
 
@@ -61,27 +61,17 @@
         <ul>
           <li><a href="/" class="active">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/contact">Activity</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li class="dropdown"><a href="#"><span>Info</span> <i
+            class="bi bi-chevron-down dropdown-indicator"></i></a>
+        <ul>
+          <li><a href="#">Activities</a></li>
+          <li><a href="#">InfraNews</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+          </li>
+        <li><a href="/">Projects</a></li>
           <li><a href="/login">Wikaenginees</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
+          
           </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -97,17 +87,20 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
-            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
+            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Learn More</a>
           </div>
         </div>
       </div>
     </div>
 
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-item" style="background-image: url({{ asset('image/carousel1.jpg') }})"></div>
+
+      <div class="carousel-item active" style="background-image: url({{ asset('image/carousel5.jpeg') }})">
+      </div>
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel2.jpg') }})"></div>
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel3.jpg') }})"></div>
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel4.jpg') }})"></div>
+     
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
