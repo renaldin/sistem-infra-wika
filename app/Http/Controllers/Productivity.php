@@ -137,46 +137,65 @@ class Productivity extends Controller
             return redirect()->route('login');
         }
 
-        $data = $this->ModelEngineeringActivity->dataIsRespon(1);
+        // $data = $this->ModelEngineeringActivity->dataIsRespon(1);
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
         $sheet->setCellValue('A1', 'No');
-        $sheet->setCellValue('B1', 'Nama Proyek');
-        $sheet->setCellValue('C1', 'PIC');
-        $sheet->setCellValue('D1', 'Nomor Laporan');
-        $sheet->setCellValue('E1', 'Kode');
-        $sheet->setCellValue('F1', 'Topik');
-        $sheet->setCellValue('G1', 'Tanggal Submit');
-        $sheet->setCellValue('H1', 'Tanggal Selesai');
-        $sheet->setCellValue('I1', 'Status');
-        $sheet->setCellValue('J1', 'Note');
-        $sheet->setCellValue('K1', 'Kendala');
-        $sheet->setCellValue('L1', 'Link Dokumen');
+        $sheet->setCellValue('B1', '');
+        $sheet->setCellValue('C1', 'Job Item');
+        $sheet->setCellValue('D1', 'Januari');
+        $sheet->setCellValue('E1', 'Feburari');
+        $sheet->setCellValue('F1', 'Maret');
+        $sheet->setCellValue('G1', 'April');
+        $sheet->setCellValue('H1', 'Mei');
+        $sheet->setCellValue('I1', 'Juni');
+        $sheet->setCellValue('J1', 'Juli');
+        $sheet->setCellValue('K1', 'Agustus');
+        $sheet->setCellValue('L1', 'September');
+        $sheet->setCellValue('M1', 'Oktober');
+        $sheet->setCellValue('N1', 'November');
+        $sheet->setCellValue('O1', 'Desember');
 
-        $row = 2;
-        $no = 1;
-        foreach ($data as $item) {
-            if(date('Y-m', strtotime($item->tanggal_submit)) === Request()->bulan) {
-                $sheet->setCellValue('A' . $row, $no++);
-                $sheet->setCellValue('B' . $row, $item->nama_proyek);
-                $sheet->setCellValue('C' . $row, $item->pic);
-                $sheet->setCellValue('D' . $row, $item->nomor_laporan);
-                $sheet->setCellValue('E' . $row, $item->kode);
-                $sheet->setCellValue('F' . $row, $item->topik);
-                $sheet->setCellValue('G' . $row, $item->tanggal_submit);
-                $sheet->setCellValue('H' . $row, $item->tanggal_selesai ? $item->tanggal_selesai : '-');
-                $sheet->setCellValue('I' . $row, $item->status_support ? $item->status_support : '-');
-                $sheet->setCellValue('J' . $row, $item->note ? $item->note : '-');
-                $sheet->setCellValue('K' . $row, $item->kendala);
-                $sheet->setCellValue('L' . $row, $item->dokumen ? $item->dokumen : '-');
-                $row++;
-            }
-        }
+        $sheet->setCellValue('A2', '');
+        $sheet->setCellValue('B2', '');
+        $sheet->setCellValue('C2', '');
+        $sheet->setCellValue('D2', '21 days');
+        $sheet->setCellValue('E2', '21 days');
+        $sheet->setCellValue('F2', '21 days');
+        $sheet->setCellValue('G2', '21 days');
+        $sheet->setCellValue('H2', '21 days');
+        $sheet->setCellValue('I2', '21 days');
+        $sheet->setCellValue('J2', '21 days');
+        $sheet->setCellValue('K2', '21 days');
+        $sheet->setCellValue('L2', '21 days');
+        $sheet->setCellValue('M2', '21 days');
+        $sheet->setCellValue('N2', '21 days');
+        $sheet->setCellValue('O2', '21 days');
+
+        // $row = 2;
+        // $no = 1;
+        // foreach ($data as $item) {
+        //     if(date('Y-m', strtotime($item->tanggal_submit)) === Request()->bulan) {
+        //         $sheet->setCellValue('A' . $row, $no++);
+        //         $sheet->setCellValue('B' . $row, $item->nama_proyek);
+        //         $sheet->setCellValue('C' . $row, $item->pic);
+        //         $sheet->setCellValue('D' . $row, $item->nomor_laporan);
+        //         $sheet->setCellValue('E' . $row, $item->kode);
+        //         $sheet->setCellValue('F' . $row, $item->topik);
+        //         $sheet->setCellValue('G' . $row, $item->tanggal_submit);
+        //         $sheet->setCellValue('H' . $row, $item->tanggal_selesai ? $item->tanggal_selesai : '-');
+        //         $sheet->setCellValue('I' . $row, $item->status_support ? $item->status_support : '-');
+        //         $sheet->setCellValue('J' . $row, $item->note ? $item->note : '-');
+        //         $sheet->setCellValue('K' . $row, $item->kendala);
+        //         $sheet->setCellValue('L' . $row, $item->dokumen ? $item->dokumen : '-');
+        //         $row++;
+        //     }
+        // }
 
         $writer = new Xlsx($spreadsheet);
-        $filename = 'daftar-technical-supportiing-bulan-'.strtolower(date('F', strtotime(Request()->bulan))).'.xlsx';
+        $filename = 'daftar-productivity-by-team.xlsx';
         $writer->save($filename);
 
         return response()->download($filename)->deleteFileAfterSend(true);

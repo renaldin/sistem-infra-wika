@@ -4,10 +4,12 @@ use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\DetailTimProyek;
+use App\Http\Controllers\DokumenLps;
 use App\Http\Controllers\EngineeringActivity;
 use App\Http\Controllers\KiKm;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\Lps;
 use App\Http\Controllers\MasterAcitvity;
 use App\Http\Controllers\MasterActivity;
 use App\Http\Controllers\MonthlyReport;
@@ -62,13 +64,16 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
     Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
+
+    Route::get('/detail-proyek-lps/{id_proyek}', [Lps::class, 'detail']);
+    Route::post('/edit-proyek-lps/{id_lps}', [Lps::class, 'prosesEdit']);
     
     // export
     Route::post('/export-activity', [EngineeringActivity::class, 'exportExcel']);
     Route::get('/export-rkp', [Rkp::class, 'exportExcel']);
     Route::get('/export-ki-km', [KiKm::class, 'exportExcel']);
     Route::post('/export-technical-support', [TechnicalSupporting::class, 'exportExcel']);
-    Route::post('/export-by-team', [Productivity::class, 'exportExcel']);
+    Route::get('/export-by-team', [Productivity::class, 'exportExcel']);
 
     
     
@@ -94,6 +99,11 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-tim-proyek/{id}', [TimProyek::class, 'edit'])->name('edit-tim-proyek');
         Route::post('/edit-tim-proyek/{id}', [TimProyek::class, 'prosesEdit']);
         Route::get('/hapus-tim-proyek/{id}', [TimProyek::class, 'prosesHapus']);
+
+        Route::get('/daftar-dokumen-lps', [DokumenLps::class, 'index'])->name('daftar-dokumen-lps');
+        Route::post('/tambah-dokumen-lps', [DokumenLps::class, 'prosesTambah']);
+        Route::post('/edit-dokumen-lps/{id}', [DokumenLps::class, 'prosesEdit']);
+        Route::get('/hapus-dokumen-lps/{id}', [DokumenLps::class, 'prosesHapus']);
         
         Route::post('/tambah-detail-tim-proyek', [DetailTimProyek::class, 'prosesTambah']);
         Route::get('/hapus-detail-tim-proyek/{id}', [DetailTimProyek::class, 'prosesHapus']);
@@ -123,6 +133,10 @@ Route::group(['middleware' => 'revalidate'], function () {
         
         Route::get('/progress-ki-km', [KiKm::class, 'progress']);
         Route::post('/progress-ki-km', [KiKm::class, 'progress']);
+        
+        Route::get('/input-lps', [Lps::class, 'index'])->name('input-lps');
+        Route::post('/tambah-proyek-lps', [Lps::class, 'prosesTambah']);
+        Route::get('/hapus-proyek-lps/{id_proyek}', [Lps::class, 'prosesHapus']);
 
     });
 

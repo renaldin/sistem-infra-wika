@@ -44,7 +44,7 @@
     @if ($user->role === 'Admin')
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#export-by-team">Export Excel</button>
+            <a href="/export-by-team" class="btn btn-primary mb-4">Export Excel</a>
         </div>
     </div>
     @endif
@@ -139,7 +139,7 @@
     </div>
 @endif
 
-<div class="modal fade" id="export-by-team" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="export-by-team" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -165,6 +165,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection

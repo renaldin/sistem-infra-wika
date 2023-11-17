@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 11:36 PM
+-- Generation Time: Nov 17, 2023 at 02:29 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -56,8 +56,35 @@ CREATE TABLE `dokumen_lps` (
   `nama_dokumen` varchar(255) DEFAULT NULL,
   `no_urut` varchar(10) DEFAULT NULL,
   `jenis_dokumen` enum('Utama','Pendukung') NOT NULL,
-  `tanggal_input` date DEFAULT NULL
+  `tanggal_input` date DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dokumen_lps`
+--
+
+INSERT INTO `dokumen_lps` (`id_dokumen_lps`, `nama_dokumen`, `no_urut`, `jenis_dokumen`, `tanggal_input`, `is_active`) VALUES
+(1, 'Dokumen LPS Bab 3 Realisasi Engineering', '1', 'Utama', '2023-11-16', 1),
+(2, 'Dokumen Karya Inovasi (KI) / Knowledge Management (KM)', '2', 'Utama', '2023-11-16', 1),
+(3, 'Metode Kerja', '3', 'Utama', '2023-11-16', 1),
+(4, 'Laporan Justifikasi Teknis / Memo Teknis / Review Desain', '4', 'Utama', '2023-11-16', 1),
+(5, 'BOQ Kontrak s.d BOQ Final Quantity', '5', 'Utama', '2023-11-16', 1),
+(6, 'Gambar Perencanaan *)', '6', 'Utama', '2023-11-16', 1),
+(7, 'Detail Engineering Design (DED) **)', '7', 'Utama', '2023-11-16', 1),
+(8, 'Shop Drawing (SHD)', '8', 'Utama', '2023-11-16', 1),
+(9, 'As Built Drawing (ABD)', '9', 'Utama', '2023-11-16', 1),
+(10, 'Dokumentasi Pelaksanaan', '10', 'Utama', '2023-11-16', 1),
+(11, 'Kontrak dan Addendumnya. *)', 'a', 'Pendukung', '2023-11-16', 1),
+(12, 'Laporan Harian', 'b', 'Pendukung', '2023-11-16', 1),
+(13, 'Laporan Mingguan', 'c', 'Pendukung', '2023-11-16', 1),
+(14, 'Laporan Bulanan', 'd', 'Pendukung', '2023-11-16', 1),
+(15, 'Monthly Certificate (MC) **)', 'e', 'Pendukung', '2023-11-16', 1),
+(16, 'Back up Quantity', 'f', 'Pendukung', '2023-11-16', 1),
+(17, 'Back up Quality', 'g', 'Pendukung', '2023-11-16', 1),
+(18, 'Request Pekerjaan', 'h', 'Pendukung', '2023-11-16', 1),
+(19, 'Data Soil Investigation, Data Topografi, Data Bathimetri, Data Hidrologi, Data Hidro Oceanografi, dll', 'i', 'Pendukung', '2023-11-16', 1),
+(20, 'Berita Acara Serah Terima I (PHO)', 'j', 'Pendukung', '2023-11-16', 1);
 
 -- --------------------------------------------------------
 
@@ -222,6 +249,7 @@ INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`
 
 CREATE TABLE `lps` (
   `id_lps` int(11) NOT NULL,
+  `id_dokumen_lps` int(11) NOT NULL,
   `id_proyek` int(11) NOT NULL,
   `pdf` int(11) NOT NULL DEFAULT 0,
   `native` int(11) NOT NULL DEFAULT 0,
@@ -229,6 +257,32 @@ CREATE TABLE `lps` (
   `id_user_respon` int(11) DEFAULT NULL,
   `is_respon` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lps`
+--
+
+INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `tanggal_lps`, `id_user_respon`, `is_respon`) VALUES
+(41, 1, 1, 0, 0, '2023-11-17', 1, 1),
+(42, 2, 1, 0, 0, '2023-11-17', NULL, 0),
+(43, 3, 1, 0, 0, '2023-11-17', NULL, 0),
+(44, 4, 1, 0, 0, '2023-11-17', NULL, 0),
+(45, 5, 1, 0, 0, '2023-11-17', NULL, 0),
+(46, 6, 1, 0, 0, '2023-11-17', NULL, 0),
+(47, 7, 1, 0, 0, '2023-11-17', NULL, 0),
+(48, 8, 1, 0, 0, '2023-11-17', NULL, 0),
+(49, 9, 1, 0, 0, '2023-11-17', NULL, 0),
+(50, 10, 1, 0, 0, '2023-11-17', NULL, 0),
+(51, 11, 1, 0, 0, '2023-11-17', 1, 1),
+(52, 12, 1, 0, 0, '2023-11-17', NULL, 0),
+(53, 13, 1, 0, 0, '2023-11-17', NULL, 0),
+(54, 14, 1, 0, 0, '2023-11-17', NULL, 0),
+(55, 15, 1, 0, 0, '2023-11-17', NULL, 0),
+(56, 16, 1, 0, 0, '2023-11-17', NULL, 0),
+(57, 17, 1, 0, 0, '2023-11-17', NULL, 0),
+(58, 18, 1, 0, 0, '2023-11-17', NULL, 0),
+(59, 19, 1, 0, 0, '2023-11-17', NULL, 0),
+(60, 20, 1, 0, 0, '2023-11-17', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -347,19 +401,20 @@ CREATE TABLE `proyek` (
   `empat_d` int(11) NOT NULL DEFAULT 0,
   `lima_d` int(11) NOT NULL DEFAULT 0,
   `cde` int(11) NOT NULL DEFAULT 0,
-  `status_rkp` int(11) NOT NULL DEFAULT 0
+  `status_rkp` int(11) NOT NULL DEFAULT 0,
+  `status_lps` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`) VALUES
-(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1),
-(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0),
-(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0),
-(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`) VALUES
+(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1),
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 0),
+(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 0),
+(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0),
+(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -556,7 +611,7 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 (50, 'Muhamad Ali', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS153456', '123456789', '$2y$10$ibnlPIb8MUNfXLs5eyfbI.iBPJ2pUVE0bNBlheERXmBXqE4dafzhS', 'Head Office', '11102023045733 Muhamad Ali.jpg'),
 (51, 'Paraserian Firdaus', 'Staff Corporate', 'System Engineering & Lean Construction', 'ET163687', '13456789', '$2y$10$nXsKheBL.i9hvY2ndvSL.e5di9sv48VzdnzOpGhwmoBp5GMB3m/Ou', 'Head Office', '11102023045830 Paraserian Firdaus.jpg'),
 (52, 'Soleh', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS193784', '123456789', '$2y$10$bxv/eZ7vo40uM3Pi1WLqAOVJL4QKi4Rd149Z0BsMEMJpbngk2nZ6S', 'Head Office', '11102023045922 Soleh.jpg'),
-(53, 'Yanto Agus Wahyudi', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS962699', '123456789', '$2y$10$mcCSVirxtxck3u1k.Ngq.evDK0M0n2pgCeKNFIRuvBfrN21bCDjTS', 'Head Office', '11102023050011 Yanto Agus Wahyudi.jpg'),
+(53, 'Yanto Agus Wahyudi', 'Staff Corporate', 'System Engineering & Lean Construction', 'LS962699', '08987675767', '$2y$10$mcCSVirxtxck3u1k.Ngq.evDK0M0n2pgCeKNFIRuvBfrN21bCDjTS', 'Head Office', '11102023050011 Yanto Agus Wahyudi.jpg'),
 (54, 'Alve Yunus', 'Kepala Seksi', NULL, 'makassar', '081294304555', '$2y$10$t7APuzXSaJ/uNhRaVlCyEe/GcluZTMaKaCOK2oxttPVFCOFzsk51C', 'Tim Proyek', '11102023050257 Alve Yunus.jpg'),
 (55, 'Agustinus Dimas', 'Kepala Seksi', NULL, 'banggai', '081230000706', '$2y$10$HAzI7mO4Pm1miYuSPvkZwO0P22S10Du1JlFxf.NTn.DRknaAJeymO', 'Tim Proyek', '11102023050353 081294304555.jpg'),
 (56, 'Dedi Chandra', 'Kepala Seksi', NULL, 'ameroro', '081230000706', '$2y$10$DHO3lsNI1x6zA/.wrGnF4OxtXiVFVdGSJ/.aUonPdbHe.gwEWiODS', 'Tim Proyek', '11102023050631 Dedi Chandra.jpg');
@@ -669,7 +724,7 @@ ALTER TABLE `detail_tim_proyek`
 -- AUTO_INCREMENT for table `dokumen_lps`
 --
 ALTER TABLE `dokumen_lps`
-  MODIFY `id_dokumen_lps` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dokumen_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `engineering_activity`
@@ -693,7 +748,7 @@ ALTER TABLE `ki_km`
 -- AUTO_INCREMENT for table `lps`
 --
 ALTER TABLE `lps`
-  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `master_activity`
