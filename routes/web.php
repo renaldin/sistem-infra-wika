@@ -3,11 +3,13 @@
 use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\DetailLicense;
 use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\DokumenLps;
 use App\Http\Controllers\EngineeringActivity;
 use App\Http\Controllers\KiKm;
 use App\Http\Controllers\Landing;
+use App\Http\Controllers\License;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Lps;
 use App\Http\Controllers\MasterAcitvity;
@@ -17,6 +19,7 @@ use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Productivity;
 use App\Http\Controllers\Proyek;
 use App\Http\Controllers\Rkp;
+use App\Http\Controllers\Software;
 use App\Http\Controllers\TechnicalSupporting;
 use App\Http\Controllers\TimProyek;
 use Illuminate\Support\Facades\Route;
@@ -64,9 +67,6 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
     Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
-
-    Route::get('/detail-proyek-lps/{id_proyek}', [Lps::class, 'detail']);
-    Route::post('/edit-proyek-lps/{id_lps}', [Lps::class, 'prosesEdit']);
     
     // export
     Route::post('/export-activity', [EngineeringActivity::class, 'exportExcel']);
@@ -75,6 +75,25 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/export-technical-support', [TechnicalSupporting::class, 'exportExcel']);
     Route::get('/export-by-team', [Productivity::class, 'exportExcel']);
 
+    Route::get('/input-lps', [Lps::class, 'index'])->name('input-lps');
+    Route::post('/tambah-proyek-lps', [Lps::class, 'prosesTambah']);
+    Route::post('/update-tanggal-pho/{id_proyek}', [Lps::class, 'updateTanggalPho']);
+    Route::get('/hapus-proyek-lps/{id_proyek}', [Lps::class, 'prosesHapus']);
+    Route::get('/detail-proyek-lps/{id_proyek}', [Lps::class, 'detail']);
+    Route::post('/edit-proyek-lps/{id_lps}', [Lps::class, 'prosesEdit']);
+    Route::get('/monitoring-lps', [Lps::class, 'monitoring'])->name('monitoring-lps');
+    Route::get('/detail-monitoring-lps/{id_proyek}', [Lps::class, 'detailMonitoring']);
+    Route::get('/progress-lps', [Lps::class, 'progress'])->name('progress-lps');
+
+    Route::get('/daftar-license', [License::class, 'index'])->name('daftar-license');
+    Route::post('/tambah-license', [License::class, 'prosesTambah']);
+    Route::post('/edit-license/{id}', [License::class, 'prosesEdit']);
+    Route::get('/hapus-license/{id}', [License::class, 'prosesHapus']);
+    Route::get('/detail-license/{id}', [License::class, 'detail']);
+    
+    Route::post('/tambah-detail-license', [DetailLicense::class, 'prosesTambah']);
+    Route::post('/edit-detail-license/{id}', [DetailLicense::class, 'prosesEdit']);
+    Route::get('/hapus-detail-license/{id}', [DetailLicense::class, 'prosesHapus']);
     
     
     Route::group(['middleware' => 'admin'], function () {
@@ -133,10 +152,13 @@ Route::group(['middleware' => 'revalidate'], function () {
         
         Route::get('/progress-ki-km', [KiKm::class, 'progress']);
         Route::post('/progress-ki-km', [KiKm::class, 'progress']);
-        
-        Route::get('/input-lps', [Lps::class, 'index'])->name('input-lps');
-        Route::post('/tambah-proyek-lps', [Lps::class, 'prosesTambah']);
-        Route::get('/hapus-proyek-lps/{id_proyek}', [Lps::class, 'prosesHapus']);
+
+        Route::get('/daftar-software', [Software::class, 'index'])->name('daftar-software');
+        Route::get('/tambah-software', [Software::class, 'tambah'])->name('tambah-software');
+        Route::post('/tambah-software', [Software::class, 'prosesTambah']);
+        Route::get('/edit-software/{id}', [Software::class, 'edit'])->name('edit-software');
+        Route::post('/edit-software/{id}', [Software::class, 'prosesEdit']);
+        Route::get('/hapus-software/{id}', [Software::class, 'prosesHapus']);
 
     });
 

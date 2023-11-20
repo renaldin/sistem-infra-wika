@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 02:29 AM
+-- Generation Time: Nov 20, 2023 at 01:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistem-infra-wika`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_license`
+--
+
+CREATE TABLE `detail_license` (
+  `id_detail_license` int(11) NOT NULL,
+  `id_license` int(11) DEFAULT NULL,
+  `id_software` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `tanggal_input` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -244,6 +258,20 @@ INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `license`
+--
+
+CREATE TABLE `license` (
+  `id_license` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `unit_kerja` varchar(255) DEFAULT NULL,
+  `id_device` text DEFAULT NULL,
+  `tanggal_license` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lps`
 --
 
@@ -255,34 +283,75 @@ CREATE TABLE `lps` (
   `native` int(11) NOT NULL DEFAULT 0,
   `tanggal_lps` date DEFAULT NULL,
   `id_user_respon` int(11) DEFAULT NULL,
-  `is_respon` int(11) NOT NULL DEFAULT 0
+  `is_respon` int(11) NOT NULL DEFAULT 0,
+  `id_user_respon_lps` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lps`
 --
 
-INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `tanggal_lps`, `id_user_respon`, `is_respon`) VALUES
-(41, 1, 1, 0, 0, '2023-11-17', 1, 1),
-(42, 2, 1, 0, 0, '2023-11-17', NULL, 0),
-(43, 3, 1, 0, 0, '2023-11-17', NULL, 0),
-(44, 4, 1, 0, 0, '2023-11-17', NULL, 0),
-(45, 5, 1, 0, 0, '2023-11-17', NULL, 0),
-(46, 6, 1, 0, 0, '2023-11-17', NULL, 0),
-(47, 7, 1, 0, 0, '2023-11-17', NULL, 0),
-(48, 8, 1, 0, 0, '2023-11-17', NULL, 0),
-(49, 9, 1, 0, 0, '2023-11-17', NULL, 0),
-(50, 10, 1, 0, 0, '2023-11-17', NULL, 0),
-(51, 11, 1, 0, 0, '2023-11-17', 1, 1),
-(52, 12, 1, 0, 0, '2023-11-17', NULL, 0),
-(53, 13, 1, 0, 0, '2023-11-17', NULL, 0),
-(54, 14, 1, 0, 0, '2023-11-17', NULL, 0),
-(55, 15, 1, 0, 0, '2023-11-17', NULL, 0),
-(56, 16, 1, 0, 0, '2023-11-17', NULL, 0),
-(57, 17, 1, 0, 0, '2023-11-17', NULL, 0),
-(58, 18, 1, 0, 0, '2023-11-17', NULL, 0),
-(59, 19, 1, 0, 0, '2023-11-17', NULL, 0),
-(60, 20, 1, 0, 0, '2023-11-17', NULL, 0);
+INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `tanggal_lps`, `id_user_respon`, `is_respon`, `id_user_respon_lps`) VALUES
+(121, 1, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(122, 2, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(123, 3, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(124, 4, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(125, 5, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(126, 6, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(127, 7, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(128, 8, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(129, 9, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(130, 10, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(131, 11, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(132, 12, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(133, 13, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(134, 14, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(135, 15, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(136, 16, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(137, 17, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(138, 18, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(139, 19, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(140, 20, 1, 1, 1, '2023-11-19', 53, 1, 53),
+(141, 1, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(142, 2, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(143, 3, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(144, 4, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(145, 5, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(146, 6, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(147, 7, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(148, 8, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(149, 9, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(150, 10, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(151, 11, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(152, 12, 2, 1, 0, '2023-11-19', 53, 1, 53),
+(153, 13, 2, 1, 0, '2023-11-19', 53, 1, 53),
+(154, 14, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(155, 15, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(156, 16, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(157, 17, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(158, 18, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(159, 19, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(160, 20, 2, 1, 1, '2023-11-19', 53, 1, 53),
+(161, 1, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(162, 2, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(163, 3, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(164, 4, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(165, 5, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(166, 6, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(167, 7, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(168, 8, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(169, 9, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(170, 10, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(171, 11, 3, 1, 0, '2023-11-19', 52, 1, 1),
+(172, 12, 3, 0, 1, '2023-11-19', 52, 1, 52),
+(173, 13, 3, 0, 1, '2023-11-19', 52, 1, 52),
+(174, 14, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(175, 15, 3, 1, 0, '2023-11-19', 52, 1, 52),
+(176, 16, 3, 1, 0, '2023-11-19', 52, 1, 52),
+(177, 17, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(178, 18, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(179, 19, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(180, 20, 3, 1, 1, '2023-11-19', 52, 1, 52);
 
 -- --------------------------------------------------------
 
@@ -402,19 +471,21 @@ CREATE TABLE `proyek` (
   `lima_d` int(11) NOT NULL DEFAULT 0,
   `cde` int(11) NOT NULL DEFAULT 0,
   `status_rkp` int(11) NOT NULL DEFAULT 0,
-  `status_lps` int(11) NOT NULL DEFAULT 0
+  `status_lps` int(11) NOT NULL DEFAULT 0,
+  `id_user_lps` int(11) DEFAULT NULL,
+  `tanggal_pho_lps` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`) VALUES
-(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 0),
-(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 0),
-(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0),
-(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`) VALUES
+(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29'),
+(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 53, '2023-11-27'),
+(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 1, 52, '2023-11-29'),
+(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -445,6 +516,67 @@ CREATE TABLE `rkp` (
 INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`) VALUES
 (1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1),
 (2, 2, 'Kode SPK', 0, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `software`
+--
+
+CREATE TABLE `software` (
+  `id_software` int(11) NOT NULL,
+  `nama_software` varchar(255) DEFAULT NULL,
+  `fungsi` varchar(255) DEFAULT NULL,
+  `kategori` varchar(255) DEFAULT NULL,
+  `gambar` text DEFAULT NULL,
+  `tanggal_software` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `software`
+--
+
+INSERT INTO `software` (`id_software`, `nama_software`, `fungsi`, `kategori`, `gambar`, `tanggal_software`) VALUES
+(2, 'Global Mapper', 'Survey Course', 'Engineering', '11192023123124 Global Mapper.jpg', NULL),
+(3, 'ArcGIS', 'Survey Course', 'Engineering', '11192023123148 ArcGIS.jpg', NULL),
+(4, 'Metashape', 'Survey Course', 'Engineering', '11192023123210 Metashape.jpg', NULL),
+(5, 'PCI Geomatica', 'Survey Course', 'Engineering', '11192023123233 PCI Geomatica.jpg', NULL),
+(6, 'Autocad', 'Modelling', 'Engineering', '11192023123322 Autocad.jpg', NULL),
+(7, 'Revit', 'Modelling', 'Engineering', '11192023123346 Revit.jpg', NULL),
+(8, 'Infraworks', 'Modelling', 'Engineering', '11192023123407 Infraworks.jpg', NULL),
+(9, 'Civil 3D', 'Modelling', 'Engineering', '11192023123438 Civil 3D.jpg', NULL),
+(10, 'Tekla Structures', 'Modelling', 'Engineering', '11192023123508 Tekla Structures.jpg', NULL),
+(11, 'TRB', 'Modelling', 'Engineering', '11192023123532 TRB.jpg', NULL),
+(12, 'TAS', 'Modelling', 'Engineering', '11192023123558 TAS.jpg', NULL),
+(13, 'Open Building', 'Modelling', 'Engineering', '11192023123619 Open Building.jpg', NULL),
+(14, 'Open Road', 'Modelling', 'Engineering', '11192023123640 Open Road.jpg', NULL),
+(15, 'Open Bridge', 'Modelling', 'Engineering', '11192023123705 Open Bridge.jpg', NULL),
+(16, 'Skecthup', 'Modelling', 'Engineering', '11192023123731 Skecthup.jpg', NULL),
+(17, 'Allplan Bridge', 'Modelling', 'Engineering', '11192023123753 Allplan Bridge.jpg', NULL),
+(18, 'Allplan Eng', 'Modelling', 'Engineering', '11192023123816 Allplan Eng.jpg', NULL),
+(19, 'ArchiCad', 'Modelling', 'Engineering', '11192023123848 ArchiCad.jpg', NULL),
+(20, 'Tekla Tedds', 'Modelling', 'Engineering', '11192023123913 Tekla Tedds.jpg', NULL),
+(21, 'Plaxis', 'Analisis', 'Engineering', '11192023123937 Plaxis.jpg', NULL),
+(22, 'SAP 2000', 'Analisis', 'Engineering', '11192023124002 SAP 2000.jpg', NULL),
+(23, 'Robot', 'Analisis', 'Engineering', '11192023124025 Robot.jpg', NULL),
+(24, 'ETABS', 'Analisis', 'Engineering', '11192023124046 ETABS.jpg', NULL),
+(25, 'Primavera', '4D & 5D', 'Engineering', '11192023124122 Primavera.jpg', NULL),
+(26, 'Ms. Project', '4D & 5D', 'Engineering', '11192023124143 Ms. Project.jpg', NULL),
+(27, 'Synchro Pro', '4D & 5D', 'Engineering', '11192023124205 Synchro Pro.jpg', NULL),
+(28, 'Naviswork', '4D & 5D', 'Engineering', '11192023124225 Naviswork.jpg', NULL),
+(29, 'TBQ', '4D & 5D', 'Engineering', '11192023124248 TBQ.jpg', NULL),
+(30, 'Lumion', 'Animasi', 'Engineering', '11192023124318 Lumion.jpg', NULL),
+(31, '3DS Max', 'Animasi', 'Engineering', '11192023124344 3DS Max.jpg', NULL),
+(32, 'Lumenrt 4', 'Animasi', 'Engineering', '11192023124409 Lumenrt 4.jpg', NULL),
+(33, 'Enscape', 'Animasi', 'Engineering', '11192023124428 Enscape.jpg', NULL),
+(34, 'Ms. Word', 'Microsoft Office', 'Office', '11192023124500 Ms. Word.jpg', NULL),
+(35, 'Ms. Excel', 'Microsoft Office', 'Office', '11192023124521 Ms. Excel.jpg', NULL),
+(36, 'Ms. Powerpoint', 'Microsoft Office', 'Office', '11192023124557 Ms. Powerpoint.jpg', NULL),
+(37, 'Ms. Outlook', 'Microsoft Office', 'Office', '11192023124618 Ms. Outlook.jpg', NULL),
+(38, 'Solidworks', 'Lain-lain', 'Engineering', '11192023124638 Solidworks.jpg', NULL),
+(39, 'Ideastatica', 'Lain-lain', 'Engineering', '11192023124700 Ideastatica.jpg', NULL),
+(40, 'SPColumn', 'Lain-lain', 'Engineering', '11192023124725 SPColumn.jpg', NULL),
+(41, 'Nitro Pro', 'Lain-lain', 'Office', '11192023124754 Nitro Pro.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -621,6 +753,12 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 --
 
 --
+-- Indexes for table `detail_license`
+--
+ALTER TABLE `detail_license`
+  ADD PRIMARY KEY (`id_detail_license`);
+
+--
 -- Indexes for table `detail_tim_proyek`
 --
 ALTER TABLE `detail_tim_proyek`
@@ -649,6 +787,12 @@ ALTER TABLE `kategori_pekerjaan`
 --
 ALTER TABLE `ki_km`
   ADD PRIMARY KEY (`id_ki_km`);
+
+--
+-- Indexes for table `license`
+--
+ALTER TABLE `license`
+  ADD PRIMARY KEY (`id_license`);
 
 --
 -- Indexes for table `lps`
@@ -693,6 +837,12 @@ ALTER TABLE `rkp`
   ADD PRIMARY KEY (`id_rkp`);
 
 --
+-- Indexes for table `software`
+--
+ALTER TABLE `software`
+  ADD PRIMARY KEY (`id_software`);
+
+--
 -- Indexes for table `technical_supporting`
 --
 ALTER TABLE `technical_supporting`
@@ -713,6 +863,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `detail_license`
+--
+ALTER TABLE `detail_license`
+  MODIFY `id_detail_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `detail_tim_proyek`
@@ -745,10 +901,16 @@ ALTER TABLE `ki_km`
   MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `license`
+--
+ALTER TABLE `license`
+  MODIFY `id_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `lps`
 --
 ALTER TABLE `lps`
-  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `master_activity`
@@ -785,6 +947,12 @@ ALTER TABLE `proyek`
 --
 ALTER TABLE `rkp`
   MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `software`
+--
+ALTER TABLE `software`
+  MODIFY `id_software` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `technical_supporting`

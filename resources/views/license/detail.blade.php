@@ -2,20 +2,45 @@
 
 @section('content')
 <div class="row">
+    <div class="col-xl-12 col-lg-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <div class="header-title">
+                    <h4 class="card-title">{{$title}}</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="new-user-info">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Unit Kerja</label>
+                            <input type="text" class="form-control" value="{{$detailLicense->jabatan}}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label">Pengguna</label>
+                            <input type="text" class="form-control" value="{{$detailLicense->nama_user}}" readonly>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <div class="header-title">
-                <h4 class="card-title">{{$subTitle}}</h4>
+                <h4 class="card-title">Software</h4>
                 </div>
             </div>
             <div class="card-body px-4" style="margin-bottom: -50px;">
                 <div class="row">
-                    @if ($user->role !== 'Admin')
                     <div class="col-lg-12">
                         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#tambah">Tambah</button>
                     </div>
-                    @endif
                     @if (session('success'))
                         <div class="col-lg-12">
                             <div class="alert bg-primary text-white alert-dismissible">
@@ -40,30 +65,32 @@
             </div>
             <div class="card-body px-0">
                 <div class="table-responsive">
-                <table id="user-list-table" class="table table-striped" role="grid" data-toggle="data-table">
-                    <thead>
-                        <tr class="ligth">
-                            <th>No</th>
-                            <th>Nama Proyek</th>
-                            <th style="min-width: 100px">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1;?>
-                        @foreach ($daftarProyekLps as $item)
-                            @if ($user->id_user === $item->id_user_respon || $user->role === 'Admin')
-                                <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$item->nama_proyek}}</td>
-                                    <td>
-                                        <div class="flex align-items-center list-user-action">
-                                            <a href="/detail-proyek-lps/{{$item->id_proyek}}" class="btn btn-sm btn-icon btn-primary" data-toggle="tooltip" data-placement="top" title="Detail" data-original-title="Detail">
-                                                <span class="btn-inner">
-                                                    <svg class="icon-32" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M15.8325 8.17463L10.109 13.9592L3.59944 9.88767C2.66675 9.30414 2.86077 7.88744 3.91572 7.57893L19.3712 3.05277C20.3373 2.76963 21.2326 3.67283 20.9456 4.642L16.3731 20.0868C16.0598 21.1432 14.6512 21.332 14.0732 20.3953L10.106 13.9602" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                </svg>                            
-                                                </span>
-                                            </a>
-                                            @if ($user->role !== 'Admin')
-                                                <button type="button" class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Update Tanggal PHO" data-original-title="Update Tanggal PHO" data-bs-toggle="modal" data-bs-target="#edit{{$item->id_proyek}}">
+                    <table id="user-list-table" class="table table-striped" role="grid" data-toggle="data-table">
+                        <thead>
+                            <tr class="ligth">
+                                <th>No</th>
+                                <th>Gambar</th>
+                                <td>Nama Software</td>
+                                <td>Fungsi</td>
+                                <td>Kategori</td>
+                                <td>Status</td>
+                                <th style="min-width: 100px">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;?>
+                            @foreach ($daftarDetailLicense as $item)
+                                @if ($item->id_license == $detailLicense->id_license)
+                                    <tr>
+                                        <td>{{$no++}}</td>
+                                        <td class="text-center"><img class="bg-soft-primary rounded img-fluid avatar-40 me-3" src="@if($item->gambar === null) {{ asset('software/default1.jpg') }} @else {{ asset('software/'.$item->gambar) }} @endif" alt="profile"></td>
+                                        <td>{{$item->nama_software}}</td>
+                                        <td>{{$item->fungsi_software}}</td>
+                                        <td>{{$item->kategori}}</td>
+                                        <td>{{$item->status}}</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <button type="button" class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Edit" data-original-title="Edit" data-bs-toggle="modal" data-bs-target="#edit{{$item->id_detail_license}}">
                                                     <span class="btn-inner">
                                                         <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -72,7 +99,7 @@
                                                         </svg>
                                                     </span>
                                                 </button>
-                                                <button type="button" class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#hapus{{$item->id_proyek}}" data-placement="top" title="Hapus" data-original-title="Hapus">
+                                                <button type="button" class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#hapus{{$item->id_detail_license}}" data-placement="top" title="Hapus" data-original-title="Delete">
                                                     <span class="btn-inner">
                                                         <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                                                         <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -81,60 +108,21 @@
                                                         </svg>
                                                     </span>
                                                 </button>
-                                            @endif
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    </tbody>
-                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <form action="/tambah-proyek-lps" method="POST">
-                        @csrf
-                        <div class="form-group col-md-12">
-                            <label class="form-label" for="id_proyek">Proyek</label>
-                            <select class="form-control @error('id_proyek') is-invalid @enderror" id="id_proyek" name="id_proyek" required>
-                                <option value="" selected disabled>-- Pilih --</option>
-                                @foreach ($daftarProyek as $row)
-                                    @if ($row->status_lps === 0)
-                                        <option value="{{$row->id_proyek}}">{{$row->nama_proyek}}</option>
-                                    @endif
-                                @endforeach 
-                            </select>
-                            @error('id_proyek')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-@foreach ($daftarProyekLps as $item)
-<div class="modal fade" id="hapus{{$item->id_proyek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach ($daftarDetailLicense as $item)
+<div class="modal fade" id="hapus{{$item->id_detail_license}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -146,15 +134,15 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <a href="/hapus-proyek-lps/{{$item->id_proyek}}" type="button" class="btn btn-danger">Hapus</a>
+                <a href="/hapus-detail-license/{{$item->id_detail_license}}" type="button" class="btn btn-danger">Hapus</a>
             </div>
         </div>
     </div>
 </div>
 @endforeach
 
-@foreach ($daftarProyekLps as $item)
-<div class="modal fade" id="edit{{$item->id_proyek}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach ($daftarDetailLicense as $item)
+<div class="modal fade" id="edit{{$item->id_detail_license}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -162,12 +150,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="/update-tanggal-pho/{{$item->id_proyek}}" method="POST">
-                @csrf
+                <form action="/edit-detail-license/{{$item->id_detail_license}}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="form-label" for="tanggal_pho_lps">Tanggal PHO</label>
-                            <input type="date" class="form-control @error('tanggal_pho_lps') is-invalid @enderror" id="tanggal_pho_lps" name="tanggal_pho_lps" value="{{$item->tanggal_pho_lps}}" placeholder="Masukkan Tanggal PHO LPS" required>
+                            <label class="form-label">Status License</label>
+                            <select name="status" id="status" class="selectpicker form-control @error('status') is-invalid @enderror" data-style="py-0" required>
+                                <option value="" selected disabled>-- Pilih --</option>
+                                <option value="Non" @if($item->status === 'Non') selected @endif>Non</option>
+                                <option value="Student" @if($item->status === 'Student') selected @endif>Student</option>
+                                <option value="Trial" @if($item->status === 'Trial') selected @endif>Trial</option>
+                                <option value="Full" @if($item->status === 'Full') selected @endif>Full</option>
+                            </select>
                         </div>
                     </div>
             </div>
@@ -180,5 +174,47 @@
     </div>
 </div>
 @endforeach
+
+<div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/tambah-detail-license" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Software</label>
+                            <input type="hidden" name="id_license" value="{{$detailLicense->id_license}}">
+                            <select name="id_software" id="id_software" class="selectpicker form-control @error('id_software') is-invalid @enderror" data-style="py-0" required>
+                                <option value="" selected disabled>-- Pilih --</option>
+                                @foreach ($daftarSoftware as $item)
+                                    <option value="{{$item->id_software}}">{{$item->nama_software}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Status License</label>
+                            <select name="status" id="status" class="selectpicker form-control @error('status') is-invalid @enderror" data-style="py-0" required>
+                                <option value="" selected disabled>-- Pilih --</option>
+                                <option value="Non">Non</option>
+                                <option value="Student">Student</option>
+                                <option value="Trial">Trial</option>
+                                <option value="Full">Full</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

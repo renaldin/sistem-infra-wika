@@ -33,4 +33,13 @@ class ModelDokumenLps extends Model
     {
         DB::table('dokumen_lps')->where('id_dokumen_lps', $data['id_dokumen_lps'])->update($data);
     }
+
+    public function jumlahData() 
+    {
+        $data = [
+            'utama' => DB::table('dokumen_lps')->where('jenis_dokumen', 'Utama')->count(),
+            'pendukung' => DB::table('dokumen_lps')->where('jenis_dokumen', 'Pendukung')->count()
+        ];
+        return $data;
+    }
 }

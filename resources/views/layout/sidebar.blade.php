@@ -190,11 +190,19 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($title === 'Dokumen LPS') active @endif" data-bs-toggle="collapse" @if ($title === 'Dokumen LPS') @endif href="#dokumen-lps" role="button" aria-expanded="false" aria-controls="dokumen-lps">
+                        <a class="nav-link @if ($title === 'Dokumen LPS') active @endif" aria-current="page" href="/daftar-dokumen-lps">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Dokumen LPS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Data Software') active @endif" data-bs-toggle="collapse"href="#software" role="button" aria-expanded="false" aria-controls="software">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
-                            <span class="item-name">Dokumen LPS</span>
+                            <span class="item-name">Software</span>
                             <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -203,9 +211,9 @@
                                 </svg>
                             </i>
                         </a>
-                        <ul class="sub-nav collapse" id="dokumen-lps" data-bs-parent="#sidebar-menu">
+                        <ul class="sub-nav collapse" id="software" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
-                                <a class="nav-link @if ($title === 'Dokumen LPS' && $subTitle === 'Tambah') active @endif" href="/tambah-dokumen-lps">
+                                <a class="nav-link @if ($title === 'Data Software' && $subTitle === 'Tambah') active @endif" href="/tambah-software">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -220,7 +228,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($title === 'Dokumen LPS' && $subTitle === 'Daftar' || $subTitle === 'Edit') active @endif" href="/daftar-dokumen-lps">
+                                <a class="nav-link @if ($title === 'Data Software' && $subTitle === 'Daftar Software') active @elseif($title = 'Data Software' && $subTitle === 'Edit') active @endif" href="/daftar-software">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -259,11 +267,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($subTitle === 'Input LPS' || $subTitle === 'Detail LPS') active @endif" aria-current="page" href="/input-lps">
+                        <a class="nav-link @if ($subTitle === 'Review LPS' || $subTitle === 'Detail LPS') active @endif" aria-current="page" href="/input-lps">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
-                            <span class="item-name">Input LPS</span>
+                            <span class="item-name">Review LPS</span>
                         </a>
                     </li>
                     <li class="nav-item static-item">
@@ -429,6 +437,53 @@
                             </i>
                             <span class="item-name">RKP</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'LPS') active @endif" data-bs-toggle="collapse" href="#lps" role="button" aria-expanded="false" aria-controls="lps">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">LPS</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="lps" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'LPS' && $subTitle === 'Monitoring LPS') active @endif" href="/monitoring-lps">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Monitoring</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($title === 'LPS' && $subTitle === 'Progress') active @endif" href="/progress-lps">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Progress</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @elseif ($user->role === 'Tim Proyek')
                     <li class="nav-item static-item">
@@ -750,6 +805,22 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Review LPS' || $subTitle === 'Detail LPS') active @endif" aria-current="page" href="/input-lps">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Review LPS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'License Software') active @endif" aria-current="page" href="/daftar-license">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">License Software</span>
+                        </a>
+                    </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Monitoring</span>
@@ -770,6 +841,14 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
                             <span class="item-name">Monitoring RKP</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Monitoring LPS') active @endif" aria-current="page"  href="/monitoring-lps">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Monitoring LPS</span>
                         </a>
                     </li>
                 @endif

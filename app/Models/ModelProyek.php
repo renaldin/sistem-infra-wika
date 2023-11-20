@@ -34,6 +34,15 @@ class ModelProyek extends Model
             ->first();
     }
 
+    public function detailLps($id_proyek)
+    {
+        return DB::table('proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek', 'proyek')
+            ->join('user', 'user.id_user', '=', 'proyek.id_user_lps')
+            ->where('id_proyek', $id_proyek)
+            ->first();
+    }
+
     public function tambah($data)
     {
         DB::table('proyek')->insert($data);
