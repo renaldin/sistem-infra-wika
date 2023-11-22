@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 03:10 AM
+-- Generation Time: Nov 22, 2023 at 01:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -20,6 +20,82 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistem-infra-wika`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aspek_csi`
+--
+
+CREATE TABLE `aspek_csi` (
+  `id_aspek_csi` int(11) NOT NULL,
+  `aspek` varchar(255) DEFAULT NULL,
+  `parameter` varchar(255) DEFAULT NULL,
+  `bobot` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `aspek_csi`
+--
+
+INSERT INTO `aspek_csi` (`id_aspek_csi`, `aspek`, `parameter`, `bobot`) VALUES
+(1, 'Kesesuaian biaya konsultan dengan scope pekerjaan', 'BIAYA', 15),
+(2, 'Nilai efisiensi proyek dari hasil pekerjaan konsultan', 'BIAYA', 15),
+(3, 'Kesesuaian dokumen laporan engineering dan peraturan yang berlaku (code)', 'MUTU', 15),
+(4, 'Kesesuaian antara dokumen laporan engineering dengan gambar', 'MUTU', 8),
+(5, 'Sistematika penyajian dokumen laporan engineering', 'MUTU', 7),
+(6, 'Ketepatan waktu penyelesaian dokumen laporan engineering', 'WAKTU', 30),
+(7, 'Keaktifan dan Responsifitas terhadap masalah lapangan', 'PELAYANAN', 5),
+(8, 'Pertanggung-jawaban hasil pekerjaan engineering ke owner', 'PELAYANAN', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `csi`
+--
+
+CREATE TABLE `csi` (
+  `id_csi` int(11) NOT NULL,
+  `id_proyek` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `periode` varchar(255) DEFAULT NULL,
+  `pendapat` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `csi`
+--
+
+INSERT INTO `csi` (`id_csi`, `id_proyek`, `id_user`, `periode`, `pendapat`) VALUES
+(3, 3, 54, '2023-11', 'Pendapat ku 1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_csi`
+--
+
+CREATE TABLE `detail_csi` (
+  `id_detail_csi` int(11) NOT NULL,
+  `id_csi` int(11) DEFAULT NULL,
+  `id_aspek_csi` int(11) DEFAULT NULL,
+  `penilaian` varchar(255) DEFAULT NULL,
+  `nilai` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_csi`
+--
+
+INSERT INTO `detail_csi` (`id_detail_csi`, `id_csi`, `id_aspek_csi`, `penilaian`, `nilai`) VALUES
+(17, 3, 1, 'Sangat Baik', 5),
+(18, 3, 2, 'Baik', 4),
+(19, 3, 3, 'Sangat Baik', 5),
+(20, 3, 4, 'Sangat Baik', 5),
+(21, 3, 5, 'Baik', 4),
+(22, 3, 6, 'Baik', 4),
+(23, 3, 7, 'Sangat Baik', 5),
+(24, 3, 8, 'Sangat Baik', 5);
 
 -- --------------------------------------------------------
 
@@ -767,6 +843,24 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 --
 
 --
+-- Indexes for table `aspek_csi`
+--
+ALTER TABLE `aspek_csi`
+  ADD PRIMARY KEY (`id_aspek_csi`);
+
+--
+-- Indexes for table `csi`
+--
+ALTER TABLE `csi`
+  ADD PRIMARY KEY (`id_csi`);
+
+--
+-- Indexes for table `detail_csi`
+--
+ALTER TABLE `detail_csi`
+  ADD PRIMARY KEY (`id_detail_csi`);
+
+--
 -- Indexes for table `detail_license`
 --
 ALTER TABLE `detail_license`
@@ -877,6 +971,24 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `aspek_csi`
+--
+ALTER TABLE `aspek_csi`
+  MODIFY `id_aspek_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `csi`
+--
+ALTER TABLE `csi`
+  MODIFY `id_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `detail_csi`
+--
+ALTER TABLE `detail_csi`
+  MODIFY `id_detail_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `detail_license`

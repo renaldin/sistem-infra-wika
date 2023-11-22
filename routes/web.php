@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Csi;
 use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
@@ -12,7 +13,6 @@ use App\Http\Controllers\Landing;
 use App\Http\Controllers\License;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Lps;
-use App\Http\Controllers\MasterAcitvity;
 use App\Http\Controllers\MasterActivity;
 use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
@@ -96,6 +96,14 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-detail-license/{id}', [DetailLicense::class, 'prosesEdit']);
     Route::get('/hapus-detail-license/{id}', [DetailLicense::class, 'prosesHapus']);
     
+    Route::get('/daftar-proyek-csi', [Csi::class, 'index']);
+    Route::post('/tambah-proyek-csi', [Csi::class, 'prosesTambah']);
+    Route::post('/edit-proyek-csi/{id}', [Csi::class, 'prosesEdit']);
+    Route::get('/hapus-proyek-csi/{id}', [Csi::class, 'prosesHapus']);
+    Route::get('/detail-proyek-csi/{id}', [Csi::class, 'detail']);
+    Route::post('/edit-detail-csi/{id}', [Csi::class, 'updateDetailCsi']);
+    Route::get('/monitoring-csi', [Csi::class, 'monitoring']);
+    Route::post('/pendapat-csi/{id}', [Csi::class, 'pendapat']);
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
