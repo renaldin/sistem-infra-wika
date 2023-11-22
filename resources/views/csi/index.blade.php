@@ -11,7 +11,7 @@
             </div>
             <div class="card-body px-4" style="margin-bottom: -50px;">
                 <div class="row">
-                    @if ($monitoring === false)
+                    @if ($user->role === 'Tim Proyek')
                     <div class="col-lg-12">
                         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#tambah">Tambah</button>
                     </div>
