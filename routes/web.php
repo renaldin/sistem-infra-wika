@@ -90,6 +90,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-license/{id}', [License::class, 'prosesEdit']);
     Route::get('/hapus-license/{id}', [License::class, 'prosesHapus']);
     Route::get('/detail-license/{id}', [License::class, 'detail']);
+    Route::get('/progress-license', [License::class, 'progress']);
     
     Route::post('/tambah-detail-license', [DetailLicense::class, 'prosesTambah']);
     Route::post('/edit-detail-license/{id}', [DetailLicense::class, 'prosesEdit']);

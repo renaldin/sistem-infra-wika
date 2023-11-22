@@ -55,4 +55,20 @@ class ModelDetailLicense extends Model
     {
         DB::table('detail_license')->where('id_license', $id_license)->delete();
     }
+
+    public function progress()
+    {
+        $data = [
+            'fullEngineering' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Engineering')->where('detail_license.status', 'Full')->count(),
+            'fullOffice' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Office')->where('detail_license.status', 'Full')->count(),
+            'nonEngineering' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Engineering')->where('detail_license.status', 'Non')->count(),
+            'nonOffice' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Office')->where('detail_license.status', 'Non')->count(),
+            'studentEngineering' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Engineering')->where('detail_license.status', 'Student')->count(),
+            'studentOffice' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Office')->where('detail_license.status', 'Student')->count(),
+            'trialEngineering' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Engineering')->where('detail_license.status', 'Trial')->count(),
+            'trialOffice' => DB::table('detail_license')->join('software', 'software.id_software', '=', 'detail_license.id_software')->join('license', 'license.id_license', '=', 'detail_license.id_license')->where('kategori', 'Office')->where('detail_license.status', 'Trial')->count()
+        ];
+
+        return $data;
+    }
 }

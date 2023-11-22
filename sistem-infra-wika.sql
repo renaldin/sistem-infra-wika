@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2023 at 01:56 AM
+-- Generation Time: Nov 22, 2023 at 03:10 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -34,6 +34,13 @@ CREATE TABLE `detail_license` (
   `status` varchar(255) DEFAULT NULL,
   `tanggal_input` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_license`
+--
+
+INSERT INTO `detail_license` (`id_detail_license`, `id_license`, `id_software`, `status`, `tanggal_input`) VALUES
+(3, 4, 41, 'Full', '2023-11-22');
 
 -- --------------------------------------------------------
 
@@ -268,6 +275,13 @@ CREATE TABLE `license` (
   `id_device` text DEFAULT NULL,
   `tanggal_license` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `license`
+--
+
+INSERT INTO `license` (`id_license`, `id_user`, `unit_kerja`, `id_device`, `tanggal_license`) VALUES
+(4, 54, NULL, 'ID Device alve hunus', '2023-11-22');
 
 -- --------------------------------------------------------
 
@@ -868,7 +882,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_license`
 --
 ALTER TABLE `detail_license`
-  MODIFY `id_detail_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detail_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `detail_tim_proyek`
@@ -904,7 +918,7 @@ ALTER TABLE `ki_km`
 -- AUTO_INCREMENT for table `license`
 --
 ALTER TABLE `license`
-  MODIFY `id_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lps`

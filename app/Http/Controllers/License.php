@@ -96,4 +96,21 @@ class License extends Controller
         $this->ModelDetailLicense->hapusLicense($id_license);
         return back()->with('success', 'Data berhasil dihapus!');
     }
+
+    public function progress()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = [
+            'title'             => 'License Software',
+            'subTitle'          => 'Progress',
+            'daftarSoftware'    => $this->ModelSoftware->data(),
+            'progress'          => $this->ModelDetailLicense->progress(),
+            'user'              => $this->ModelUser->detail(Session()->get('id_user')),
+        ];
+
+        return view('license.progress', $data);
+    }
 }
