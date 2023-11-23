@@ -1011,11 +1011,27 @@ section {
   transform: scale(1.1);
 }
 
+.projects .portfolio-content img {
+  object-fit: cover;
+  object-position: center center;
+  width: 500px;
+  /* Lebar tetap 1024 piksel */
+  height: 200px;
+  /* Tinggi tetap 768 piksel */
+  transition: 0.3s;
+}
+
+.portfolio-item img {
+  border-radius: 20px;
+  /* Sesuaikan nilai sesuai kebutuhan */
+  /* Tidak perlu menambahkan properti width dan height di sini */
+}
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
 .testimonials .testimonial-wrap {
-  padding-left: 50px;
+  padding-left: 30px;
   border-radius: 20px;
 }
 
@@ -1131,6 +1147,33 @@ section {
     position: static;
     left: auto;
   }
+}
+
+.testimonials .swiper-slide {
+  max-width: 250px;
+  /* Sesuaikan nilai maksimum lebar yang diinginkan */
+  margin: 0 auto;
+  /* Menengahkan swiper slide */
+}
+
+.testimonials .testimonial-item {
+  margin-right: 15px;
+  /* Menambahkan margin antar testimonial */
+}
+
+.testimonials .testimonial-item:last-child {
+  margin-right: 0;
+  /* Menghilangkan margin kanan untuk testimonial terakhir */
+}
+
+.testimonials .testimonial-wrap {
+  max-width: 100%;
+  /* Memastikan gambar testimonial sesuai dengan swiper slide */
+}
+
+.testimonials .testimonial-wrap .testimonial-img {
+  width: 100%;
+  /* Memastikan gambar testimonial sesuai dengan swiper slide */
 }
 
 /*--------------------------------------------------------------
