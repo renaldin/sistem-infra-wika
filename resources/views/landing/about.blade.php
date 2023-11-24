@@ -16,42 +16,33 @@
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+   <!-- ======= About Section ======= -->
+ <section id="about" class="about">
+  <div class="container" data-aos="fade-up">
 
-        <div class="row position-relative">
+    <div class="row position-relative">
 
-          <div class="col-lg-7 about-img" style="background-image: url(assets/img/about.jpg);"></div>
+      <div class="col-lg-7 about-img" style="background-image: url({{ asset('image/about.jpeg') }})"></div>
 
-          <div class="col-lg-7">
-            <h2>Consequatur eius et magnam</h2>
-            <div class="our-story">
-              <h4>Est 1988</h4>
-              <h3>Our Story</h3>
-              <p>Inventore aliquam beatae at et id alias. Ipsa dolores amet consequuntur minima quia maxime autem.
-                Quidem id sed ratione. Tenetur provident autem in reiciendis rerum at dolor. Aliquam consectetur
-                laudantium temporibus dicta minus dolor.</p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commo</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Duis aute irure dolor in reprehenderit in</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
-              </ul>
-              <p>Vitae autem velit excepturi fugit. Animi ad non. Eligendi et non nesciunt suscipit repellendus porro in
-                quo eveniet. Molestias in maxime doloremque.</p>
+      <div class="col-lg-7">
+        <h2>Tentang Kami</h2>
+        <div class="our-story">
+          <h4>Est 1960</h4>
+          <h3>Infrastructure 2 Division</h3>
+          <p>Infrastructure 2 Division merupakan unit kerja PT. Wijaya Karya (Persero) Tbk yang bekerja dalam bidang konstruksi seperti bangunan Jalan, Jembatan, Bendungan, Pelabuhan dan bangunan lainnya. Infrastructure 2 Division memiliki 2 (dua) wilayah operasi diantaranya Departemen Operasi 3 meliputi wilayah pulau Kalimantan dan Departemen Operasi 4 meliputi wilayah Pulau Bali, Sulawesi, Maluku, Nusa Tenggara Timur, Nusa Tenggara Barat dan Papua.                .</p>
 
-              <div class="watch-video d-flex align-items-center position-relative">
-                <i class="bi bi-play-circle"></i>
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox stretched-link">Watch Video</a>
-              </div>
-            </div>
+          <div class="watch-video d-flex align-items-center position-relative">
+            <i class="bi bi-play-circle"></i>
+            <a href="https://youtu.be/4jMF47W_s-0?si=Ok5l8YKeHtXbIyzJ" class="glightbox stretched-link">Watch Video</a>
           </div>
-
         </div>
-
       </div>
-    </section>
-    <!-- End About Section -->
+
+    </div>
+
+  </div>
+</section>
+<!-- End About Section -->
 
     <!-- ======= Stats Counter Section ======= -->
     <section id="stats-counter" class="stats-counter section-bg">
@@ -111,127 +102,34 @@
     <!-- ======= Alt Services Section ======= -->
     <section id="alt-services" class="alt-services">
       <div class="container" data-aos="fade-up">
-
+    
         <div class="row justify-content-around gy-4">
-          <div class="col-lg-6 img-bg" style="background-image: url(assets/img/alt-services.jpg);" data-aos="zoom-in"
-            data-aos-delay="100"></div>
-
-          <div class="col-lg-5 d-flex flex-column justify-content-center">
-            <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus
-              laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-              <i class="bi bi-easel flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
-                  non provident</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-patch-check flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                  deleniti atque</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-brightness-high flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus
-                  aut eligendi omnis</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-brightness-high flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non aspernatur odit amet.
-                  Et eligendi</p>
-              </div>
-            </div><!-- End Icon Box -->
-
+          <div class="section-header">
+            <h2>Struktur Organisasi</h2>
+            
           </div>
+    
+          <div class="col-lg-6 img-bg" style="background-image: url({{ asset('image/struktur1.jpeg') }});" data-aos="zoom-in" data-aos-delay="100"></div>
+    
         </div>
-
+    
       </div>
     </section><!-- End Alt Services Section -->
 
-    <!-- ======= Alt Services Section 2 ======= -->
-    <section id="alt-services-2" class="alt-services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row justify-content-around gy-4">
-          <div class="col-lg-5 d-flex flex-column justify-content-center">
-            <h3>Non quasi officia eum nobis et rerum epudiandae rem voluptatem</h3>
-            <p>Maxime quia dolorum alias perspiciatis. Earum voluptatem sint at non. Ducimus maxime minima iste magni
-              sit praesentium assumenda minus. Amet rerum saepe tempora vero.</p>
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-              <i class="bi bi-easel flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
-                  non provident</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-patch-check flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                  deleniti atque</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-brightness-high flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus
-                  aut eligendi omnis</p>
-              </div>
-            </div><!-- End Icon Box -->
-
-            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-brightness-high flex-shrink-0"></i>
-              <div>
-                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non aspernatur odit amet.
-                  Et eligendi</p>
-              </div>
-            </div><!-- End Icon Box -->
-          </div>
-
-          <div class="col-lg-6 img-bg" style="background-image: url(assets/img/alt-services-2.jpg);" data-aos="zoom-in"
-            data-aos-delay="100"></div>
-        </div>
-
-      </div>
-    </section><!-- End Alt Services Section 2 -->
-
+    
     <!-- ======= Our Team Section ======= -->
     <section id="team" class="team">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Team</h2>
-          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis
-            omnis tiledo stran delop</p>
+          <h2>Management of Infrastructure 2 Division</h2>
         </div>
 
         <div class="row gy-5">
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
             <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/svp.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -240,16 +138,16 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-              <p>Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow
-              </p>
+              <h4>Hermawan Dhewayanto, S. T., M. M
+              </h4>
+              <span>Senior Vice President
+              </span>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
             <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/Ainul Yakin.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -258,16 +156,15 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>Sarah Jhonson</h4>
-              <span>Product Manager</span>
-              <p>Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem
-                ut</p>
+              <h4>Ainul Yakin</h4>
+              <span>Manager of QHSE</span>
+              
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
             <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/Heidi Duma.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -276,16 +173,14 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>William Anderson</h4>
-              <span>CTO</span>
-              <p>Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis
-                at qui</p>
+              <h4>Heidi Duma</h4>
+              <span>Manager of Contract Management</span>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
             <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/Eko Marsudi Utomo.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -294,16 +189,14 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>Amanda Jepson</h4>
-              <span>Accountant</span>
-              <p>Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam
-                consectetur</p>
+              <h4>Eko Marsudi Utomo</h4>
+              <span>Manager of Project Control and Planning</span>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
             <div class="member-img">
-              <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/Murih Yuwono.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -312,16 +205,14 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>Brian Doe</h4>
-              <span>Marketing</span>
-              <p>Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit
-                laborum velit</p>
+              <h4>Murih Yuwono</h4>
+              <span>Manager of Finance</span>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
             <div class="member-img">
-              <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
+              <img src="{{ asset('image/team/Media Persada.jpg') }}" class="img-fluid" alt="">
               <div class="social">
                 <a href="#"><i class="bi bi-twitter"></i></a>
                 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -330,15 +221,95 @@
               </div>
             </div>
             <div class="member-info text-center">
-              <h4>Josepha Palas</h4>
-              <span>Operation</span>
-              <p>Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi
-                cupiditate vel</p>
+              <h4>Media Persada</h4>
+              <span>Manager of Engineering</span>
             </div>
           </div><!-- End Team Member -->
 
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="700">
+            <div class="member-img">
+              <img src="{{ asset('image/team/Syauqi Nusuki.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>Syauqi Nusuki</h4>
+              <span>Manager of Human Capital</span>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="800">
+            <div class="member-img">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>Asropin</h4>
+              <span>General Manager of operation 3</span>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="900">
+            <div class="member-img">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>Ngatemin</h4>
+              <span>General Manager of Operation 4</span>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="700">
+            <div class="member-img">
+              <img src="{{ asset('image/team/Taufik MUtaqin.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>Taufik Mutaqin</h4>
+              <span>Deputy General Manager of Operation 4 </span>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="800">
+            <div class="member-img">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info text-center">
+              <h4>Bayu Budi Setijono</h4>
+              <span>Deputy General Manager of operation 4</span>
+            </div>
+          </div><!-- End Team Member -->
+
+        
         </div>
 
+        
       </div>
     </section><!-- End Our Team Section -->
 
@@ -347,9 +318,9 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Testimonials</h2>
-          <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia
-            reprehenderit sunt deleniti</p>
+          <h2>QUALITY, SAFETY, HEALTH AND 
+            ENVIRONTMENT SUB DIVISION
+            </h2>
         </div>
 
         <div class="slides-2 swiper">
@@ -357,101 +328,182 @@
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Danang Setiawan.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Danang Setiawan</h4>
+                  <span>Coordinator QHSE</span>
                   </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Moh. Saiful Anam</h4>
+                  <span>Coordinator QHSE</span>
                   </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Abdul Hakam.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Abdul Hakam</h4>
+                  <span>Coordinator QHSE</span>
                   </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                    tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Dien Ayu Septemberina.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Dien Ayu Septemberina</h4>
+                  <span>Junior Expert QHSE</span>
+                  </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                    minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
+                <div class="d-flex">  
+                <img src="{{ asset('image/team/Firmansyah.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">  
+                <h4>Firmansyah</h4>
+                  <span>Coordinator QHSE</span>
+                </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <div class="d-flex">  
+                <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                  <h4>Amarullah</h4>
+                  <span>Staff of QHSE</span>
+                </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                <img src="{{ asset('image/team/Rizky Swastya Fitrianto.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">  
+                <h4>Rizky Swastya Fitrianto</h4>
+                  <span>Staff of QHSE</span>
+                </div>
+              </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials1" class="testimonials1 section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>CONTRACT MANAGEMENT SUB DIVISION  </h2>
+        </div>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Agung Rio Rimbanu.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Agung Rio Rimbanu</h4>
+                  <span>Coordinator of Contract Management</span>
                   </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
-                    culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
-                    quid.
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Agus Istianto Budiman</h4>
+                  <span>Coordinator of Contract Management</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                  <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                  <h4>Kenya Hanifah Nisita</h4>
+                  <span>Staff of Contract Management</span>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Faris Setyawan.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Faris Setyawan</h4>
+                  <span>Staff of Contract Management</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Maulana Danang Adhi Prakosa.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Maulana Danang Adhi Prakosa</h4>
+                  <span>Staff of Contract Management</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Fachrurrozi.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Fachrurrozi</h4>
+                  <span>Staff of Contract Management</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Nawang Calistya Sari.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Nawang Calistya Sari</h4>
+                  <span>Staff of Contract Management</span>
+                  </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
@@ -463,6 +515,158 @@
       </div>
     </section><!-- End Testimonials Section -->
 
+     <!-- ======= Testimonials Section ======= -->
+     <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>PROJECT CONTROL AND PLANNING SUB DIVISION</h2>
+        </div>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Galih Satria.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                    <h4>Galih Satria</h4>
+                    <span>Expert 2 of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img " alt="">
+                  <div class="d-block p-3">
+                    <h4>Maruli Tua Simajuntak</h4>
+                    <span>Expert 2 of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Agung Prasonto Nugroho.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Agung Prasanto Nugroho</h4>
+                  <span>Coordinator of Project Control and Planning</span>
+                  </div>
+                  </div>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Martoyo.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Martoyo</h4>
+                  <span>Coordinator of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Yuga Widodo</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+                </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Antonius Wahyu Sulistyadi</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+            
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Ni'am Aulawi</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Muhammad REza Aldila</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/Andri Aprianto.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Andri Aprianto</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Syifa Putri Aulia</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="d-flex">
+                  <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                  <div class="d-block p-3">
+                  <h4>Sendy Permana</h4>
+                  <span>Staff of Project Control and Planning</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+   
+
+   
   </main><!-- End #main -->
 
 @endsection

@@ -2,7 +2,33 @@
 
 @section('content')
 <!-- ======= Get Started Section ======= -->
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
 
+      <div class="row position-relative">
+
+        <div class="col-lg-7 about-img" style="background-image: url({{ asset('image/about.jpeg') }})"></div>
+
+        <div class="col-lg-7">
+          <h2>Tentang Kami</h2>
+          <div class="our-story">
+            <h4>Est 1960</h4>
+            <h3>Infrastructure 2 Division</h3>
+            <p>Infrastructure 2 Division merupakan unit kerja PT. Wijaya Karya (Persero) Tbk yang bekerja dalam bidang konstruksi seperti bangunan Jalan, Jembatan, Bendungan, Pelabuhan dan bangunan lainnya. Infrastructure 2 Division memiliki 2 (dua) wilayah operasi diantaranya Departemen Operasi 3 meliputi wilayah pulau Kalimantan dan Departemen Operasi 4 meliputi wilayah Pulau Bali, Sulawesi, Maluku, Nusa Tenggara Timur, Nusa Tenggara Barat dan Papua.                .</p>
+
+            <div class="watch-video d-flex align-items-center position-relative">
+              <i class="bi bi-play-circle"></i>
+              <a href="https://youtu.be/4jMF47W_s-0?si=Ok5l8YKeHtXbIyzJ" class="glightbox stretched-link">Watch Video</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End About Section -->
 <!-- ======= Maps Section ======= -->
 <section id="maps" class="maps">
     <div class="container-fluid blog py-5 mb-5">
@@ -27,9 +53,31 @@
                             .bindPopup('<b>PT. Wijaya Karya (Persero) Tbk</b><br />Wika Tower').openPopup();
 
                         var lokasi_array = [
-                            ["Proyek 1", 0.774044, 116.167251],
-                            ["Proyek 2", -8.901725, 116.959671],
-                            ["Proyek 3", -2.824726, 102.495479]
+                            ["Sumbu Timur",-0.9596623, 116.7020184],
+                            ["Bendungan Manikin", -10.2147620, 123.7191163],
+                            ["D&B Pengerukan Pelabuhan Benoa Paket A", -8.7457246,115.2089482],
+                            ["Duplikasi Jembatan Kapuas I MYC", -0.0371631,109.3518281],
+                            ["Bendungan Pamukkulu", -5.3972773,119.5905002],
+                            ["Pembangunan Jalan dan Jembatan Tumbang Samba Tumbang Hiran II",-1.4563982,113.0933217],
+                            ["Akses Tol Makassar New Port", -5.1160465,119.4110114],
+                            ["Relokasi Jalan Sei Duri - Mempawah Kalbar (Lingkar Kijing)", 0.5143710,108.9476736],
+                            ["Bendungan Jenelata", -5.2918439,119.5990221],
+                            ["Jalan Tol IKN Segmen KKT Kariangau - Sp. Tempadung", -1.1573949,116.8407825],
+                            ["Dredging Pendalaman Alur Tursina Area III & IV", 0.0988705,117.4816524],
+                            ["Irigasi Gumbasa", -1.2017391,119.9425945],
+                            ["Bendungan Ameroro", -3.9083268,122.0099196],
+                            ["Underpass Tatakan 101", -3.0751754,115.1101065],
+                            ["Mandalika Urban Tourism Infrastructure Project Package 1", -8.8976580,116.3038789],
+                            ["Rekonstruksi Jalan Kalawara-Kulawi dan Sirenja", -1.5020489,119.8653219],
+                            ["SPRD (KPC)", 0.5457752,117.6217823],
+                            ["MWRD (KPC)", 0.5457752,117.6217823],
+                            ["Penyiapan Lahan Industri PKT Bontang", 0.1007683,117.4764607],
+                            ["Pekerjaan Land Clearing untuk Budidaya Jagung Kabupaten Keerom", -3.3312800,140.7670145],
+                            ["Wani Port", -0.6948045,119.8402461],
+                            ["Donggala Port", -0.6670883,119.7443731],
+                            ["PASIGALA raw water transmission system rehabilitation (Paket 1)", 119.7443731,119.9631180],
+                            ["Bandar Udara Banggai", -1.5540836,123.5546477],
+                            ["Proyek JDU SPAM Regional Mamminasata", -5.1628036,119.5956783]
                         ];
 
                         for (let i = 0; i < lokasi_array.length; i++) {
@@ -649,7 +697,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Irigasi Gumbasa.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('image/Irigasi Gumbasa.jpeg')}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                             <h4>Irigasi Gumbasa</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -677,7 +725,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Wani Port.jpg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('image/Wani Port.jpeg')}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                             <h4>Wani Port</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -733,7 +781,7 @@
             </div>
             <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
                 <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Dredging Pendalaman Alur Tursina Area III & IV')}}" class="img-fluid" alt="">
+                    <img src="{{asset('image/Dredging Pendalaman Alur Tursina Area III & IV.JPG')}}" class="img-fluid" alt="">
                     <div class="portfolio-info">
                     <h4>Dredging Pendalaman Alur Tursina Area III & IV</h4>
                     <p>Lorem ipsum, dolor sit amet consectetur</p>
@@ -868,167 +916,200 @@
 
 <!-- ======= Recent Blog Posts Section ======= -->
 <section id="recent-blog-posts" class="recent-blog-posts">
-<div class="container" data-aos="fade-up"">
-    <div class=" section-header">
-    <h2>Recent Blog Posts</h2>
-    <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
-</div>
-
-<div class="row gy-5">
-
-    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-    <div class="post-item position-relative h-100">
-
-        <div class="post-img position-relative overflow-hidden">
-        <img src="{{ asset('templateLand/assets/img/blog/blog-1.jpg') }}" class="img-fluid" alt="">
-        <span class="post-date">December 12</span>
-        </div>
-
-        <div class="post-content d-flex flex-column">
-
-        <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-
-        <div class="meta d-flex align-items-center">
-            <div class="d-flex align-items-center">
-            <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-            </div>
-            <span class="px-3 text-black-50">/</span>
-            <div class="d-flex align-items-center">
-            <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-            </div>
-        </div>
-
-        <hr>
-
-        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-            class="bi bi-arrow-right"></i></a>
-
-        </div>
-
+    <div class="container" data-aos="fade-up">
+        <div class=" section-header">
+        <h2>InfraNews</h2>
     </div>
-    </div><!-- End post item -->
-
-    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-    <div class="post-item position-relative h-100">
-
-        <div class="post-img position-relative overflow-hidden">
-        <img src="{{ asset('templateLand/assets/img/blog/blog-2.jpg') }}" class="img-fluid" alt="">
-        <span class="post-date">July 17</span>
-        </div>
-
-        <div class="post-content d-flex flex-column">
-
-        <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-
-        <div class="meta d-flex align-items-center">
-            <div class="d-flex align-items-center">
-            <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-            </div>
-            <span class="px-3 text-black-50">/</span>
-            <div class="d-flex align-items-center">
-            <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-            </div>
-        </div>
-
-        <hr>
-
-        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-            class="bi bi-arrow-right"></i></a>
-
-        </div>
-
-    </div>
-    </div><!-- End post item -->
-
-    <div class="col-xl-4 col-md-6">
-    <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-
-        <div class="post-img position-relative overflow-hidden">
-        <img src="{{ asset('templateLand/assets/img/blog/blog-3.jpg') }}" class="img-fluid" alt="">
-        <span class="post-date">September 05</span>
-        </div>
-
-        <div class="post-content d-flex flex-column">
-
-        <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-        <div class="meta d-flex align-items-center">
-            <div class="d-flex align-items-center">
-            <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-            </div>
-            <span class="px-3 text-black-50">/</span>
-            <div class="d-flex align-items-center">
-            <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-            </div>
-        </div>
-
-        <hr>
-
-        <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-            class="bi bi-arrow-right"></i></a>
-
-        </div>
-
-    </div>
-    </div><!-- End post item -->
-
-</div>
-
-</div>
-</section>
-<section id="get-started" class="get-started section-bg">
-    <div class="container">
     
-        <div class="row justify-content-between gy-4">
+    <div class="row gy-5">
     
-            <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
-                <div class="p-5 h-100 rounded contact-map">
-                    <iframe class="rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31729.30724681034!2d106.87659100000002!3d-6.242184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3232a5eb1b5%3A0x3e5f3684ce6774b5!2sPT%20Wijaya%20Karya%20(Persero)%20Tbk!5e0!3m2!1sen!2sid!4v1697981290361!5m2!1sen!2sid"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="post-item position-relative h-100">
+    
+            <div class="post-img position-relative overflow-hidden">
+            <img src="{{asset('image/p22.png')}}" class="img-fluid" alt="">
+            <span class="post-date">November, 22</span>
+            </div>
+    
+            <div class="post-content d-flex flex-column">
+    
+            <h3 class="post-title">Program IDEA Infra 2 mencapai 50 lebih bantuan teknis
+            </h3>
+    
+            <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
                 </div>
             </div>
     
-        <div class="col-lg-5" data-aos="fade">
-            <form action="forms/quote.php" method="post" class="php-email-form">
-            <h3>Get a quote</h3>
-            <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero
-                park flows.</p>
-            <div class="row gy-3">
+            <hr>
     
-                <div class="col-md-12">
-                <input type="text" name="name" class="form-control" placeholder="Name" required>
-                </div>
-    
-                <div class="col-md-12 ">
-                <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-    
-                <div class="col-md-12">
-                <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                </div>
-    
-                <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-    
-                <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
-    
-                <button type="submit">Get a quote</button>
-                </div>
+            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
+                class="bi bi-arrow-right"></i></a>
     
             </div>
-            </form>
-        </div><!-- End Quote Form -->
     
         </div>
+        </div><!-- End post item -->
+    
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="post-item position-relative h-100">
+    
+            <div class="post-img position-relative overflow-hidden">
+            <img src="{{asset('image/idea.jpeg')}}" class="img-fluid" alt="">
+            <span class="post-date">November, 22</span>
+            </div>
+    
+            <div class="post-content d-flex flex-column">
+    
+            <h3 class="post-title">Ini Rahasianya 11 Proyek INFRA 2 lulus Sertifikasi BIM 
+            </h3>
+    
+            <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
+                </div>
+            </div>
+    
+            <hr>
+    
+            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
+                class="bi bi-arrow-right"></i></a>
+    
+            </div>
+    
+        </div>
+        </div><!-- End post item -->
+    
+        <div class="col-xl-4 col-md-6">
+        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
+    
+            <div class="post-img position-relative overflow-hidden">
+            <img src="{{asset('image/workshop.JPG')}}" class="img-fluid" alt="">
+            <span class="post-date">November, 22</span>
+            </div>
+    
+            <div class="post-content d-flex flex-column">
+    
+            <h3 class="post-title">Engineering INFRA 2 Workshop Implementasi BIM
+            </h3>
+    
+            <div class="meta d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
+                </div>
+                <span class="px-3 text-black-50">/</span>
+                <div class="d-flex align-items-center">
+                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
+                </div>
+            </div>
+    
+            <hr>
+    
+            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
+                class="bi bi-arrow-right"></i></a>
+    
+            </div>
+    
+        </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
+        
+                <div class="post-img position-relative overflow-hidden">
+                <img src="{{asset('image/workshop.JPG')}}" class="img-fluid" alt="">
+                <span class="post-date">November, 22</span>
+                </div>
+        
+                <div class="post-content d-flex flex-column">
+        
+                <h3 class="post-title">Engineering INFRA 2 Workshop Implementasi BIM
+                </h3>
+        
+                <div class="meta d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
+                    </div>
+                    <span class="px-3 text-black-50">/</span>
+                    <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
+                    </div>
+                </div>
+        
+                <hr>
+        
+                <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
+                    class="bi bi-arrow-right"></i></a>
+        
+                </div>
+        
+            </div>
+            </div><!-- End post item -->
     
     </div>
-    </section><!-- End Get Started Section -->
-    
-<!-- End Recent Blog Posts Section -->
+    </section>
+    <section id="get-started" class="get-started section-bg">
+        <div class="container">
+        
+            <div class="row justify-content-between gy-4">
+        
+                <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
+                    <div class="p-5 h-100 rounded contact-map">
+                        <iframe class="rounded w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31729.30724681034!2d106.87659100000002!3d-6.242184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3232a5eb1b5%3A0x3e5f3684ce6774b5!2sPT%20Wijaya%20Karya%20(Persero)%20Tbk!5e0!3m2!1sen!2sid!4v1697981290361!5m2!1sen!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+        
+            <div class="col-lg-5" data-aos="fade">
+                <form action="forms/quote.php" method="post" class="php-email-form">
+                <h3>Get a quote</h3>
+                <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero
+                    park flows.</p>
+                <div class="row gy-3">
+        
+                    <div class="col-md-12">
+                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                    </div>
+        
+                    <div class="col-md-12 ">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    </div>
+        
+                    <div class="col-md-12">
+                    <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+                    </div>
+        
+                    <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                    </div>
+        
+                    <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+        
+                    <button type="submit">Get a quote</button>
+                    </div>
+        
+                </div>
+                </form>
+            </div><!-- End Quote Form -->
+        
+            </div>
+        
+        </div>
+    </div>
+        </section><!-- End Get Started Section -->
+        
+    <!-- End Recent Blog Posts Section -->
 @endsection
