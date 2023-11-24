@@ -70,7 +70,7 @@ section {
 
 .section-header {
   text-align: center;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 .section-header h2 {
@@ -1112,9 +1112,13 @@ section {
   margin: 15px auto 15px auto;
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d5d7da;
+  opacity: 1;
+  margin: 0 3px;
+  /* Adjust margin as needed */
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet {
@@ -1150,7 +1154,7 @@ section {
 }
 
 .testimonials .swiper-slide {
-  max-width: 250px;
+  max-width: 800px;
   /* Sesuaikan nilai maksimum lebar yang diinginkan */
   margin: 0 auto;
   /* Menengahkan swiper slide */
@@ -1172,8 +1176,230 @@ section {
 }
 
 .testimonials .testimonial-wrap .testimonial-img {
-  width: 100%;
+  width: 50%;
   /* Memastikan gambar testimonial sesuai dengan swiper slide */
+}
+
+.testimonials .slides-2 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonials .swiper-wrapper {
+  display: flex;
+}
+
+.testimonials .swiper-slide {
+  min-width: 250px;
+  /* Adjust the minimum width of each slide */
+}
+
+.testimonials .swiper-pagination {
+  bottom: 0;
+  /* Adjust the position of pagination */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .testimonials .swiper-pagination {
+    margin-top: 10px;
+    /* Adjust margin for smaller screens */
+  }
+
+  .testimonials .swiper-pagination .swiper-pagination-bullet {
+    margin: 0 3px;
+    /* Adjust margin for smaller screens */
+  }
+}
+
+/*--------------------------------------------------------------
+# Testimonials Section
+--------------------------------------------------------------*/
+.testimonials1 {
+  background-color: #fff;
+  /* Set the background color to white */
+}
+
+.testimonials1 .testimonial-wrap {
+  padding-left: 30px;
+  border-radius: 20px;
+}
+
+.testimonials1 .testimonials-carousel,
+.testimonials1 .testimonials-slider {
+  overflow: hidden;
+}
+
+.testimonials1 .testimonial-item {
+  box-sizing: content-box;
+  padding: 30px 30px 30px 60px;
+  margin: 0 15px 30px 0;
+  min-height: 200px;
+  box-shadow: 0px 2px 20px rgba(82, 86, 94, 0.1);
+  position: relative;
+  background: #fff;
+}
+
+.testimonials1 .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 10px;
+  border: 6px solid #fff;
+  position: absolute;
+  left: -45px;
+}
+
+.testimonial-wrap .testimonial-img {
+  border-radius: 20px;
+  /* Adjust the value as needed */
+}
+
+
+.testimonials1 .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #000;
+}
+
+.testimonials1 .testimonial-item h4 {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+
+.testimonials1 .testimonial-item .stars {
+  margin: 10px 0;
+}
+
+.testimonials1 .testimonial-item .stars i {
+  color: #2AABE2;
+  margin: 0 1px;
+}
+
+.testimonials1 .testimonial-item .quote-icon-left,
+.testimonials1 .testimonial-item .quote-icon-right {
+  color: #2AABE2;
+  font-size: 26px;
+  line-height: 0;
+}
+
+.testimonials1 .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.testimonials1 .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+  transform: scale(-1, -1);
+}
+
+.testimonials1 .testimonial-item p {
+  font-style: italic;
+  margin: 15px auto 15px auto;
+}
+
+.testimonials1 .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d5d7da;
+  opacity: 1;
+  margin: 0 3px;
+  /* Adjust margin as needed */
+}
+
+.testimonials1 .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d5d7da;
+  opacity: 1;
+}
+
+.testimonials1 .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .testimonials1 .testimonial-wrap {
+    padding-left: 0;
+  }
+
+  .testimonials1 .testimonials-carousel,
+  .testimonials1 .testimonials-slider {
+    overflow: hidden;
+  }
+
+  .testimonials1 .testimonial-item {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .testimonials1 .testimonial-item .testimonial-img {
+    position: static;
+    left: auto;
+  }
+}
+
+.testimonials1 .swiper-slide {
+  max-width: 800px;
+  /* Sesuaikan nilai maksimum lebar yang diinginkan */
+  margin: 0 auto;
+  /* Menengahkan swiper slide */
+}
+
+.testimonials1 .testimonial-item {
+  margin-right: 15px;
+  /* Menambahkan margin antar testimonial */
+}
+
+.testimonials1 .testimonial-item:last-child {
+  margin-right: 0;
+  /* Menghilangkan margin kanan untuk testimonial terakhir */
+}
+
+.testimonials1 .testimonial-wrap {
+  max-width: 100%;
+  /* Memastikan gambar testimonial sesuai dengan swiper slide */
+}
+
+.testimonials1 .testimonial-wrap .testimonial-img {
+  width: 50%;
+  /* Memastikan gambar testimonial sesuai dengan swiper slide */
+}
+
+.testimonials1 .slides-2 {
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonials1 .swiper-wrapper {
+  display: flex;
+}
+
+.testimonials1 .swiper-slide {
+  min-width: 250px;
+  /* Adjust the minimum width of each slide */
+}
+
+.testimonials1 .swiper-pagination {
+  bottom: 0;
+  /* Adjust the position of pagination */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .testimonials1 .swiper-pagination {
+    margin-top: 10px;
+    /* Adjust margin for smaller screens */
+  }
+
+  .testimonials1 .swiper-pagination .swiper-pagination-bullet {
+    margin: 0 3px;
+    /* Adjust margin for smaller screens */
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1182,8 +1408,12 @@ section {
 .alt-services .img-bg {
   background-size: cover;
   background-position: center center;
-  min-height: 400px;
+  width: 1000px;
+  /* Set the width to 100% to cover the entire container */
+  height: 707.07px;
+  /* Set the height to 600px */
 }
+
 
 .alt-services h3 {
   font-size: 28px;
@@ -1191,12 +1421,14 @@ section {
   color: var(--color-secondary);
   margin-bottom: 20px;
   padding-bottom: 20px;
+  text-align: center;
+  /* Align text to the center */
   position: relative;
 }
 
 .alt-services h3:after {
   content: "";
-  position: absolute;
+  position: center;
   display: block;
   width: 50px;
   height: 3px;
@@ -1259,6 +1491,7 @@ section {
   font-weight: 700;
   font-family: var(--font-secondary);
   margin: 30px 0;
+  line-height: 1;
 }
 
 @media (min-width: 991px) {
@@ -1268,9 +1501,11 @@ section {
   }
 }
 
+
 .about .our-story {
   padding: 40px;
   background-color: #f5f6f7;
+  border-radius: 15px;
 }
 
 @media (min-width: 991px) {
@@ -1283,6 +1518,7 @@ section {
   text-transform: uppercase;
   font-size: 18px;
   color: #838893;
+  border-radius: 15px;
 }
 
 .about .our-story h3 {
@@ -1335,6 +1571,7 @@ section {
   min-height: 600px;
   background-size: cover;
   background-position: center;
+  border-radius: 15px;
 }
 
 @media (min-width: 992px) {
@@ -1344,6 +1581,7 @@ section {
     right: 0;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Stats Counter Section
