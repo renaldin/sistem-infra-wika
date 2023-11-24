@@ -57,4 +57,9 @@ class ModelCsi extends Model
     {
         DB::table('csi')->where('id_csi', $id_csi)->delete();
     }
+
+    public function jumlah()
+    {
+        return DB::table('csi')->count();
+    }
 }

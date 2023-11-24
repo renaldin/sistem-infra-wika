@@ -91,7 +91,7 @@
                                             <td rowspan="2">Nilai</td>
                                             <td rowspan="2">Total</td>
                                         @endif
-                                        @if ($user->role === 'Tim PRoyek')
+                                        @if ($user->role === 'Tim Proyek')
                                             <td rowspan="2" style="min-width: 100px">Aksi</td>
                                         @endif
                                     </tr>

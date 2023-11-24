@@ -39,4 +39,9 @@ class ModelUser extends Model
     {
         return DB::table('user')->count();
     }
+
+    public function jumlahHeadOffice()
+    {
+        return DB::table('user')->where('role', 'Head Office')->count();
+    }
 }

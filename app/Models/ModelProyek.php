@@ -57,4 +57,9 @@ class ModelProyek extends Model
     {
         DB::table('proyek')->where('id_proyek', $id_proyek)->delete();
     }
+
+    public function jumlahProyek() 
+    {
+        return DB::table('proyek')->count();
+    }
 }

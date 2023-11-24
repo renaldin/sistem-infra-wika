@@ -1,5 +1,40 @@
 (function (jQuery) {
   "use strict";
+  if (document.querySelectorAll('#myChart').length) {
+    const options = {
+      series: [55, 75],
+      chart: {
+      height: 230,
+      type: 'radialBar',
+    },
+    colors: ["#4bc7d2", "#3a57e8"],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+            margin: 10,
+            size: "50%",
+        },
+        track: {
+            margin: 10,
+            strokeWidth: '50%',
+        },
+        dataLabels: {
+            show: false,
+        }
+      }
+    },
+    labels: ['Apples', 'Oranges'],
+    };
+    if(ApexCharts !== undefined) {
+      const chart = new ApexCharts(document.querySelector("#myChart"), options);
+      chart.render();
+      document.addEventListener('ColorChange', (e) => {
+          const newOpt = {colors: [e.detail.detail2, e.detail.detail1],}
+          chart.updateOptions(newOpt)
+         
+      })
+    }
+  }
   if (document.querySelectorAll('#d-activity').length) {
     const options = {
       series: [{

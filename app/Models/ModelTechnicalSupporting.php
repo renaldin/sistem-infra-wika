@@ -70,4 +70,14 @@ class ModelTechnicalSupporting extends Model
         ];
         return $data;
     }
+
+    public function jumlah($status = null) 
+    {
+        $data = [
+            'all'   => DB::table('technical_supporting')->count(),
+            'where' => DB::table('technical_supporting')->where('status_support', $status)->count()
+        ];
+
+        return $data;
+    }
 }

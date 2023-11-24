@@ -34,4 +34,9 @@ class ModelSoftware extends Model
     {
         DB::table('software')->where('id_software', $id_software)->delete();
     }
+
+    public function jumlahSoftware()
+    {
+        return DB::table('software')->count();
+    }
 }

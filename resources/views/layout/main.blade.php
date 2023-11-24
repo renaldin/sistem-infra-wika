@@ -244,6 +244,172 @@
         <!-- App Script -->
         <script src="{{ asset('template/html/assets/js/hope-ui.js') }}" defer></script>
 
+        {{-- chart --}}
+        <script>
+
+            // LINE ROLL CHART
+            if (document.querySelectorAll('#chart-roll-1').length) {
+              var chartElement = document.getElementById('chart-roll-1');
+              var val1 = chartElement.getAttribute('val1');
+              var val2 = chartElement.getAttribute('val2');
+              const options = {
+                series: [val1, val2],
+                chart: {
+                height: 230,
+                type: 'radialBar',
+              },
+              colors: ["#4bc7d2", "#3a57e8"],
+              plotOptions: {
+                radialBar: {
+                  hollow: {
+                      margin: 10,
+                      size: "50%",
+                  },
+                  track: {
+                      margin: 10,
+                      strokeWidth: '50%',
+                  },
+                  dataLabels: {
+                      show: false,
+                  }
+                }
+              },
+              labels: ['Apples', 'Oranges'],
+              };
+              if(ApexCharts !== undefined) {
+                const chart = new ApexCharts(document.querySelector("#chart-roll-1"), options);
+                chart.render();
+                document.addEventListener('ColorChange', (e) => {
+                    const newOpt = {colors: [e.detail.detail2, e.detail.detail1],}
+                    chart.updateOptions(newOpt)
+                   
+                })
+              }
+            }
+
+            // BAR CHART
+            if($('#chart-one').length) {
+                const options = {
+                    series: [{
+                    name: 'Net Profit',
+                    data: [44, 55, 57, 56, 61, 58]
+                }, {
+                    name: 'Revenue',
+                    data: [76, 85, 101, 98, 87, 105]
+                }, {
+                    name: 'Free Cash Flow',
+                    data: [35, 41, 36, 26, 45, 48]
+                }],
+                    chart: {
+                    type: 'bar',
+                    height: 250,
+                    sparkline:{
+                    enabled:true
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    borderRadius: 5,
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    curve: 'smooth',
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                },
+                yaxis: {
+                    title: {
+                    text: '$ (thousands)'
+                    }
+                },
+                fill: {
+                    opacity: 1,
+                    colors:['#344ed1', '#b91d12', '#d48918']
+                },
+                tooltip: {
+                    y: {
+                    formatter: function (val) {
+                        return "$ " + val + " thousands"
+                    }
+                    }
+                }
+                };  
+                const chart = new ApexCharts(document.querySelector("#chart-one"), options);
+                chart.render();
+            }
+
+            // PIE CHART
+            if (document.querySelectorAll("#pie-chart-software-1").length) {
+                var chartElement = document.getElementById('pie-chart-software-1');
+                var val1 = parseInt(chartElement.getAttribute('val1'));
+                var val2 = parseInt(chartElement.getAttribute('val2'));
+                options = {
+                    chart: {
+                        height: 500,
+                        type: "pie"
+                    },
+                    labels: ['1', '2'],
+                    series: [val1, val2],
+                    colors: ["#3a57e8", "#c8c8c8"],
+                    legend: {
+                        position: "bottom"
+                    }
+                };
+                if(typeof ApexCharts !== undefined){
+                    (chart = new ApexCharts(document.querySelector("#pie-chart-software-1"), options)).render()
+                }
+            }
+            if (document.querySelectorAll("#pie-chart-software-2").length) {
+                var chartElement = document.getElementById('pie-chart-software-2');
+                var val1 = parseInt(chartElement.getAttribute('val1'));
+                var val2 = parseInt(chartElement.getAttribute('val2'));
+                options = {
+                    chart: {
+                        height: 500,
+                        type: "pie"
+                    },
+                    labels: ['1', '2'],
+                    series: [val1, val2],
+                    colors: ["#3a57e8", "#c8c8c8"],
+                    legend: {
+                        position: "bottom"
+                    }
+                };
+                if(typeof ApexCharts !== undefined){
+                    (chart = new ApexCharts(document.querySelector("#pie-chart-software-2"), options)).render()
+                }
+            }
+            if (document.querySelectorAll("#pie-chart-software-3").length) {
+                var chartElement = document.getElementById('pie-chart-software-3');
+                var val1 = parseInt(chartElement.getAttribute('val1'));
+                var val2 = parseInt(chartElement.getAttribute('val2'));
+                options = {
+                    chart: {
+                        height: 500,
+                        type: "pie"
+                    },
+                    labels: ['1', '2'],
+                    series: [val1, val2],
+                    colors: ["#3a57e8", "#c8c8c8"],
+                    legend: {
+                        position: "bottom"
+                    }
+                };
+                if(typeof ApexCharts !== undefined){
+                    (chart = new ApexCharts(document.querySelector("#pie-chart-software-3"), options)).render()
+                }
+            }
+          </script>
+
         <script>
             // umum
             function readImage(input) {
