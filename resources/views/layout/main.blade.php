@@ -288,62 +288,163 @@
             }
 
             // BAR CHART
-            if($('#chart-one').length) {
-                const options = {
-                    series: [{
-                    name: 'Net Profit',
-                    data: [44, 55, 57, 56, 61, 58]
-                }, {
-                    name: 'Revenue',
-                    data: [76, 85, 101, 98, 87, 105]
-                }, {
-                    name: 'Free Cash Flow',
-                    data: [35, 41, 36, 26, 45, 48]
-                }],
-                    chart: {
-                    type: 'bar',
-                    height: 250,
-                    sparkline:{
-                    enabled:true
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    borderRadius: 5,
+            if ($('#bar-chart-1').length) {
+                var chartElement = document.getElementById('bar-chart-1');
+                var proyekData = JSON.parse(chartElement.getAttribute('proyek'));
+                var dokumen = parseInt(chartElement.getAttribute('dokumen'));
+
+                var categories = [];
+                var filePdf = [];
+                var fileNative = [];
+                proyekData.forEach(function(item) {
+                    categories.push(item.nama_proyek);
+                    filePdf.push(Math.round(item.pdf_utama / dokumen * 100, 2));
+                    fileNative.push(Math.round(item.native_utama / dokumen * 100, 2));
+                })
+                
+                const seriesData = [
+                    {
+                        name: 'File PDF',
+                        data: filePdf
                     },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    curve: 'smooth',
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-                },
-                yaxis: {
-                    title: {
-                    text: '$ (thousands)'
+                    {
+                        name: 'File Native',
+                        data: fileNative
                     }
-                },
-                fill: {
-                    opacity: 1,
-                    colors:['#344ed1', '#b91d12', '#d48918']
-                },
-                tooltip: {
-                    y: {
-                    formatter: function (val) {
-                        return "$ " + val + " thousands"
+                ];
+
+                const isWideChart = seriesData.reduce((total, series) => total + series.data.length, 0) > 20;
+
+                const options = {
+                    series: seriesData,
+                    chart: {
+                        type: 'bar',
+                        height: 250,
+                        width: isWideChart ? '250%' : '100%',
+                        sparkline: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            borderRadius: 5,
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        curve: 'smooth',
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: categories,
+                    },
+                    yaxis: {
+                        title: {
+                            text: '$ (%)'
+                        }
+                    },
+                    fill: {
+                        opacity: 1,
+                        colors: ['#004899', '#0a72e9']
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function (val) {
+                                return " " + val + ` %`
+                            }
+                        }
                     }
+                };
+
+                const chartContainer = document.querySelector("#bar-chart-1");
+
+                const chart = new ApexCharts(chartContainer, options);
+                chart.render();
+            }
+
+            if ($('#bar-chart-2').length) {
+                var chartElement = document.getElementById('bar-chart-2');
+                var proyekData = JSON.parse(chartElement.getAttribute('proyek'));
+                var dokumen = parseInt(chartElement.getAttribute('dokumen'));
+
+                var categories = [];
+                var filePdf = [];
+                var fileNative = [];
+                proyekData.forEach(function(item) {
+                    categories.push(item.nama_proyek);
+                    filePdf.push(Math.round(item.pdf_pendukung / dokumen * 100, 2));
+                    fileNative.push(Math.round(item.native_pendukung / dokumen * 100, 2));
+                })
+                
+                const seriesData = [
+                    {
+                        name: 'File PDF',
+                        data: filePdf
+                    },
+                    {
+                        name: 'File Native',
+                        data: fileNative
                     }
-                }
-                };  
-                const chart = new ApexCharts(document.querySelector("#chart-one"), options);
+                ];
+
+                const isWideChart = seriesData.reduce((total, series) => total + series.data.length, 0) > 20;
+
+                const options = {
+                    series: seriesData,
+                    chart: {
+                        type: 'bar',
+                        height: 250,
+                        width: isWideChart ? '250%' : '100%',
+                        sparkline: {
+                            enabled: true
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            borderRadius: 5,
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        curve: 'smooth',
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: categories,
+                    },
+                    yaxis: {
+                        title: {
+                            text: '$ (%)'
+                        }
+                    },
+                    fill: {
+                        opacity: 1,
+                        colors: ['#004899', '#0a72e9']
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function (val) {
+                                return " " + val + ` %`
+                            }
+                        }
+                    }
+                };
+
+                const chartContainer = document.querySelector("#bar-chart-2");
+
+                const chart = new ApexCharts(chartContainer, options);
                 chart.render();
             }
 
@@ -407,6 +508,149 @@
                 if(typeof ApexCharts !== undefined){
                     (chart = new ApexCharts(document.querySelector("#pie-chart-software-3"), options)).render()
                 }
+            }
+
+            if (document.querySelectorAll("#pie-chart-progress-proyek").length) {
+                var chartElement = document.getElementById('pie-chart-progress-proyek');
+                var persen_0_30 = parseInt(chartElement.getAttribute('persen_0_30'));
+                var persen_30_50 = parseInt(chartElement.getAttribute('persen_30_50'));
+                var persen_50_70 = parseInt(chartElement.getAttribute('persen_50_70'));
+                var persen_70_100 = parseInt(chartElement.getAttribute('persen_70_100'));
+                options = {
+                    chart: {
+                        height: 350,
+                        type: "pie"
+                    },
+                    labels: ["0 - 30 %", "30 - 50 %", "50 - 70 %", "70 - 100 %"],
+                    series: [persen_0_30, persen_30_50, persen_50_70, persen_70_100],
+                    colors: ["#3a57e8", "#c03221", "#876cfe", "#1aa053"],
+                    legend: {
+                        position: "bottom"
+                    }
+                };
+                if(typeof ApexCharts !== undefined){
+                    (chart = new ApexCharts(document.querySelector("#pie-chart-progress-proyek"), options)).render()
+                }
+            }
+
+            if (document.querySelectorAll('#chart-productivity-rate').length) {
+                var chartElement = document.getElementById('chart-productivity-rate');
+                var productivityJan = parseInt(chartElement.getAttribute('productivityJan'));
+                var productivityFeb = parseInt(chartElement.getAttribute('productivityFeb'));
+                var productivityMar = parseInt(chartElement.getAttribute('productivityMar'));
+                var productivityApr = parseInt(chartElement.getAttribute('productivityApr'));
+                var productivityMei = parseInt(chartElement.getAttribute('productivityMei'));
+                var productivityJun = parseInt(chartElement.getAttribute('productivityJun'));
+                var productivityJul = parseInt(chartElement.getAttribute('productivityJul'));
+                var productivityAug = parseInt(chartElement.getAttribute('productivityAug'));
+                var productivitySep = parseInt(chartElement.getAttribute('productivitySep'));
+                var productivityOct = parseInt(chartElement.getAttribute('productivityOct'));
+                var productivityNov = parseInt(chartElement.getAttribute('productivityNov'));
+                var productivityDes = parseInt(chartElement.getAttribute('productivityDes'));
+
+                const options = {
+                series: [{
+                    name: '',
+                    data: [productivityJan, productivityFeb, productivityMar, productivityApr, productivityMei, productivityJun, productivityJul, productivityAug, productivitySep, productivityOct, productivityNov, productivityDes]
+                }],
+                chart: {
+                    fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                    height: 245,
+                    type: 'area',
+                    toolbar: {
+                    show: false
+                    },
+                    sparkline: {
+                    enabled: false,
+                    },
+                },
+                colors: ["#3a57e8"],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 3,
+                },
+                yaxis: {
+                    show: true,
+                    labels: {
+                    show: true,
+                    minWidth: 19,
+                    maxWidth: 19,
+                    style: {
+                        colors: "#8A92A6",
+                    },
+                    offsetX: -5,
+                    },
+                },
+                legend: {
+                    show: false,
+                },
+                xaxis: {
+                    labels: {
+                    minHeight: 22,
+                    maxHeight: 22,
+                    show: true,
+                    style: {
+                        colors: "#8A92A6",
+                    },
+                    },
+                    lines: {
+                    show: false  //or just here to disable only x axis grids
+                    },
+                    categories: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                },
+                grid: {
+                    show: false,
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                    shade: 'dark',
+                    type: "vertical",
+                    shadeIntensity: 0,
+                    gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                    inverseColors: true,
+                    opacityFrom: .4,
+                    opacityTo: .1,
+                    stops: [0, 50, 80],
+                    colors: ["#3a57e8", "#4bc7d2"]
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    y: {
+                        formatter: function (val) {
+                            return val + "%";
+                        }
+                    }
+                },
+                };
+
+                const chart = new ApexCharts(document.querySelector("#chart-productivity-rate"), options);
+                chart.render();
+                document.addEventListener('ColorChange', (e) => {
+                console.log(e)
+                const newOpt = {
+                    colors: [e.detail.detail1, e.detail.detail2],
+                    fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        type: "vertical",
+                        shadeIntensity: 0,
+                        gradientToColors: [e.detail.detail1, e.detail.detail2], // optional, if not defined - uses the shades of same color in series
+                        inverseColors: true,
+                        opacityFrom: .4,
+                        opacityTo: .1,
+                        stops: [0, 50, 60],
+                        colors: [e.detail.detail1, e.detail.detail2],
+                    }
+                    },
+                }
+                chart.updateOptions(newOpt)
+                })
             }
           </script>
 

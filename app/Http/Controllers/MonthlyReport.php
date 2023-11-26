@@ -138,16 +138,6 @@ class MonthlyReport extends Controller
             $cde = 0;
         }
 
-        $dataProyek = [
-            'id_proyek'             => Request()->id_proyek,
-            'dua_d'                 => $dua_d,
-            'tiga_d'                => $tiga_d,
-            'empat_d'               => $empat_d,
-            'lima_d'                => $lima_d,
-            'cde'                   => $cde,
-            'kesiapan_bim5d'                   => $kesiapan_bim5d,
-        ];
-
         $data = [
             'id_proyek'                         => Request()->id_proyek,
             'tanggal_report'                    => Request()->tanggal_report,
@@ -158,6 +148,17 @@ class MonthlyReport extends Controller
             'konsep_lean_construction_berjalan' => Request()->konsep_lean_construction_berjalan,
             'feedback_untuk_perusahaan'         => Request()->feedback_untuk_perusahaan,
             'evidence_link'                     => Request()->evidence_link,
+        ];
+
+        $dataProyek = [
+            'id_proyek'             => Request()->id_proyek,
+            'realisasi'             => Request()->realisasi_proyek,
+            'dua_d'                 => $dua_d,
+            'tiga_d'                => $tiga_d,
+            'empat_d'               => $empat_d,
+            'lima_d'                => $lima_d,
+            'cde'                   => $cde,
+            'kesiapan_bim5d'        => $kesiapan_bim5d,
         ];
 
         $this->ModelMonthlyReport->tambah($data);
@@ -215,16 +216,6 @@ class MonthlyReport extends Controller
             $cde = 0;
         }
 
-        $dataProyek = [
-            'id_proyek'             => Request()->id_proyek,
-            'dua_d'                 => $dua_d,
-            'tiga_d'                => $tiga_d,
-            'empat_d'               => $empat_d,
-            'lima_d'                => $lima_d,
-            'cde'                   => $cde,
-            'kesiapan_bim5d'                   => $kesiapan_bim5d,
-        ];
-
         $data = [
             'id_monthly_report'                 => $id_monthly_report,
             'tanggal_report'                    => Request()->tanggal_report,
@@ -235,6 +226,17 @@ class MonthlyReport extends Controller
             'konsep_lean_construction_berjalan' => Request()->konsep_lean_construction_berjalan,
             'feedback_untuk_perusahaan'         => Request()->feedback_untuk_perusahaan,
             'evidence_link'                     => Request()->evidence_link,
+        ];
+
+        $dataProyek = [
+            'id_proyek'             => Request()->id_proyek,
+            'realisasi'             => Request()->realisasi_proyek,
+            'dua_d'                 => $dua_d,
+            'tiga_d'                => $tiga_d,
+            'empat_d'               => $empat_d,
+            'lima_d'                => $lima_d,
+            'cde'                   => $cde,
+            'kesiapan_bim5d'        => $kesiapan_bim5d,
         ];
 
         $this->ModelMonthlyReport->edit($data);

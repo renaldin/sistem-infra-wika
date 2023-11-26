@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="form-group col-xl-3 col-md-6">
                                 <label class="form-label" for="tahun">Tahun</label>
-                                <input type="number" min="1999" max="{{date('Y')}}" class="form-control" name="tahun"  @if($tahun === false)value="{{date('Y')}}"@elseif($tahun === true) value="{{$tahun}}" @endif required>
+                                <input type="number" min="1999" max="{{date('Y')}}" class="form-control" name="tahun"  @if($tahun === false)value="{{date('Y')}}"@else value="{{$tahun}}" @endif required>
                             </div>
                         </div>
                         <br>
@@ -74,86 +74,86 @@
                             <tr>
                                 <td>1</td>
                                 <td>Januari</td>
-                                <td>{{$detailProgress['januari']->rencana}}</td>
+                                <td>{{$detailRencana->januari}}</td>
                                 <td>{{$realisasiJan}}</td>
-                                <td>{{$detailProgress['januari']->rencana == 0 ? 0 : round($realisasiJan / $detailProgress['januari']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->januari == 0 ? 0 : round($realisasiJan / $detailRencana->januari * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Februari</td>
-                                <td>{{$detailProgress['februari']->rencana}}</td>
+                                <td>{{$detailRencana->februari}}</td>
                                 <td>{{$realisasiFeb}}</td>
-                                <td>{{$detailProgress['februari']->rencana == 0 ? 0 : round($realisasiFeb / $detailProgress['februari']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->februari == 0 ? 0 : round($realisasiFeb / $detailRencana->februari * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Maret</td>
-                                <td>{{$detailProgress['maret']->rencana}}</td>
+                                <td>{{$detailRencana->maret}}</td>
                                 <td>{{$realisasiMar}}</td>
-                                <td>{{$detailProgress['maret']->rencana == 0 ? 0 : round($realisasiMar / $detailProgress['maret']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->maret == 0 ? 0 : round($realisasiMar / $detailRencana->maret * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>April</td>
-                                <td>{{$detailProgress['april']->rencana}}</td>
+                                <td>{{$detailRencana->april}}</td>
                                 <td>{{$realisasiApr}}</td>
-                                <td>{{$detailProgress['april']->rencana == 0 ? 0 : round($realisasiApr / $detailProgress['april']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->april == 0 ? 0 : round($realisasiApr / $detailRencana->april * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>Mei</td>
-                                <td>{{$detailProgress['mei']->rencana}}</td>
+                                <td>{{$detailRencana->mei}}</td>
                                 <td>{{$realisasiMei}}</td>
-                                <td>{{$detailProgress['mei']->rencana == 0 ? 0 : round($realisasiMei / $detailProgress['mei']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->mei == 0 ? 0 : round($realisasiMei / $detailRencana->mei * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>6</td>
                                 <td>Juni</td>
-                                <td>{{$detailProgress['juni']->rencana}}</td>
+                                <td>{{$detailRencana->juni}}</td>
                                 <td>{{$realisasiJun}}</td>
-                                <td>{{$detailProgress['juni']->rencana == 0 ? 0 : round($realisasiJun / $detailProgress['juni']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->juni == 0 ? 0 : round($realisasiJun / $detailRencana->juni * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>7</td>
                                 <td>Juli</td>
-                                <td>{{$detailProgress['juli']->rencana}}</td>
+                                <td>{{$detailRencana->juli}}</td>
                                 <td>{{$realisasiJul}}</td>
-                                <td>{{$detailProgress['juli']->rencana == 0 ? 0 : round($realisasiJul / $detailProgress['juli']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->juli == 0 ? 0 : round($realisasiJul / $detailRencana->juli * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>8</td>
                                 <td>Agustus</td>
-                                <td>{{$detailProgress['agustus']->rencana}}</td>
+                                <td>{{$detailRencana->agustus}}</td>
                                 <td>{{$realisasiAgu}}</td>
-                                <td>{{$detailProgress['agustus']->rencana == 0 ? 0 : round($realisasiAgu / $detailProgress['agustus']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->agustus == 0 ? 0 : round($realisasiAgu / $detailRencana->agustus * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>9</td>
                                 <td>September</td>
-                                <td>{{$detailProgress['september']->rencana}}</td>
+                                <td>{{$detailRencana->september}}</td>
                                 <td>{{$realisasiSep}}</td>
-                                <td>{{$detailProgress['september']->rencana == 0 ? 0 : round($realisasiSep / $detailProgress['september']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->september == 0 ? 0 : round($realisasiSep / $detailRencana->september * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>10</td>
                                 <td>Oktober</td>
-                                <td>{{$detailProgress['oktober']->rencana}}</td>
+                                <td>{{$detailRencana->oktober}}</td>
                                 <td>{{$realisasiOkt}}</td>
-                                <td>{{$detailProgress['oktober']->rencana == 0 ? 0 : round($realisasiOkt / $detailProgress['oktober']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->oktober == 0 ? 0 : round($realisasiOkt / $detailRencana->oktober * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>11</td>
                                 <td>November</td>
-                                <td>{{$detailProgress['november']->rencana}}</td>
+                                <td>{{$detailRencana->november}}</td>
                                 <td>{{$realisasiNov}}</td>
-                                <td>{{$detailProgress['november']->rencana == 0 ? 0 : round($realisasiNov / $detailProgress['november']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->november == 0 ? 0 : round($realisasiNov / $detailRencana->november * 100, 1)}}%</td>
                             </tr>
                             <tr>
                                 <td>12</td>
                                 <td>Desember</td>
-                                <td>{{$detailProgress['desember']->rencana}}</td>
+                                <td>{{$detailRencana->desember}}</td>
                                 <td>{{$realisasiDes}}</td>
-                                <td>{{$detailProgress['desember']->rencana == 0 ? 0 : round($realisasiDes / $detailProgress['desember']->rencana, 1)}}</td>
+                                <td>{{$detailRencana->desember == 0 ? 0 : round($realisasiDes / $detailRencana->desember * 100, 1)}}%</td>
                             </tr>
                         </tbody>
                     </table>

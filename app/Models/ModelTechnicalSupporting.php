@@ -71,6 +71,14 @@ class ModelTechnicalSupporting extends Model
         return $data;
     }
 
+    public function progressByBulan($bulan)
+    {
+        return DB::table('technical_supporting')
+        ->whereRaw('DATE_FORMAT(tanggal_submit, "%Y-%m") = ?', $bulan)
+        ->select(DB::raw('COUNT(*) as rencana'), DB::raw('COUNT(CASE WHEN status_support = "SENT" THEN 1 ELSE NULL END) as realisasi'))
+        ->first();
+    }
+
     public function jumlah($status = null) 
     {
         $data = [

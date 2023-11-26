@@ -18,6 +18,7 @@ use App\Http\Controllers\MonthlyReport;
 use App\Http\Controllers\MonthlyReportAdmin;
 use App\Http\Controllers\Productivity;
 use App\Http\Controllers\Proyek;
+use App\Http\Controllers\Rencana;
 use App\Http\Controllers\Rkp;
 use App\Http\Controllers\Software;
 use App\Http\Controllers\TechnicalSupporting;
@@ -104,6 +105,15 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-detail-csi/{id}', [Csi::class, 'updateDetailCsi']);
     Route::get('/monitoring-csi', [Csi::class, 'monitoring']);
     Route::post('/pendapat-csi/{id}', [Csi::class, 'pendapat']);
+    
+    Route::get('/rencana-ki-km', [Rencana::class, 'index']);
+    Route::get('/rencana-technical-supporting', [Rencana::class, 'technicalSupport']);
+    Route::post('/tambah-rencana', [Rencana::class, 'prosesTambah']);
+    Route::post('/edit-rencana/{id}', [Rencana::class, 'prosesEdit']);
+    Route::get('/hapus-rencana/{id}', [Rencana::class, 'prosesHapus']);
+    Route::get('/detail-rencana-ki-km/{id}', [Rencana::class, 'detailKiKm']);
+    Route::get('/detail-rencana-technical-supporting/{id}', [Rencana::class, 'detailTechnicalSupport']);
+    Route::post('/edit-rencana-detail/{id}', [Rencana::class, 'prosesEditDetail']);
     
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');

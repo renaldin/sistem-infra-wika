@@ -57,6 +57,7 @@ class MasterActivity extends Controller
             'bulan'                     => false,
             'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
         ];
+        
 
         return view('admin.masterActivity.index', $data);
     }
@@ -131,6 +132,7 @@ class MasterActivity extends Controller
             'pesanError'                => null,
             'pesanSuccess'              => 'Data master activity berhasil dihapus!'
         ];
+        
 
         return view('admin.masterActivity.index', $data);
     }

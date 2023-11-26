@@ -8,13 +8,15 @@ use App\Models\ModelTimProyek;
 use App\Models\ModelKiKm;
 use App\Models\ModelDetailTimProyek;
 use App\Models\ModelUser;
+use App\Models\ModelRencana;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use stdClass;
 
 class KiKm extends Controller
 {
 
-    private $ModelProyek, $ModelTimProyek, $ModelKiKm, $ModelDetailTimProyek, $ModelUser;
+    private $ModelProyek, $ModelTimProyek, $ModelKiKm, $ModelDetailTimProyek, $ModelUser, $ModelRencana;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class KiKm extends Controller
         $this->ModelKiKm                    = new ModelKiKm();
         $this->ModelDetailTimProyek         = new ModelDetailTimProyek();
         $this->ModelUser                    = new ModelUser();
+        $this->ModelRencana                    = new ModelRencana();
     }
 
     public function index()
@@ -245,11 +248,32 @@ class KiKm extends Controller
                 'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
             ];
         } else {
+
+            $rencana = $this->ModelRencana->checkData('KI/KM', Request()->tahun);
+            if($rencana) {
+                $rencana = $rencana;
+            } else {
+                $rencana = new stdClass();
+                $rencana->januari = 0;
+                $rencana->februari = 0;
+                $rencana->maret = 0;
+                $rencana->april = 0;
+                $rencana->mei = 0;
+                $rencana->juni = 0;
+                $rencana->juli = 0;
+                $rencana->agustus = 0;
+                $rencana->september = 0;
+                $rencana->oktober = 0;
+                $rencana->november = 0;
+                $rencana->desember = 0;
+            }
+
             $data = [
                 'title'                     => 'Kolaborasi KI/KM',
                 'subTitle'                  => 'Progress',
                 'tahun'                     => Request()->tahun,
                 'detailProgress'            => $this->ModelKiKm->progress(Request()->tahun),
+                'detailRencana'             => $rencana,
                 'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
             ];
         }
