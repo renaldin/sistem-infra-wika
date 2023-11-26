@@ -96,7 +96,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($title === 'Data Tim Proyek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Tim Proyek') @endif href="#sidebar-tim-proyek" role="button" aria-expanded="false" aria-controls="sidebar-tim-proyek">
+                        <a class="nav-link @if ($title === 'Data Tim Proyek') active @endif" data-bs-toggle="collapse" href="#sidebar-tim-proyek" role="button" aria-expanded="false" aria-controls="sidebar-tim-proyek">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
@@ -143,7 +143,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($title === 'Data Proyek') active @endif" data-bs-toggle="collapse" @if ($title === 'Data Proyek') @endif href="#sidebar-proyek" role="button" aria-expanded="false" aria-controls="sidebar-proyek">
+                        <a class="nav-link @if ($title === 'Data Proyek') active @endif" data-bs-toggle="collapse" href="#sidebar-proyek" role="button" aria-expanded="false" aria-controls="sidebar-proyek">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
@@ -173,7 +173,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($subTitle === 'Daftar Proyek' || $subTitle === 'Edit Proyek') active @endif" href="/daftar-proyek" @if ($subTitle === 'Daftar Proyek' || $subTitle === 'Edit Proyek') @endif>
+                                <a class="nav-link @if ($subTitle === 'Daftar Proyek' || $subTitle === 'Edit Proyek') active @endif" href="/daftar-proyek">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -228,7 +228,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if ($title === 'Data Software' && $subTitle === 'Daftar Software') active @elseif($title = 'Data Software' && $subTitle === 'Edit') active @endif" href="/daftar-software">
+                                <a class="nav-link @if ($title === 'Data Software' && $subTitle === 'Daftar Software') active @endif @if($title === 'Data Software' && $subTitle === 'Edit') active @endif" href="/daftar-software">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -251,7 +251,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report' || $subTitle === 'Detail Monthly Report') active @endif" aria-current="page" @if ($subTitle === 'Daftar Monthly Report') @endif href="/daftar-monthly-report-admin">
+                        <a class="nav-link @if ($subTitle === 'Daftar Monthly Report' || $subTitle === 'Edit Monthly Report' || $subTitle === 'Detail Monthly Report') active @endif" aria-current="page" href="/daftar-monthly-report-admin">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
@@ -259,7 +259,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if ($title === 'Master Activity') active @endif" aria-current="page" href="/pilih-bulan">
+                        <a class="nav-link @if( $title === 'Master Activity') active @endif " aria-current="page" href="/pilih-bulan">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
@@ -713,6 +713,59 @@
                         </a>
                     </li>
                 @elseif ($user->role === 'Head Office')
+                    <li class="nav-item static-item">
+                        <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                            <span class="default-icon">Data Master</span>
+                            <span class="mini-icon">-</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if ($title === 'Rencana') active @endif" data-bs-toggle="collapse"  href="#rencana" role="button" aria-expanded="false" aria-controls="rencana">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">Rencana</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="rencana" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'KI/KM') active @endif" href="/rencana-ki-km">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">KI/KM</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Technical Supporting') active @endif" href="/rencana-technical-supporting">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> U </i>
+                                    <span class="item-name">Technical Support</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Operasi</span>
