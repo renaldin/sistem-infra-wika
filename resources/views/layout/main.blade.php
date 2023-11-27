@@ -448,6 +448,208 @@
                 chart.render();
             }
 
+            if (document.querySelectorAll('#bar-chart-new-1').length) {
+
+                var chartElement = document.getElementById('bar-chart-new-1');
+                var proyekData = JSON.parse(chartElement.getAttribute('proyek'));
+                var dokumen = parseInt(chartElement.getAttribute('dokumen'));
+
+                var categories = [];
+                var filePdf = [];
+                var fileNative = [];
+                proyekData.forEach(function(item) {
+                    categories.push(item.nama_proyek);
+                    filePdf.push(Math.round(item.pdf_utama / dokumen * 100, 2));
+                    fileNative.push(Math.round(item.native_utama / dokumen * 100, 2));
+                })
+                
+                const seriesData = [
+                    {
+                        name: 'File PDF',
+                        data: filePdf
+                    },
+                    {
+                        name: 'File Native',
+                        data: fileNative
+                    }
+                ];
+
+                const isWideChart = seriesData.reduce((total, series) => total + series.data.length, 0) > 10;
+
+                const options = {
+                series: seriesData,
+                chart: {
+                    type: 'bar',
+                    height: 230,
+                    width: isWideChart ? '300%' : '100%',
+                    stacked: true,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                colors: ['#004899', '#0a72e9'],
+                plotOptions: {
+                    bar: {
+                    horizontal: false,
+                    columnWidth: '40%',
+                    endingShape: 'rounded',
+                    borderRadius: 5,
+                    },
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: categories,
+                    labels: {
+                    minHeight: 20,
+                    maxHeight: 20,
+                    style: {
+                        colors: "#8A92A6",
+                    },
+                    }
+                },
+                yaxis: {
+                    title: {
+                    text: ''
+                    },
+                    labels: {
+                    minWidth: 19,
+                    maxWidth: 19,
+                    style: {
+                        colors: "#8A92A6",
+                    },
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                    formatter: function (val) {
+                        return " " + val + " %"
+                    }
+                    }
+                }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#bar-chart-new-1"), options);
+                chart.render();
+                document.addEventListener('ColorChange', (e) => {
+                const newOpt = { colors: [e.detail.detail1, e.detail.detail2], }
+                chart.updateOptions(newOpt)
+                })
+            }
+
+            if (document.querySelectorAll('#bar-chart-new-2').length) {
+
+                var chartElement = document.getElementById('bar-chart-new-2');
+                var proyekData = JSON.parse(chartElement.getAttribute('proyek'));
+                var dokumen = parseInt(chartElement.getAttribute('dokumen'));
+
+                var categories = [];
+                var filePdf = [];
+                var fileNative = [];
+                proyekData.forEach(function(item) {
+                    categories.push(item.nama_proyek);
+                    filePdf.push(Math.round(item.pdf_pendukung / dokumen * 100, 2));
+                    fileNative.push(Math.round(item.native_pendukung / dokumen * 100, 2));
+                })
+                
+                const seriesData = [
+                    {
+                        name: 'File PDF',
+                        data: filePdf
+                    },
+                    {
+                        name: 'File Native',
+                        data: fileNative
+                    }
+                ];
+
+                const isWideChart = seriesData.reduce((total, series) => total + series.data.length, 0) > 20;
+
+                const options = {
+                series: seriesData,
+                chart: {
+                    type: 'bar',
+                    height: 230,
+                    width: isWideChart ? '300%' : '100%',
+                    stacked: true,
+                    toolbar: {
+                    show: false
+                    }
+                },
+                colors: ['#004899', '#0a72e9'],
+                plotOptions: {
+                    bar: {
+                    horizontal: false,
+                    columnWidth: '40%',
+                    endingShape: 'rounded',
+                    borderRadius: 5,
+                    },
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: categories,
+                    labels: {
+                        minHeight: 20,
+                        maxHeight: 20,
+                        style: {
+                            colors: "#8A92A6",
+                        },
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: ''
+                    },
+                    labels: {
+                        minWidth: 19,
+                        maxWidth: 19,
+                        style: {
+                            colors: "#8A92A6",
+                        },
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                    formatter: function (val) {
+                        return " " + val + " %"
+                    }
+                    }
+                }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#bar-chart-new-2"), options);
+                chart.render();
+                document.addEventListener('ColorChange', (e) => {
+                const newOpt = { colors: [e.detail.detail1, e.detail.detail2], }
+                chart.updateOptions(newOpt)
+                })
+            }
+
             // PIE CHART
             if (document.querySelectorAll("#pie-chart-software-1").length) {
                 var chartElement = document.getElementById('pie-chart-software-1');

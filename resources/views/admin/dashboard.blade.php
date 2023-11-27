@@ -156,44 +156,50 @@
             </div>
           </div>
           <div class="col-md-12 col-lg-12">
-            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
-              <div class="card-header">
+            <div class="card" data-aos="fade-up" data-aos-delay="600">
+               <div class="flex-wrap card-header d-flex justify-content-between">
                   <div class="header-title">
-                    <h4 class="mb-2 card-title text-primary">LISENSI SOFTWARE</h4>         
+                     <h4 class="mb-2 card-title">Update Progress Proyek</h4>
+                     <p class="mb-0">
+                        <svg class ="me-2 icon-24" width="24" height="24" viewBox="0 0 24 24">
+                           <path fill="#17904b" d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z" />
+                        </svg>
+                        {{-- 16% this month --}}
+                     </p>
                   </div>
-              </div>
-              <div class="card-body">
-                <div class="row p-3">
-                  <div class="col-md-6">
-                    <div class="text-center text-primary"><strong>Software Global</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-1" class="col-md-7 col-lg-7 myChart" val1="{{$global}}" val2="{{$nonGlobal}}"></div>
-                    </div>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div id="pie-chart-progress-proyek" persen_0_30="{{$persen_0_30}}" persen_30_50="{{$persen_30_50}}" persen_50_70="{{$persen_50_70}}" persen_70_100="{{$persen_70_100}}"></div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="table-responsive">
+                           <table class="table mt-3">
+                              <thead>
+                                 <tr>
+                                    <th>No</th>
+                                    <th>Proyek</th>
+                                    <th>Progress</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 @php
+                                    $no = 1;
+                                 @endphp
+                                 @foreach ($daftarProyek as $item)
+                                    <tr style="max-width: 10px; overflow-y: auto;">
+                                       <td>{{$no++}}</td>
+                                       <td style="width: 10px;">{{$item->nama_proyek}}</td>
+                                       <td>{{round($item->realisasi, 2)}}%</td>
+                                    </tr>
+                                 @endforeach
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="text-center text-primary"><strong>Software Engineering</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-2" class="col-md-7 col-lg-7 myChart" val1="{{$totalEngineer}}" val2="{{$lainEngineer}}"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="text-center text-primary"><strong>Software Office</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-3" class="col-md-7 col-lg-7 myChart" val1="{{$totalOffice}}" val2="{{$lainOffice}}"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <p class="text-primary mt-4">
-                      <strong>Keterangan:</strong><br>
-                      1. Software berlisensi Full <br>
-                      2. Software dengan Lisensi Lain-lain
-                    </p>
-                  </div>
-                  <div class="col-md-12">
-                    <A href="/progress-license" class="btn btn-sm btn-primary float-right">Lisensi</A>
-                  </div>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
           <div class="col-md-12 col-lg-12">
@@ -210,15 +216,15 @@
                         <strong>Keterangan:</strong><br>
                         1. Jika datanya banyak, Anda bisa scroll ke samping <br>
                         2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
-                        3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> Dokumen Utama (File PDF) <br>
-                        4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> Dokumen Pendukung (File Native)
+                        3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
+                        4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="text-center text-primary"><strong>Dokumen Utama</strong></div>
                     <div class="border rounded">
                      <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                        <div id="bar-chart-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
+                        <div id="bar-chart-new-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
                      </div>
                     </div>
                   </div>
@@ -226,7 +232,7 @@
                     <div class="text-center text-primary"><strong>Dokumen Pendukung</strong></div>
                     <div class="border rounded">
                      <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                        <div id="bar-chart-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
+                        <div id="bar-chart-new-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
                      </div>
                     </div>
                   </div>
@@ -315,54 +321,46 @@
           </div>
          </div>
          <div class="col-md-12 col-lg-12">
-            <div class="card" data-aos="fade-up" data-aos-delay="600">
-               <div class="flex-wrap card-header d-flex justify-content-between">
+            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+              <div class="card-header">
                   <div class="header-title">
-                     <h4 class="mb-2 card-title">Update Progress Proyek</h4>
-                     <p class="mb-0">
-                        <svg class ="me-2 icon-24" width="24" height="24" viewBox="0 0 24 24">
-                           <path fill="#17904b" d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z" />
-                        </svg>
-                        {{-- 16% this month --}}
+                    <h4 class="mb-2 card-title text-primary">LISENSI SOFTWARE</h4>         
+                  </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                     <p class="text-primary">
+                       <strong>Keterangan:</strong><br>
+                       1. Software berlisensi Full <br>
+                       2. Software dengan Lisensi Lain-lain
                      </p>
+                   </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Global</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-1" class="col-md-7 col-lg-7 myChart" val1="{{$global}}" val2="{{$nonGlobal}}"></div>
+                    </div>
                   </div>
-               </div>
-               <div class="card-body">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div id="pie-chart-progress-proyek" persen_0_30="{{$persen_0_30}}" persen_30_50="{{$persen_30_50}}" persen_50_70="{{$persen_50_70}}" persen_70_100="{{$persen_70_100}}"></div>
-                     </div>
-                     <div class="col-md-12">
-                        <div class="table-responsive">
-                           <div style="max-height: 770px; overflow-y: auto;">
-                              <table class="table mt-3">
-                                 <thead>
-                                    <tr>
-                                       <th>No</th>
-                                       <th>Proyek</th>
-                                       <th>Progress</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    @php
-                                       $no = 1;
-                                    @endphp
-                                    @foreach ($daftarProyek as $item)
-                                       <tr style="max-width: 10px; overflow-y: auto;">
-                                          <td>{{$no++}}</td>
-                                          <td style="width: 10px;">{{$item->nama_proyek}}</td>
-                                          <td>{{round($item->realisasi, 2)}}%</td>
-                                       </tr>
-                                    @endforeach
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Engineering</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-2" class="col-md-7 col-lg-7 myChart" val1="{{$totalEngineer}}" val2="{{$lainEngineer}}"></div>
+                    </div>
                   </div>
-               </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Office</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-3" class="col-md-7 col-lg-7 myChart" val1="{{$totalOffice}}" val2="{{$lainOffice}}"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <A href="/progress-license" class="btn btn-sm btn-primary float-right">Lisensi</A>
+                  </div>
+                </div>
+              </div>
             </div>
-         </div>
+          </div>
          <div class="col-md-12 col-lg-12">
             <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
                <div class="pb-4 border-0 card-header">
