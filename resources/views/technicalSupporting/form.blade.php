@@ -50,6 +50,15 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="form-group col-md-12">
+                            <label class="form-label" for="dokumen">Unggah File</label>
+                            <input type="file" class="form-control-file @error('dokumen') is-invalid @enderror" id="dokumen" name="dokumen">
+                            @error('dokumen')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                        
                     </div>
                         {{-- Component: tombolForm --}}
                         @include('components.tombolForm', ['linkKembali' => '/monitoring-technical-supporting'])

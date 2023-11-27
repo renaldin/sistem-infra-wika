@@ -42,6 +42,7 @@
                             <th>Nama Proyek</th>
                             <th>Tanggal Submit</th>
                             <th>Kendala Teknis</th>
+                            <th>Hasil Analisis</th>
                             <th>Status</th>
                             <th style="min-width: 100px">Aksi</th>
                         </tr>
@@ -57,6 +58,9 @@
                                     </td>
                                     <td>{{$item->tanggal_submit}}</td>
                                     <td>{{$item->kendala}}</td>
+                                    <td>
+                                        <a href="{{ asset($item->note) }}" download>Unduh Hasil</a>
+                                    </td>
                                     <td>
                                         @if ($item->is_respon === 0)
                                             Belum Direspon

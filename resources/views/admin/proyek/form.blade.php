@@ -39,6 +39,7 @@
                                 <option value="Road & Bridge" @if($form === 'Tambah' && old('tipe_konstruksi') === 'Road & Bridge') selected @elseif($form === 'Edit' && $detail->tipe_konstruksi === 'Road & Bridge') selected @endif>Road & Bridge</option>
                                 <option value="Water Resource" @if($form === 'Tambah' && old('tipe_konstruksi') === 'Water Resource') selected @elseif($form === 'Edit' && $detail->tipe_konstruksi === 'Water Resource') selected @endif>Water Resource</option>
                                 <option value="Dredging & Land Clearing" @if($form === 'Tambah' && old('tipe_konstruksi') === 'Dredging & Land Clearing') selected @elseif($form === 'Edit' && $detail->tipe_konstruksi === 'Dredging & Land Clearing') selected @endif>Dredging & Land Clearing</option>
+                                <option value="Harbour" @if($form === 'Tambah' && old('tipe_konstruksi') === 'Harbour') selected @elseif($form === 'Edit' && $detail->tipe_konstruksi === 'Harbour') selected @endif>Harbour</option>
                             </select>
                             @error('tipe_konstruksi')
                                 <div class="invalid-feedback">

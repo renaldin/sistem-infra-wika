@@ -454,10 +454,14 @@
 
             <div class="swiper-slide">
               <div class="testimonial-wrap">
-                  <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
-                  <h4>Kenya Hanifah Nisita</h4>
+                <div class="d-flex">  
+                <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">  
+                <h4>Kenya Hanifah Nisita</h4>
                   <span>Staff of Contract Management</span>
-              </div>
+                </div>
+                </div>
+                </div>
             </div><!-- End testimonial item -->
             
             <div class="swiper-slide">
@@ -664,9 +668,718 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-   
+   <!-- ======= Testimonials Section ======= -->
+   <section id="testimonials1" class="testimonials1 section-bg">
+    <div class="container" data-aos="fade-up">
 
+      <div class="section-header">
+        <h2>FINANCE SUB DIVISION</h2>
+      </div>
+
+      <div class="slides-2 swiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Fachrial Yunanto.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Fachrial Yunanto</h4>
+                <span>Expert 1 of Tax</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Ucok Jimmy.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Ucok Jimmy</h4>
+                <span>Coordinator of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex"> 
+              <img src="{{ asset('image/team/Dedi Susilo.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3"> 
+              <h4>Dedi Susilo</h4>
+                <span>Coordinator of Accountancy</span>
+              </div>
+              </div>
+              </div>
+          </div><!-- End testimonial item -->
+          
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Ahmad Wishnu.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Ahmad Wishnu</h4>
+                <span>Junior Expert of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Ade Riyanti</h4>
+                <span>Junior Expert of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Yulianto.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Yulianto</h4>
+                <span>Junior expert of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Romy Wanda Taruna</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Taufik Puspita Sanjaya</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Awaluddin Ahmad Rifqi Amrullah.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Awaluddin Ahmad Rifqi Amrullah</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Surendro Agus Prabowo.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Surendro Agus Prabowo</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Rikcy Fajar Hendra Prasetya</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Danu Sutopo.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Danu Sutopo</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Astrid Widya Astuti</h4>
+                <span>Staff of Tax</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Denok Cahyaningrum Maryani.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Denok Cahyaningrum Maryani</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Erry Widiantoro.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Erry Widiantoro</h4>
+                <span>Staff of Accountancy</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Bekti Kumolo Arum.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Bekti Kumolo Arum</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Rizqi An Nisa.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Rizqi An Nisa</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Zulfa Aulia Rahman</h4>
+                <span>Staff of Tax</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Catu.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Catu</h4>
+                <span>Staff of Archifing</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Sri Wijayanti.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Sri Wijayanti</h4>
+                <span>Cashier</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/W0.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Novandiri</h4>
+                <span>Secretary</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Asis Lufiyono.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Asis Lufiyono</h4>
+                <span>Staff of Accountancy</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Annisa Fadhilah.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Annisa Fadhilah</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Putri Yuni Setiawan.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Putri Yuni Setiawan</h4>
+                <span>Staff of Archifing</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Sarasdita Widyaningrum.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Sarasdita Widyaningrum</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="d-flex">
+                <img src="{{ asset('image/team/Adikmar Norariana.jpg') }}" class="testimonial-img" alt="">
+                <div class="d-block p-3">
+                <h4>Adikmar Norariana</h4>
+                <span>Staff of Finance</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section><!-- End Testimonials Section -->
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>ENGINEERING SUB DIVISION</h2>
+      <P> DESIGN &ANALYSIS OF ENGINEERING</P>
+    </div>
+
+    <div class="slides-2 swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/R.M. Ihsan.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+                <h4>R.M. Ihsan</h4>
+                <span> Junior Expert of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Muhammad Irsyad Alditio.jpg') }}" class="testimonial-img " alt="">
+              <div class="d-block p-3">
+                <h4>Muhammad Irsyad Alditio</h4>
+                <span>Junior Expert of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Aswadi Irsyadillah.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Aswadi Irsyadillah</h4>
+              <span>Structural Engineer</span>
+              </div>
+              </div>
+          </div>
+        </div><!-- End testimonial item -->
+        
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Aryo Bimantoro</h4>
+              <span>Structural Engineer</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Wahyu Imam Prambudi</h4>
+              <span>Structural Engineer</span>
+              </div>
+            </div>
+            </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Rizky Dhewandaru</h4>
+              <span>Geotechnical Engineer</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+       
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials1" class="testimonials1 section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>ENGINEERING SUB DIVISION</h2>
+      <p> BIM & DIGILIZATION OF ENGINEERING</p>
+    </div>
+
+    <div class="slides-2 swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Agus Ubaidillah.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Agus Ubaidillah</h4>
+              <span>Coordinator of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Herlambang Bagus Sulistyo.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Herlambang Bagus Sulistyo</h4>
+              <span>BIM Engineer</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">  
+            <img src="{{ asset('image/team/Rifki Rahmadian Pangestu.jpg') }}" class="testimonial-img" alt="">
+            <div class="d-block p-3">  
+            <h4>Rifki Rahmadian Pangestu</h4>
+              <span>BIM Engineer</span>
+            </div>
+            </div>
+            </div>
+        </div><!-- End testimonial item -->
+        
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Nico Hartama.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Nico Hartama</h4>
+              <span>Digilization of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>ENGINEERING SUB DIVISION</h2>
+      <P> SYSTEM OF ENGINEERING</P>
+    </div>
+
+    <div class="slides-2 swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Aliq Taufan Arisono.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+                <h4>Aliq Taufan Arisono</h4>
+                <span>Expert 2 of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Muhammad Aqrobin.jpg') }}" class="testimonial-img " alt="">
+              <div class="d-block p-3">
+                <h4>Muhammad Aqrobin</h4>
+                <span>Coordinator of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Ahmad Najib.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Ahmad Najib</h4>
+              <span>Junior Expert of Engineering</span>
+              </div>
+              </div>
+          </div>
+        </div><!-- End testimonial item -->
+        
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>M. Zaenal Muttaqin</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Muhammad Ariful Akbar.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Muhammad Ariful Akbar</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+            </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Meiko Yogatama.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Meiko Yogatama</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+       
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Herru Kusuma Praja.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Herru Kusuma Praja</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Marjukih.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Marjukih</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Muhammad Ali</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Soleh.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Soleh</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/P0.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Anan Febyanto Sanjaya</h4>
+              <span>System of Engineering</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
    
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials1" class="testimonials1 section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>HUMAN CAPITAL SUB DIVISION</h2>
+    </div>
+
+    <div class="slides-2 swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Indra Dian Bakhtiar.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Indra Dian Bakhtiar</h4>
+              <span>Junior Expert of Human Capital</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Jumadi.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Jumadi</h4>
+              <span>Junior Expert Of Human Capital</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">  
+            <img src="{{ asset('image/team/Resa Ramdani.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Resa Ramdani</h4>
+              <span>Staff of Human Capital</span>
+          </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+        
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Muhammad Azhari.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Muhammad Azhari</h4>
+              <span>Staff of Human Capital</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="d-flex">
+              <img src="{{ asset('image/team/Wika Dian Puri.jpg') }}" class="testimonial-img" alt="">
+              <div class="d-block p-3">
+              <h4>Wika Dian Puri</h4>
+              <span>Staff of Human Capital</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- End testimonial item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
   </main><!-- End #main -->
 
 @endsection

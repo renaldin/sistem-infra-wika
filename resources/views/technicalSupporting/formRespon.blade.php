@@ -88,27 +88,19 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="form-label" for="note">Note</label>
-                                <input type="text" class="form-control @error('note') is-invalid @enderror" id="note" name="note" value="@if($detail->note === null){{ old('note') }}@else{{$detail->note}}@endif"  placeholder="Masukkan Note">
+                                <label class="form-label" for="note">Hasil Analisis</label>
+                                <input type="file" class="form-control-file @error('note') is-invalid @enderror" id="note" name="note">
                                 @error('note')
                                     <div class="invalid-feedback">
-                                    {{ $message }}
+                                        {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="dokumen">Dokumen (Link)</label>
-                                <input type="text" class="form-control @error('dokumen') is-invalid @enderror" id="dokumen" name="dokumen" value="@if($detail->dokumen === null){{ old('dokumen') }}@else{{$detail->dokumen}}@endif"  placeholder="Masukkan Dokumen">
-                                @error('dokumen')
-                                    <div class="invalid-feedback">
-                                    {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                            </div>                            
+                            
                             <label class="form-label" for="status_support">Status</label>
                             <select name="status_support" id="status_support" class="selectpicker form-control @error('status_support') is-invalid @enderror" data-style="py-0" @if($detail === 'Detail') disabled @endif required>
                                 <option value="" selected disabled>-- Pilih --</option>
-                                <option value="SENT" @if($detail->status_support === "SENT") selected @endif)>SENT</option>
+                                <option value="SENT" @if($detail->status_support === "SENT") selected @endif>SENT</option>
                                 <option value="HOLD" @if($detail->status_support === "HOLD") selected @endif>HOLD</option>
                                 <option value="ON GOING" @if($detail->status_support === "ON GOING") selected @endif>ON GOING</option>
                                 <option value="OPEN" @if($detail->status_support === "OPEN") selected @endif>OPEN</option>

@@ -42,6 +42,7 @@
                             <th>Nama Proyek</th>
                             <th>Tanggal Submit</th>
                             <th>Kendala Teknis</th>
+                            <th>Dokumen</th>
                             <th style="min-width: 100px">Aksi</th>
                         </tr>
                     </thead>
@@ -56,6 +57,10 @@
                                     </td>
                                     <td>{{$item->tanggal_submit}}</td>
                                     <td>{{$item->kendala}}</td>
+                                    <td>
+                                        <a href="{{ asset($item->dokumen) }}" download>Unduh Dokumen</a>
+                                    </td>
+                                    
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a href="/receive-technical-supporting/{{$item->id_technical_supporting}}" class="btn btn-sm btn-icon btn-primary" data-toggle="tooltip" data-placement="top" title="Ambil" data-original-title="Ambil">

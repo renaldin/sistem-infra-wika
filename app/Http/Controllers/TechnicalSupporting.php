@@ -78,17 +78,20 @@ class TechnicalSupporting extends Controller
         Request()->validate([
             'id_proyek'         => 'required',
             'tanggal_submit'    => 'required|date',
-            'kendala'           => 'required'
+            'kendala'           => 'required',
+            'dokumen'           => 'required'
         ], [
             'id_proyek.required'        => 'Nama proyek harus diisi!',
             'tanggal_submit.required'   => 'Tanggal submit harus diisi!',
-            'kendala.required'           => 'Kendala teknis harus diisi!'
+            'kendala.required'           => 'Kendala teknis harus diisi!',
+            'dokumen.required'           => 'Dokumen harus diisi!',
         ]);
 
         $data = [
             'id_proyek'         => Request()->id_proyek,
             'tanggal_submit'    => Request()->tanggal_submit,
-            'kendala'           => Request()->kendala
+            'kendala'           => Request()->kendala,
+            'dokumen'           => Request()->dokumen,
         ];
 
         $this->ModelTechnicalSupporting->tambah($data);
