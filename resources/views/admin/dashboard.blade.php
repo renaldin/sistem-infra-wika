@@ -424,6 +424,70 @@
                </div>
             </div>
          </div>
+         <div class="col-md-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+               <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                  <div class="header-title">
+                     <h4 class="card-title text-primary">REALISASI IMPLEMENTASI BIM PROYEK</h4>
+                     {{-- <p class="mb-0">Gross Sales</p>           --}}
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <table class="table mt-3">
+                           <thead>
+                              <tr>
+                                 <th>No</th>
+                                 <th>Prioritas</th>
+                                 <th>Persentase</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>1</td>
+                                 <td>Priotitas 1</td>
+                                 <td>{{$realisasiPrioritas1}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>2</td>
+                                 <td>Priotitas 2</td>
+                                 <td>{{$realisasiPrioritas2}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>3</td>
+                                 <td>Priotitas 3</td>
+                                 <td>{{$realisasiPrioritas3}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>4</td>
+                                 <td>Bukan Priotitas</td>
+                                 <td>{{$realisasiBukanPrioritas}}%</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card" data-aos="fade-up" data-aos-delay="800">
+               <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                  <div class="header-title">
+                     <h4 class="card-title text-primary">STATUS IMPLEMENTASI BIM</h4>
+                     {{-- <p class="mb-0">Gross Sales</p>           --}}
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div id="pie-chart-status-implementasi-bim" bukanPrioritas="{{$bukanPrioritas}}" prioritas1="{{$prioritas1}}" prioritas2="{{$prioritas2}}" prioritas3="{{$prioritas3}}"></div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </div>

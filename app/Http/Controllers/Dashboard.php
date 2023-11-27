@@ -127,6 +127,14 @@ class Dashboard extends Controller
                 'productivityOct'           => $this->productivity(date('Y').'-10'),
                 'productivityNov'           => $this->productivity(date('Y').'-11'),
                 'productivityDes'           => $this->productivity(date('Y').'-12'),
+                'bukanPrioritas'            => $this->ModelProyek->jumlah('Bukan Prioritas'),
+                'prioritas1'                => $this->ModelProyek->jumlah('Prioritas 1'),
+                'prioritas2'                => $this->ModelProyek->jumlah('Prioritas 2'),
+                'prioritas3'                => $this->ModelProyek->jumlah('Prioritas 3'),
+                'realisasiPrioritas1'       => $this->prioritasProyek('Prioritas 1'),
+                'realisasiPrioritas2'       => $this->prioritasProyek('Prioritas 2'),
+                'realisasiPrioritas3'       => $this->prioritasProyek('Prioritas 3'),
+                'realisasiBukanPrioritas'   => $this->prioritasProyek('Bukan Prioritas'),
                 'chartLicense'              => $this->ModelDetailLicense->progress(),
                 'subTitle'                  => 'Dashboard',
             ];
@@ -322,5 +330,18 @@ class Dashboard extends Controller
         }
         
         return  round($totalWork == 0? 0 : ($totalSubtotal / $totalWork) * 100);
+    }
+
+    public function prioritasProyek($prioritas)
+    {
+        $daftarProyek = $this->ModelProyek->prioritas($prioritas);
+        $jumlahProyekByPrioritas = $this->ModelProyek->jumlah($prioritas);
+        
+        $prioritas = 0;
+        foreach($daftarProyek as $item) {
+            $prioritas += $item->realisasi;
+        }
+
+        return $jumlahProyekByPrioritas != 0 ? round($prioritas / $jumlahProyekByPrioritas, 2) : 0;
     }
 }

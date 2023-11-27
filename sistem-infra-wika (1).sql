@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 01:40 PM
+-- Generation Time: Nov 27, 2023 at 06:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -67,7 +67,9 @@ CREATE TABLE `csi` (
 --
 
 INSERT INTO `csi` (`id_csi`, `id_proyek`, `id_user`, `periode`, `pendapat`) VALUES
-(3, 3, 54, '2023-11', 'Pendapat ku 1');
+(3, 3, 54, '2023-11', 'Pendapat ku 1'),
+(4, 3, 54, '2023-01', 'Masukkan / Pendapat'),
+(5, 3, 54, '2023-02', 'Masukkan / Pendapat');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,23 @@ INSERT INTO `detail_csi` (`id_detail_csi`, `id_csi`, `id_aspek_csi`, `penilaian`
 (21, 3, 5, 'Baik', 4),
 (22, 3, 6, 'Baik', 4),
 (23, 3, 7, 'Sangat Baik', 5),
-(24, 3, 8, 'Sangat Baik', 5);
+(24, 3, 8, 'Sangat Baik', 5),
+(25, 4, 1, 'Sangat Baik', 5),
+(26, 4, 2, 'Sangat Baik', 5),
+(27, 4, 3, 'Baik', 4),
+(28, 4, 4, 'Sangat Baik', 5),
+(29, 4, 5, 'Sangat Baik', 5),
+(30, 4, 6, 'Baik', 4),
+(31, 4, 7, 'Sangat Baik', 5),
+(32, 4, 8, 'Sangat Baik', 5),
+(33, 5, 1, 'Sangat Baik', 5),
+(34, 5, 2, 'Baik', 4),
+(35, 5, 3, 'Sangat Baik', 5),
+(36, 5, 4, 'Sangat Baik', 5),
+(37, 5, 5, 'Sangat Baik', 5),
+(38, 5, 6, 'Sangat Baik', 5),
+(39, 5, 7, 'Sangat Baik', 5),
+(40, 5, 8, 'Baik', 4);
 
 -- --------------------------------------------------------
 
@@ -534,7 +552,7 @@ INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proye
 (4, 1, 50, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-02'),
 (5, 1, 60, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-11-22'),
 (6, 1, 70, 'Kendala Implementasi Bim', 'Engineering Issue Berjalan', 'Masalah Produksi Berjalan', 'Konsep Lean Construction Berjalan', 'Feedback Untuk Perusahaan', 'Evidence Link', NULL, '2023-12-09'),
-(7, 1, 60, 'a', 'a', 'a', 'a', 'a', 'a', NULL, '2023-11-14'),
+(7, 1, 80, 'a', 'a', 'a', 'a', 'a', 'a', NULL, '2023-11-14'),
 (9, 5, 100, '-', '-', '-', 'Di proyek ini konsep lean constrution sudah di terapkan bersinergi dengan fungsionalitas BIM yang sudah di implementasikan dan fase 4D dalam BIM, terutama di aspek Project Schedule & Planning, Just In Time Schedule, Installation Schedule, Payent Approval, dan Last Planner Schedule', 'Di Tengah kondisi perusahaan yang Sedang kurang Baik dan recovery dan di tengah implementasi Transformasi Wika yang Sedang di gencarkan, peningkatan produktivitas dan mutu dalam sinergi yang berkelanjutan menjadi tantangan tersendiri seiring dengan pesatnya perkembangan dunia industri dan teknologi informasi. Dalam konsteks tersebut ada 2  pendekatan yang sering di bahas di lingkungan akademik dan para praktisi dunia konstruksi, yaitu lean construction (LC) dan Building Information Modelling (BIM). Oleh karena itu harapan proyek agar, sosialisasi,pelatihan dan wokshop terkait Lean Construction bisa lebih d gencakan dan di rutinkn lagi, prosedurnya segera di bakukan, dan juga dijadikan salah satu indikator KPI Proyek dan individu', 'https://docs.google.com/presentation/d/1t8w1b-3MkEefYWSQEsVjhLptwuo0fXtL/edit?rtpof=true&sd=true', NULL, '2023-11-10');
 
 -- --------------------------------------------------------
@@ -546,6 +564,7 @@ INSERT INTO `monthly_report` (`id_monthly_report`, `id_proyek`, `realisasi_proye
 CREATE TABLE `proyek` (
   `id_proyek` int(11) NOT NULL,
   `nama_proyek` varchar(100) DEFAULT NULL,
+  `realisasi` int(11) NOT NULL DEFAULT 0,
   `tanggal` date DEFAULT NULL,
   `tipe_konstruksi` varchar(255) DEFAULT NULL,
   `prioritas` varchar(255) DEFAULT NULL,
@@ -570,12 +589,45 @@ CREATE TABLE `proyek` (
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`) VALUES
-(1, 'Proyek A', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29'),
-(2, 'Proyek B', '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 53, '2023-11-27'),
-(3, 'Akses Tol makassar New Port', '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 1, 52, '2023-11-29'),
-(4, 'Bandar Udara Banggai', '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(5, 'Bendungan Ameroro', '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`) VALUES
+(1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29'),
+(2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 53, '2023-11-27'),
+(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 1, 52, '2023-11-29'),
+(4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
+(5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rencana`
+--
+
+CREATE TABLE `rencana` (
+  `id_rencana` int(11) NOT NULL,
+  `tipe` varchar(100) NOT NULL,
+  `tahun` year(4) NOT NULL,
+  `januari` int(11) NOT NULL DEFAULT 0,
+  `februari` int(11) NOT NULL DEFAULT 0,
+  `maret` int(11) NOT NULL DEFAULT 0,
+  `april` int(11) NOT NULL DEFAULT 0,
+  `mei` int(11) NOT NULL DEFAULT 0,
+  `juni` int(11) NOT NULL DEFAULT 0,
+  `juli` int(11) NOT NULL DEFAULT 0,
+  `agustus` int(11) NOT NULL DEFAULT 0,
+  `september` int(11) NOT NULL DEFAULT 0,
+  `oktober` int(11) NOT NULL DEFAULT 0,
+  `november` int(11) NOT NULL DEFAULT 0,
+  `desember` int(11) NOT NULL DEFAULT 0,
+  `tanggal_input` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rencana`
+--
+
+INSERT INTO `rencana` (`id_rencana`, `tipe`, `tahun`, `januari`, `februari`, `maret`, `april`, `mei`, `juni`, `juli`, `agustus`, `september`, `oktober`, `november`, `desember`, `tanggal_input`) VALUES
+(2, 'KI/KM', 2023, 3, 3, 3, 3, 4, 4, 3, 4, 3, 4, 3, 4, '2023-11-25'),
+(3, 'Technical Supporting', 2023, 3, 3, 2, 2, 3, 2, 3, 2, 3, 2, 3, 3, '2023-01-09');
 
 -- --------------------------------------------------------
 
@@ -605,7 +657,7 @@ CREATE TABLE `rkp` (
 
 INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`) VALUES
 (1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1),
-(2, 2, 'Kode SPK', 0, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1);
+(2, 2, 'Kode SPK', 1, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1);
 
 -- --------------------------------------------------------
 
@@ -939,6 +991,12 @@ ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`);
 
 --
+-- Indexes for table `rencana`
+--
+ALTER TABLE `rencana`
+  ADD PRIMARY KEY (`id_rencana`);
+
+--
 -- Indexes for table `rkp`
 --
 ALTER TABLE `rkp`
@@ -982,13 +1040,13 @@ ALTER TABLE `aspek_csi`
 -- AUTO_INCREMENT for table `csi`
 --
 ALTER TABLE `csi`
-  MODIFY `id_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `detail_csi`
 --
 ALTER TABLE `detail_csi`
-  MODIFY `id_detail_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_detail_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `detail_license`
@@ -1067,6 +1125,12 @@ ALTER TABLE `monthly_report`
 --
 ALTER TABLE `proyek`
   MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `rencana`
+--
+ALTER TABLE `rencana`
+  MODIFY `id_rencana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rkp`

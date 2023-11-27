@@ -70,4 +70,13 @@ class ModelProyek extends Model
     {
         return DB::table('proyek')->count();
     }
+
+    public function jumlah($status) {
+        return DB::table('proyek')->where('prioritas', $status)->count();
+    }
+
+    public function prioritas($prioritas)
+    {
+        return DB::table('proyek')->where('prioritas', $prioritas)->get();
+    }
 }

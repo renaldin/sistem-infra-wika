@@ -652,6 +652,30 @@
                 chart.updateOptions(newOpt)
                 })
             }
+
+            if (document.querySelectorAll("#pie-chart-status-implementasi-bim").length) {
+                var chartElement = document.getElementById('pie-chart-status-implementasi-bim');
+                var bukanPrioritas = parseInt(chartElement.getAttribute('bukanPrioritas'));
+                var prioritas1 = parseInt(chartElement.getAttribute('prioritas1'));
+                var prioritas2 = parseInt(chartElement.getAttribute('prioritas2'));
+                var prioritas3 = parseInt(chartElement.getAttribute('prioritas3'));
+                console.log(prioritas3);
+                options = {
+                    chart: {
+                        height: 350,
+                        type: "pie"
+                    },
+                    labels: ["Bukan Prioritas", "Prioritas 1", "Prioritas 2", "Prioritas 3"],
+                    series: [bukanPrioritas, prioritas1, prioritas2, prioritas3],
+                    colors: ["#3a57e8", "#c03221", "#876cfe", "#1aa053"],
+                    legend: {
+                        position: "right"
+                    }
+                };
+                if(typeof ApexCharts !== undefined){
+                    (chart = new ApexCharts(document.querySelector("#pie-chart-status-implementasi-bim"), options)).render()
+                }
+            }
           </script>
 
         <script>
