@@ -16,7 +16,7 @@ use stdClass;
 class KiKm extends Controller
 {
 
-    private $ModelProyek, $ModelTimProyek, $ModelKiKm, $ModelDetailTimProyek, $ModelUser, $ModelRencana;
+    private $ModelProyek, $ModelTimProyek, $ModelKiKm, $ModelDetailTimProyek, $ModelUser, $ModelRencana, $public_path, $public_path_hasil;
 
     public function __construct()
     {
@@ -25,7 +25,9 @@ class KiKm extends Controller
         $this->ModelKiKm                    = new ModelKiKm();
         $this->ModelDetailTimProyek         = new ModelDetailTimProyek();
         $this->ModelUser                    = new ModelUser();
-        $this->ModelRencana                    = new ModelRencana();
+        $this->ModelRencana                 = new ModelRencana();
+        $this->public_path                  = 'file_ki_km';
+        $this->public_path_hasil            = 'file_ki_km_hasil';
     }
 
     public function index()
@@ -81,14 +83,20 @@ class KiKm extends Controller
             'status_ki_km'      => 'required',
             'kategori'          => 'required',
             'department'        => 'required',
-            'judul'             => 'required'
+            'judul'             => 'required',
+            'upload_file'       => 'required'
         ], [
             'id_proyek.required'    => 'Nama proyek harus diisi!',
             'status_ki_km.required' => 'Tanggal submit harus diisi!',
             'kategori.required'     => 'Kategori harus diisi!',
             'department.required'   => 'Department harus diisi!',
-            'judul.required'        => 'Judul harus diisi!'
+            'judul.required'        => 'Judul harus diisi!',
+            'upload_file.required'  => 'File harus diisi!'
         ]);
+
+        $file = Request()->upload_file;
+        $fileName = date('mdYHis') . ' ' . Request()->judul . '.' . $file->extension();
+        $file->move(public_path($this->public_path), $fileName);
 
         $data = [
             'id_proyek'     => Request()->id_proyek,
@@ -97,7 +105,8 @@ class KiKm extends Controller
             'kategori'      => Request()->kategori,
             'department'    => Request()->department,
             'judul'         => Request()->judul,
-            'tanggal_input' => date('Y-m-d')
+            'tanggal_input' => date('Y-m-d'),
+            'upload_file'   => $fileName
         ];
 
         $this->ModelKiKm->tambah($data);
@@ -194,7 +203,7 @@ class KiKm extends Controller
                 'approval_pic_pusat'        => $approvalPicPusat,
                 'approval_published'        => $approvalPublished,
                 'tanggal_published'         => Request()->tanggal_published,
-                'note'                      => Request()->note,
+                // 'note'                      => Request()->note,
                 'id_user_respon'            => $user->id_user,
                 'is_respon'                 => 1
             ];
@@ -208,10 +217,22 @@ class KiKm extends Controller
                 'approval_pic_pusat'        => $approvalPicPusat,
                 'approval_published'        => $approvalPublished,
                 'tanggal_published'         => Request()->tanggal_published,
-                'note'                      => Request()->note,
+                // 'note'                      => Request()->note,
                 'id_user_respon'            => $user->id_user,
                 'is_respon'                 => 1
             ];
+        }
+
+        if (Request()->upload_file_hasil <> "") {
+            if ($detail->upload_file_hasil <> "") {
+                unlink(public_path($this->public_path_hasil) . '/' . $detail->upload_file_hasil);
+            }
+
+            $file = Request()->upload_file_hasil;
+            $fileName = date('mdYHis') . ' ' . $detail->judul . '.' . $file->extension();
+            $file->move(public_path($this->public_path_hasil), $fileName);
+
+            $data['upload_file_hasil'] = $fileName;
         }
 
         $this->ModelKiKm->edit($data);
@@ -338,5 +359,29 @@ class KiKm extends Controller
         $writer->save($filename);
 
         return response()->download($filename)->deleteFileAfterSend(true);
+    }
+
+    public function downloadFile($id_ki_km)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelKiKm->detail($id_ki_km);
+
+        $fileName = $data->upload_file;
+        return response()->download(public_path($this->public_path) . '/' . $fileName);
+    }
+    
+    public function downloadFileHasil($id_ki_km)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelKiKm->detail($id_ki_km);
+
+        $fileName = $data->upload_file_hasil;
+        return response()->download(public_path($this->public_path_hasil) . '/' . $fileName);
     }
 }
