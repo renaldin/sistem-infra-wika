@@ -16,7 +16,7 @@ use stdClass;
 class TechnicalSupporting extends Controller
 {
 
-    private $ModelProyek, $ModelRencana, $ModelTechnicalSupporting, $ModelDetailTimProyek, $ModelUser;
+    private $ModelProyek, $ModelRencana, $ModelTechnicalSupporting, $ModelDetailTimProyek, $ModelUser, $public_path, $public_path_hasil;
 
     public function __construct()
     {
@@ -25,6 +25,8 @@ class TechnicalSupporting extends Controller
         $this->ModelTechnicalSupporting     = new ModelTechnicalSupporting();
         $this->ModelDetailTimProyek         = new ModelDetailTimProyek();
         $this->ModelUser                    = new ModelUser();
+        $this->public_path                  = 'file_technical_support';
+        $this->public_path_hasil            = 'file_technical_support_hasil';
     }
 
     public function index()
@@ -79,19 +81,24 @@ class TechnicalSupporting extends Controller
             'id_proyek'         => 'required',
             'tanggal_submit'    => 'required|date',
             'kendala'           => 'required',
-            'dokumen'           => 'required'
+            'upload_file'       => 'required'
         ], [
             'id_proyek.required'        => 'Nama proyek harus diisi!',
             'tanggal_submit.required'   => 'Tanggal submit harus diisi!',
-            'kendala.required'           => 'Kendala teknis harus diisi!',
-            'dokumen.required'           => 'Dokumen harus diisi!',
+            'kendala.required'          => 'Kendala teknis harus diisi!',
+            'dokumen.required'          => 'Dokumen harus diisi!',
+            'upload_file.required'      => 'File harus diisi!'
         ]);
+
+        $file = Request()->upload_file;
+        $fileName = date('mdYHis') . ' ' . Request()->kendala . '.' . $file->extension();
+        $file->move(public_path($this->public_path), $fileName);
 
         $data = [
             'id_proyek'         => Request()->id_proyek,
             'tanggal_submit'    => Request()->tanggal_submit,
             'kendala'           => Request()->kendala,
-            'dokumen'           => Request()->dokumen,
+            'upload_file'       => $fileName
         ];
 
         $this->ModelTechnicalSupporting->tambah($data);
@@ -218,6 +225,18 @@ class TechnicalSupporting extends Controller
             }
         }
 
+        if (Request()->upload_file_hasil <> "") {
+            if ($detail->upload_file_hasil <> "") {
+                unlink(public_path($this->public_path_hasil) . '/' . $detail->upload_file_hasil);
+            }
+
+            $file = Request()->upload_file_hasil;
+            $fileName = date('mdYHis') . ' ' . $detail->kendala . '.' . $file->extension();
+            $file->move(public_path($this->public_path_hasil), $fileName);
+
+            $data['upload_file_hasil'] = $fileName;
+        }
+
         $this->ModelTechnicalSupporting->edit($data);
         return redirect()->route('update-technical-supporting')->with('success', 'Data berhasil ditambahkan!');
     }
@@ -318,5 +337,29 @@ class TechnicalSupporting extends Controller
         $writer->save($filename);
 
         return response()->download($filename)->deleteFileAfterSend(true);
+    }
+
+    public function downloadFile($id_technical_supporting)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelTechnicalSupporting->detail($id_technical_supporting);
+
+        $fileName = $data->upload_file;
+        return response()->download(public_path($this->public_path) . '/' . $fileName);
+    }
+    
+    public function downloadFileHasil($id_technical_supporting)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelTechnicalSupporting->detail($id_technical_supporting);
+
+        $fileName = $data->upload_file_hasil;
+        return response()->download(public_path($this->public_path_hasil) . '/' . $fileName);
     }
 }

@@ -1,3 +1,7 @@
+@php
+    $jumlahKiKm = DB::table('ki_km')->where('is_respon', 0)->count();
+    $jumlahTS = DB::table('technical_supporting')->where('is_respon', 0)->count();
+@endphp
 <aside class="sidebar sidebar-default navs-rounded-all ">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
         <a href="#" class="navbar-brand">
@@ -689,13 +693,60 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link @if ($title === 'RKP') active @endif" data-bs-toggle="collapse" href="#rkp" role="button" aria-expanded="false" aria-controls="rkp">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
+                            </i>
+                            <span class="item-name">RKP</span>
+                            <i class="right-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </i>
+                        </a>
+                        <ul class="sub-nav collapse" id="rkp" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Update Dokumen') active @endif" href="/update-dokumen-rkp">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Update Dokumen</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if ($subTitle === 'Monitoring RKP') active @endif" href="/monitoring-rkp">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor">
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> A </i>
+                                    <span class="item-name">Monitoring</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- <li class="nav-item">
                         <a class="nav-link @if ($subTitle === 'Monitoring RKP') active @endif" aria-current="page"  href="/monitoring-rkp">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
                             <span class="item-name">Monitoring RKP</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link @if ($title === 'License Software') active @endif" aria-current="page" href="/daftar-license">
                             <i class="icon">
@@ -793,14 +844,14 @@
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
-                            <span class="item-name">Technical Support</span>
-                            <i class="right-icon">
+                            <span class="item-name">Technical Support<span class="badge rounded-pill bg-danger item-name">{{$jumlahTS}}</span></span>
+                            {{-- <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
                                 </svg>
-                            </i>
+                            </i> --}}
                         </a>
                         <ul class="sub-nav collapse" id="technical-supporting" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
@@ -815,7 +866,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Permintaan</span>
+                                    <span class="item-name">Permintaan<span class="badge rounded-pill bg-danger item-name">{{$jumlahTS}}</span></span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -840,14 +891,14 @@
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>                            
                             </i>
-                            <span class="item-name">KI/KM</span>
-                            <i class="right-icon">
+                            <span class="item-name">KI/KM<span class="badge rounded-pill bg-danger item-name">{{$jumlahKiKm}}</span></span>
+                            {{-- <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5l7 7-7 7" />
                                 </svg>
-                            </i>
+                            </i> --}}
                         </a>
                         <ul class="sub-nav collapse" id="ki-km" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
@@ -862,7 +913,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Pengajuan</span>
+                                    <span class="item-name">Pengajuan<span class="badge rounded-pill bg-danger item-name">{{$jumlahKiKm}}</span></span>
                                 </a>
                             </li>
                             <li class="nav-item">

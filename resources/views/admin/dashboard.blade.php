@@ -203,50 +203,114 @@
             </div>
           </div>
           <div class="col-md-12 col-lg-12">
-            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
-              <div class="card-header">
-                  <div class="header-title">
-                    <h4 class="mb-2 card-title text-primary">MONITORING KELENGKAPAN DATA ENGINEERING UNTUK LPS</h4>         
-                  </div>
-              </div>
-              <div class="card-body">
-                <div class="row p-2">
-                  <div class="col-md-12 mb-2">
-                     <div class="text-primary">
-                        <strong>Keterangan:</strong><br>
-                        1. Jika datanya banyak, Anda bisa scroll ke samping <br>
-                        2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
-                        3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
-                        4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="text-center text-primary"><strong>Dokumen Utama</strong></div>
-                    <div class="border rounded">
-                     <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                        <div id="bar-chart-new-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="card" data-aos="fade-up" data-aos-delay="800">
+                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                        <div class="header-title">
+                           <h4 class="card-title text-primary">PRODUCTIVITY RATE {{date('Y')}}</h4>
+                           {{-- <p class="mb-0">Gross Sales</p>           --}}
+                        </div>
                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12 mt-3">
-                    <div class="text-center text-primary"><strong>Dokumen Pendukung</strong></div>
-                    <div class="border rounded">
-                     <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                        <div id="bar-chart-new-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
+                     <div class="card-body">
+                        <div id="chart-productivity-rate" productivityJan="{{$productivityJan}}" productivityFeb="{{$productivityFeb}}" productivityMar="{{$productivityMar}}" productivityApr="{{$productivityApr}}" productivityMei="{{$productivityMei}}" productivityJun="{{$productivityJun}}" productivityJul="{{$productivityJul}}" productivityAug="{{$productivityAug}}" productivitySep="{{$productivitySep}}" productivityOct="{{$productivityOct}}" productivityNov="{{$productivityNov}}" productivityDes="{{$productivityDes}}" class="d-main"></div>
                      </div>
-                    </div>
                   </div>
-                  <div class="col-md-12">
-                    <A href="/progress-lps" class="btn btn-sm btn-primary float-right mt-3">LPS</A>
+               </div>
+               <div class="col-md-12">
+                  <div class="card" data-aos="fade-up" data-aos-delay="800">
+                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                        <div class="header-title">
+                           <h4 class="card-title text-primary">REALISASI IMPLEMENTASI BIM PROYEK</h4>
+                           {{-- <p class="mb-0">Gross Sales</p>           --}}
+                        </div>
+                     </div>
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <table class="table mt-3">
+                                 <thead>
+                                    <tr>
+                                       <th>No</th>
+                                       <th>Prioritas</th>
+                                       <th>Persentase</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>1</td>
+                                       <td>Priotitas 1</td>
+                                       <td>{{$realisasiPrioritas1}}%</td>
+                                    </tr>
+                                    <tr>
+                                       <td>2</td>
+                                       <td>Priotitas 2</td>
+                                       <td>{{$realisasiPrioritas2}}%</td>
+                                    </tr>
+                                    <tr>
+                                       <td>3</td>
+                                       <td>Priotitas 3</td>
+                                       <td>{{$realisasiPrioritas3}}%</td>
+                                    </tr>
+                                    <tr>
+                                       <td>4</td>
+                                       <td>Bukan Priotitas</td>
+                                       <td>{{$realisasiBukanPrioritas}}%</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
       </div>
    </div>
    <div class="col-md-12 col-lg-4">
       <div class="row">
+         <div class="col-md-12 col-lg-12">
+            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+              <div class="card-header">
+                  <div class="header-title">
+                    <h4 class="mb-2 card-title text-primary">LISENSI SOFTWARE</h4>         
+                  </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                     <p class="text-primary">
+                       <strong>Keterangan:</strong><br>
+                       1. Software berlisensi Full <br>
+                       2. Software dengan Lisensi Lain-lain
+                     </p>
+                   </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Global</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-1" class="col-md-7 col-lg-7 myChart" val1="{{$global}}" val2="{{$nonGlobal}}"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Engineering</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-2" class="col-md-7 col-lg-7 myChart" val1="{{$totalEngineer}}" val2="{{$lainEngineer}}"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="text-center text-primary"><strong>Software Office</strong></div>
+                    <div class="flex-wrap d-flex align-items-center justify-content-center">
+                      <div id="pie-chart-software-3" class="col-md-7 col-lg-7 myChart" val1="{{$totalOffice}}" val2="{{$lainOffice}}"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <A href="/progress-license" class="btn btn-sm btn-primary float-right">Lisensi</A>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
          <div class="col-md-12 col-lg-12">
           <div class="card">
             <div class="card-body">
@@ -320,47 +384,7 @@
             </div>
           </div>
          </div>
-         <div class="col-md-12 col-lg-12">
-            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
-              <div class="card-header">
-                  <div class="header-title">
-                    <h4 class="mb-2 card-title text-primary">LISENSI SOFTWARE</h4>         
-                  </div>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                     <p class="text-primary">
-                       <strong>Keterangan:</strong><br>
-                       1. Software berlisensi Full <br>
-                       2. Software dengan Lisensi Lain-lain
-                     </p>
-                   </div>
-                  <div class="col-md-12">
-                    <div class="text-center text-primary"><strong>Software Global</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-1" class="col-md-7 col-lg-7 myChart" val1="{{$global}}" val2="{{$nonGlobal}}"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="text-center text-primary"><strong>Software Engineering</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-2" class="col-md-7 col-lg-7 myChart" val1="{{$totalEngineer}}" val2="{{$lainEngineer}}"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="text-center text-primary"><strong>Software Office</strong></div>
-                    <div class="flex-wrap d-flex align-items-center justify-content-center">
-                      <div id="pie-chart-software-3" class="col-md-7 col-lg-7 myChart" val1="{{$totalOffice}}" val2="{{$lainOffice}}"></div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <A href="/progress-license" class="btn btn-sm btn-primary float-right">Lisensi</A>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
          <div class="col-md-12 col-lg-12">
             <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
                <div class="pb-4 border-0 card-header">
@@ -408,68 +432,45 @@
 
 <div class="row">
    <div class="col-md-6">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="card" data-aos="fade-up" data-aos-delay="800">
-               <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
-                  <div class="header-title">
-                     <h4 class="card-title text-primary">PRODUCTIVITY RATE {{date('Y')}}</h4>
-                     {{-- <p class="mb-0">Gross Sales</p>           --}}
-                  </div>
-               </div>
-               <div class="card-body">
-                  <div id="chart-productivity-rate" productivityJan="{{$productivityJan}}" productivityFeb="{{$productivityFeb}}" productivityMar="{{$productivityMar}}" productivityApr="{{$productivityApr}}" productivityMei="{{$productivityMei}}" productivityJun="{{$productivityJun}}" productivityJul="{{$productivityJul}}" productivityAug="{{$productivityAug}}" productivitySep="{{$productivitySep}}" productivityOct="{{$productivityOct}}" productivityNov="{{$productivityNov}}" productivityDes="{{$productivityDes}}" class="d-main"></div>
-               </div>
-            </div>
+      <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+         <div class="card-header">
+             <div class="header-title">
+               <h4 class="mb-2 card-title text-primary">MONITORING KELENGKAPAN DATA ENGINEERING UNTUK LPS</h4>         
+             </div>
          </div>
-         <div class="col-md-12">
-            <div class="card" data-aos="fade-up" data-aos-delay="800">
-               <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
-                  <div class="header-title">
-                     <h4 class="card-title text-primary">REALISASI IMPLEMENTASI BIM PROYEK</h4>
-                     {{-- <p class="mb-0">Gross Sales</p>           --}}
-                  </div>
+         <div class="card-body">
+           <div class="row p-2">
+             <div class="col-md-12 mb-2">
+                <div class="text-primary">
+                   <strong>Keterangan:</strong><br>
+                   1. Jika datanya banyak, Anda bisa scroll ke samping <br>
+                   2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
+                   3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
+                   4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
                </div>
-               <div class="card-body">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <table class="table mt-3">
-                           <thead>
-                              <tr>
-                                 <th>No</th>
-                                 <th>Prioritas</th>
-                                 <th>Persentase</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td>1</td>
-                                 <td>Priotitas 1</td>
-                                 <td>{{$realisasiPrioritas1}}%</td>
-                              </tr>
-                              <tr>
-                                 <td>2</td>
-                                 <td>Priotitas 2</td>
-                                 <td>{{$realisasiPrioritas2}}%</td>
-                              </tr>
-                              <tr>
-                                 <td>3</td>
-                                 <td>Priotitas 3</td>
-                                 <td>{{$realisasiPrioritas3}}%</td>
-                              </tr>
-                              <tr>
-                                 <td>4</td>
-                                 <td>Bukan Priotitas</td>
-                                 <td>{{$realisasiBukanPrioritas}}%</td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
+             </div>
+             <div class="col-md-12">
+               <div class="text-center text-primary"><strong>Dokumen Utama</strong></div>
+               <div class="border rounded">
+                <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
+                   <div id="bar-chart-new-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
+                </div>
                </div>
-            </div>
+             </div>
+             <div class="col-md-12 mt-3">
+               <div class="text-center text-primary"><strong>Dokumen Pendukung</strong></div>
+               <div class="border rounded">
+                <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
+                   <div id="bar-chart-new-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
+                </div>
+               </div>
+             </div>
+             <div class="col-md-12">
+               <A href="/progress-lps" class="btn btn-sm btn-primary float-right mt-3">LPS</A>
+             </div>
+           </div>
          </div>
-      </div>
+       </div>
    </div>
    <div class="col-md-6">
       <div class="row">

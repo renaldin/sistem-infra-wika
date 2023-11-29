@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="new-user-info">
-                    <form action="@if($form === 'Tambah') /tambah-rkp @elseif($form === 'Edit') /edit-rkp/{{$detail->id_rkp}} @endif" method="POST">
+                    <form action="@if($form === 'Tambah') /tambah-rkp @elseif($form === 'Edit') /edit-rkp/{{$detail->id_rkp}} @endif" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -100,7 +100,18 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
+                            @if ($user->role === 'Head Office')
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="upload_file_hasil">File Hasil (@if($detail->upload_file_hasil)Anda sudah upload file hasil @else Opsional @endif)</label>
+                                    <input type="file" class="form-control @error('upload_file_hasil') is-invalid @enderror" name="upload_file_hasil">
+                                    @error('upload_file_hasil')
+                                        <div class="invalid-feedback">
+                                        {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            @endif
+                            {{-- <div class="form-group col-md-6">
                                 <label class="form-label" for="note">Note</label>
                                 <textarea class="form-control @error('note') is-invalid @enderror" id="note" name="note" rows="5" placeholder="Masukkan Note">@if($form === 'Tambah'){{ old('note') }}@elseif($form === 'Edit'){{$detail->note}}@endif</textarea>
                                 @error('note')
@@ -108,7 +119,7 @@
                                     {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
+                            </div> --}}
                         @endif
 
                     </div>

@@ -37,6 +37,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/unduh-format-excel', [KelolaMahasiswa::class, 'unduhFormatExcel']);
+Route::get('/download-file-ki-km/{id}', [KiKm::class, 'downloadFile']);
+Route::get('/download-file-hasil-ki-km/{id}', [KiKm::class, 'downloadFileHasil']);
+Route::get('/download-file-technical-supporting/{id}', [TechnicalSupporting::class, 'downloadFile']);
+Route::get('/download-file-hasil-technical-supporting/{id}', [TechnicalSupporting::class, 'downloadFileHasil']);
+Route::get('/download-file-rkp/{id}', [Rkp::class, 'downloadFile']);
+Route::get('/download-file-hasil-rkp/{id}', [Rkp::class, 'downloadFileHasil']);
 
 Route::group(['middleware' => 'revalidate'], function () {
 
@@ -68,6 +74,8 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-ki-km/{id}', [KiKm::class, 'prosesEdit']);
 
     Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
+    Route::get('/update-dokumen-rkp', [Rkp::class, 'updateDokumen'])->name('update-dokumen-rkp');
+    Route::post('/update-dokumen-rkp/{id}', [Rkp::class, 'prosesUpdateDokumen']);
     
     // export
     Route::post('/export-activity', [EngineeringActivity::class, 'exportExcel']);

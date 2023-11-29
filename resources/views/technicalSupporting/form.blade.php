@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="new-user-info">
-                    <form action="@if($form === 'Tambah') /tambah-technical-supporting @elseif($form === 'Edit') /edit-technical-supporting/{{$detail->id_technical_supporting}} @endif" method="POST">
+                    <form action="@if($form === 'Tambah') /tambah-technical-supporting @elseif($form === 'Edit') /edit-technical-supporting/{{$detail->id_technical_supporting}} @endif" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -51,13 +51,20 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-12">
-                            <label class="form-label" for="dokumen">Unggah File</label>
+                            <label class="form-label" for="upload_file">File</label>
+                            <input type="file" class="form-control @error('upload_file') is-invalid @enderror" name="upload_file" required>
+                            @error('upload_file')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                            {{-- <label class="form-label" for="dokumen">Unggah File</label>
                             <input type="file" class="form-control-file @error('dokumen') is-invalid @enderror" id="dokumen" name="dokumen">
                             @error('dokumen')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
-                            @enderror
+                            @enderror --}}
                         </div>                        
                     </div>
                         {{-- Component: tombolForm --}}

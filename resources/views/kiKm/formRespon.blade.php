@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="new-user-info">
-                    <form action="/edit-ki-km/{{$detail->id_ki_km}}" method="POST">
+                    <form action="/edit-ki-km/{{$detail->id_ki_km}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -41,6 +41,20 @@
                         <div class="form-group col-md-6">
                             <label class="form-label">Judul</label>
                             <textarea class="form-control" rows="5" readonly>{{$detail->judul}}</textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            @if ($detail->upload_file != null)
+                                <a href="/download-file-ki-km/{{$detail->id_ki_km}}" class="btn btn-sm btn-primary">
+                                    <svg class="icon-32" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M7.38948 8.98403H6.45648C4.42148 8.98403 2.77148 10.634 2.77148 12.669V17.544C2.77148 19.578 4.42148 21.228 6.45648 21.228H17.5865C19.6215 21.228 21.2715 19.578 21.2715 17.544V12.659C21.2715 10.63 19.6265 8.98403 17.5975 8.98403L16.6545 8.98403" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M12.0215 2.19044V14.2314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M9.10645 5.1189L12.0214 2.1909L14.9374 5.1189" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                </svg>                            
+                                    File
+                                </a>
+                            @endif
+                            @if ($detail->upload_file_hasil != null)
+                                <a href="/download-file-hasil-ki-km/{{$detail->id_ki_km}}" class="btn btn-sm btn-primary">
+                                    <svg class="icon-32" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M7.38948 8.98403H6.45648C4.42148 8.98403 2.77148 10.634 2.77148 12.669V17.544C2.77148 19.578 4.42148 21.228 6.45648 21.228H17.5865C19.6215 21.228 21.2715 19.578 21.2715 17.544V12.659C21.2715 10.63 19.6265 8.98403 17.5975 8.98403L16.6545 8.98403" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M12.0215 2.19044V14.2314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M9.10645 5.1189L12.0214 2.1909L14.9374 5.1189" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                </svg>                            
+                                    Hasil
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -98,7 +112,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="tanggal_published">Tanggal Published</label>
+                            <label class="form-label" for="tanggal_published">Tanggal Published (Opsional)</label>
                             <input type="date" class="form-control @error('tanggal_published') is-invalid @enderror" id="tanggal_published" name="tanggal_published" value="@if($detail->tanggal_published === null){{ old('tanggal_published') }}@else{{$detail->tanggal_published}}@endif"  placeholder="Masukkan Tanggal Published">
                             @error('tanggal_published')
                             <div class="invalid-feedback">
@@ -107,13 +121,20 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="note">Note</label>
+                            <label class="form-label" for="upload_file_hasil">File Hasil (@if($detail->upload_file_hasil)Anda sudah upload file hasil @else Opsional @endif)</label>
+                            <input type="file" class="form-control @error('upload_file_hasil') is-invalid @enderror" name="upload_file_hasil">
+                            @error('upload_file_hasil')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                            {{-- <label class="form-label" for="note">Note</label>
                             <input type="text" class="form-control @error('note') is-invalid @enderror" id="note" name="note" value="@if($detail->note === null){{ old('note') }}@else{{$detail->note}}@endif"  placeholder="Masukkan Note">
                             @error('note')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
-                            @enderror
+                            @enderror --}}
                         </div>
                     </div>
                     {{-- Component: tombolForm --}}

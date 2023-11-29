@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Rkp extends Controller
 {
 
-    private $ModelProyek, $ModelRkp, $ModelDetailTimProyek, $ModelUser;
+    private $ModelProyek, $ModelRkp, $ModelDetailTimProyek, $ModelUser, $public_path, $public_path_hasil;
 
     public function __construct()
     {
@@ -21,6 +21,8 @@ class Rkp extends Controller
         $this->ModelRkp                     = new ModelRkp();
         $this->ModelDetailTimProyek         = new ModelDetailTimProyek();
         $this->ModelUser                    = new ModelUser();
+        $this->public_path                  = 'file_rkp';
+        $this->public_path_hasil            = 'file_rkp_hasil';
     }
 
     public function index()
@@ -37,6 +39,29 @@ class Rkp extends Controller
         ];
 
         return view('rkp.index', $data);
+    }
+
+    public function updateDokumen()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $detailTimPRoyek = $this->ModelDetailTimProyek->dataWhere('detail_tim_proyek.id_user', Session()->get('id_user'));
+        $dataProyekByUser = [];
+        foreach($detailTimPRoyek as $item) {
+            $dataProyekByUser[] = $this->ModelProyek->dataWhere('proyek.id_tim_proyek', $item->id_tim_proyek);
+        }
+
+        $data = [
+            'title'                     => 'RKP',
+            'subTitle'                  => 'Update Dokumen',
+            'daftarProyek'              => $dataProyekByUser,
+            'daftarRkp'                 => $this->ModelRkp->data(),
+            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+        ];
+
+        return view('rkp.updateDokumen', $data);
     }
 
     public function tambah()
@@ -81,7 +106,7 @@ class Rkp extends Controller
 
         $this->ModelProyek->edit($dataProyek);
         $this->ModelRkp->tambah($data);
-        return redirect()->route('update-rkp')->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->route('update-rkp')->with('success', 'Anda telah mengirimkan data RKP ke Tim Proyek! Data akan muncul di tabel update jika Tim Proyek telah upload file dokumen. ');
     }
 
     public function terima()
@@ -131,6 +156,8 @@ class Rkp extends Controller
             return redirect()->route('login');
         }
 
+        $detail = $this->ModelRkp->detail($id_rkp);
+
         if(Request()->review1) {
           $review1 = 1;
         } else {
@@ -169,12 +196,51 @@ class Rkp extends Controller
           'review3'     => $review3,
           'review4'     => $review4,
           'review5'     => $review5,
-          'review6'     => $review6,
-          'note'        => Request()->note
+          'review6'     => $review6
         ];
+
+        if (Request()->upload_file_hasil <> "") {
+          if ($detail->upload_file_hasil <> "") {
+              unlink(public_path($this->public_path_hasil) . '/' . $detail->upload_file_hasil);
+          }
+
+          $file = Request()->upload_file_hasil;
+          $fileName = date('mdYHis') . ' ' . $detail->kode_spk . '.' . $file->extension();
+          $file->move(public_path($this->public_path_hasil), $fileName);
+
+          $data['upload_file_hasil'] = $fileName;
+      }
 
         $this->ModelRkp->edit($data);
         return redirect()->route('update-rkp')->with('success', 'Data berhasil diupdate!');
+    }
+
+    public function prosesUpdateDokumen($id_rkp)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $detail = $this->ModelRkp->detail($id_rkp);
+
+        $data = [
+          'id_rkp'      => $id_rkp
+        ];
+
+        if (Request()->upload_file <> "") {
+          if ($detail->upload_file <> "") {
+              unlink(public_path($this->public_path) . '/' . $detail->upload_file);
+          }
+
+          $file = Request()->upload_file;
+          $fileName = date('mdYHis') . ' ' . $detail->kode_spk . '.' . $file->extension();
+          $file->move(public_path($this->public_path), $fileName);
+
+          $data['upload_file'] = $fileName;
+      }
+
+        $this->ModelRkp->edit($data);
+        return back()->with('success', 'Anda berhasil mengirimkan dokumen RKP!');
     }
 
     public function update()
@@ -241,5 +307,29 @@ class Rkp extends Controller
         $writer->save($filename);
 
         return response()->download($filename)->deleteFileAfterSend(true);
+    }
+
+    public function downloadFile($id_rkp)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelRkp->detail($id_rkp);
+
+        $fileName = $data->upload_file;
+        return response()->download(public_path($this->public_path) . '/' . $fileName);
+    }
+    
+    public function downloadFileHasil($id_rkp)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = $this->ModelRkp->detail($id_rkp);
+
+        $fileName = $data->upload_file_hasil;
+        return response()->download(public_path($this->public_path_hasil) . '/' . $fileName);
     }
 }

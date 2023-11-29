@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="new-user-info">
-                    <form action="/tambah-ki-km" method="POST">
+                    <form action="/tambah-ki-km" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -85,6 +85,15 @@
                             <label class="form-label" for="judul">Judul</label>
                             <textarea class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" rows="5" placeholder="Masukkan Judul">@if($form === 'Tambah'){{ old('judul') }}@elseif($form === 'Edit'){{$detail->judul}}@endif</textarea>
                             @error('judul')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="upload_file">File</label>
+                            <input type="file" class="form-control @error('upload_file') is-invalid @enderror" name="upload_file" required>
+                            @error('upload_file')
                                 <div class="invalid-feedback">
                                 {{ $message }}
                                 </div>

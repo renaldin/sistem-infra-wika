@@ -47,7 +47,8 @@
                             <th class="text-center text-wrap">Review RKP Tahap 4</th>
                             <th class="text-center text-wrap">Review RKP Tahap 5</th>
                             <th class="text-center text-wrap">Review RKP Tahap 6</th>
-                            <th>Note</th>
+                            <th>File</th>
+                            <th>Review Hasil</th>
                             <th style="min-width: 100px">Aksi</th>
                         </tr>
                     </thead>
@@ -55,6 +56,7 @@
                         <?php $no = 1;?>
                         @foreach ($daftarRkp as $item)
                             @if ($user->role === 'Admin' || $item->id_user_respon !== null && $item->id_user_respon === $user->id_user && $item->is_respon === 1)
+                            @if ($item->upload_file !== null)
                                 <tr>
                                     <td>{{$no++}}</td>
                                     <td>{{$item->kode_spk}}</td>
@@ -128,10 +130,19 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($item->note)
-                                            {{$item->note}}
+                                        <a href="/download-file-rkp/{{$item->id_rkp}}" class="btn btn-sm btn-primary">
+                                            <svg class="icon-32" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M7.38948 8.98403H6.45648C4.42148 8.98403 2.77148 10.634 2.77148 12.669V17.544C2.77148 19.578 4.42148 21.228 6.45648 21.228H17.5865C19.6215 21.228 21.2715 19.578 21.2715 17.544V12.659C21.2715 10.63 19.6265 8.98403 17.5975 8.98403L16.6545 8.98403" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M12.0215 2.19044V14.2314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M9.10645 5.1189L12.0214 2.1909L14.9374 5.1189" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                </svg>                            
+                                            File
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @if ($item->upload_file_hasil)
+                                        <a href="/download-file-hasil-rkp/{{$item->id_rkp}}" class="btn btn-sm btn-primary">
+                                            <svg class="icon-32" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                                    <path d="M7.38948 8.98403H6.45648C4.42148 8.98403 2.77148 10.634 2.77148 12.669V17.544C2.77148 19.578 4.42148 21.228 6.45648 21.228H17.5865C19.6215 21.228 21.2715 19.578 21.2715 17.544V12.659C21.2715 10.63 19.6265 8.98403 17.5975 8.98403L16.6545 8.98403" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M12.0215 2.19044V14.2314" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                    <path d="M9.10645 5.1189L12.0214 2.1909L14.9374 5.1189" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>                                </svg>                            
+                                            Hasil
+                                        </a>
                                         @else
-                                            Belum Ada Note
+                                            Belum Ada Hasil
                                         @endif
                                     </td>
                                     <td>
@@ -148,6 +159,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                            @endif
                             @endif
                         @endforeach
                     </tbody>
