@@ -737,33 +737,33 @@
 
             if (document.querySelectorAll('#chart-productivity-rate').length) {
                 var chartElement = document.getElementById('chart-productivity-rate');
-                var productivityJan = parseInt(chartElement.getAttribute('productivityJan'));
-                var productivityFeb = parseInt(chartElement.getAttribute('productivityFeb'));
-                var productivityMar = parseInt(chartElement.getAttribute('productivityMar'));
-                var productivityApr = parseInt(chartElement.getAttribute('productivityApr'));
-                var productivityMei = parseInt(chartElement.getAttribute('productivityMei'));
-                var productivityJun = parseInt(chartElement.getAttribute('productivityJun'));
-                var productivityJul = parseInt(chartElement.getAttribute('productivityJul'));
-                var productivityAug = parseInt(chartElement.getAttribute('productivityAug'));
-                var productivitySep = parseInt(chartElement.getAttribute('productivitySep'));
-                var productivityOct = parseInt(chartElement.getAttribute('productivityOct'));
-                var productivityNov = parseInt(chartElement.getAttribute('productivityNov'));
-                var productivityDes = parseInt(chartElement.getAttribute('productivityDes'));
-
+                var productivityJan = parseFloat(chartElement.getAttribute('productivityJan')).toFixed(2);
+                var productivityFeb = parseFloat(chartElement.getAttribute('productivityFeb')).toFixed(2);
+                var productivityMar = parseFloat(chartElement.getAttribute('productivityMar')).toFixed(2);
+                var productivityApr = parseFloat(chartElement.getAttribute('productivityApr')).toFixed(2);
+                var productivityMei = parseFloat(chartElement.getAttribute('productivityMei')).toFixed(2);
+                var productivityJun = parseFloat(chartElement.getAttribute('productivityJun')).toFixed(2);
+                var productivityJul = parseFloat(chartElement.getAttribute('productivityJul')).toFixed(2);
+                var productivityAug = parseFloat(chartElement.getAttribute('productivityAug')).toFixed(2);
+                var productivitySep = parseFloat(chartElement.getAttribute('productivitySep')).toFixed(2);
+                var productivityOct = parseFloat(chartElement.getAttribute('productivityOct')).toFixed(2);
+                var productivityNov = parseFloat(chartElement.getAttribute('productivityNov')).toFixed(2);
+                var productivityDes = parseFloat(chartElement.getAttribute('productivityDes')).toFixed(2);
+                
                 const options = {
                 series: [{
                     name: '',
-                    data: [productivityJan, productivityFeb, productivityMar, productivityApr, productivityMei, productivityJun, productivityJul, productivityAug, productivitySep, productivityOct, productivityNov, productivityDes]
+                    data: ['74.00', productivityFeb, productivityMar, productivityApr, productivityMei, productivityJun, productivityJul, productivityAug, productivitySep, productivityOct, productivityNov, productivityDes]
                 }],
                 chart: {
                     fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
                     height: 245,
                     type: 'area',
                     toolbar: {
-                    show: false
+                        show: false
                     },
                     sparkline: {
-                    enabled: false,
+                        enabled: false,
                     },
                 },
                 colors: ["#3a57e8"],
@@ -777,13 +777,13 @@
                 yaxis: {
                     show: true,
                     labels: {
-                    show: true,
-                    minWidth: 19,
-                    maxWidth: 19,
-                    style: {
-                        colors: "#8A92A6",
-                    },
-                    offsetX: -5,
+                        show: true,
+                        minWidth: 19,
+                        maxWidth: 19,
+                        style: {
+                            colors: "#8A92A6",
+                        },
+                        offsetX: -5,
                     },
                 },
                 legend: {
@@ -791,15 +791,15 @@
                 },
                 xaxis: {
                     labels: {
-                    minHeight: 22,
-                    maxHeight: 22,
-                    show: true,
-                    style: {
-                        colors: "#8A92A6",
-                    },
+                        minHeight: 22,
+                        maxHeight: 22,
+                        show: true,
+                        style: {
+                            colors: "#8A92A6",
+                        },
                     },
                     lines: {
-                    show: false  //or just here to disable only x axis grids
+                        show: false  //or just here to disable only x axis grids
                     },
                     categories: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
                 },
@@ -809,22 +809,22 @@
                 fill: {
                     type: 'gradient',
                     gradient: {
-                    shade: 'dark',
-                    type: "vertical",
-                    shadeIntensity: 0,
-                    gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
-                    inverseColors: true,
-                    opacityFrom: .4,
-                    opacityTo: .1,
-                    stops: [0, 50, 80],
-                    colors: ["#3a57e8", "#4bc7d2"]
+                        shade: 'dark',
+                        type: "vertical",
+                        shadeIntensity: 0,
+                        gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                        inverseColors: true,
+                        opacityFrom: .4,
+                        opacityTo: .1,
+                        stops: [0, 50, 80],
+                        colors: ["#3a57e8", "#4bc7d2"]
                     }
                 },
                 tooltip: {
                     enabled: true,
                     y: {
                         formatter: function (val) {
-                            return val + "%";
+                            return `${val.toFixed(2)}%`;
                         }
                     }
                 },
@@ -871,7 +871,7 @@
                     series: [bukanPrioritas, prioritas1, prioritas2, prioritas3],
                     colors: ["#3a57e8", "#c03221", "#876cfe", "#1aa053"],
                     legend: {
-                        position: "right"
+                        position: "bottom"
                     }
                 };
                 if(typeof ApexCharts !== undefined){

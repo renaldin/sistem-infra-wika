@@ -25,13 +25,58 @@
       <div class="row row-cols-1">
          <div class="overflow-hidden d-slider1 ">
             <ul  class="p-0 m-0 mb-2 swiper-wrapper list-inline">
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
                   <div class="card-body">
                      <div class="progress-widget">
                         <div id="circle-progress-01" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24"  viewBox="0 0 24 24">
+                           {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                           </svg> --}}
+                        </div>
+                        <div class="progress-detail">
+                           <p  class="mb-2">Customer Satisfaction Index</p>
+                           <h4 class="counter">{{$akumulasiCsi}}</h4> <small>Skala: 5.00</small>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                           {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                           </svg> --}}
+                        </div>
+                        <div class="progress-detail">
+                           <p  class="mb-2">Persentase Pencapaian Program SASAA</p>
+                           <h4 class="counter">{{$akumulasiTechnicalSupport}}%</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                           {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
+                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                           </svg> --}}
+                        </div>
+                        <div class="progress-detail">
+                           <p  class="mb-2">KI/KM</p>
+                           <h4 class="counter">{{$akumulasiKiKm}}%</h4>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
+                  <div class="card-body">
+                     <div class="progress-widget">
+                        <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                           {{-- <svg class="card-slie-arrow icon-24" width="24"  viewBox="0 0 24 24">
                               <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
-                           </svg>
+                           </svg> --}}
                         </div>
                         <div class="progress-detail">
                            <p  class="mb-2">Proyek</p>
@@ -40,7 +85,7 @@
                      </div>
                   </div>
                </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
+               {{-- <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="800">
                   <div class="card-body">
                      <div class="progress-widget">
                         <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
@@ -54,29 +99,14 @@
                         </div>
                      </div>
                   </div>
-               </li>
-               <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
-                  <div class="card-body">
-                     <div class="progress-widget">
-                        <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
-                           </svg>
-                        </div>
-                        <div class="progress-detail">
-                           <p  class="mb-2">Software</p>
-                           <h4 class="counter">{{$jumlahSoftware}}</h4>
-                        </div>
-                     </div>
-                  </div>
-               </li>
+               </li> --}}
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1000">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
-                           <svg class="card-slie-arrow icon-24" width="24px"  viewBox="0 0 24 24">
+                        <div id="circle-progress-05" class="text-center circle-progress-01 circle-progress circle-progress-info" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                           {{-- <svg class="card-slie-arrow icon-24" width="24px"  viewBox="0 0 24 24">
                               <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
-                           </svg>
+                           </svg> --}}
                         </div>
                         <div class="progress-detail">
                            <p  class="mb-2">User</p>
@@ -191,7 +221,7 @@
                                     <tr style="max-width: 10px; overflow-y: auto;">
                                        <td>{{$no++}}</td>
                                        <td style="width: 10px;">{{$item->nama_proyek}}</td>
-                                       <td>{{round($item->realisasi, 2)}}%</td>
+                                       <td>{{number_format($item->realisasi, 2)}}%</td>
                                     </tr>
                                  @endforeach
                               </tbody>
@@ -203,66 +233,43 @@
             </div>
           </div>
           <div class="col-md-12 col-lg-12">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="card" data-aos="fade-up" data-aos-delay="800">
-                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
-                        <div class="header-title">
-                           <h4 class="card-title text-primary">PRODUCTIVITY RATE {{date('Y')}}</h4>
-                           {{-- <p class="mb-0">Gross Sales</p>           --}}
-                        </div>
-                     </div>
-                     <div class="card-body">
-                        <div id="chart-productivity-rate" productivityJan="{{$productivityJan}}" productivityFeb="{{$productivityFeb}}" productivityMar="{{$productivityMar}}" productivityApr="{{$productivityApr}}" productivityMei="{{$productivityMei}}" productivityJun="{{$productivityJun}}" productivityJul="{{$productivityJul}}" productivityAug="{{$productivityAug}}" productivitySep="{{$productivitySep}}" productivityOct="{{$productivityOct}}" productivityNov="{{$productivityNov}}" productivityDes="{{$productivityDes}}" class="d-main"></div>
-                     </div>
-                  </div>
+            <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
+               <div class="card-header">
+                   <div class="header-title">
+                     <h4 class="mb-2 card-title text-primary">MONITORING KELENGKAPAN DATA ENGINEERING UNTUK LPS</h4>         
+                   </div>
                </div>
-               <div class="col-md-12">
-                  <div class="card" data-aos="fade-up" data-aos-delay="800">
-                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
-                        <div class="header-title">
-                           <h4 class="card-title text-primary">REALISASI IMPLEMENTASI BIM PROYEK</h4>
-                           {{-- <p class="mb-0">Gross Sales</p>           --}}
-                        </div>
+               <div class="card-body">
+                 <div class="row p-2">
+                   <div class="col-md-12 mb-2">
+                      <div class="text-primary">
+                         <strong>Keterangan:</strong><br>
+                         1. Jika datanya banyak, Anda bisa scroll ke samping <br>
+                         2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
+                         3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
+                         4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
                      </div>
-                     <div class="card-body">
-                        <div class="row">
-                           <div class="col-md-12">
-                              <table class="table mt-3">
-                                 <thead>
-                                    <tr>
-                                       <th>No</th>
-                                       <th>Prioritas</th>
-                                       <th>Persentase</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td>1</td>
-                                       <td>Priotitas 1</td>
-                                       <td>{{$realisasiPrioritas1}}%</td>
-                                    </tr>
-                                    <tr>
-                                       <td>2</td>
-                                       <td>Priotitas 2</td>
-                                       <td>{{$realisasiPrioritas2}}%</td>
-                                    </tr>
-                                    <tr>
-                                       <td>3</td>
-                                       <td>Priotitas 3</td>
-                                       <td>{{$realisasiPrioritas3}}%</td>
-                                    </tr>
-                                    <tr>
-                                       <td>4</td>
-                                       <td>Bukan Priotitas</td>
-                                       <td>{{$realisasiBukanPrioritas}}%</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="text-center text-primary"><strong>Dokumen Utama</strong></div>
+                     <div class="border rounded">
+                      <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
+                         <div id="bar-chart-new-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
+                      </div>
                      </div>
-                  </div>
+                   </div>
+                   <div class="col-md-12 mt-3">
+                     <div class="text-center text-primary"><strong>Dokumen Pendukung</strong></div>
+                     <div class="border rounded">
+                      <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
+                         <div id="bar-chart-new-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
+                      </div>
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <A href="/progress-lps" class="btn btn-sm btn-primary float-right mt-3">LPS</A>
+                   </div>
+                 </div>
                </div>
             </div>
           </div>
@@ -311,7 +318,8 @@
               </div>
             </div>
           </div>
-         <div class="col-md-12 col-lg-12">
+          {{-- CSI SEBELUMNYA --}}
+         {{-- <div class="col-md-12 col-lg-12">
           <div class="card">
             <div class="card-body">
                 <div class="text-center text-primary"><strong>CUSTOMER SATISFACTION INDEX</strong></div>
@@ -335,8 +343,10 @@
                 </div>
             </div>
           </div>
-         </div>
-         <div class="col-md-12 col-lg-12">
+         </div> --}}
+
+         {{-- SAAS SEBELUMNYA --}}
+         {{-- <div class="col-md-12 col-lg-12">
           <div class="card">
             <div class="card-body">
                 <div class="text-center text-primary"><strong>PERSENTASE PENCAPAIAN PROGRAM SASAA</strong></div>
@@ -359,8 +369,8 @@
                 </div>
             </div>
           </div>
-         </div>
-         <div class="col-md-12 col-lg-12">
+         </div> --}}
+         {{-- <div class="col-md-12 col-lg-12">
           <div class="card">
             <div class="card-body">
                 <div class="text-center text-primary"><strong>KI/KM</strong></div>
@@ -383,7 +393,7 @@
                 </div>
             </div>
           </div>
-         </div>
+         </div> --}}
          
          <div class="col-md-12 col-lg-12">
             <div class="card credit-card-widget" data-aos="fade-up" data-aos-delay="900">
@@ -426,64 +436,91 @@
                </div>
             </div>
          </div>
+         <div class="col-md-12 col-lg-12">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="card" data-aos="fade-up" data-aos-delay="800">
+                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                        <div class="header-title">
+                           <h4 class="card-title text-primary">STATUS IMPLEMENTASI BIM</h4>
+                           {{-- <p class="mb-0">Gross Sales</p>           --}}
+                        </div>
+                     </div>
+                     <div class="card-body">
+                        <div id="pie-chart-status-implementasi-bim" bukanPrioritas="{{$bukanPrioritas}}" prioritas1="{{$prioritas1}}" prioritas2="{{$prioritas2}}" prioritas3="{{$prioritas3}}"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 col-lg-12">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="card" data-aos="fade-up" data-aos-delay="800">
+                     <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                        <div class="header-title">
+                           <h4 class="card-title text-primary">PRODUCTIVITY RATE {{date('Y')}}</h4>
+                           {{-- <p class="mb-0">Gross Sales</p>           --}}
+                        </div>
+                     </div>
+                     <div class="card-body">
+                        <div id="chart-productivity-rate" productivityJan="{{$productivityJan}}" productivityFeb="{{$productivityFeb}}" productivityMar="{{$productivityMar}}" productivityApr="{{$productivityApr}}" productivityMei="{{$productivityMei}}" productivityJun="{{$productivityJun}}" productivityJul="{{$productivityJul}}" productivityAug="{{$productivityAug}}" productivitySep="{{$productivitySep}}" productivityOct="{{$productivityOct}}" productivityNov="{{$productivityNov}}" productivityDes="{{$productivityDes}}" class="d-main"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-   </div> 
+   </div>
 </div>
 
 <div class="row">
-   <div class="col-md-6">
-      <div class="overflow-hidden card" data-aos="fade-up" data-aos-delay="600">
-         <div class="card-header">
-             <div class="header-title">
-               <h4 class="mb-2 card-title text-primary">MONITORING KELENGKAPAN DATA ENGINEERING UNTUK LPS</h4>         
-             </div>
-         </div>
-         <div class="card-body">
-           <div class="row p-2">
-             <div class="col-md-12 mb-2">
-                <div class="text-primary">
-                   <strong>Keterangan:</strong><br>
-                   1. Jika datanya banyak, Anda bisa scroll ke samping <br>
-                   2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
-                   3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
-                   4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
-               </div>
-             </div>
-             <div class="col-md-12">
-               <div class="text-center text-primary"><strong>Dokumen Utama</strong></div>
-               <div class="border rounded">
-                <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                   <div id="bar-chart-new-1" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['utama']}}" ></div>
-                </div>
-               </div>
-             </div>
-             <div class="col-md-12 mt-3">
-               <div class="text-center text-primary"><strong>Dokumen Pendukung</strong></div>
-               <div class="border rounded">
-                <div style="overflow-x: auto; overflow-y: hidden; height: 100%;">
-                   <div id="bar-chart-new-2" proyek="{{$proyekLps}}" dokumen="{{$dokumenLps['pendukung']}}"></div>
-                </div>
-               </div>
-             </div>
-             <div class="col-md-12">
-               <A href="/progress-lps" class="btn btn-sm btn-primary float-right mt-3">LPS</A>
-             </div>
-           </div>
-         </div>
-       </div>
-   </div>
    <div class="col-md-6">
       <div class="row">
          <div class="col-md-12">
             <div class="card" data-aos="fade-up" data-aos-delay="800">
                <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                   <div class="header-title">
-                     <h4 class="card-title text-primary">STATUS IMPLEMENTASI BIM</h4>
+                     <h4 class="card-title text-primary">REALISASI IMPLEMENTASI BIM PROYEK</h4>
                      {{-- <p class="mb-0">Gross Sales</p>           --}}
                   </div>
                </div>
                <div class="card-body">
-                  <div id="pie-chart-status-implementasi-bim" bukanPrioritas="{{$bukanPrioritas}}" prioritas1="{{$prioritas1}}" prioritas2="{{$prioritas2}}" prioritas3="{{$prioritas3}}"></div>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <table class="table mt-3">
+                           <thead>
+                              <tr>
+                                 <th>No</th>
+                                 <th>Prioritas</th>
+                                 <th>Persentase</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>1</td>
+                                 <td>Priotitas 1</td>
+                                 <td>{{number_format($realisasiPrioritas1, 2)}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>2</td>
+                                 <td>Priotitas 2</td>
+                                 <td>{{number_format($realisasiPrioritas2, 2)}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>3</td>
+                                 <td>Priotitas 3</td>
+                                 <td>{{number_format($realisasiPrioritas3, 2)}}%</td>
+                              </tr>
+                              <tr>
+                                 <td>4</td>
+                                 <td>Bukan Priotitas</td>
+                                 <td>{{number_format($realisasiBukanPrioritas, 2)}}%</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>

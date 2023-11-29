@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 06:12 AM
+-- Generation Time: Nov 29, 2023 at 12:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -344,17 +344,20 @@ CREATE TABLE `ki_km` (
   `note` varchar(255) DEFAULT NULL,
   `is_respon` int(11) NOT NULL DEFAULT 0,
   `id_user_respon` int(11) DEFAULT NULL,
-  `tanggal_input` date NOT NULL
+  `tanggal_input` date NOT NULL,
+  `upload_file` text DEFAULT NULL,
+  `upload_file_hasil` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ki_km`
 --
 
-INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`, `kategori`, `department`, `tanggal_upload`, `proses_penulisan`, `approval_atasan`, `approval_pic_divisi`, `approval_pic_pusat`, `approval_published`, `tanggal_published`, `note`, `is_respon`, `id_user_respon`, `tanggal_input`) VALUES
-(1, 3, 54, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 0, 0, NULL, 'note', 1, 52, '2023-11-11'),
-(2, 5, 56, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 1, 1, '2023-11-25', 'Note', 1, 53, '2023-11-11'),
-(3, 4, 55, 'PTOYEK', 'Non Engineering', 'Knowledge Management', 'Departemen Operasi 3', '2023-11-12', 1, 1, 0, 0, 0, NULL, NULL, 1, 37, '2023-11-12');
+INSERT INTO `ki_km` (`id_ki_km`, `id_proyek`, `id_user`, `judul`, `status_ki_km`, `kategori`, `department`, `tanggal_upload`, `proses_penulisan`, `approval_atasan`, `approval_pic_divisi`, `approval_pic_pusat`, `approval_published`, `tanggal_published`, `note`, `is_respon`, `id_user_respon`, `tanggal_input`, `upload_file`, `upload_file_hasil`) VALUES
+(1, 3, 54, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 0, 0, NULL, 'note', 1, 52, '2023-11-11', '11282023024742 Judul1.pdf', NULL),
+(2, 5, 56, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-11', 1, 1, 1, 1, 1, '2023-11-25', 'Note', 1, 53, '2023-11-11', NULL, '11282023074702 Judul.pdf'),
+(3, 4, 55, 'PTOYEK', 'Non Engineering', 'Knowledge Management', 'Departemen Operasi 3', '2023-11-12', 1, 1, 0, 0, 0, NULL, NULL, 1, 37, '2023-11-12', NULL, NULL),
+(4, 3, 54, 'Judul', 'Engineering', 'Best Practice', 'Departemen Operasi 3', '2023-11-28', 1, 1, 0, 0, 0, '2023-11-28', NULL, 1, 53, '2023-11-28', '11282023024742 Judul.pdf', '11282023075011 Judul.zip');
 
 -- --------------------------------------------------------
 
@@ -592,7 +595,7 @@ CREATE TABLE `proyek` (
 INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`) VALUES
 (1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29'),
 (2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 53, '2023-11-27'),
-(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 0, 1, 52, '2023-11-29'),
+(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 52, '2023-11-29'),
 (4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
 (5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
 
@@ -648,16 +651,19 @@ CREATE TABLE `rkp` (
   `note` text DEFAULT NULL,
   `tanggal_rkp` date NOT NULL,
   `id_user_respon` int(11) DEFAULT NULL,
-  `is_respon` int(11) NOT NULL DEFAULT 0
+  `is_respon` int(11) NOT NULL DEFAULT 0,
+  `upload_file` text DEFAULT NULL,
+  `upload_file_hasil` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `rkp`
 --
 
-INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`) VALUES
-(1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1),
-(2, 2, 'Kode SPK', 1, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1);
+INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`, `upload_file`, `upload_file_hasil`) VALUES
+(1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1, 'upload1.zip', '11292023003755 Kode SPK.zip'),
+(2, 2, 'Kode SPK', 1, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1, 'upload2.zip', NULL),
+(3, 3, 'Kode spk makassar', 1, 1, 0, 0, 0, 0, NULL, '2023-11-29', 53, 1, '11292023013018 Kode spk makassar.zip', '11292023013221 Kode spk makassar.zip');
 
 -- --------------------------------------------------------
 
@@ -740,62 +746,65 @@ CREATE TABLE `technical_supporting` (
   `dokumen` text DEFAULT NULL,
   `kendala` text DEFAULT NULL,
   `is_respon` int(11) NOT NULL DEFAULT 0,
-  `id_user` int(11) DEFAULT NULL
+  `id_user` int(11) DEFAULT NULL,
+  `upload_file` text DEFAULT NULL,
+  `upload_file_hasil` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `technical_supporting`
 --
 
-INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic`, `nomor_laporan`, `kode`, `topik`, `tanggal_submit`, `tanggal_selesai`, `status_support`, `note`, `dokumen`, `kendala`, `is_respon`, `id_user`) VALUES
-(2, 1, 'Admin', 'D00002', 'Kode', 'Topik', '2023-11-09', '2023-11-24', 'NO DATA', 'Note', 'Dokumen', 'Kendala Proyek A 1', 1, 1),
-(3, 1, 'Head Office 1', 'D00001', 'Kode 1', 'Topik 1', '2023-11-08', NULL, 'HOLD', 'Note', 'Dokeumen', 'Kendala Proyek A 2', 1, 23),
-(4, 1, 'Head Office 1', 'sjqnnmad2', 'S', 'barang', '2023-11-10', NULL, 'ON GOING', NULL, NULL, 'belum datang barang', 1, 23),
-(5, 5, 'Admin', 'sjqnnmad2', 'G', 'barang', '2023-11-10', '2023-11-11', 'SENT', 'Note', 'Dddsdds', 'Terjadi potensi longsoran timbunan surcharge di area lahan utara sisi utara', 1, 1),
-(6, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G/S', 'Topik', '2023-01-01', NULL, 'OPEN', NULL, NULL, 'Kendala', 1, 53),
-(7, 1, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-01-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
-(8, 1, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-01-19', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
-(9, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-29', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 53),
-(10, 1, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-07', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(11, 1, NULL, NULL, NULL, NULL, '2023-02-20', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(12, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-02-22', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(13, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-03-02', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
-(14, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-04-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
-(15, 3, NULL, NULL, NULL, NULL, '2023-05-17', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(16, 3, NULL, NULL, NULL, NULL, '2023-06-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(17, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-07-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
-(18, 3, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-08-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
-(19, 3, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(20, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-10-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25),
-(21, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(22, 3, NULL, NULL, NULL, NULL, '2023-12-04', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(23, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-01-16', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(24, 4, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(25, 4, NULL, NULL, NULL, NULL, '2023-03-14', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(26, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-04-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(27, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-16', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
-(28, 4, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(29, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-06-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(30, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-06-14', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(31, 4, NULL, NULL, NULL, NULL, '2023-07-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(32, 4, NULL, NULL, NULL, NULL, '2023-08-22', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(33, 4, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(34, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-17', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(35, 4, NULL, NULL, NULL, NULL, '2023-11-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(36, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-12-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(37, 5, NULL, NULL, NULL, NULL, '2023-01-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL),
-(38, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-02-06', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 25),
-(39, 5, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-03-15', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25),
-(40, 5, 'Agus Ubaidillah', 'nmpp', 'S', 'barang', '2023-04-05', '2023-11-12', 'SENT', NULL, NULL, 'Kendala Teknis', 1, 37),
-(41, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 1, 53),
-(42, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53),
-(43, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-20', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 52),
-(44, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-07-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(45, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-08-15', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 52),
-(46, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-09-25', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52),
-(47, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-24', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53),
-(48, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-11-08', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 25),
-(49, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-12-19', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25);
+INSERT INTO `technical_supporting` (`id_technical_supporting`, `id_proyek`, `pic`, `nomor_laporan`, `kode`, `topik`, `tanggal_submit`, `tanggal_selesai`, `status_support`, `note`, `dokumen`, `kendala`, `is_respon`, `id_user`, `upload_file`, `upload_file_hasil`) VALUES
+(2, 1, 'Admin', 'D00002', 'Kode', 'Topik', '2023-11-09', '2023-11-24', 'NO DATA', 'Note', 'Dokumen', 'Kendala Proyek A 1', 1, 1, NULL, NULL),
+(3, 1, 'Head Office 1', 'D00001', 'Kode 1', 'Topik 1', '2023-11-08', NULL, 'HOLD', 'Note', 'Dokeumen', 'Kendala Proyek A 2', 1, 23, NULL, NULL),
+(4, 1, 'Head Office 1', 'sjqnnmad2', 'S', 'barang', '2023-11-10', NULL, 'ON GOING', NULL, NULL, 'belum datang barang', 1, 23, NULL, NULL),
+(5, 5, 'Admin', 'sjqnnmad2', 'G', 'barang', '2023-11-10', '2023-11-11', 'SENT', 'Note', 'Dddsdds', 'Terjadi potensi longsoran timbunan surcharge di area lahan utara sisi utara', 1, 1, NULL, NULL),
+(6, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G/S', 'Topik', '2023-01-01', NULL, 'OPEN', NULL, NULL, 'Kendala', 1, 53, NULL, NULL),
+(7, 1, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-01-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(8, 1, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-01-19', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(9, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-29', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(10, 1, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-07', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(11, 1, NULL, NULL, NULL, NULL, '2023-02-20', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(12, 1, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-02-22', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(13, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-03-02', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, '11282023152000 Kendala Teknis.zip'),
+(14, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-04-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(15, 3, NULL, NULL, NULL, NULL, '2023-05-17', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(16, 3, NULL, NULL, NULL, NULL, '2023-06-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(17, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-07-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(18, 3, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-08-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(19, 3, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(20, 3, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-10-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(21, 3, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-11-10', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(22, 3, NULL, NULL, NULL, NULL, '2023-12-04', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(23, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-01-16', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(24, 4, 'Soleh', 'Nomor Laporan', 'G/S', 'Topik', '2023-02-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(25, 4, NULL, NULL, NULL, NULL, '2023-03-14', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(26, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-04-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(27, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-16', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(28, 4, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-06', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(29, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-06-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(30, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-06-14', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(31, 4, NULL, NULL, NULL, NULL, '2023-07-12', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(32, 4, NULL, NULL, NULL, NULL, '2023-08-22', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(33, 4, NULL, NULL, NULL, NULL, '2023-09-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(34, 4, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-17', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(35, 4, NULL, NULL, NULL, NULL, '2023-11-10', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(36, 4, 'Soleh', 'Nomor Laporan', 'G', 'Topik', '2023-12-13', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(37, 5, NULL, NULL, NULL, NULL, '2023-01-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 0, NULL, NULL, NULL),
+(38, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-02-06', NULL, 'OPEN', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(39, 5, 'Head Office 3', 'Nomor Laporan', 'G', 'Topik', '2023-03-15', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(40, 5, 'Agus Ubaidillah', 'nmpp', 'S', 'barang', '2023-04-05', '2023-11-12', 'SENT', NULL, NULL, 'Kendala Teknis', 1, 37, NULL, NULL),
+(41, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, NULL, NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(42, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'S', 'Topik', '2023-05-09', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(43, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-06-20', NULL, 'ON GOING', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(44, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-07-11', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(45, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-08-15', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(46, 5, 'Soleh', 'Nomor Laporan', 'S', 'Topik', '2023-09-25', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 52, NULL, NULL),
+(47, 5, 'Yanto Agus Wahyudi', 'Nomor Laporan', 'G', 'Topik', '2023-10-24', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, NULL, NULL),
+(48, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-11-08', NULL, 'HOLD', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(49, 5, 'Head Office 3', 'Nomor Laporan', 'S', 'Topik', '2023-12-19', NULL, 'SENT', NULL, NULL, 'Kendala Teknis', 1, 25, NULL, NULL),
+(50, 3, 'Yanto Agus Wahyudi', '08989986332', 'G', 'Topik', '2023-11-28', '2023-11-28', 'SENT', NULL, NULL, 'Kendala Teknis', 1, 53, '11282023144216 Kendala Teknis.zip', '11282023151644 Kendala Teknis.zip');
 
 -- --------------------------------------------------------
 
@@ -1082,7 +1091,7 @@ ALTER TABLE `kategori_pekerjaan`
 -- AUTO_INCREMENT for table `ki_km`
 --
 ALTER TABLE `ki_km`
-  MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ki_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `license`
@@ -1136,7 +1145,7 @@ ALTER TABLE `rencana`
 -- AUTO_INCREMENT for table `rkp`
 --
 ALTER TABLE `rkp`
-  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `software`
@@ -1148,7 +1157,7 @@ ALTER TABLE `software`
 -- AUTO_INCREMENT for table `technical_supporting`
 --
 ALTER TABLE `technical_supporting`
-  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_technical_supporting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `tim_proyek`
