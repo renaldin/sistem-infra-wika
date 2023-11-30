@@ -7,11 +7,12 @@ use App\Models\ModelLps;
 use App\Models\ModelUser;
 use App\Models\ModelProyek;
 use App\Models\ModelDokumenLps;
+use App\Models\ModelDetailTimProyek;
 
 class Lps extends Controller
 {
 
-    private $ModelLps, $ModelUser, $ModelProyek, $ModelDokumenLps;
+    private $ModelLps, $ModelUser, $ModelProyek, $ModelDokumenLps, $ModelDetailTimProyek;
 
     public function __construct()
     {
@@ -19,6 +20,7 @@ class Lps extends Controller
         $this->ModelUser        = new ModelUser();
         $this->ModelProyek      = new ModelProyek();
         $this->ModelDokumenLps  = new ModelDokumenLps();
+        $this->ModelDetailTimProyek  = new ModelDetailTimProyek();
     }
 
     public function index()
@@ -36,6 +38,29 @@ class Lps extends Controller
         ];
         
         return view('lps.index', $data);
+    }
+
+    public function monitoringTimProyek()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $detailTimPRoyek = $this->ModelDetailTimProyek->dataWhere('detail_tim_proyek.id_user', Session()->get('id_user'));
+        $dataProyekByUser = [];
+        foreach($detailTimPRoyek as $item) {
+            $dataProyekByUser[] = $this->ModelProyek->dataWhere('proyek.id_tim_proyek', $item->id_tim_proyek);
+        }
+
+        $data = [
+            'title'                     => 'LPS',
+            'subTitle'                  => 'Review LPS',
+            'daftarProyekLps'           => $dataProyekByUser,
+            'daftarProyek'              => $this->ModelProyek->data(),
+            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+        ];
+        
+        return view('lps.monitoringTimProyek', $data);
     }
 
     public function monitoring()
@@ -90,6 +115,24 @@ class Lps extends Controller
         return view('lps.detail', $data);
     }
 
+    public function detailTim($id_proyek)
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = [
+            'title'                     => 'LPS',
+            'subTitle'                  => 'Detail LPS',
+            'monitoring'                => false,
+            'detailProyek'              => $this->ModelProyek->detailLps($id_proyek),
+            'detailProyekLps'           => $this->ModelLps->data(),
+            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
+        ];
+
+        return view('lps.detailTim', $data);
+    }
+
     public function prosesTambah()
     {
         if (!Session()->get('role')) {
@@ -111,6 +154,7 @@ class Lps extends Controller
 
         $dataProyek = [
             'id_proyek'     => Request()->id_proyek,
+            'kode_spk_lps'  => Request()->kode_spk_lps,
             'status_lps'    => 1,
             'id_user_lps'   => Session()->get('id_user')
         ];
@@ -165,7 +209,9 @@ class Lps extends Controller
         $dataProyek = [
             'id_proyek'     => $id_proyek,
             'status_lps'    => 0,
-            'id_user_lps'   => null
+            'id_user_lps'   => null,
+            'kode_spk_lps'   => null,
+            'dokumen_lps'   => null
         ];
 
         $this->ModelLps->hapus($data);
@@ -175,13 +221,21 @@ class Lps extends Controller
 
     public function updateTanggalPho($id_proyek)
     {
-        $dataProyek = [
-            'id_proyek'         => $id_proyek,
-            'tanggal_pho_lps'   => Request()->tanggal_pho_lps
-        ];
+        if(Request()->dokumen_lps) {
+            $dataProyek = [
+                'id_proyek'         => $id_proyek,
+                'dokumen_lps'   => Request()->dokumen_lps
+            ];
+        } else {
+            $dataProyek = [
+                'id_proyek'         => $id_proyek,
+                'tanggal_pho_lps'   => Request()->tanggal_pho_lps,
+                'kode_spk_lps'   => Request()->kode_spk_lps
+            ];
+        }
 
         $this->ModelProyek->edit($dataProyek);
-        return back()->with('success', 'Tanggal PHO berhasil diupdate!');
+        return back()->with('success', 'Data berhasil diupdate!');
     }
 
     public function progress()

@@ -45,6 +45,8 @@
                         <tr class="ligth">
                             <th>No</th>
                             <th>Nama Proyek</th>
+                            <th>Kode SPK</th>
+                            <th>Dokumen</th>
                             <th style="min-width: 100px">Aksi</th>
                         </tr>
                     </thead>
@@ -52,9 +54,12 @@
                         <?php $no = 1;?>
                         @foreach ($daftarProyekLps as $item)
                             @if ($user->id_user === $item->id_user_respon || $user->role === 'Admin')
+                            @if ($item->dokumen_lps !== null)
                                 <tr>
                                     <td>{{$no++}}</td>
                                     <td>{{$item->nama_proyek}}</td>
+                                    <td>{{$item->kode_spk_lps}}</td>
+                                    <td><a href="{{$item->dokumen_lps}}" target="_blank" class="btn btn-sm btn-primary">Klik</a></td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a href="/detail-proyek-lps/{{$item->id_proyek}}" class="btn btn-sm btn-icon btn-primary" data-toggle="tooltip" data-placement="top" title="Detail" data-original-title="Detail">
@@ -85,6 +90,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                            @endif
                             @endif
                         @endforeach
                     </tbody>
@@ -121,6 +127,10 @@
                                     {{ $message }}
                                 </div>
                             @enderror
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Kode SPK</label>
+                            <input type="text" class="form-control" name="kode_spk_lps" placeholder="Masukkan Kode" required>
                         </div>
                 </div>
             </div>
@@ -168,6 +178,10 @@
                         <div class="form-group col-md-12">
                             <label class="form-label" for="tanggal_pho_lps">Tanggal PHO</label>
                             <input type="date" class="form-control @error('tanggal_pho_lps') is-invalid @enderror" id="tanggal_pho_lps" name="tanggal_pho_lps" value="{{$item->tanggal_pho_lps}}" placeholder="Masukkan Tanggal PHO LPS" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Kode SPK</label>
+                            <input type="text" class="form-control" value="{{$item->kode_spk_lps}}" name="kode_spk_lps" placeholder="Masukkan Kode" required>
                         </div>
                     </div>
             </div>

@@ -89,6 +89,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/update-tanggal-pho/{id_proyek}', [Lps::class, 'updateTanggalPho']);
     Route::get('/hapus-proyek-lps/{id_proyek}', [Lps::class, 'prosesHapus']);
     Route::get('/detail-proyek-lps/{id_proyek}', [Lps::class, 'detail']);
+    Route::get('/detail-proyek-lps-tim/{id_proyek}', [Lps::class, 'detailTim']);
     Route::post('/edit-proyek-lps/{id_lps}', [Lps::class, 'prosesEdit']);
     Route::get('/monitoring-lps', [Lps::class, 'monitoring'])->name('monitoring-lps');
     Route::get('/detail-monitoring-lps/{id_proyek}', [Lps::class, 'detailMonitoring']);
@@ -237,6 +238,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/monitoring-ki-km', [KiKm::class, 'index'])->name('monitoring-ki-km');
         Route::get('/tambah-ki-km', [KiKm::class, 'tambah'])->name('tambah-ki-km');
         Route::post('/tambah-ki-km', [KiKm::class, 'prosesTambah']);
-
+        
+        Route::get('/daftar-proyek-lps', [Lps::class, 'monitoringTimProyek'])->name('monitoring-tim-proyek');
     });
 });

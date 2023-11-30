@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 12:54 PM
+-- Generation Time: Nov 30, 2023 at 09:22 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -423,26 +423,6 @@ INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `ta
 (138, 18, 1, 1, 1, '2023-11-19', 53, 1, 53),
 (139, 19, 1, 1, 1, '2023-11-19', 53, 1, 53),
 (140, 20, 1, 1, 1, '2023-11-19', 53, 1, 53),
-(141, 1, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(142, 2, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(143, 3, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(144, 4, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(145, 5, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(146, 6, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(147, 7, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(148, 8, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(149, 9, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(150, 10, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(151, 11, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(152, 12, 2, 1, 0, '2023-11-19', 53, 1, 53),
-(153, 13, 2, 1, 0, '2023-11-19', 53, 1, 53),
-(154, 14, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(155, 15, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(156, 16, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(157, 17, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(158, 18, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(159, 19, 2, 1, 1, '2023-11-19', 53, 1, 53),
-(160, 20, 2, 1, 1, '2023-11-19', 53, 1, 53),
 (161, 1, 3, 1, 1, '2023-11-19', 52, 1, 52),
 (162, 2, 3, 1, 1, '2023-11-19', 52, 1, 52),
 (163, 3, 3, 1, 1, '2023-11-19', 52, 1, 52),
@@ -462,7 +442,27 @@ INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `ta
 (177, 17, 3, 1, 1, '2023-11-19', 52, 1, 52),
 (178, 18, 3, 1, 1, '2023-11-19', 52, 1, 52),
 (179, 19, 3, 1, 1, '2023-11-19', 52, 1, 52),
-(180, 20, 3, 1, 1, '2023-11-19', 52, 1, 52);
+(180, 20, 3, 1, 1, '2023-11-19', 52, 1, 52),
+(181, 1, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(182, 2, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(183, 3, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(184, 4, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(185, 5, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(186, 6, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(187, 7, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(188, 8, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(189, 9, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(190, 10, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(191, 11, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(192, 12, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(193, 13, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(194, 14, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(195, 15, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(196, 16, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(197, 17, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(198, 18, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(199, 19, 5, 0, 0, '2023-11-30', 53, 1, NULL),
+(200, 20, 5, 1, 1, '2023-11-30', 53, 1, 53);
 
 -- --------------------------------------------------------
 
@@ -585,19 +585,21 @@ CREATE TABLE `proyek` (
   `status_rkp` int(11) NOT NULL DEFAULT 0,
   `status_lps` int(11) NOT NULL DEFAULT 0,
   `id_user_lps` int(11) DEFAULT NULL,
-  `tanggal_pho_lps` date DEFAULT NULL
+  `tanggal_pho_lps` date DEFAULT NULL,
+  `kode_spk_lps` varchar(255) DEFAULT NULL,
+  `dokumen_lps` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`) VALUES
-(1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29'),
-(2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 53, '2023-11-27'),
-(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 52, '2023-11-29'),
-(4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 0, NULL, NULL);
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`, `kode_spk_lps`, `dokumen_lps`) VALUES
+(1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29', 'kode 1', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD'),
+(2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 0, NULL, '2023-11-27', NULL, NULL),
+(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 52, '2023-11-29', NULL, NULL),
+(4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
+(5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 1, 53, NULL, 'Kode', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD');
 
 -- --------------------------------------------------------
 
@@ -1103,7 +1105,7 @@ ALTER TABLE `license`
 -- AUTO_INCREMENT for table `lps`
 --
 ALTER TABLE `lps`
-  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `master_activity`

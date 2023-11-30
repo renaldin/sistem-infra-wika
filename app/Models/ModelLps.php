@@ -25,8 +25,8 @@ class ModelLps extends Model
         return DB::table('lps')
             ->join('proyek', 'proyek.id_proyek', '=', 'lps.id_proyek')
             ->join('dokumen_lps', 'dokumen_lps.id_dokumen_lps', '=', 'lps.id_dokumen_lps')
-            ->select('lps.id_proyek', 'nama_proyek', 'tanggal_pho_lps', 'id_user_respon')
-            ->groupBy('lps.id_proyek', 'nama_proyek', 'tanggal_pho_lps', 'id_user_respon')
+            ->select('lps.id_proyek', 'nama_proyek', 'tanggal_pho_lps', 'id_user_respon', 'kode_spk_lps', 'dokumen_lps')
+            ->groupBy('lps.id_proyek', 'nama_proyek', 'tanggal_pho_lps', 'id_user_respon', 'kode_spk_lps', 'dokumen_lps')
             ->orderBy('id_lps', 'ASC')
             ->get();
     }
