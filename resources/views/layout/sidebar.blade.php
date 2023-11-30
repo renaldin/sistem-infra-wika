@@ -1,6 +1,33 @@
 @php
     $jumlahKiKm = DB::table('ki_km')->where('is_respon', 0)->count();
     $jumlahTS = DB::table('technical_supporting')->where('is_respon', 0)->count();
+   
+    if ($user->role === 'Tim Proyek') {
+        $detailTimPRoyek = DB::table('detail_tim_proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'detail_tim_proyek.id_tim_proyek')
+            ->join('user', 'user.id_user', '=', 'detail_tim_proyek.id_user')
+            ->where('detail_tim_proyek.id_user', $user->id_user)
+            ->get();
+        $dataProyekByUser = [];
+        foreach($detailTimPRoyek as $item) {
+            $dataProyekByUser[] = DB::table('proyek')
+            ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek', 'proyek')
+            ->where('proyek.id_tim_proyek', $item->id_tim_proyek)
+            ->first();
+        }
+        $jumlahRkp = 0;
+        foreach ($dataProyekByUser as $item) {
+           if ($item->status_rkp == 1) {
+            $jumlahRkp += 1;
+           }
+        }
+        $jumlahLps = 0;
+        foreach ($dataProyekByUser as $item) {
+           if ($item->status_lps == 1) {
+            $jumlahLps += 1;
+           }
+        }
+    }
 @endphp
 <aside class="sidebar sidebar-default navs-rounded-all ">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
@@ -719,7 +746,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Update Dokumen</span>
+                                    <span class="item-name">Update Dokumen<span class="badge rounded-pill bg-danger item-name">{{$jumlahRkp}}</span></span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -768,7 +795,7 @@
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
                             </i>
-                            <span class="item-name">LPS</span>
+                            <span class="item-name">LPS<span class="badge rounded-pill bg-danger item-name">{{$jumlahLps}}</span></span>
                         </a>
                     </li>
                 @elseif ($user->role === 'Head Office')
