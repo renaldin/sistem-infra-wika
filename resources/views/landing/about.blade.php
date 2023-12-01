@@ -1024,9 +1024,9 @@
         <div class="swiper-slide">
           <div class="testimonial-wrap">
             <div class="d-flex">
-              <img src="{{ asset('image/team/Muhammad Irsyad Alditio.jpg') }}" class="testimonial-img " alt="">
+              <img src="{{ asset('image/team/Muhammad Risyad Alditio.jpg') }}" class="testimonial-img " alt="">
               <div class="d-block p-3">
-                <h4>Muhammad Irsyad Alditio</h4>
+                <h4>Muhammad Risyad Alditio</h4>
                 <span>Junior Expert of Engineering</span>
               </div>
             </div>

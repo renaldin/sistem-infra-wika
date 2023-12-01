@@ -49,4 +49,17 @@ class Landing extends Controller
 
         return view('landing.contact', $data);
     }
+
+    public function blog()
+    {
+        if (Session()->get('email')) {
+            return redirect()->route('dashboard');
+        }
+
+        $data = [
+            'title' => 'Wika'
+        ];
+
+        return view('landing.blogDetail', $data);
+    }
 }

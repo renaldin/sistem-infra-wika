@@ -93,14 +93,13 @@
 </section>
 <!-- ======= End Section ======= -->
 
-<!-- ======= Construction Section ======= -->
+<!-- ======= Activities Section ======= -->
 <section id="constructions" class="constructions">
 <div class="container" data-aos="fade-up">
 
     <div class="section-header">
-    <h2>Constructions</h2>
-    <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem
-        dolore earum</p>
+    <h2>Activities</h2>
+    <p>Explore the Latest Activities in Infrastructure Division 2: Innovation, BIM Projects, Workshops, and More!</p>
     </div>
 
     <div class="row gy-4">
@@ -176,165 +175,18 @@
         </div>
     </div><!-- End Card Item -->
 
-    </div>
-
-</div>
-</section><!-- End Constructions Section -->
-
-<!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
-<div class="container" data-aos="fade-up">
-
-    <div class="section-header">
-    <h2>Services</h2>
-    <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos
-        quam</p>
-    </div>
-
-    <div class="row gy-4">
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item  position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-mountain-city"></i>
-        </div>
-        <h3>Nesciunt Mete</h3>
-        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis
-            tempore et consequatur.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-        </div>
-        <h3>Eosle Commodi</h3>
-        <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut
-            nesciunt dolorem.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-item position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-compass-drafting"></i>
-        </div>
-        <h3>Ledo Markt</h3>
-        <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci
-            eos earum corrupti.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-item position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-trowel-bricks"></i>
-        </div>
-        <h3>Asperiores Commodit</h3>
-        <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident
-            adipisci neque.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-        <div class="service-item position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-helmet-safety"></i>
-        </div>
-        <h3>Velit Doloremque</h3>
-        <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem
-            alias eius labore.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
-
-    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-        <div class="service-item position-relative">
-        <div class="icon">
-            <i class="fa-solid fa-arrow-up-from-ground-water"></i>
-        </div>
-        <h3>Dolori Architecto</h3>
-        <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti
-            recusandae ducimus enim.</p>
-        <a href="service-details.html" class="readmore stretched-link">Learn more <i
-            class="bi bi-arrow-right"></i></a>
-        </div>
-    </div><!-- End Service Item -->
 
     </div>
 
 </div>
-</section><!-- End Services Section -->
+</section><!-- End Activities Section -->
 
-<!-- ======= Alt Services Section ======= -->
-<section id="alt-services" class="alt-services">
-<div class="container" data-aos="fade-up">
-
-    <div class="row justify-content-around gy-4">
-    <div class="col-lg-6 img-bg" style="background-image: url({{asset('templateLand/assets/img/alt-services.jpg')}});" data-aos="zoom-in"
-        data-aos-delay="100"></div>
-
-    <div class="col-lg-5 d-flex flex-column justify-content-center">
-        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus
-        laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
-
-        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
-        <i class="bi bi-easel flex-shrink-0"></i>
-        <div>
-            <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
-            non provident</p>
-        </div>
-        </div><!-- End Icon Box -->
-
-        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
-        <i class="bi bi-patch-check flex-shrink-0"></i>
-        <div>
-            <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-            deleniti atque</p>
-        </div>
-        </div><!-- End Icon Box -->
-
-        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
-        <i class="bi bi-brightness-high flex-shrink-0"></i>
-        <div>
-            <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-            <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus
-            aut eligendi omnis</p>
-        </div>
-        </div><!-- End Icon Box -->
-
-        <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
-        <i class="bi bi-brightness-high flex-shrink-0"></i>
-        <div>
-            <h4><a href="" class="stretched-link">Tride clov</a></h4>
-            <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non aspernatur odit amet.
-            Et eligendi</p>
-        </div>
-        </div><!-- End Icon Box -->
-
-    </div>
-    </div>
-
-</div>
-</section><!-- End Alt Services Section -->
-
-<!-- ======= Features Section ======= -->
+<!-- ======= Achievment Section ======= -->
 <section id="features" class="features section-bg">
 <div class="container" data-aos="fade-up">
-
+    <div class="section-header">
+        <h2>Achievement</h2>
+    </div>
     <ul class="nav nav-tabs row  g-2 d-flex">
 
     <li class="nav-item col-3">
@@ -357,6 +209,12 @@
     <li class="nav-item col-3">
         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
         <h4>Nostrum</h4>
+        </a>
+    </li><!-- End tab nav item -->
+
+    <li class="nav-item col-3">
+        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
+        <h4>Quia</h4>
         </a>
     </li><!-- End tab nav item -->
 
@@ -383,7 +241,7 @@
             </ul>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/features-1.jpg" alt="" class="img-fluid">
+            <img src="{{ asset('image/idea.jpeg')}}" alt="" class="img-fluid">
         </div>
         </div>
     </div><!-- End tab content item -->
@@ -457,11 +315,33 @@
         </div>
         </div>
     </div><!-- End tab content item -->
+    <div class="tab-pane" id="tab-5">
+        <div class="row">
+        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+            <h3>Omnis fugiat ea explicabo sunt</h3>
+            <p class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+            </p>
+            <ul>
+            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                pariatur.</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <img src="{{ asset('templateLand/assets/img/features-4.jpg') }}" alt="" class="img-fluid">
+        </div>
+        </div>
+    </div><!-- End tab content item -->
 
     </div>
 
 </div>
-</section><!-- End Features Section -->
+</section><!-- End Achievement Section -->
 
 <!-- ======= Our Projects Section ======= -->
 <section id="projects" class="projects">
@@ -912,204 +792,109 @@
         </div>
     
     </div>
-    </section><!-- End Testimonials Section -->
+</section><!-- End Testimonials Section -->
 
-<!-- ======= Recent Blog Posts Section ======= -->
-<section id="recent-blog-posts" class="recent-blog-posts">
+<!-- ======= InfraNews Section ======= -->
+<section id="infra-news" class="infra-news section-bg">
     <div class="container" data-aos="fade-up">
-        <div class=" section-header">
-        <h2>InfraNews</h2>
-    </div>
-    
-    <div class="row gy-5">
-    
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="post-item position-relative h-100">
-    
-            <div class="post-img position-relative overflow-hidden">
-            <img src="{{asset('image/p22.png')}}" class="img-fluid" alt="">
-            <span class="post-date">November, 22</span>
-            </div>
-    
-            <div class="post-content d-flex flex-column">
-    
-            <h3 class="post-title">Program IDEA Infra 2 mencapai 50 lebih bantuan teknis
-            </h3>
-    
-            <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
-                </div>
-            </div>
-    
-            <hr>
-    
-            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-    
-            </div>
-    
+        <div class="section-header">
+            <h2>InfraNews</h2>
         </div>
-        </div><!-- End post item -->
-    
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="post-item position-relative h-100">
-    
-            <div class="post-img position-relative overflow-hidden">
-            <img src="{{asset('image/idea.jpeg')}}" class="img-fluid" alt="">
-            <span class="post-date">November, 22</span>
-            </div>
-    
-            <div class="post-content d-flex flex-column">
-    
-            <h3 class="post-title">Ini Rahasianya 11 Proyek INFRA 2 lulus Sertifikasi BIM 
-            </h3>
-    
-            <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
-                </div>
-            </div>
-    
-            <hr>
-    
-            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-    
-            </div>
-    
-        </div>
-        </div><!-- End post item -->
-    
-        <div class="col-xl-4 col-md-6">
-        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-    
-            <div class="post-img position-relative overflow-hidden">
-            <img src="{{asset('image/workshop.JPG')}}" class="img-fluid" alt="">
-            <span class="post-date">November, 22</span>
-            </div>
-    
-            <div class="post-content d-flex flex-column">
-    
-            <h3 class="post-title">Engineering INFRA 2 Workshop Implementasi BIM
-            </h3>
-    
-            <div class="meta d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
-                </div>
-                <span class="px-3 text-black-50">/</span>
-                <div class="d-flex align-items-center">
-                <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
-                </div>
-            </div>
-    
-            <hr>
-    
-            <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-    
-            </div>
-    
-        </div>
-        </div>
-        <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
-        
-                <div class="post-img position-relative overflow-hidden">
-                <img src="{{asset('image/workshop.JPG')}}" class="img-fluid" alt="">
-                <span class="post-date">November, 22</span>
-                </div>
-        
-                <div class="post-content d-flex flex-column">
-        
-                <h3 class="post-title">Engineering INFRA 2 Workshop Implementasi BIM
-                </h3>
-        
-                <div class="meta d-flex align-items-center">
-                    <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Tim Digitalisasi</span>
-                    </div>
-                    <span class="px-3 text-black-50">/</span>
-                    <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
+
+        <div class="slides-2 swiper">
+            <div class="swiper-wrapper">
+                <!-- InfraNews Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="post-item position-relative h-100">
+                        <div class="post-img position-relative overflow-hidden">
+                            <img src="{{asset('image/p22.png')}}" class="img-fluid" alt="">
+                            <span class="post-date">November, 22</span>
+                        </div>
+                        <div class="post-content d-flex flex-column">
+                            <h3 class="post-title">Program IDEA Infra 2 mencapai 50 lebih bantuan teknis</h3>
+                            <!-- Add your other content here -->
+                            <a href="/blog" class="readmore stretched-link"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-        
-                <hr>
-        
-                <a href="/blogDetail" class="readmore stretched-link"><span>Read More</span><i
-                    class="bi bi-arrow-right"></i></a>
-        
+
+                <!-- InfraNews Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="post-item position-relative h-100">
+                        <div class="post-img position-relative overflow-hidden">
+                            <img src="{{asset('image/idea.jpeg')}}" class="img-fluid" alt="">
+                            <span class="post-date">November, 22</span>
+                        </div>
+                        <div class="post-content d-flex flex-column">
+                            <h3 class="post-title">Ini Rahasianya 11 Proyek INFRA 2 lulus Sertifikasi BIM</h3>
+                            <!-- Add your other content here -->
+                            <a href="/blog" class="readmore stretched-link"><span>Read More</span><i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
-        
+
+                <!-- Add more InfraNews slides as needed -->
+
             </div>
-            </div><!-- End post item -->
-    
-    </div>
-    </section>
-    <section id="get-started" class="get-started section-bg">
-        <div class="container">
-        
-            <div class="row justify-content-between gy-4">
-        
-                <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
-                    <div class="p-5 h-100 rounded contact-map">
-                        <iframe class="rounded w-100 h-100"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31729.30724681034!2d106.87659100000002!3d-6.242184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3232a5eb1b5%3A0x3e5f3684ce6774b5!2sPT%20Wijaya%20Karya%20(Persero)%20Tbk!5e0!3m2!1sen!2sid!4v1697981290361!5m2!1sen!2sid"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-        
-            <div class="col-lg-5" data-aos="fade">
-                <form action="forms/quote.php" method="post" class="php-email-form">
-                <h3>Get a quote</h3>
-                <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero
-                    park flows.</p>
-                <div class="row gy-3">
-        
-                    <div class="col-md-12">
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                    </div>
-        
-                    <div class="col-md-12 ">
-                    <input type="email" class="form-control" name="email" placeholder="Email" required>
-                    </div>
-        
-                    <div class="col-md-12">
-                    <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                    </div>
-        
-                    <div class="col-md-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                    </div>
-        
-                    <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
-        
-                    <button type="submit">Get a quote</button>
-                    </div>
-        
-                </div>
-                </form>
-            </div><!-- End Quote Form -->
-        
-            </div>
-        
+            <div class="swiper-pagination"></div>
         </div>
     </div>
-        </section><!-- End Get Started Section -->
-        
+</section><!-- End InfraNews Section -->
+
+<section id="get-started" class="get-started section-bg">
+    <div class="container">
+    
+        <div class="row justify-content-between gy-4">
+    
+            <div class="col-lg-6 wow fadeIn" data-wow-delay=".3s">
+                <div class="p-5 h-100 rounded contact-map">
+                    <iframe class="rounded w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31729.30724681034!2d106.87659100000002!3d-6.242184!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3232a5eb1b5%3A0x3e5f3684ce6774b5!2sPT%20Wijaya%20Karya%20(Persero)%20Tbk!5e0!3m2!1sen!2sid!4v1697981290361!5m2!1sen!2sid"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+    
+        <div class="col-lg-5" data-aos="fade">
+            <form action="forms/quote.php" method="post" class="php-email-form">
+            <h3>Get a quote</h3>
+            <p>Vel nobis odio laboriosam et hic voluptatem. Inventore vitae totam. Rerum repellendus enim linead sero
+                park flows.</p>
+            <div class="row gy-3">
+    
+                <div class="col-md-12">
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+                </div>
+    
+                <div class="col-md-12 ">
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                </div>
+    
+                <div class="col-md-12">
+                <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+                </div>
+    
+                <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                </div>
+    
+                <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+    
+                <button type="submit">Get a quote</button>
+                </div>
+    
+            </div>
+            </form>
+        </div><!-- End Quote Form -->
+    
+        </div>
+    
+    </div>
+</div>
     <!-- End Recent Blog Posts Section -->
 @endsection

@@ -69,7 +69,7 @@
           <li><a href="#">Events</a></li>
         </ul>
           </li>
-        <li><a href="/">Projects</a></li>
+          <li><a href="#">Projects</a></li>
         <li class="dropdown"><a href="#"><span>Sub Division</span>
           <i
           class="bi bi-chevron-down dropdown-indicator"></i></a>

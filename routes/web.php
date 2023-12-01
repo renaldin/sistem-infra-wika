@@ -49,7 +49,8 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/', [Landing::class, 'index'])->name('landing');
     Route::get('/about', [Landing::class, 'about'])->name('about');
     Route::get('/contact', [Landing::class, 'contact'])->name('contact');
-    
+    Route::get('/blog', [Landing::class, 'blog'])->name('blog');
+
     Route::get('/login', [Login::class, 'index'])->name('login');
     Route::post('/login', [Login::class, 'loginProcess']);
     Route::get('/logout', [Login::class, 'logout'])->name('logout');
@@ -76,7 +77,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/monitoring-rkp', [Rkp::class, 'index'])->name('monitoring-rkp');
     Route::get('/update-dokumen-rkp', [Rkp::class, 'updateDokumen'])->name('update-dokumen-rkp');
     Route::post('/update-dokumen-rkp/{id}', [Rkp::class, 'prosesUpdateDokumen']);
-    
+
     // export
     Route::post('/export-activity', [EngineeringActivity::class, 'exportExcel']);
     Route::get('/export-rkp', [Rkp::class, 'exportExcel']);
@@ -101,11 +102,11 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/hapus-license/{id}', [License::class, 'prosesHapus']);
     Route::get('/detail-license/{id}', [License::class, 'detail']);
     Route::get('/progress-license', [License::class, 'progress']);
-    
+
     Route::post('/tambah-detail-license', [DetailLicense::class, 'prosesTambah']);
     Route::post('/edit-detail-license/{id}', [DetailLicense::class, 'prosesEdit']);
     Route::get('/hapus-detail-license/{id}', [DetailLicense::class, 'prosesHapus']);
-    
+
     Route::get('/daftar-proyek-csi', [Csi::class, 'index']);
     Route::post('/tambah-proyek-csi', [Csi::class, 'prosesTambah']);
     Route::post('/edit-proyek-csi/{id}', [Csi::class, 'prosesEdit']);
@@ -114,7 +115,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-detail-csi/{id}', [Csi::class, 'updateDetailCsi']);
     Route::get('/monitoring-csi', [Csi::class, 'monitoring']);
     Route::post('/pendapat-csi/{id}', [Csi::class, 'pendapat']);
-    
+
     Route::get('/rencana-ki-km', [Rencana::class, 'index']);
     Route::get('/rencana-technical-supporting', [Rencana::class, 'technicalSupport']);
     Route::post('/tambah-rencana', [Rencana::class, 'prosesTambah']);
@@ -123,7 +124,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/detail-rencana-ki-km/{id}', [Rencana::class, 'detailKiKm']);
     Route::get('/detail-rencana-technical-supporting/{id}', [Rencana::class, 'detailTechnicalSupport']);
     Route::post('/edit-rencana-detail/{id}', [Rencana::class, 'prosesEditDetail']);
-    
+
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
         Route::get('/tambah-user', [User::class, 'tambah'])->name('tambah-user');
@@ -151,7 +152,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/tambah-dokumen-lps', [DokumenLps::class, 'prosesTambah']);
         Route::post('/edit-dokumen-lps/{id}', [DokumenLps::class, 'prosesEdit']);
         Route::get('/hapus-dokumen-lps/{id}', [DokumenLps::class, 'prosesHapus']);
-        
+
         Route::post('/tambah-detail-tim-proyek', [DetailTimProyek::class, 'prosesTambah']);
         Route::get('/hapus-detail-tim-proyek/{id}', [DetailTimProyek::class, 'prosesHapus']);
 
@@ -170,14 +171,14 @@ Route::group(['middleware' => 'revalidate'], function () {
 
         Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
         Route::post('/productivity-by-team', [Productivity::class, 'index']);
-        
+
         Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
         Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
         Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
 
         Route::get('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
         Route::post('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
-        
+
         Route::get('/progress-ki-km', [KiKm::class, 'progress']);
         Route::post('/progress-ki-km', [KiKm::class, 'progress']);
 
@@ -187,7 +188,6 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/edit-software/{id}', [Software::class, 'edit'])->name('edit-software');
         Route::post('/edit-software/{id}', [Software::class, 'prosesEdit']);
         Route::get('/hapus-software/{id}', [Software::class, 'prosesHapus']);
-
     });
 
     Route::group(['middleware' => 'headoffice'], function () {
@@ -209,7 +209,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/update-rkp', [Rkp::class, 'update'])->name('update-rkp');
         Route::get('/edit-rkp/{id}', [Rkp::class, 'edit']);
         Route::post('/edit-rkp/{id}', [Rkp::class, 'prosesEdit']);
-        
+
 
         // Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
         // Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
@@ -238,7 +238,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/monitoring-ki-km', [KiKm::class, 'index'])->name('monitoring-ki-km');
         Route::get('/tambah-ki-km', [KiKm::class, 'tambah'])->name('tambah-ki-km');
         Route::post('/tambah-ki-km', [KiKm::class, 'prosesTambah']);
-        
+
         Route::get('/daftar-proyek-lps', [Lps::class, 'monitoringTimProyek'])->name('monitoring-tim-proyek');
     });
 });
