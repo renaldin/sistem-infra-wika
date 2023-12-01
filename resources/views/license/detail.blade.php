@@ -206,15 +206,21 @@
                                 <option value="Full">Full</option>
                             </select>
                         </div>
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Expired Date</label>
+                            <input type="date" name="expired_date" id="expired_date" class="form-control @error('expired_date') is-invalid @enderror" required>
+                        </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 @endsection

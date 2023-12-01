@@ -26,9 +26,9 @@ class DetailLicense extends Controller
         if (!Session()->get('role')) {
             return redirect()->route('login');
         }
-        
+
         $detailLicense = $this->ModelDetailLicense->checkSoftware(Request()->id_software, Request()->id_license);
-        if($detailLicense) {
+        if ($detailLicense) {
             return back()->with('fail', 'Data software sudah ada. Silahkan input yang lain!');
         }
 
@@ -36,6 +36,7 @@ class DetailLicense extends Controller
             'id_software'       => Request()->id_software,
             'id_license'        => Request()->id_license,
             'status'            => Request()->status,
+            'expired_date'      => Request()->expired_date,
             'tanggal_input'     => date('Y-m-d')
         ];
 
