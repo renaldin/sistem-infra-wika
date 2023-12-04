@@ -47,6 +47,9 @@
 }
 
    </style>
+
+   {{-- ckediotr --}}
+   {{-- <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script> --}}
 </head>
 
 <body class="  ">
@@ -243,6 +246,26 @@
 
         <!-- App Script -->
         <script src="{{ asset('template/html/assets/js/hope-ui.js') }}" defer></script>
+
+        {{-- ckeditor --}}
+        <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+
+        <script>
+            $(function() {
+              // Replace the <textarea id="editor1"> with a CKEditor
+              // instance, using default configuration.
+              CKEDITOR.replace('editor1')
+              //bootstrap WYSIHTML5 - text editor
+              $('.textarea').wysihtml5()
+            })
+            $(function() {
+              // Replace the <textarea id="editor1"> with a CKEditor
+              // instance, using default configuration.
+              CKEDITOR.replace('editor2')
+              //bootstrap WYSIHTML5 - text editor
+              $('.textarea').wysihtml5()
+            })
+          </script>
 
         {{-- chart --}}
         <script>
@@ -894,6 +917,19 @@
             $('#preview_image').change(function() {
                 readImage(this);
             })
+
+            function readImage2(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#load_image_2').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $('#preview_image_2').change(function() {
+                readImage2(this);
+            })
         </script>
 
         <script>
@@ -940,6 +976,8 @@
                 });
             });
         </script>
+
+        
 </body>
 
 </html>

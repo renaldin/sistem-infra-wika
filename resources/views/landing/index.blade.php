@@ -104,76 +104,23 @@
 
     <div class="row gy-4">
 
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-item">
-        <div class="row">
-            <div class="col-xl-5">
-            <div class="card-bg" style="background-image: url({{asset('templateLand/assets/img/constructions-1.jpg')}});"></div>
-            </div>
-            <div class="col-xl-7 d-flex align-items-center">
-            <div class="card-body">
-                <h4 class="card-title">Eligendi omnis sunt veritatis.</h4>
-                <p>Fuga in dolorum et iste et culpa. Commodi possimus nesciunt modi voluptatem placeat deleniti
-                adipisci. Cum delectus doloribus non veritatis. Officia temporibus illo magnam. Dolor eos et.</p>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div><!-- End Card Item -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-item">
-        <div class="row">
-            <div class="col-xl-5">
-            <div class="card-bg" style="background-image: url({{asset('templateLand/assets/img/constructions-2.jpg')}});"></div>
-            </div>
-            <div class="col-xl-7 d-flex align-items-center">
-            <div class="card-body">
-                <h4 class="card-title">Possimus ut sed velit assumenda</h4>
-                <p>Sunt deserunt maiores voluptatem autem est rerum perferendis rerum blanditiis. Est laboriosam qui
-                iste numquam laboriosam voluptatem architecto. Est laudantium sunt at quas aut hic. Eum
-                dignissimos.</p>
+    @foreach ($activities as $item)
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+            <div class="row">
+                <div class="col-xl-5">
+                <div class="card-bg" style="background-image: url({{asset('activities/'.$item->gambar)}});"></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                <div class="card-body">
+                    <h4 class="card-title">{{$item->judul}}</h4>
+                    <p><?= strlen($item->deskripsi) > 200 ? substr($item->deskripsi, 0, 200) . '...' : $item->deskripsi ?></p>
+                </div>
+                </div>
             </div>
             </div>
-        </div>
-        </div>
-    </div><!-- End Card Item -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-item">
-        <div class="row">
-            <div class="col-xl-5">
-            <div class="card-bg" style="background-image: url({{asset('templateLand/assets/img/constructions-3.jpg')}});"></div>
-            </div>
-            <div class="col-xl-7 d-flex align-items-center">
-            <div class="card-body">
-                <h4 class="card-title">Error beatae dolor inventore aut</h4>
-                <p>Dicta porro nobis. Velit cum in. Nesciunt dignissimos enim molestiae facilis numquam quae quaerat
-                ipsam omnis. Neque debitis ipsum at architecto officia laboriosam odit. Ut sunt temporibus nulla
-                culpa.</p>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div><!-- End Card Item -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="card-item">
-        <div class="row">
-            <div class="col-xl-5">
-            <div class="card-bg" style="background-image: url({{asset('templateLand/assets/img/constructions-4.jpg')}});"></div>
-            </div>
-            <div class="col-xl-7 d-flex align-items-center">
-            <div class="card-body">
-                <h4 class="card-title">Expedita voluptas ut ut nesciunt</h4>
-                <p>Aut est quidem doloremque voluptatem magnam quis excepturi vero quia. Eum eos doloremque
-                architecto illo at beatae dolore. Fugiat suscipit et sint ratione dolores. Aut aliquid ea dolores
-                libero nobis.</p>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div><!-- End Card Item -->
+        </div><!-- End Card Item -->
+    @endforeach
 
 
     </div>
@@ -189,154 +136,43 @@
     </div>
     <ul class="nav nav-tabs row  g-2 d-flex">
 
-    <li class="nav-item col-3">
-        <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-        <h4>Modisit</h4>
-        </a>
-    </li><!-- End tab nav item -->
-
-    <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-        <h4>Praesenti</h4>
-        </a><!-- End tab nav item -->
-
-    <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-        <h4>Explica</h4>
-        </a>
-    </li><!-- End tab nav item -->
-
-    <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-        <h4>Nostrum</h4>
-        </a>
-    </li><!-- End tab nav item -->
-
-    <li class="nav-item col-3">
-        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
-        <h4>Quia</h4>
-        </a>
-    </li><!-- End tab nav item -->
+        @foreach ($achievement as $item)
+            <li class="nav-item col-3">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-{{$item->id_achievement}}">
+                    <h4>{{$item->sub_judul}}</h4>
+                </a>
+            </li>
+        @endforeach\
 
     </ul>
 
     <div class="tab-content">
 
-    <div class="tab-pane active show" id="tab-1">
-        <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
-            data-aos="fade-up" data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident</h3>
-            <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-            </p>
-            <ul>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                pariatur.</li>
-            </ul>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-            <img src="{{ asset('image/idea.jpeg')}}" alt="" class="img-fluid">
-        </div>
-        </div>
-    </div><!-- End tab content item -->
-
-    <div class="tab-pane" id="tab-2">
-        <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Neque exercitationem debitis</h3>
-            <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-            </p>
-            <ul>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                Ipsum neque dolor voluptate nisi sed.</li>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                pariatur.</li>
-            </ul>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('templateLand/assets/img/features-2.jpg') }}" alt="" class="img-fluid">
-        </div>
-        </div>
-    </div><!-- End tab content item -->
-
-    <div class="tab-pane" id="tab-3">
-        <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Voluptatibus commodi accusamu</h3>
-            <ul>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                Ipsum neque dolor voluptate nisi sed.</li>
-            </ul>
-            <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-            </p>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('templateLand/assets/img/features-3.jpg') }}" alt="" class="img-fluid">
-        </div>
-        </div>
-    </div><!-- End tab content item -->
-
-    <div class="tab-pane" id="tab-4">
-        <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Omnis fugiat ea explicabo sunt</h3>
-            <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-            </p>
-            <ul>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                pariatur.</li>
-            </ul>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('templateLand/assets/img/features-4.jpg') }}" alt="" class="img-fluid">
-        </div>
-        </div>
-    </div><!-- End tab content item -->
-    <div class="tab-pane" id="tab-5">
-        <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-            <h3>Omnis fugiat ea explicabo sunt</h3>
-            <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna aliqua.
-            </p>
-            <ul>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                pariatur.</li>
-            </ul>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <img src="{{ asset('templateLand/assets/img/features-4.jpg') }}" alt="" class="img-fluid">
-        </div>
-        </div>
-    </div><!-- End tab content item -->
+        @php
+            $no = 1;
+        @endphp
+        @foreach ($achievement as $item)
+            <div class="tab-pane" id="tab-{{$item->id_achievement}}">
+                <div class="row">
+                    <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                        <h3>{{$item->judul}}</h3>
+                        <p class="fst-italic">{{$item->deskripsi}}</p>
+                        <ul>
+                            @foreach ($detailAchievement as $row)
+                                @if ($row->id_achievement == $item->id_achievement)
+                                    <li>
+                                        <i class="bi bi-check2-all"></i> {{$row->poin}}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{{ asset('achievement/'.$item->gambar)}}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
     </div>
 
@@ -718,79 +554,17 @@
         </div>
     
         <div class="slides-2 swiper">
-        <div class="swiper-wrapper">
-    
-            <div class="swiper-slide">
-            <div class="testimonial-wrap">
-                <img src="{{ asset('image/events/1.jpg') }}" class="testimonial-img" alt="">
+            <div class="swiper-wrapper">
+                @foreach ($event as $item)
+                <div class="swiper-slide">
+                    <div class="testimonial-wrap">
+                        <img src="{{ asset('events/'.$item->gambar) }}" class="testimonial-img" alt="">
+                    </div>
+                </div>
+                @endforeach 
             </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-            <div class="testimonial-wrap">
-                <img src="{{ asset('image/events/2.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-            <div class="testimonial-wrap">
-                <img src="{{ asset('image/events/3.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div><!-- End testimonial item -->
-    
-            <div class="swiper-slide">
-            <div class="testimonial-wrap">
-    
-                <img src="{{ asset('image/events/5.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/6.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/7.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/8.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/9.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/10.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/11.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                    <img src="{{ asset('image/events/12.jpg') }}" class="testimonial-img" alt="">
-            </div>
-            </div><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item --><!-- End testimonial item -->
-    
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-pagination"></div>
-        </div>
-    
     </div>
 </section><!-- End Testimonials Section -->
 

@@ -13,7 +13,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Proyek extends Controller
 {
 
-    private $ModelProyek, $ModelTimProyek, $ModelDetailTimProyek, $ModelUser;
+    private $ModelProyek, $ModelTimProyek, $ModelDetailTimProyek, $ModelUser, $public_path;
 
     public function __construct()
     {
@@ -21,6 +21,7 @@ class Proyek extends Controller
         $this->ModelTimProyek       = new ModelTimProyek();
         $this->ModelDetailTimProyek = new ModelDetailTimProyek();
         $this->ModelUser            = new ModelUser();
+        $this->public_path          = 'proyek';
     }
 
     public function index()
@@ -67,7 +68,9 @@ class Proyek extends Controller
             'status'            => 'required',
             'id_tim_proyek'     => 'required',
             'latitude'          => 'required',
-            'longitude'         => 'required'
+            'longitude'         => 'required',
+            'deskripsi_proyek'         => 'required',
+            'gambar'            => 'required|mimes:jpeg,png,jpg|max:2048'
         ], [
             'nama_proyek.required'      => 'Nama proyek harus diisi!',
             'tanggal.required'          => 'Tanggal harus diisi!',
@@ -77,7 +80,15 @@ class Proyek extends Controller
             'id_tim_proyek.required'    => 'Kesie Eng harus diisi!',
             'latitude.required'         => 'Latitude harus diisi!',
             'longitude.required'        => 'Longitude harus diisi!',
+            'deskripsi_proyek.required'        => 'Deskripsi harus diisi!',
+            'gambar.required'           => 'Gambar Anda harus diisi!',
+            'gambar.mimes'              => 'Format gambar harus jpg/jpeg/png!',
+            'gambar.max'                => 'Ukuran gambar maksimal 2 mb',
         ]);
+
+        $file = Request()->gambar;
+        $fileName = date('mdYHis') . ' ' . Request()->nama_proyek . '.' . $file->extension();
+        $file->move(public_path($this->public_path), $fileName);
 
         $data = [
             'nama_proyek'       => Request()->nama_proyek,
@@ -88,6 +99,8 @@ class Proyek extends Controller
             'id_tim_proyek'     => Request()->id_tim_proyek,
             'latitude'          => Request()->latitude,
             'longitude'         => Request()->longitude,
+            'deskripsi_proyek'         => Request()->deskripsi_proyek,
+            'gambar'            => $fileName,
         ];
 
         $this->ModelProyek->tambah($data);
@@ -122,7 +135,9 @@ class Proyek extends Controller
             'status'            => 'required',
             'id_tim_proyek'      => 'required',
             'latitude'          => 'required',
-            'longitude'         => 'required'
+            'longitude'         => 'required',
+            'deskripsi_proyek'         => 'required',
+            'gambar'            => 'mimes:jpeg,png,jpg|max:2048'
         ], [
             'nama_proyek.required'      => 'Nama proyek harus diisi!',
             'tanggal.required'          => 'Tanggal harus diisi!',
@@ -132,7 +147,12 @@ class Proyek extends Controller
             'id_tim_proyek.required'     => 'Kesie Eng harus diisi!',
             'latitude.required'         => 'Latitude harus diisi!',
             'longitude.required'        => 'Longitude harus diisi!',
+            'deskripsi_proyek.required'        => 'Deskripsi harus diisi!',
+            'gambar.mimes'              => 'Format gambar harus jpg/jpeg/png!',
+            'gambar.max'                => 'Ukuran gambar maksimal 2 mb',
         ]);
+
+        $detail = $this->ModelProyek->detail($id_proyek);
 
         $data = [
             'id_proyek'         => $id_proyek,
@@ -144,10 +164,23 @@ class Proyek extends Controller
             'id_tim_proyek'      => Request()->id_tim_proyek,
             'latitude'          => Request()->latitude,
             'longitude'         => Request()->longitude,
+            'deskripsi_proyek'         => Request()->deskripsi_proyek,
         ];
 
-        $this->ModelProyek->edit($data);
+        if (Request()->gambar <> "") {
+            if ($detail->gambar <> "") {
+                unlink(public_path($this->public_path) . '/' . $detail->gambar);
+            }
 
+            $file = Request()->gambar;
+            $fileName = date('mdYHis') . ' ' . Request()->nama_proyek . '.' . $file->extension();
+            $file->move(public_path($this->public_path), $fileName);
+
+            $data['gambar'] = $fileName;
+        }
+
+
+        $this->ModelProyek->edit($data);
         return redirect()->route('daftar-proyek')->with('success', 'Data Proyek berhasil diedit!');
     }
 

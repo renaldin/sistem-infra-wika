@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 09:22 AM
+-- Generation Time: Dec 04, 2023 at 03:41 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -20,6 +20,63 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistem-infra-wika`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `achievement`
+--
+
+CREATE TABLE `achievement` (
+  `id_achievement` int(11) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `sub_judul` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `tanggal_input` timestamp NULL DEFAULT NULL,
+  `gambar` text DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `achievement`
+--
+
+INSERT INTO `achievement` (`id_achievement`, `judul`, `sub_judul`, `deskripsi`, `id_user`, `tanggal_input`, `gambar`, `is_active`) VALUES
+(2, 'Judul 2', 'Sub Judul 2', 'Deskripsi Judul 2', 1, '2023-12-03 16:43:00', '12032023234300 Judul 2.jpg', 1),
+(3, 'Judul 3', 'Sub Judul 3', 'Deskripsi Judul 3', 1, '2023-12-03 16:43:34', '12032023234334 Judul 3.jpg', 1),
+(4, 'Judul 4', 'Sub Judul 4', 'Deskripsi Judul 4', 1, '2023-12-03 16:44:38', '12032023234438 Judul 4.jpg', 1),
+(5, 'Judul 5', 'Sub Judul 5', 'Deskripsi Judul 5', 1, '2023-12-03 16:45:54', '12032023234554 Judul 5.jpg', 1),
+(8, 'Judul 1', 'Sub Judul 1', 'Deskripsi Judul 1', 1, '2023-12-03 17:23:49', '12042023002349 Judul 1.jpg', 1),
+(9, 'Judul 6', 'Sub Judul 6', 'Deskripsi Judul 6', 1, '2023-12-03 17:24:41', '12042023002441 Judul 6.jpg', 1),
+(10, 'Judul 7', 'Sub Judul 7', 'Deskripsi Judul 7', 1, '2023-12-03 19:00:32', '12042023020032 Judul 7.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activity`
+--
+
+CREATE TABLE `activity` (
+  `id_activity` int(11) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `gambar` text DEFAULT NULL,
+  `tanggal_input` timestamp NULL DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `activity`
+--
+
+INSERT INTO `activity` (`id_activity`, `judul`, `deskripsi`, `gambar`, `tanggal_input`, `id_user`, `is_active`) VALUES
+(1, 'Judul 1 Update', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac neque tempus, malesuada mauris vel, rutrum ligula. Phasellus porta metus vitae dolor facilisis tristique. Vestibulum consequat libero vel scelerisque tempus. Cras viverra dapibus magna, vel lacinia velit porttitor ut. Sed dignissim vestibulum massa et aliquet. Sed iaculis eget magna sed faucibus. Donec rutrum accumsan commodo. Nulla tristique arcu nec eros ultricies, a consequat ligula feugiat. Sed id erat sem. Curabitur blandit varius turpis egestas congue.</p>\r\n\r\n<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus massa turpis, vestibulum nec euismod quis, bibendum at elit. Duis molestie tellus et nulla congue imperdiet. Quisque sapien nulla, viverra dapibus dignissim eu, venenatis sed justo. Phasellus laoreet, diam sed pharetra aliquet, nunc dui auctor dui, nec porttitor metus nisl nec urna. Curabitur maximus eget nisi vitae congue. Vestibulum pharetra, quam non vehicula blandit, dolor mauris elementum dolor, eget commodo tellus eros at lectus. Curabitur leo eros, dictum ut elementum id, venenatis vel libero. Aliquam ultricies ex et nulla tristique tempus.</p>', '12032023060429.jpg', '2023-12-02 23:23:16', 1, 1),
+(3, 'Judul 3', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac neque tempus, malesuada mauris vel, rutrum ligula. Phasellus porta metus vitae dolor facilisis tristique. Vestibulum consequat libero vel scelerisque tempus. Cras viverra dapibus magna, vel lacinia velit porttitor ut. Sed dignissim vestibulum massa et aliquet. Sed iaculis eget magna sed faucibus. Donec rutrum accumsan commodo. Nulla tristique arcu nec eros ultricies, a consequat ligula feugiat. Sed id erat sem. Curabitur blandit varius turpis egestas congue.</p>\r\n\r\n<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus massa turpis, vestibulum nec euismod quis, bibendum at elit. Duis molestie tellus et nulla congue imperdiet. Quisque sapien nulla, viverra dapibus dignissim eu, venenatis sed justo. Phasellus laoreet, diam sed pharetra aliquet, nunc dui auctor dui, nec porttitor metus nisl nec urna. Curabitur maximus eget nisi vitae congue. Vestibulum pharetra, quam non vehicula blandit, dolor mauris elementum dolor, eget commodo tellus eros at lectus. Curabitur leo eros, dictum ut elementum id, venenatis vel libero. Aliquam ultricies ex et nulla tristique tempus.</p>', '12032023062413.jpg', '2023-12-02 23:25:17', 1, 1),
+(4, 'Judul 4', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac neque tempus, malesuada mauris vel, rutrum ligula. Phasellus porta metus vitae dolor facilisis tristique. Vestibulum consequat libero vel scelerisque tempus. Cras viverra dapibus magna, vel lacinia velit porttitor ut. Sed dignissim vestibulum massa et aliquet. Sed iaculis eget magna sed faucibus. Donec rutrum accumsan commodo. Nulla tristique arcu nec eros ultricies, a consequat ligula feugiat. Sed id erat sem. Curabitur blandit varius turpis egestas congue.</p>\r\n\r\n<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus massa turpis, vestibulum nec euismod quis, bibendum at elit. Duis molestie tellus et nulla congue imperdiet. Quisque sapien nulla, viverra dapibus dignissim eu, venenatis sed justo. Phasellus laoreet, diam sed pharetra aliquet, nunc dui auctor dui, nec porttitor metus nisl nec urna. Curabitur maximus eget nisi vitae congue. Vestibulum pharetra, quam non vehicula blandit, dolor mauris elementum dolor, eget commodo tellus eros at lectus. Curabitur leo eros, dictum ut elementum id, venenatis vel libero. Aliquam ultricies ex et nulla tristique tempus.</p>', '12032023062430.jpg', '2023-12-02 23:25:10', 1, 1),
+(5, 'Judul 5', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac neque tempus, malesuada mauris vel, rutrum ligula. Phasellus porta metus vitae dolor facilisis tristique. Vestibulum consequat libero vel scelerisque tempus. Cras viverra dapibus magna, vel lacinia velit porttitor ut. Sed dignissim vestibulum massa et aliquet. Sed iaculis eget magna sed faucibus. Donec rutrum accumsan commodo. Nulla tristique arcu nec eros ultricies, a consequat ligula feugiat. Sed id erat sem. Curabitur blandit varius turpis egestas congue.</p>\r\n\r\n<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus massa turpis, vestibulum nec euismod quis, bibendum at elit. Duis molestie tellus et nulla congue imperdiet. Quisque sapien nulla, viverra dapibus dignissim eu, venenatis sed justo. Phasellus laoreet, diam sed pharetra aliquet, nunc dui auctor dui, nec porttitor metus nisl nec urna. Curabitur maximus eget nisi vitae congue. Vestibulum pharetra, quam non vehicula blandit, dolor mauris elementum dolor, eget commodo tellus eros at lectus. Curabitur leo eros, dictum ut elementum id, venenatis vel libero. Aliquam ultricies ex et nulla tristique tempus.</p>', '12032023062446.jpg', '2023-12-02 23:25:03', 1, 1),
+(8, 'Judul 5', '<p>Deskripsi</p>', '12042023012839.jpg', '2023-12-03 18:28:39', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -70,6 +127,38 @@ INSERT INTO `csi` (`id_csi`, `id_proyek`, `id_user`, `periode`, `pendapat`) VALU
 (3, 3, 54, '2023-11', 'Pendapat ku 1'),
 (4, 3, 54, '2023-01', 'Masukkan / Pendapat'),
 (5, 3, 54, '2023-02', 'Masukkan / Pendapat');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_achievement`
+--
+
+CREATE TABLE `detail_achievement` (
+  `id_detail_achievement` int(11) NOT NULL,
+  `id_achievement` int(11) DEFAULT NULL,
+  `poin` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_achievement`
+--
+
+INSERT INTO `detail_achievement` (`id_detail_achievement`, `id_achievement`, `poin`) VALUES
+(5, 9, 'Poin 1'),
+(6, 9, 'Poin 2'),
+(7, 9, 'Poin 3'),
+(8, 8, 'Poin 1'),
+(9, 8, 'Poin 2'),
+(10, 5, 'Poin 1'),
+(11, 5, 'Poin 2'),
+(12, 5, 'Poin 3'),
+(13, 5, 'Poin 4'),
+(14, 4, 'Poin 1'),
+(15, 4, 'Poin 2'),
+(16, 3, 'Poin 1'),
+(17, 2, 'Poin 1'),
+(18, 2, 'Poin 2');
 
 -- --------------------------------------------------------
 
@@ -126,15 +215,17 @@ CREATE TABLE `detail_license` (
   `id_license` int(11) DEFAULT NULL,
   `id_software` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `tanggal_input` date DEFAULT NULL
+  `tanggal_input` date DEFAULT NULL,
+  `expired_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `detail_license`
 --
 
-INSERT INTO `detail_license` (`id_detail_license`, `id_license`, `id_software`, `status`, `tanggal_input`) VALUES
-(3, 4, 41, 'Full', '2023-11-22');
+INSERT INTO `detail_license` (`id_detail_license`, `id_license`, `id_software`, `status`, `tanggal_input`, `expired_date`) VALUES
+(3, 4, 41, 'Full', '2023-11-22', NULL),
+(4, 5, 36, 'Student', '2023-12-01', '2023-12-04');
 
 -- --------------------------------------------------------
 
@@ -271,6 +362,58 @@ INSERT INTO `engineering_activity` (`id_engineering_activity`, `id_user`, `id_ka
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `id_event` int(11) NOT NULL,
+  `gambar` text DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0,
+  `id_user` int(11) DEFAULT NULL,
+  `tanggal_input` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`id_event`, `gambar`, `is_active`, `id_user`, `tanggal_input`) VALUES
+(2, '12032023070738.jpg', 1, 1, '2023-12-03 00:07:38'),
+(3, '12032023070747.jpg', 1, 1, '2023-12-03 00:07:47'),
+(4, '12032023070757.jpg', 1, 1, '2023-12-03 00:07:57'),
+(5, '12032023070808.jpg', 1, 1, '2023-12-03 00:08:08'),
+(6, '12032023233525.jpg', 1, 1, '2023-12-03 16:35:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `infra_news`
+--
+
+CREATE TABLE `infra_news` (
+  `id_infra_news` int(11) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `gambar` text DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `news` text DEFAULT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `infra_news`
+--
+
+INSERT INTO `infra_news` (`id_infra_news`, `judul`, `gambar`, `tanggal`, `id_user`, `news`, `is_active`) VALUES
+(2, 'Judul 1', '12032023102001 Judul 1.png', '2023-12-03', 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis aliquam est ac rhoncus. In hac habitasse platea dictumst. Donec non sapien turpis. Maecenas a sapien est. Aenean massa orci, lacinia ultrices tortor vitae, facilisis pellentesque ligula. In id massa euismod, pretium nisl ut, sagittis enim. Sed consequat elit id diam facilisis, id viverra augue suscipit. Proin lobortis ut massa vel vestibulum. Vestibulum fermentum volutpat lobortis. Vestibulum ut ex enim. Vivamus aliquet ac magna sit amet imperdiet. Donec non nunc at risus consectetur porta. Phasellus massa urna, tempus eget turpis eget, suscipit cursus orci. Nunc et neque ac est maximus semper sit amet ut felis. Nam tincidunt eu est ut dictum.</p>\r\n\r\n<p>Morbi tristique lectus sed erat convallis sollicitudin. Sed volutpat diam in enim venenatis scelerisque. Sed sed nulla ipsum. Nam felis ipsum, blandit ultrices dolor dapibus, vulputate scelerisque sapien. Cras a elit vulputate, pretium leo ac, venenatis sapien. Vestibulum commodo massa quis magna dapibus varius. Nunc tincidunt, elit eget fermentum fermentum, lacus mi suscipit tellus, non fringilla nibh lectus ut ante. Mauris a euismod mauris, eu convallis justo. Donec vitae interdum mauris. Sed tristique volutpat ipsum sed accumsan. Nam aliquam feugiat luctus. Proin id ultrices nibh. Etiam nec purus odio. Etiam egestas pellentesque mollis. Morbi mollis ligula varius, viverra lacus sed, euismod tellus.</p>', 1),
+(3, 'Judul 2', '12032023102034 Judul 2.png', '2023-12-03', 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis aliquam est ac rhoncus. In hac habitasse platea dictumst. Donec non sapien turpis. Maecenas a sapien est. Aenean massa orci, lacinia ultrices tortor vitae, facilisis pellentesque ligula. In id massa euismod, pretium nisl ut, sagittis enim. Sed consequat elit id diam facilisis, id viverra augue suscipit. Proin lobortis ut massa vel vestibulum. Vestibulum fermentum volutpat lobortis. Vestibulum ut ex enim. Vivamus aliquet ac magna sit amet imperdiet. Donec non nunc at risus consectetur porta. Phasellus massa urna, tempus eget turpis eget, suscipit cursus orci. Nunc et neque ac est maximus semper sit amet ut felis. Nam tincidunt eu est ut dictum.</p>\r\n\r\n<p>Morbi tristique lectus sed erat convallis sollicitudin. Sed volutpat diam in enim venenatis scelerisque. Sed sed nulla ipsum. Nam felis ipsum, blandit ultrices dolor dapibus, vulputate scelerisque sapien. Cras a elit vulputate, pretium leo ac, venenatis sapien. Vestibulum commodo massa quis magna dapibus varius. Nunc tincidunt, elit eget fermentum fermentum, lacus mi suscipit tellus, non fringilla nibh lectus ut ante. Mauris a euismod mauris, eu convallis justo. Donec vitae interdum mauris. Sed tristique volutpat ipsum sed accumsan. Nam aliquam feugiat luctus. Proin id ultrices nibh. Etiam nec purus odio. Etiam egestas pellentesque mollis. Morbi mollis ligula varius, viverra lacus sed, euismod tellus.</p>', 1),
+(4, 'Judul 3', '12032023102058 Judul 3.png', '2023-12-04', 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis aliquam est ac rhoncus. In hac habitasse platea dictumst. Donec non sapien turpis. Maecenas a sapien est. Aenean massa orci, lacinia ultrices tortor vitae, facilisis pellentesque ligula. In id massa euismod, pretium nisl ut, sagittis enim. Sed consequat elit id diam facilisis, id viverra augue suscipit. Proin lobortis ut massa vel vestibulum. Vestibulum fermentum volutpat lobortis. Vestibulum ut ex enim. Vivamus aliquet ac magna sit amet imperdiet. Donec non nunc at risus consectetur porta. Phasellus massa urna, tempus eget turpis eget, suscipit cursus orci. Nunc et neque ac est maximus semper sit amet ut felis. Nam tincidunt eu est ut dictum.</p>\r\n\r\n<p>Morbi tristique lectus sed erat convallis sollicitudin. Sed volutpat diam in enim venenatis scelerisque. Sed sed nulla ipsum. Nam felis ipsum, blandit ultrices dolor dapibus, vulputate scelerisque sapien. Cras a elit vulputate, pretium leo ac, venenatis sapien. Vestibulum commodo massa quis magna dapibus varius. Nunc tincidunt, elit eget fermentum fermentum, lacus mi suscipit tellus, non fringilla nibh lectus ut ante. Mauris a euismod mauris, eu convallis justo. Donec vitae interdum mauris. Sed tristique volutpat ipsum sed accumsan. Nam aliquam feugiat luctus. Proin id ultrices nibh. Etiam nec purus odio. Etiam egestas pellentesque mollis. Morbi mollis ligula varius, viverra lacus sed, euismod tellus.</p>', 1),
+(5, 'Judul 4', '12032023102119 Judul 4.png', '2023-12-03', 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis aliquam est ac rhoncus. In hac habitasse platea dictumst. Donec non sapien turpis. Maecenas a sapien est. Aenean massa orci, lacinia ultrices tortor vitae, facilisis pellentesque ligula. In id massa euismod, pretium nisl ut, sagittis enim. Sed consequat elit id diam facilisis, id viverra augue suscipit. Proin lobortis ut massa vel vestibulum. Vestibulum fermentum volutpat lobortis. Vestibulum ut ex enim. Vivamus aliquet ac magna sit amet imperdiet. Donec non nunc at risus consectetur porta. Phasellus massa urna, tempus eget turpis eget, suscipit cursus orci. Nunc et neque ac est maximus semper sit amet ut felis. Nam tincidunt eu est ut dictum.</p>\r\n\r\n<p>Morbi tristique lectus sed erat convallis sollicitudin. Sed volutpat diam in enim venenatis scelerisque. Sed sed nulla ipsum. Nam felis ipsum, blandit ultrices dolor dapibus, vulputate scelerisque sapien. Cras a elit vulputate, pretium leo ac, venenatis sapien. Vestibulum commodo massa quis magna dapibus varius. Nunc tincidunt, elit eget fermentum fermentum, lacus mi suscipit tellus, non fringilla nibh lectus ut ante. Mauris a euismod mauris, eu convallis justo. Donec vitae interdum mauris. Sed tristique volutpat ipsum sed accumsan. Nam aliquam feugiat luctus. Proin id ultrices nibh. Etiam nec purus odio. Etiam egestas pellentesque mollis. Morbi mollis ligula varius, viverra lacus sed, euismod tellus.</p>', 1),
+(6, 'Judul 5', '12032023102141 Judul 4.png', '2023-12-03', 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis aliquam est ac rhoncus. In hac habitasse platea dictumst. Donec non sapien turpis. Maecenas a sapien est. Aenean massa orci, lacinia ultrices tortor vitae, facilisis pellentesque ligula. In id massa euismod, pretium nisl ut, sagittis enim. Sed consequat elit id diam facilisis, id viverra augue suscipit. Proin lobortis ut massa vel vestibulum. Vestibulum fermentum volutpat lobortis. Vestibulum ut ex enim. Vivamus aliquet ac magna sit amet imperdiet. Donec non nunc at risus consectetur porta. Phasellus massa urna, tempus eget turpis eget, suscipit cursus orci. Nunc et neque ac est maximus semper sit amet ut felis. Nam tincidunt eu est ut dictum.</p>\r\n\r\n<p>Morbi tristique lectus sed erat convallis sollicitudin. Sed volutpat diam in enim venenatis scelerisque. Sed sed nulla ipsum. Nam felis ipsum, blandit ultrices dolor dapibus, vulputate scelerisque sapien. Cras a elit vulputate, pretium leo ac, venenatis sapien. Vestibulum commodo massa quis magna dapibus varius. Nunc tincidunt, elit eget fermentum fermentum, lacus mi suscipit tellus, non fringilla nibh lectus ut ante. Mauris a euismod mauris, eu convallis justo. Donec vitae interdum mauris. Sed tristique volutpat ipsum sed accumsan. Nam aliquam feugiat luctus. Proin id ultrices nibh. Etiam nec purus odio. Etiam egestas pellentesque mollis. Morbi mollis ligula varius, viverra lacus sed, euismod tellus.</p>', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kategori_pekerjaan`
 --
 
@@ -378,7 +521,8 @@ CREATE TABLE `license` (
 --
 
 INSERT INTO `license` (`id_license`, `id_user`, `unit_kerja`, `id_device`, `tanggal_license`) VALUES
-(4, 54, NULL, 'ID Device alve hunus', '2023-11-22');
+(4, 54, NULL, 'ID Device alve hunus', '2023-11-22'),
+(5, 37, NULL, '123456', '2023-12-01');
 
 -- --------------------------------------------------------
 
@@ -462,7 +606,27 @@ INSERT INTO `lps` (`id_lps`, `id_dokumen_lps`, `id_proyek`, `pdf`, `native`, `ta
 (197, 17, 5, 0, 0, '2023-11-30', 53, 1, NULL),
 (198, 18, 5, 0, 0, '2023-11-30', 53, 1, NULL),
 (199, 19, 5, 0, 0, '2023-11-30', 53, 1, NULL),
-(200, 20, 5, 1, 1, '2023-11-30', 53, 1, 53);
+(200, 20, 5, 1, 1, '2023-11-30', 53, 1, 53),
+(201, 1, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(202, 2, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(203, 3, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(204, 4, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(205, 5, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(206, 6, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(207, 7, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(208, 8, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(209, 9, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(210, 10, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(211, 11, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(212, 12, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(213, 13, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(214, 14, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(215, 15, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(216, 16, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(217, 17, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(218, 18, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(219, 19, 4, 0, 0, '2023-11-30', 37, 1, NULL),
+(220, 20, 4, 0, 0, '2023-11-30', 37, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -587,19 +751,22 @@ CREATE TABLE `proyek` (
   `id_user_lps` int(11) DEFAULT NULL,
   `tanggal_pho_lps` date DEFAULT NULL,
   `kode_spk_lps` varchar(255) DEFAULT NULL,
-  `dokumen_lps` text DEFAULT NULL
+  `dokumen_lps` text DEFAULT NULL,
+  `deskripsi_proyek` text DEFAULT NULL,
+  `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`, `kode_spk_lps`, `dokumen_lps`) VALUES
-(1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29', 'kode 1', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD'),
-(2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 0, NULL, '2023-11-27', NULL, NULL),
-(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 52, '2023-11-29', NULL, NULL),
-(4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL),
-(5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 1, 53, NULL, 'Kode', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD');
+INSERT INTO `proyek` (`id_proyek`, `nama_proyek`, `realisasi`, `tanggal`, `tipe_konstruksi`, `prioritas`, `status`, `id_tim_proyek`, `latitude`, `longitude`, `status_implementasi`, `kesiapan_bim5d`, `dua_d`, `tiga_d`, `empat_d`, `lima_d`, `cde`, `status_rkp`, `status_lps`, `id_user_lps`, `tanggal_pho_lps`, `kode_spk_lps`, `dokumen_lps`, `deskripsi_proyek`, `gambar`) VALUES
+(1, 'Proyek A', 80, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 3, '11111', '11111', NULL, 'Persiapan Implementasi BIM 5D', 0, 1, 1, 0, 0, 1, 1, 53, '2023-11-29', 'kode 1', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD', 'Deskripsi', '12032023124824 Proyek A.jpg'),
+(2, 'Proyek B', 0, '2023-10-30', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, '11111', '11111', NULL, '0', 0, 0, 0, 0, 0, 1, 0, NULL, '2023-11-27', NULL, NULL, 'Deskripsi', '12032023124801 Proyek B.jpg'),
+(3, 'Akses Tol makassar New Port', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 1', 'Proyek Menengah', 8, '8328380', '8919299', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 52, '2023-11-29', NULL, NULL, 'Deskripsi', '12032023124904 Akses Tol makassar New Port.jpg'),
+(4, 'Bandar Udara Banggai', 0, '2023-11-09', 'Road & Bridge', 'Prioritas 3', 'Proyek Kecil', 9, '8328380', '8929839', NULL, '0', 0, 0, 0, 0, 0, 1, 1, 37, NULL, '1235', 'https://fttgyt', 'Deskripsi', '12032023124745 Bandar Udara Banggai.jpg'),
+(5, 'Bendungan Ameroro', 100, '2023-11-09', 'Water Resource', 'Prioritas 2', 'Proyek Menengah', 10, '8328380', '8919299', NULL, 'Siap Implementasi BIM 5D', 1, 1, 1, 1, 1, 0, 1, 53, NULL, 'Kode', 'https://lookerstudio.google.com/u/0/reporting/c78e509d-dcfe-45a0-b3a5-04560799df7a/page/pIOQD', 'Deskripsi', '12032023124728 Bendungan Ameroro.jpg'),
+(6, 'Proyek C', 0, '2023-12-03', 'Road & Bridge', 'Prioritas 1', 'Proyek Besar', 4, 'ddddddddd', 'aaaaaaa', NULL, '0', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 'Deskripsi Update', '12032023123258 Proyek C.jpg');
 
 -- --------------------------------------------------------
 
@@ -663,9 +830,10 @@ CREATE TABLE `rkp` (
 --
 
 INSERT INTO `rkp` (`id_rkp`, `id_proyek`, `kode_spk`, `review1`, `review2`, `review3`, `review4`, `review5`, `review6`, `note`, `tanggal_rkp`, `id_user_respon`, `is_respon`, `upload_file`, `upload_file_hasil`) VALUES
-(1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1, 'upload1.zip', '11292023003755 Kode SPK.zip'),
+(1, 1, 'Kode SPK', 1, 1, 0, 0, 0, 0, 'Catatan', '2023-11-14', 53, 1, '11302023142617 Kode SPK.txt', '11292023003755 Kode SPK.zip'),
 (2, 2, 'Kode SPK', 1, 0, 0, 0, 0, 0, NULL, '2023-11-14', 52, 1, 'upload2.zip', NULL),
-(3, 3, 'Kode spk makassar', 1, 1, 0, 0, 0, 0, NULL, '2023-11-29', 53, 1, '11292023013018 Kode spk makassar.zip', '11292023013221 Kode spk makassar.zip');
+(3, 3, 'Kode spk makassar', 1, 1, 0, 0, 0, 0, NULL, '2023-11-29', 53, 1, '11292023013018 Kode spk makassar.zip', '11292023013221 Kode spk makassar.zip'),
+(4, 4, 'gggg', 0, 0, 0, 0, 0, 0, NULL, '2023-11-30', 37, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -906,6 +1074,18 @@ INSERT INTO `user` (`id_user`, `nama_user`, `jabatan`, `fungsi`, `nip`, `telepon
 --
 
 --
+-- Indexes for table `achievement`
+--
+ALTER TABLE `achievement`
+  ADD PRIMARY KEY (`id_achievement`);
+
+--
+-- Indexes for table `activity`
+--
+ALTER TABLE `activity`
+  ADD PRIMARY KEY (`id_activity`);
+
+--
 -- Indexes for table `aspek_csi`
 --
 ALTER TABLE `aspek_csi`
@@ -916,6 +1096,12 @@ ALTER TABLE `aspek_csi`
 --
 ALTER TABLE `csi`
   ADD PRIMARY KEY (`id_csi`);
+
+--
+-- Indexes for table `detail_achievement`
+--
+ALTER TABLE `detail_achievement`
+  ADD PRIMARY KEY (`id_detail_achievement`);
 
 --
 -- Indexes for table `detail_csi`
@@ -946,6 +1132,18 @@ ALTER TABLE `dokumen_lps`
 --
 ALTER TABLE `engineering_activity`
   ADD PRIMARY KEY (`id_engineering_activity`);
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id_event`);
+
+--
+-- Indexes for table `infra_news`
+--
+ALTER TABLE `infra_news`
+  ADD PRIMARY KEY (`id_infra_news`);
 
 --
 -- Indexes for table `kategori_pekerjaan`
@@ -1042,6 +1240,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `achievement`
+--
+ALTER TABLE `achievement`
+  MODIFY `id_achievement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `activity`
+--
+ALTER TABLE `activity`
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `aspek_csi`
 --
 ALTER TABLE `aspek_csi`
@@ -1054,6 +1264,12 @@ ALTER TABLE `csi`
   MODIFY `id_csi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `detail_achievement`
+--
+ALTER TABLE `detail_achievement`
+  MODIFY `id_detail_achievement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `detail_csi`
 --
 ALTER TABLE `detail_csi`
@@ -1063,7 +1279,7 @@ ALTER TABLE `detail_csi`
 -- AUTO_INCREMENT for table `detail_license`
 --
 ALTER TABLE `detail_license`
-  MODIFY `id_detail_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_detail_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `detail_tim_proyek`
@@ -1084,6 +1300,18 @@ ALTER TABLE `engineering_activity`
   MODIFY `id_engineering_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
+-- AUTO_INCREMENT for table `event`
+--
+ALTER TABLE `event`
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `infra_news`
+--
+ALTER TABLE `infra_news`
+  MODIFY `id_infra_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `kategori_pekerjaan`
 --
 ALTER TABLE `kategori_pekerjaan`
@@ -1099,13 +1327,13 @@ ALTER TABLE `ki_km`
 -- AUTO_INCREMENT for table `license`
 --
 ALTER TABLE `license`
-  MODIFY `id_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_license` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lps`
 --
 ALTER TABLE `lps`
-  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `id_lps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 
 --
 -- AUTO_INCREMENT for table `master_activity`
@@ -1135,7 +1363,7 @@ ALTER TABLE `monthly_report`
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rencana`
@@ -1147,7 +1375,7 @@ ALTER TABLE `rencana`
 -- AUTO_INCREMENT for table `rkp`
 --
 ALTER TABLE `rkp`
-  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rkp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `software`

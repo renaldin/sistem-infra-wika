@@ -172,6 +172,16 @@
                             <td>:</td>
                             <td>{{$item->longitude}}</td>
                         </tr>
+                        <tr>
+                            <th>Deskripsi</th>
+                            <td>:</td>
+                            <td>{{$item->deskripsi_proyek}}</td>
+                        </tr>
+                        <tr>
+                            <th>Gambar</th>
+                            <td>:</td>
+                            <td><img src="@if($item->gambar){{asset('proyek/'.$item->gambar)}}@endif" class="theme-color-default-img profile-pic rounded avatar-100"></td>
+                        </tr>
                     </table>
                 </div>
             </div>

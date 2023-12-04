@@ -114,6 +114,35 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="form-group col-md-6">
+                            <label class="form-label" for="deskripsi_proyek">Deskripsi</label>
+                            <textarea class="form-control" name="deskripsi_proyek" cols="20" rows="5" placeholder="Masukkan Deskripsi">@if($form === 'Tambah'){{old('deskripsi_proyek')}}@else{{$detail->deskripsi_proyek}}@endif</textarea>
+                            @error('deskripsi_proyek')
+                                <div class="invalid-feedback">
+                                {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="gambar">Gambar <small class="text-danger text-small">* png/jpg/jpeg</small></label>
+                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" id="preview_image" name="gambar" placeholder="Masukkan Gambar" @if($form === 'Tambah') required @endif>
+                                    @error('gambar')
+                                        <div class="invalid-feedback">
+                                        {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="form-label" for="foto_user"></label>
+                                    <div class="profile-img-edit position-relative">
+                                        <img src="@if($form === 'Tambah'){{ asset('proyek/default1.jpg') }}@else{{ asset('proyek/'.$detail->gambar) }}@endif" alt="profile-pic" id="load_image" class="theme-color-default-img profile-pic rounded avatar-100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                         {{-- Component: tombolForm --}}
                         @include('components.tombolForm', ['linkKembali' => '/daftar-proyek'])

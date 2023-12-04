@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\Achievement;
+use App\Http\Controllers\Activity;
 use App\Http\Controllers\Csi;
 use App\Http\Controllers\KelolaMahasiswa;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\DetailAchievement;
 use App\Http\Controllers\DetailLicense;
 use App\Http\Controllers\DetailTimProyek;
 use App\Http\Controllers\DokumenLps;
 use App\Http\Controllers\EngineeringActivity;
+use App\Http\Controllers\Event;
+use App\Http\Controllers\InfraNews;
 use App\Http\Controllers\KiKm;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\License;
@@ -126,6 +131,35 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::post('/edit-rencana-detail/{id}', [Rencana::class, 'prosesEditDetail']);
 
     Route::group(['middleware' => 'admin'], function () {
+        Route::get('/data-activities', [Activity::class, 'index'])->name('data-activities');
+        Route::get('/tambah-activities', [Activity::class, 'tambah']);
+        Route::get('/edit-activities/{id}', [Activity::class, 'edit']);
+        Route::post('/tambah-activities', [Activity::class, 'prosesTambah']);
+        Route::post('/edit-activities/{id}', [Activity::class, 'prosesEdit']);
+        Route::get('/hapus-activities/{id}', [Activity::class, 'prosesHapus']);
+
+        Route::get('/data-events', [Event::class, 'index'])->name('data-events');
+        Route::post('/tambah-events', [Event::class, 'prosesTambah']);
+        Route::post('/edit-events/{id}', [Event::class, 'prosesEdit']);
+        Route::get('/hapus-events/{id}', [Event::class, 'prosesHapus']);
+        
+        Route::get('/data-achievement', [Achievement::class, 'index'])->name('data-achievement');
+        Route::post('/tambah-achievement', [Achievement::class, 'prosesTambah']);
+        Route::post('/edit-achievement/{id}', [Achievement::class, 'prosesEdit']);
+        Route::get('/hapus-achievement/{id}', [Achievement::class, 'prosesHapus']);
+        Route::get('/detail-achievement/{id}', [Achievement::class, 'detail']);
+
+        Route::post('/tambah-detail-achievement', [DetailAchievement::class, 'prosesTambah']);
+        Route::post('/edit-detail-achievement/{id}', [DetailAchievement::class, 'prosesEdit']);
+        Route::get('/hapus-detail-achievement/{id}', [DetailAchievement::class, 'prosesHapus']);
+
+        Route::get('/data-news', [InfraNews::class, 'index'])->name('data-news');
+        Route::get('/tambah-news', [InfraNews::class, 'tambah']);
+        Route::get('/edit-news/{id}', [InfraNews::class, 'edit']);
+        Route::post('/tambah-news', [InfraNews::class, 'prosesTambah']);
+        Route::post('/edit-news/{id}', [InfraNews::class, 'prosesEdit']);
+        Route::get('/hapus-news/{id}', [InfraNews::class, 'prosesHapus']);
+
         Route::get('/daftar-user', [User::class, 'index'])->name('daftar-user');
         Route::get('/tambah-user', [User::class, 'tambah'])->name('tambah-user');
         Route::post('/tambah-user', [User::class, 'prosesTambah']);
