@@ -26,6 +26,15 @@ class ModelProyek extends Model
             ->get();
     }
 
+    // public function dataByTipe($tipe)
+    // {
+    //     return DB::table('proyek')
+    //         ->join('tim_proyek', 'tim_proyek.id_tim_proyek', '=', 'proyek.id_tim_proyek', 'proyek')
+    //         ->where('tipe_konstukrsi', $tipe)
+    //         ->orderBy('realisasi', 'DESC')
+    //         ->get();
+    // }
+
     public function dataWhere($field, $value)
     {
         return DB::table('proyek')

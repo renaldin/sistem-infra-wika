@@ -55,6 +55,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/about', [Landing::class, 'about'])->name('about');
     Route::get('/contact', [Landing::class, 'contact'])->name('contact');
     Route::get('/blog', [Landing::class, 'blog'])->name('blog');
+    Route::get('/news/{id}', [Landing::class, 'detailNews']);
 
     Route::get('/login', [Login::class, 'index'])->name('login');
     Route::post('/login', [Login::class, 'loginProcess']);

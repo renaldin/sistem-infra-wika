@@ -195,346 +195,84 @@
             <li data-filter=".filter-remodeling">Road & Bridge</li>
             <li data-filter=".filter-construction">Water Resources</li>
             <li data-filter=".filter-repairs">Dredging & Land Clearing</li>
+            <li data-filter=".filter-design">Harbour</li>
         </ul><!-- End Projects Filters -->
     
         <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
     
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-            <div class="portfolio-content h-100">
-                <img src="{{asset('image/Sumbu_Timur.JPG')}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                <h4>Sumbu Timur</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href="{{asset('image/Sumbu_Timur.JPG')}}" title="Proyek Sumbu Timur"
-                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-                <a href="project-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-                </div>
-            </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Duplikasi Jembatan Kapuas I MYC.JPG')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Duplikasi Jembatan Kapuas I MYC</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Duplikasi Jembatan Kapuas I MYC.JPG')}}" title="Proyek Duplikasi Jembatan Kapuas I MYC"
-                        data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div>
-                </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Pembangunan Jalan dan Jembatan Tumbang Samba Tumbang Hiran II.JPG')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Pembangunan Jalan dan Jembatan Tumbang Samba Tumbang Hiran II</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Pembangunan Jalan dan Jembatan Tumbang Samba Tumbang Hiran II.JPG')}}" title="Pembangunan Jalan dan Jembatan Tumbang Samba Tumbang Hiran II"
-                        data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                    <div class="portfolio-content h-100">
-                        <img src="{{asset('image/Akses Tol Makassar New Port.jpeg')}}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                        <h4>Akses Tol Makassar New Port</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                        <a href="{{asset('image/Akses Tol Makassar New Port.jpeg')}}" title="Akses Tol Makassar New Port"
-                            data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                            class="bi bi-zoom-in"></i></a>
-                        <a href="project-details.html" title="More Details" class="details-link"><i
-                            class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                    </div>
+            @foreach ($proyek as $item)
+                @if ($item->tipe_konstruksi === 'Road & Bridge')
                     <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
                         <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Relokasi Jalan Sei Duri - Mempawah Kalbar (Lingkar Kijing).JPG')}}" class="img-fluid" alt="">
+                            <img src="{{asset('proyek/'.$item->gambar)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                            <h4>Relokasi Jalan Sei Duri - Mempawah Kalbar (Lingkar Kijing)</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Relokasi Jalan Sei Duri - Mempawah Kalbar (Lingkar Kijing).JPG')}}" title="Relokasi Jalan Sei Duri - Mempawah Kalbar (Lingkar Kijing)"
+                            <h4>{{$item->nama_proyek}}</h4>
+                            <p><?= strlen($item->deskripsi) > 25 ? substr($item->deskripsi, 0, 25) . '...' : $item->deskripsi ?></p>
+                            <a href="{{asset('proyek/'.$item->gambar)}}" title="{{$item->nama_proyek}}"
                                 data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
                                 class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
+                            <a href="#" title="More Details" class="details-link"><i
                                 class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                            <div class="portfolio-content h-100">
-                                <img src="{{asset('image/Jalan Tol IKN Segmen KKT Kariangau - Sp. Tempadung.JPG')}}" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                <h4>Jalan Tol IKN Segmen KKT Kariangau - Sp. Tempadung</h4>
-                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                <a href="{{asset('image/Jalan Tol IKN Segmen KKT Kariangau - Sp. Tempadung.JPG')}}" title="Jalan Tol IKN Segmen KKT Kariangau - Sp. Tempadung"
-                                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                    class="bi bi-zoom-in"></i></a>
-                                <a href="project-details.html" title="More Details" class="details-link"><i
-                                    class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                <div class="portfolio-content h-100">
-                                    <img src="{{asset('image/Underpass Tatakan 101.jpg')}}" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                    <h4>Underpass Tatakan 101</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="{{asset('image/Underpass Tatakan 101.jpg')}}" title="Underpass Tatakan 101"
-                                        data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
-                                    <a href="project-details.html" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                    <div class="portfolio-content h-100">
-                                        <img src="{{asset('image/Mandalika Urban Tourism Infrastructure Project Package 1.JPG')}}" class="img-fluid" alt="">
-                                        <div class="portfolio-info">
-                                        <h4>Mandalika Urban Tourism Infrastructure Project Package 1</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="{{asset('image/Mandalika Urban Tourism Infrastructure Project Package 1.JPG')}}" title="Mandalika Urban Tourism Infrastructure Project Package 1"
-                                            data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                        <a href="project-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                        <div class="portfolio-content h-100">
-                                            <img src="{{asset('image/Rekonstruksi Jalan Kalawara-Kulawi dan Sirenja.JPG')}}" class="img-fluid" alt="">
-                                            <div class="portfolio-info">
-                                            <h4>Rekonstruksi Jalan Kalawara-Kulawi dan Sirenja</h4>
-                                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                            <a href="{{asset('image/SRekonstruksi Jalan Kalawara-Kulawi dan Sirenja.JPG')}}" title="Rekonstruksi Jalan Kalawara-Kulawi dan Sirenja"
-                                                data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                                class="bi bi-zoom-in"></i></a>
-                                            <a href="project-details.html" title="More Details" class="details-link"><i
-                                                class="bi bi-link-45deg"></i></a>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                            <div class="portfolio-content h-100">
-                                                <img src="{{asset('image/SPRD (KPC).JPG')}}" class="img-fluid" alt="">
-                                                <div class="portfolio-info">
-                                                <h4>SPRD (KPC)</h4>
-                                                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                                <a href="{{asset('image/SPRD (KPC).JPG')}}" title="SPRD (KPC)"
-                                                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                                    class="bi bi-zoom-in"></i></a>
-                                                <a href="project-details.html" title="More Details" class="details-link"><i
-                                                    class="bi bi-link-45deg"></i></a>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                                <div class="portfolio-content h-100">
-                                                    <img src="{{asset('image/MWRD (KPC).jpeg')}}" class="img-fluid" alt="">
-                                                    <div class="portfolio-info">
-                                                    <h4>MWRD (KPC)</h4>
-                                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                                    <a href="{{asset('image/MWRD (KPC).jpeg')}}" title="MWRD (KPC)"
-                                                        data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                                        class="bi bi-zoom-in"></i></a>
-                                                    <a href="project-details.html" title="More Details" class="details-link"><i
-                                                        class="bi bi-link-45deg"></i></a>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                                                    <div class="portfolio-content h-100">
-                                                        <img src="{{asset('image/Bandar Udara Banggai.jpg')}}" class="img-fluid" alt="">
-                                                        <div class="portfolio-info">
-                                                        <h4>Bandar Udara Banggai</h4>
-                                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                                        <a href="{{asset('image/Bandar Udara Banggai.jpg')}}" title="Bandar Udara Banggai"
-                                                            data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
-                                                            class="bi bi-zoom-in"></i></a>
-                                                        <a href="project-details.html" title="More Details" class="details-link"><i
-                                                            class="bi bi-link-45deg"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                    <!-- End Projects Item -->
+                    </div>
+                @endif
+            @endforeach              <!-- End Projects Item -->
     
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-            <div class="portfolio-content h-100">
-                <img src="{{asset('image/Bendungan Manikin.jpg')}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                <h4>Bendungan Manikin</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href="{{asset('image/Bendungan Manikin.jpg')}}" title="Bendungan Manikin"
-                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                    class="bi bi-zoom-in"></i></a>
-                <a href="project-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-                </div>
-            </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Bendungan Pamukkulu.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Bendungan Pamukkulu</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Bendungan Pamukkulu.jpg')}}" title="Bendungan Pamukkulu"
-                        data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                    <div class="portfolio-content h-100">
-                        <img src="{{asset('image/Bendungan Jenelata.jpg')}}" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                        <h4>Bendungan Jenelata</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                        <a href="{{asset('image/Bendungan Jenelata.jpg')}}" title="Bendungan Manikin"
-                            data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                            class="bi bi-zoom-in"></i></a>
-                        <a href="project-details.html" title="More Details" class="details-link"><i
-                            class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div>
-                    </div>
+            @foreach ($proyek as $item)
+                @if ($item->tipe_konstruksi === 'Water Resource')
                     <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
                         <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Irigasi Gumbasa.jpeg')}}" class="img-fluid" alt="">
+                            <img src="{{asset('proyek/'.$item->gambar)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                            <h4>Irigasi Gumbasa</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Irigasi Gumbasa.jpg')}}" title="Irigasi Gumbasa"
+                            <h4>{{$item->nama_proyek}}</h4>
+                            <p><?= strlen($item->deskripsi) > 25 ? substr($item->deskripsi, 0, 25) . '...' : $item->deskripsi ?></p>
+                            <a href="{{asset('proyek/'.$item->gambar)}}" title="{{$item->nama_proyek}}"
                                 data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
                                 class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
-                                class="bi bi-link-45deg"></i></a>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                        <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Bendungan Ameroro.jpg')}}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                            <h4>Bendungan Ameroro</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Bendungan Ameroro.jpg')}}" title="Bendungan Ameroro"
-                                data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                                class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
-                                class="bi bi-link-45deg"></i></a>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                        <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Wani Port.jpeg')}}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                            <h4>Wani Port</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Wani Port.jpg')}}" title="Wani Port"
-                                data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                                class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
-                                class="bi bi-link-45deg"></i></a>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                        <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Donggala Port.jpg')}}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                            <h4>Donggala Port</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Donggala Port.jpg')}}" title="Donggala Port"
-                                data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                                class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
-                                class="bi bi-link-45deg"></i></a>
-                            </div>
-                     </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                        <div class="portfolio-content h-100">
-                            <img src="{{asset('image/Bendungan Manikin.jpg')}}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                            <h4>Bendungan Manikin</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur</p>
-                            <a href="{{asset('image/Bendungan Manikin.jpg')}}" title="Bendungan Manikin"
-                                data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
-                                class="bi bi-zoom-in"></i></a>
-                            <a href="project-details.html" title="More Details" class="details-link"><i
+                            <a href="" title="More Details" class="details-link"><i
                                 class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
-                        </div>   <!-- End Projects Item -->
+                    </div>
+                @endif
+            @endforeach 
+
+            @foreach ($proyek as $item)
+                @if ($item->tipe_konstruksi === 'Dredging & Land Clearing')
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+                        <div class="portfolio-content h-100">
+                            <img src="{{asset('proyek/'.$item->gambar)}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                            <h4>{{$item->nama_proyek}}</h4>
+                            <p><?= strlen($item->deskripsi) > 25 ? substr($item->deskripsi, 0, 25) . '...' : $item->deskripsi ?></p>
+                            <a href="{{asset('proyek/'.$item->gambar)}}" title="{{$item->nama_proyek}}" data-gallery="portfolio-gallery-repairs"
+                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach 
     
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-            <div class="portfolio-content h-100">
-                <img src="{{asset('image/D&B Pengerukan Pelabuhan Benoa Paket A.jpg')}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                <h4>D&B Pengerukan Pelabuhan Benoa Paket A</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href="{{asset('image/D&B Pengerukan Pelabuhan Benoa Paket A.jpg')}}" title="D&B Pengerukan Pelabuhan Benoa Paket A" data-gallery="portfolio-gallery-repairs"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="project-details.html" title="More Details" class="details-link"><i
-                    class="bi bi-link-45deg"></i></a>
-                </div>
-            </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Dredging Pendalaman Alur Tursina Area III & IV.JPG')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Dredging Pendalaman Alur Tursina Area III & IV</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Dredging Pendalaman Alur Tursina Area III & IV.jpg')}}" title="Dredging Pendalaman Alur Tursina Area III & IV" data-gallery="portfolio-gallery-repairs"
-                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
+            @foreach ($proyek as $item)
+                @if ($item->tipe_konstruksi === 'Harbour')
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+                        <div class="portfolio-content h-100">
+                            <img src="{{asset('proyek/'.$item->gambar)}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                            <h4>{{$item->nama_proyek}}</h4>
+                            <p><?= strlen($item->deskripsi) > 25 ? substr($item->deskripsi, 0, 25) . '...' : $item->deskripsi ?></p>
+                            <a href="{{asset('proyek/'.$item->gambar)}}" title="{{$item->nama_proyek}}" data-gallery="portfolio-gallery-book"
+                                class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="" title="More Details" class="details-link"><i
+                                class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Penyiapan Lahan Industri PKT Bontang.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Penyiapan Lahan Industri PKT Bontang</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Penyiapan Lahan Industri PKT Bontang.jpg')}}" title="Penyiapan Lahan Industri PKT Bontang" data-gallery="portfolio-gallery-repairs"
-                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100">
-                    <img src="{{asset('image/Pekerjaan Land Clearing untuk Budidaya Jagung Kabupaten Keerom.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                    <h4>Pekerjaan Land Clearing untuk Budidaya Jagung Kabupaten Keerom</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                    <a href="{{asset('image/Pekerjaan Land Clearing untuk Budidaya Jagung Kabupaten Keerom.jpg')}}" title="Pekerjaan Land Clearing untuk Budidaya Jagung Kabupaten Keerom" data-gallery="portfolio-gallery-repairs"
-                        class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="project-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Projects Item -->
+                @endif
+            @endforeach
     
         </div><!-- End Projects Container -->
     
@@ -577,40 +315,20 @@
 
         <div class="slides-2 swiper">
             <div class="swiper-wrapper">
-                <!-- InfraNews Slide 1 -->
-                <div class="swiper-slide">
-                    <div class="post-item position-relative h-100">
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{asset('image/p22.png')}}" class="img-fluid" alt="">
-                            <span class="post-date">November, 22</span>
-                        </div>
-                        <div class="post-content d-flex flex-column">
-                            <h3 class="post-title">Program IDEA Infra 2 mencapai 50 lebih bantuan teknis</h3>
-                            <!-- Add your other content here -->
-                            <a href="/blog" class="readmore stretched-link"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- InfraNews Slide 2 -->
-                <div class="swiper-slide">
-                    <div class="post-item position-relative h-100">
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{asset('image/idea.jpeg')}}" class="img-fluid" alt="">
-                            <span class="post-date">November, 22</span>
-                        </div>
-                        <div class="post-content d-flex flex-column">
-                            <h3 class="post-title">Ini Rahasianya 11 Proyek INFRA 2 lulus Sertifikasi BIM</h3>
-                            <!-- Add your other content here -->
-                            <a href="/blog" class="readmore stretched-link"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
+                @foreach ($news as $item)
+                    <div class="swiper-slide">
+                        <div class="post-item position-relative h-100">
+                            <div class="post-img position-relative overflow-hidden">
+                                <img src="{{asset('news/'.$item->gambar)}}" class="img-fluid" alt="">
+                                <span class="post-date">{{date('d F Y', strtotime($item->tanggal))}}</span>
+                            </div>
+                            <div class="post-content d-flex flex-column">
+                                <h3 class="post-title">{{$item->judul}}</h3>
+                                <a href="/news/{{$item->id_infra_news}}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Add more InfraNews slides as needed -->
-
+                @endforeach
             </div>
             <div class="swiper-pagination"></div>
         </div>
