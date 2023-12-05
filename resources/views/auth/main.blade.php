@@ -6,7 +6,7 @@
       <title>Infrastructure2 Division | {{$title}}</title>
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       <!-- Favicon -->
-      <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
+      <link rel="shortcut icon" href="{{ asset('image/WIDER.png') }}" />
       <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
       <!-- Library / Plugin Css Build -->
       <link rel="stylesheet" href="{{ asset('template/html/assets/css/core/libs.min.css') }}" />

@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('templateLand/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('templateLand/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('image/LOGO INFRA 2 BLUE.png') }}" rel="icon">
+  <link href="{{ asset('image/LOGO INFRA 2 BLUE.png') }}" >
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,6 @@
         <ul>
           <li><a href="#">Activities</a></li>
           <li><a href="#">InfraNews</a></li>
-          <li><a href="#">Events</a></li>
         </ul>
           </li>
           <li><a href="#">Projects</a></li>
@@ -84,7 +83,7 @@
         </li>
           
           </li>
-          <li><a href="contact.html">Contact</a></li>
+        
         </ul>
       </nav><!-- .navbar -->
 

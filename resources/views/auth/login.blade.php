@@ -4,7 +4,7 @@
     <section class="login-content" style="height: 100vh; overflow: hidden; position: relative;">
         <div class="row m-0" style="height: 100%;">
             <div class="col-md-12 p-0" style="height: 100%;">
-                <img src="{{ asset('image/bglogin.jpg') }}"
+                <img src="{{ asset('image/bglogin.jpeg') }}"
                     class="img-fluid gradient-main" alt="images" style="height: 100%; width: 100%; object-fit: cover;">
             </div>
             <div class="col-md-6 d-flex align-items-center">
@@ -24,7 +24,7 @@
                         </div>
                         
                         <p class="text-center mx-auto my-0" style="color: black">Hallo Sobat Infra,</p> 
-                        <p class="text-center" style="color: black">Selamat Datang di Portal Integrasi
+                        <p class="text-center" style="color: black">Selamat Datang di Aplikasi WIDER
                             Infrastructure 2 Division
                         </p>
                         <h2 class="mb-2 text-center">{{ $title }}</h2>

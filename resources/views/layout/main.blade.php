@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Infrastructure 2 Division| {{ $subTitle }}</title>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('template/html/assets/images/favicon.ico') }}" />
+    <!-- Favicon --> 
+    <link rel="shortcut icon" href="{{ asset('image/WIDER.png') }}" />
     <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 
     <!-- select2 -->
