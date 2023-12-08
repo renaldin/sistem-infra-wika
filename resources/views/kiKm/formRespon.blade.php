@@ -71,19 +71,25 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="form-label" for="tanggal_upload">Tanggal Upload</label>
-                            <input type="date" class="form-control @error('tanggal_upload') is-invalid @enderror" id="tanggal_upload" name="tanggal_upload" value="@if($detail->tanggal_upload === null){{ old('tanggal_upload') }}@else{{$detail->tanggal_upload}}@endif"  placeholder="Masukkan Tanggal Upload">
+                            <input type="date" class="form-control @error('tanggal_upload') is-invalid @enderror" id="tanggal_upload" name="tanggal_upload" value="{{ now()->format('Y-m-d') }}" readonly>
                             @error('tanggal_upload')
                                 <div class="invalid-feedback">
-                                {{ $message }}
+                                    {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div>                        
                         <div class="form-group col-md-6">
                             <label class="form-label">Approval (Opsional)</label>
                             <div class="form-check d-block">
                                 <input class="form-check-input" type="checkbox" name="proses_penulisan" id="proses_penulisan" @if($detail->proses_penulisan === 1) checked @endif>
                                 <label class="form-check-label" for="proses_penulisan">
                                     Proses Penulisan
+                                </label>
+                            </div>
+                            <div class="form-check d-block">
+                                <input class="form-check-input" type="checkbox" name="terupload_kmspace" id="terupload_kmspace" @if($detail->terupload_kmspace === 1) checked @endif>
+                                <label class="form-check-label" for="terupload_kmspace">
+                                   Terupload KM Space
                                 </label>
                             </div>
                             <div class="form-check d-block">

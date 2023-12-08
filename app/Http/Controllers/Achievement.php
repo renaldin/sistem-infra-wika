@@ -63,13 +63,14 @@ class Achievement extends Controller
             'judul'         => 'required',
             'sub_judul'     => 'required',
             'deskripsi'     => 'required',
-            'gambar'        => 'required|mimes:jpeg,png,jpg'
+            'gambar'    => 'required|mimes:jpeg,png,jpg|max:2048'
         ], [
             'judul.required'        => 'Judul harus diisi!',
             'sub_judul.required'    => 'Sub judul harus diisi!',
             'deskripsi.required'    => 'Deskripsi harus diisi!',
             'gambar.required'       => 'Gambar Anda harus diisi!',
-            'gambar.mimes'          => 'Format gambar harus jpg/jpeg/png!'
+            'gambar.mimes'          => 'Format gambar harus jpg/jpeg/png!',
+            'gambar.max'                => 'Ukuran gambar maksimal 2 mb',
         ]);
 
         $file = Request()->gambar;
@@ -106,12 +107,13 @@ class Achievement extends Controller
             'judul'         => 'required',
             'sub_judul'     => 'required',
             'deskripsi'     => 'required',
-            'gambar'        => 'mimes:jpeg,png,jpg'
+            'gambar'    => 'required|mimes:jpeg,png,jpg|max:2048'
         ], [
             'judul.required'        => 'Judul harus diisi!',
             'sub_judul.required'    => 'Sub judul harus diisi!',
             'deskripsi.required'    => 'Deskripsi harus diisi!',
-            'gambar.mimes'          => 'Format gambar harus jpg/jpeg/png!'
+            'gambar.mimes'          => 'Format gambar harus jpg/jpeg/png!',
+            'gambar.max'                => 'Ukuran gambar maksimal 2 mb',
         ]);
 
         $detail = $this->ModelAchievement->detail($id_achievement);

@@ -977,7 +977,45 @@
             });
         </script>
 
-        
+        <!-- Sebaiknya diletakkan di bagian bawah halaman sebelum tag </body> -->
+        <script>
+            // Fungsi untuk menangani pemilihan tanggal merah secara dinamis
+            function handleDateSelection(elementId) {
+                // Ambil elemen input date
+                var dateInput = document.getElementById(elementId);
+
+                // Buat elemen hidden untuk menyimpan daftar tanggal merah yang dipilih
+                var hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'holidays';
+                hiddenInput.id = 'hiddenHolidays';
+
+                // Tambahkan elemen hidden ke dalam formulir
+                dateInput.parentNode.appendChild(hiddenInput);
+
+                // Inisialisasi array untuk menyimpan tanggal merah yang dipilih
+                var selectedDates = [];
+
+                // Tambahkan event listener untuk menangani perubahan pada elemen input date
+                dateInput.addEventListener('change', function() {
+                    // Ambil nilai dari elemen input date
+                    var selectedDate = dateInput.value;
+
+                    // Periksa apakah tanggal sudah dipilih sebelumnya
+                    if (!selectedDates.includes(selectedDate)) {
+                        // Tambahkan tanggal ke dalam array
+                        selectedDates.push(selectedDate);
+
+                        // Update nilai elemen hidden dengan array tanggal yang dipilih
+                        hiddenInput.value = selectedDates.join(',');
+                    }
+                });
+            }
+
+            // Panggil fungsi untuk menangani pemilihan tanggal merah di modal tambah
+            handleDateSelection('holidays');
+        </script>
+
 </body>
 
 </html>

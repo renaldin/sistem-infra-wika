@@ -82,6 +82,7 @@
                                 <th>Absense End</th>
                                 <th>Work Days</th>
                                 <th>Work Hours</th>
+                                <th>Holidays</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,6 +96,23 @@
                                     <td>{{$item->absense_end}}</td>
                                     <td>{{$item->work_days}}</td>
                                     <td>{{$item->work_hours}}</td>
+                                    <td>
+                                        @if (is_array($item->holidays))
+                                            @foreach ($item->holidays as $holiday)
+                                                {{ $holiday }}<br>
+                                            @endforeach
+                                        @else
+                                            @php
+                                                $holidays = json_decode($item->holidays);
+                                                if ($holidays) {
+                                                    echo implode('<br>', $holidays);
+                                                } else {
+                                                    echo $item->holidays;
+                                                }
+                                            @endphp
+                                        @endif
+                                    </td>                                                                                                                                                                            
+                                    
                                 </tr>
                             @endforeach
                         </tbody>
@@ -127,6 +145,13 @@
                                 <input type="hidden" class="form-control" name="detail_bulan" value="{{$detailBulan}}" required>
                                 <input type="date" class="form-control" min="{{$min}}" max="{{$max}}" id="absense_end" name="absense_end" placeholder="Masukkan Absense End" required>
                             </div>
+                            <!-- Pilihan tanggal merah -->
+                            <!-- Di dalam Modal Tambah -->
+                            <div class="form-group col-md-12">
+                                <label class="form-label" for="holidays">Tanggal Merah</label>
+                                <input type="date" class="form-control" id="holidays" name="holidays[]" placeholder="Pilih Tanggal Merah" multiple>
+                            </div>
+
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -152,6 +177,12 @@
                             <div class="form-group col-md-12">
                                 <label class="form-label" for="absense_end">Apakah Anda yakin akan hapus data master activity bulan {{ date('F Y', strtotime($detailBulan)) }}?</label>
                                 <input type="hidden" class="form-control" name="detail_bulan" value="{{$detailBulan}}" required>
+                            </div>
+
+                             <!-- Pilihan tanggal merah -->
+                            <div class="form-group col-md-12">
+                                <label class="form-label" for="holidays">Tanggal Merah</label>
+                                <input type="date" class="form-control" id="holidays" name="holidays[]" placeholder="Pilih Tanggal Merah" multiple>
                             </div>
                         </div>
                 </div>

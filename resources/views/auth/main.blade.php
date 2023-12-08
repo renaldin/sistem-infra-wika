@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Infrastructure2 Division | {{$title}}</title>
+      <title>Infrastructure 2 Division | {{$title}}</title>
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       <!-- Favicon -->
       <link rel="shortcut icon" href="{{ asset('image/WIDER.png') }}" />

@@ -73,6 +73,7 @@
                                             <th>NIP</th>
                                             <th>Nama</th>
                                             <th>Jabatan</th>
+                                            <th>Achievement Rate</th>
                                             <th style="min-width: 100px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -84,6 +85,7 @@
                                             <td>{{$item->nip}}</td>
                                             <td>{{$item->nama_user}}</td>
                                             <td>{{$item->jabatan}}</td>
+                                            <td> </td>
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Productivity" data-original-title="Productivity" href="/productivity-by-person/{{$item->id_user}}/{{$detailBulan}}">

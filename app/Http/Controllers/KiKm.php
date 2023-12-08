@@ -172,6 +172,11 @@ class KiKm extends Controller
         } else {
             $prosesPenulisan = 0;
         }
+        if(Request()->terupload_kmspace) {
+            $teruploadKmspace = 1;
+        } else {
+            $teruploadKmspace = 0;
+        }
         if(Request()->approval_atasan) {
             $approvalAtasan = 1;
         } else {
@@ -196,8 +201,9 @@ class KiKm extends Controller
         if ($detail->is_respon === 0) {
             $data = [
                 'id_ki_km'                  => $id_ki_km,
-                'tanggal_upload'            => Request()->tanggal_upload,
+                'tanggal_upload'        => now()->format('Y-m-d'),
                 'proses_penulisan'          => $prosesPenulisan,
+                'terupload_kmspace'         => $teruploadKmspace,
                 'approval_atasan'           => $approvalAtasan,
                 'approval_pic_divisi'       => $approvalPicDivisi,
                 'approval_pic_pusat'        => $approvalPicPusat,
@@ -210,8 +216,9 @@ class KiKm extends Controller
         } else {
             $data = [
                 'id_ki_km'                  => $id_ki_km,
-                'tanggal_upload'            => Request()->tanggal_upload,
+                'tanggal_upload'        => now()->format('Y-m-d'),
                 'proses_penulisan'          => $prosesPenulisan,
+                'terupload_kmspace'         => $teruploadKmspace,
                 'approval_atasan'           => $approvalAtasan,
                 'approval_pic_divisi'       => $approvalPicDivisi,
                 'approval_pic_pusat'        => $approvalPicPusat,

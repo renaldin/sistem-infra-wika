@@ -64,57 +64,66 @@ class MasterActivity extends Controller
 
     public function prosesTambah()
     {
+    $detailBulan = Request()->detail_bulan;
+    $absenseEnd = Request()->absense_end;
+    $absenseEndBulan = date('Y-m', strtotime($absenseEnd));
+    
+    // Deklarasikan variabel $holidays
+    $holidays = Request()->holidays;
+    if (!is_array($holidays)) {
+        // Jika $holidays bukan array, konversi menjadi array
+        $holidays = explode(',', $holidays);
+    }
 
-        $detailBulan = Request()->detail_bulan;
-        $absenseEnd = Request()->absense_end;
-        $absenseEndBulan = date('Y-m', strtotime($absenseEnd));
-        if($detailBulan !== $absenseEndBulan) {
-            $data = [
-                'title'                     => 'Master Activity',
-                'subTitle'                  => 'Daftar Master Activity',
-                'bulan'                     => true,
-                'detailBulan'               => $detailBulan,
-                'daftarUser'                => $this->ModelUser->dataUser(),
-                'daftar'                    => $this->ModelMasterActivity->whereMonthYear($detailBulan),
-                'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-                'pesanError'                => 'Gagal! Anda tidak memilih tanggal di bulan '.date('F Y', strtotime($detailBulan)),
-                'pesanSuccess'              => null,
-            ];
-
-            return view('admin.masterActivity.index', $data);
-        }
-
-        $activity = $this->ModelEngineeringActivity->whereMonthYear($detailBulan);
-        foreach($activity as $item) {
-
-            $workDays = $this->networkDays($item->tanggal_masuk_kerja, $absenseEnd);
-            $workHours = $workDays * 8;
-
-            $data = [
-                'id_user'           => $item->id_user,
-                'absense_start'     => $item->tanggal_masuk_kerja,
-                'absense_end'       => $absenseEnd,
-                'work_days'         => $workDays,  
-                'work_hours'        => $workHours,  
-                'tanggal_master'    => $absenseEnd
-            ];
-            $this->ModelMasterActivity->tambah($data);
-        }
-
+    if ($detailBulan !== $absenseEndBulan) {
         $data = [
-            'title'                     => 'Master Activity',
-            'subTitle'                  => 'Daftar Master Activity',
-            'bulan'                     => true,
-            'detailBulan'               => $detailBulan,
-            'daftarUser'                => $this->ModelUser->dataUser(),
-            'daftar'                    => $this->ModelMasterActivity->whereMonthYear($detailBulan),
-            'user'                      => $this->ModelUser->detail(Session()->get('id_user')),
-            'pesanError'                => null,
-            'pesanSuccess'              => 'Data master activity berhasil ditambahkan!'
+            'title'        => 'Master Activity',
+            'subTitle'     => 'Daftar Master Activity',
+            'bulan'        => true,
+            'detailBulan'  => $detailBulan,
+            'daftarUser'   => $this->ModelUser->dataUser(),
+            'daftar'       => $this->ModelMasterActivity->whereMonthYear($detailBulan),
+            'user'         => $this->ModelUser->detail(Session()->get('id_user')),
+            'pesanError'   => 'Gagal! Anda tidak memilih tanggal di bulan ' . date('F Y', strtotime($detailBulan)),
+            'pesanSuccess' => null,
         ];
 
         return view('admin.masterActivity.index', $data);
     }
+
+    $activity = $this->ModelEngineeringActivity->whereMonthYear($detailBulan);
+    foreach ($activity as $item) {
+        
+        $workDays = $this->networkDaysWithHolidays($item->tanggal_masuk_kerja, $absenseEnd, $holidays);
+        $workHours = $workDays * 8;
+
+        $data = [
+            'id_user'        => $item->id_user,
+            'absense_start'  => $item->tanggal_masuk_kerja,
+            'absense_end'    => $absenseEnd,
+            'work_days'      => $workDays,
+            'work_hours'     => $workHours,
+            'tanggal_master' => $absenseEnd,
+            'holidays'       => json_encode($holidays), // Ubah array menjadi JSON
+        ];
+        $this->ModelMasterActivity->tambah($data);        
+    }
+
+    $data = [
+        'title'        => 'Master Activity',
+        'subTitle'     => 'Daftar Master Activity',
+        'bulan'        => true,
+        'detailBulan'  => $detailBulan,
+        'daftarUser'   => $this->ModelUser->dataUser(),
+        'daftar'       => $this->ModelMasterActivity->whereMonthYear($detailBulan),
+        'user'         => $this->ModelUser->detail(Session()->get('id_user')),
+        'pesanError'   => null,
+        'pesanSuccess' => 'Data master activity berhasil ditambahkan!'
+    ];
+
+    return view('admin.masterActivity.index', $data);
+    }
+
 
     public function prosesHapus()
     {
@@ -137,7 +146,7 @@ class MasterActivity extends Controller
         return view('admin.masterActivity.index', $data);
     }
 
-    public function networkDays($start, $end) {
+    public function networkDaysWithHolidays($start, $end, $holidays) {
         $startDate = new DateTime($start);
         $endDate = new DateTime($end);
     
@@ -145,12 +154,17 @@ class MasterActivity extends Controller
         $totalDays = 0;
     
         while ($startDate <= $endDate) {
-            if (!in_array($startDate->format('N'), $weekendDays)) {
+            $currentDayOfWeek = $startDate->format('N');
+    
+            // Memeriksa apakah hari ini bukan hari akhir pekan dan bukan tanggal merah
+            if (!in_array($currentDayOfWeek, $weekendDays) && !in_array($startDate->format('Y-m-d'), $holidays)) {
                 $totalDays++;
             }
+    
             $startDate->modify('+1 day');
         }
     
         return $totalDays;
     }
+    
 }
