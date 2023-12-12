@@ -28,7 +28,7 @@
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-01" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                        <div id="circle-progress-01" class="text-center circle-progress-01 circle-progress" style="colour: #3AEDB5"data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
                            {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
                               <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
                            </svg> --}}
@@ -43,7 +43,7 @@
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                        <div id="circle-progress-02" class="text-center circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
                            {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
                               <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
                            </svg> --}}
@@ -58,7 +58,7 @@
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="900">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                        <div id="circle-progress-03" class="text-center circle-progress-01 circle-progress circle-progress-warning"  data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
                            {{-- <svg class="card-slie-arrow icon-24" width="24" viewBox="0 0 24 24">
                               <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
                            </svg> --}}
@@ -73,7 +73,7 @@
                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="700">
                   <div class="card-body">
                      <div class="progress-widget">
-                        <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
+                        <div id="circle-progress-04" class="text-center circle-progress-01 circle-progress circle-progress-danger" data-min-value="0" data-max-value="100" data-value="100" data-type="percent">
                            {{-- <svg class="card-slie-arrow icon-24" width="24"  viewBox="0 0 24 24">
                               <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                            </svg> --}}
@@ -153,7 +153,7 @@
                                 <td class="text-center">
                                   @if ($item->review1 === 1)
                                       <span class="btn-inner">
-                                          <svg class="icon-25 text-primary" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.67 2H16.34C19.73 2 22 4.38 22 7.92V16.091C22 19.62 19.73 22 16.34 22H7.67C4.28 22 2 19.62 2 16.091V7.92C2 4.38 4.28 2 7.67 2ZM11.43 14.99L16.18 10.24C16.52 9.9 16.52 9.35 16.18 9C15.84 8.66 15.28 8.66 14.94 9L10.81 13.13L9.06 11.38C8.72 11.04 8.16 11.04 7.82 11.38C7.48 11.72 7.48 12.27 7.82 12.62L10.2 14.99C10.37 15.16 10.59 15.24 10.81 15.24C11.04 15.24 11.26 15.16 11.43 14.99Z" fill="currentColor"></path>                            </svg>                        
+                                          <svg class="icon-25 text-success" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.67 2H16.34C19.73 2 22 4.38 22 7.92V16.091C22 19.62 19.73 22 16.34 22H7.67C4.28 22 2 19.62 2 16.091V7.92C2 4.38 4.28 2 7.67 2ZM11.43 14.99L16.18 10.24C16.52 9.9 16.52 9.35 16.18 9C15.84 8.66 15.28 8.66 14.94 9L10.81 13.13L9.06 11.38C8.72 11.04 8.16 11.04 7.82 11.38C7.48 11.72 7.48 12.27 7.82 12.62L10.2 14.99C10.37 15.16 10.59 15.24 10.81 15.24C11.04 15.24 11.26 15.16 11.43 14.99Z" fill="currentColor"></path>                            </svg>                        
                                       </span>
                                   @else
                                       <span class="btn-inner">
@@ -164,7 +164,7 @@
                                 <td class="text-center">
                                     @if ($item->review2 === 1)
                                         <span class="btn-inner">
-                                            <svg class="icon-25 text-primary" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.67 2H16.34C19.73 2 22 4.38 22 7.92V16.091C22 19.62 19.73 22 16.34 22H7.67C4.28 22 2 19.62 2 16.091V7.92C2 4.38 4.28 2 7.67 2ZM11.43 14.99L16.18 10.24C16.52 9.9 16.52 9.35 16.18 9C15.84 8.66 15.28 8.66 14.94 9L10.81 13.13L9.06 11.38C8.72 11.04 8.16 11.04 7.82 11.38C7.48 11.72 7.48 12.27 7.82 12.62L10.2 14.99C10.37 15.16 10.59 15.24 10.81 15.24C11.04 15.24 11.26 15.16 11.43 14.99Z" fill="currentColor"></path>                            </svg>                        
+                                            <svg class="icon-25 text-success" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.67 2H16.34C19.73 2 22 4.38 22 7.92V16.091C22 19.62 19.73 22 16.34 22H7.67C4.28 22 2 19.62 2 16.091V7.92C2 4.38 4.28 2 7.67 2ZM11.43 14.99L16.18 10.24C16.52 9.9 16.52 9.35 16.18 9C15.84 8.66 15.28 8.66 14.94 9L10.81 13.13L9.06 11.38C8.72 11.04 8.16 11.04 7.82 11.38C7.48 11.72 7.48 12.27 7.82 12.62L10.2 14.99C10.37 15.16 10.59 15.24 10.81 15.24C11.04 15.24 11.26 15.16 11.43 14.99Z" fill="currentColor"></path>                            </svg>                        
                                         </span>
                                     @else
                                         <span class="btn-inner">
@@ -246,8 +246,8 @@
                          <strong>Keterangan:</strong><br>
                          1. Jika datanya banyak, Anda bisa scroll ke samping <br>
                          2. Arahkan cursor ke setiap chart bar untuk melihat datanya <br>
-                         3. <div style="display: inline-block; background-color: #004899; width: 20px; height: 20px;"></div> File PDF <br>
-                         4. <div style="display: inline-block; background-color: #0a72e9; width: 20px; height: 20px;"></div> File Native
+                         3. <div style="display: inline-block; background-color: #FF6600; width: 20px; height: 20px;"></div> File PDF <br>
+                         4. <div style="display: inline-block; background-color: #009EA9; width: 20px; height: 20px;"></div> File Native
                      </div>
                    </div>
                    <div class="col-md-12">

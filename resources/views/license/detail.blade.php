@@ -208,7 +208,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label class="form-label">Expired Date</label>
-                            <input type="date" name="expired_date" id="expired_date" class="form-control @error('expired_date') is-invalid @enderror" required>
+                            <input type="date" name="expired_date" id="expired_date" class="form-control @error('expired_date') is-invalid @enderror" >
                         </div>
                     </div>
                 

@@ -130,7 +130,12 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/detail-rencana-ki-km/{id}', [Rencana::class, 'detailKiKm']);
     Route::get('/detail-rencana-technical-supporting/{id}', [Rencana::class, 'detailTechnicalSupport']);
     Route::post('/edit-rencana-detail/{id}', [Rencana::class, 'prosesEditDetail']);
+    Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
+    Route::post('/productivity-by-team', [Productivity::class, 'index']);
 
+    Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
+    Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
+    Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/data-activities', [Activity::class, 'index'])->name('data-activities');
         Route::get('/tambah-activities', [Activity::class, 'tambah']);
@@ -204,13 +209,6 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/tambah-master-activity', [MasterActivity::class, 'prosesTambah']);
         Route::post('/hapus-master-activity', [MasterActivity::class, 'prosesHapus']);
 
-        Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
-        Route::post('/productivity-by-team', [Productivity::class, 'index']);
-
-        Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
-        Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
-        Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
-
         Route::get('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
         Route::post('/progress-technical-supporting', [TechnicalSupporting::class, 'progress']);
 
@@ -248,9 +246,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
         Route::post('/productivity-by-team', [Productivity::class, 'index']);
 
-        Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
-        Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
-        Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
+       
         // Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
         // Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
         // Route::get('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'edit']);

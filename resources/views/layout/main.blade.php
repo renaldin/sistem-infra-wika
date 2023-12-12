@@ -510,7 +510,7 @@
                         show: false
                     }
                 },
-                colors: ['#004899', '#0a72e9'],
+                colors: ['#FF6600', '#009EA9'],
                 plotOptions: {
                     bar: {
                     horizontal: false,
@@ -611,7 +611,7 @@
                     show: false
                     }
                 },
-                colors: ['#004899', '#0a72e9'],
+                colors: ['#FF6600', '#009EA9'],
                 plotOptions: {
                     bar: {
                     horizontal: false,
@@ -685,7 +685,7 @@
                     },
                     labels: ['1', '2'],
                     series: [val1, val2],
-                    colors: ["#3a57e8", "#c8c8c8"],
+                    colors: ["#BA440A", "#F69433"],
                     legend: {
                         position: "bottom"
                     }
@@ -705,7 +705,7 @@
                     },
                     labels: ['1', '2'],
                     series: [val1, val2],
-                    colors: ["#3a57e8", "#c8c8c8"],
+                    colors: ["#0971A7", "#010642"],
                     legend: {
                         position: "bottom"
                     }
@@ -725,7 +725,7 @@
                     },
                     labels: ['1', '2'],
                     series: [val1, val2],
-                    colors: ["#3a57e8", "#c8c8c8"],
+                    colors: ["#39E8B0", "#039C69"],
                     legend: {
                         position: "bottom"
                     }
@@ -748,7 +748,7 @@
                     },
                     labels: ["0 - 30 %", "30 - 50 %", "50 - 70 %", "70 - 100 %"],
                     series: [persen_0_30, persen_30_50, persen_50_70, persen_70_100],
-                    colors: ["#3a57e8", "#c03221", "#876cfe", "#1aa053"],
+                    colors: ["#64B5F6", "#388E3C", "#1565C0", "#F66D00"],
                     legend: {
                         position: "bottom"
                     }
@@ -892,7 +892,7 @@
                     },
                     labels: ["Bukan Prioritas", "Prioritas 1", "Prioritas 2", "Prioritas 3"],
                     series: [bukanPrioritas, prioritas1, prioritas2, prioritas3],
-                    colors: ["#3a57e8", "#c03221", "#876cfe", "#1aa053"],
+                    colors: ["#64B5F6", "#388E3C", "#1565C0", "#F66D00"],
                     legend: {
                         position: "bottom"
                     }

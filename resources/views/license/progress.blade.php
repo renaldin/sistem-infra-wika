@@ -61,19 +61,20 @@
                             $global = $progress['fullEngineering'] + $progress['fullOffice'];
                             $nonGlobal = $progress['nonEngineering'] + $progress['trialEngineering'] + $progress['studentEngineering'] + $progress['nonOffice'] + $progress['trialOffice'] + $progress['studentOffice'];
                             $totalGlobal = $global + $nonGlobal;
-                            $persenGlobal = $global != 0 ? $global / $totalGlobal * 100 : 0;
-                            $persenNonGlobal = $nonGlobal != 0 ? $nonGlobal / $totalGlobal * 100 : 0;
+                            $persenGlobal = $global != 0 ? number_format($global / $totalGlobal * 100, 1) : 0;
+                            $persenNonGlobal = $nonGlobal != 0 ? number_format($nonGlobal / $totalGlobal * 100, 1) : 0;
 
                             $totalEngineer = $progress['nonEngineering'] + $progress['trialEngineering'] + $progress['studentEngineering'] + $progress['fullEngineering'];
                             $lainEngineer = $progress['nonEngineering'] + $progress['trialEngineering'] + $progress['studentEngineering'];
-                            $persenFullEngineer =$progress['fullEngineering'] != 0 ? $progress['fullEngineering'] / $totalEngineer * 100 : 0;
-                            $persenLainEngineer = $lainEngineer != 0 ? $lainEngineer / $lainEngineer * 100 : 0;
+                            $persenFullEngineer = $progress['fullEngineering'] != 0 ? number_format($progress['fullEngineering'] / $totalEngineer * 100, 1) : 0;
+                            $persenLainEngineer = $lainEngineer != 0 ? number_format($lainEngineer / $lainEngineer * 100, 1) : 0;
 
                             $lainOffice = $progress['nonOffice'] + $progress['trialOffice'] + $progress['studentOffice'];
                             $totalOffice = $lainOffice + $progress['fullOffice'];
-                            $persenLainOffice = $lainOffice != 0 ? $lainOffice / $totalOffice * 100 : 0;
-                            $persenFullOffice = $progress['fullOffice'] != 0 ? $progress['fullOffice'] / $totalOffice * 100 : 0;
+                            $persenLainOffice = $lainOffice != 0 ? number_format($lainOffice / $totalOffice * 100, 1) : 0;
+                            $persenFullOffice = $progress['fullOffice'] != 0 ? number_format($progress['fullOffice'] / $totalOffice * 100, 1) : 0;
                         @endphp
+
                         <tr>
                             <td class="text-center">1</td>
                             <td>Software berlisensi Full</td>

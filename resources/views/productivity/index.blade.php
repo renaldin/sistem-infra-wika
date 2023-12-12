@@ -71,7 +71,7 @@
                                             <thead>
                                                 <tr class="ligth">
                                                     <th>No</th>
-                                                    <th>Nam User</th>
+                                                    <th>Nama User</th>
                                                     <th>Jumlah Durasi Pekerjaan</th>
                                                 </tr>
                                             </thead>

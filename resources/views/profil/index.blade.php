@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label" for="nip">NIP</label>
-                            <input type="number" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{$user->nip}}" placeholder="Masukkan NIP/NIp ">
+                            <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip" name="nip" value="{{$user->nip}}" autofocus placeholder="Masukkan NIP ">
                             @error('nip')
                                 <div class="invalid-feedback">
                                 {{ $message }}

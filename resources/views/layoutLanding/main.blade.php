@@ -70,21 +70,24 @@
           </li>
           <li><a href="#">Projects</a></li>
         <li class="dropdown"><a href="#"><span>Sub Division</span>
-          <i
-          class="bi bi-chevron-down dropdown-indicator"></i></a>
-      <ul>
-        <li><a href="/login">Engineering</a></li>
-        <li><a href="https://wzone.wika.co.id/index.php/login?next=/">QHSE</a></li>
-        <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Contract Management</a></li>
-        <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Project Control & Planning</a></li>
-        <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Finance</a></li>
-        <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Human Capital</a></li>
-      </ul>
+          <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="/login">Engineering</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">QHSE</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Contract Management</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Project Control & Planning</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Finance</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Human Capital</a></li>
+            </ul>
         </li>
           
-          </li>
-        
-        </ul>
+        <li class="dropdown"><a href="#"><span> Departemen </span>
+          <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Operasi 3</a></li>
+              <li><a href="https://wzone.wika.co.id/index.php/login?next=/">Operasi 4</a></li>
+            </ul>
+        </li>
       </nav><!-- .navbar -->
 
     </div>
