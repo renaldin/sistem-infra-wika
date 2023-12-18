@@ -60,13 +60,13 @@ class Dashboard extends Controller
 
         $daftarDetailCsi = $this->ModelDetailCsi->data();
         $totalNilai = 0;
-        foreach($daftarDetailCsi as $item) {
+        foreach ($daftarDetailCsi as $item) {
             $nilai = $item->nilai != 0 ? round($item->nilai * $item->bobot / 100, 2) : 0;
             $totalNilai = $totalNilai + $nilai;
         }
         $akumulasiCsi = number_format($totalNilai != 0 ? $totalNilai * 5 / 5 : 0, 2);
         $jumlahCsi = $this->ModelCsi->jumlah();
-        
+
         $persenTechnicalSupport = $this->progress('Technical Support');
         $persenKiKm = $this->progress('KI/KM');
 
@@ -78,14 +78,14 @@ class Dashboard extends Controller
         $persen_30_50 = 0;
         $persen_50_70 = 0;
         $persen_70_100 = 0;
-        foreach($daftarProyek as $item) {
-            if($item->realisasi <= 30) {
+        foreach ($daftarProyek as $item) {
+            if ($item->realisasi <= 30) {
                 $persen_0_30 += 1;
-            } elseif($item->realisasi <= 50) {
+            } elseif ($item->realisasi <= 50) {
                 $persen_30_50 += 1;
-            } elseif($item->realisasi <= 70) {
+            } elseif ($item->realisasi <= 70) {
                 $persen_50_70 += 1;
-            } elseif($item->realisasi <= 100) {
+            } elseif ($item->realisasi <= 100) {
                 $persen_70_100 += 1;
             }
         }
@@ -115,18 +115,18 @@ class Dashboard extends Controller
                 'persen_30_50'              => $persen_30_50,
                 'persen_50_70'              => $persen_50_70,
                 'persen_70_100'             => $persen_70_100,
-                'productivityJan'           => $this->productivity(date('Y').'-01'),
-                'productivityFeb'           => $this->productivity(date('Y').'-02'),
-                'productivityMar'           => $this->productivity(date('Y').'-03'),
-                'productivityApr'           => $this->productivity(date('Y').'-04'),
-                'productivityMei'           => $this->productivity(date('Y').'-05'),
-                'productivityJun'           => $this->productivity(date('Y').'-06'),
-                'productivityJul'           => $this->productivity(date('Y').'-07'),
-                'productivityAug'           => $this->productivity(date('Y').'-08'),
-                'productivitySep'           => $this->productivity(date('Y').'-09'),
-                'productivityOct'           => $this->productivity(date('Y').'-10'),
-                'productivityNov'           => $this->productivity(date('Y').'-11'),
-                'productivityDes'           => $this->productivity(date('Y').'-12'),
+                'productivityJan'           => $this->productivity(date('Y') . '-01'),
+                'productivityFeb'           => $this->productivity(date('Y') . '-02'),
+                'productivityMar'           => $this->productivity(date('Y') . '-03'),
+                'productivityApr'           => $this->productivity(date('Y') . '-04'),
+                'productivityMei'           => $this->productivity(date('Y') . '-05'),
+                'productivityJun'           => $this->productivity(date('Y') . '-06'),
+                'productivityJul'           => $this->productivity(date('Y') . '-07'),
+                'productivityAug'           => $this->productivity(date('Y') . '-08'),
+                'productivitySep'           => $this->productivity(date('Y') . '-09'),
+                'productivityOct'           => $this->productivity(date('Y') . '-10'),
+                'productivityNov'           => $this->productivity(date('Y') . '-11'),
+                'productivityDes'           => $this->productivity(date('Y') . '-12'),
                 'bukanPrioritas'            => $this->ModelProyek->jumlah('Bukan Prioritas'),
                 'prioritas1'                => $this->ModelProyek->jumlah('Prioritas 1'),
                 'prioritas2'                => $this->ModelProyek->jumlah('Prioritas 2'),
@@ -161,18 +161,18 @@ class Dashboard extends Controller
                 'persen_30_50'              => $persen_30_50,
                 'persen_50_70'              => $persen_50_70,
                 'persen_70_100'             => $persen_70_100,
-                'productivityJan'           => $this->productivity(date('Y').'-01'),
-                'productivityFeb'           => $this->productivity(date('Y').'-02'),
-                'productivityMar'           => $this->productivity(date('Y').'-03'),
-                'productivityApr'           => $this->productivity(date('Y').'-04'),
-                'productivityMei'           => $this->productivity(date('Y').'-05'),
-                'productivityJun'           => $this->productivity(date('Y').'-06'),
-                'productivityJul'           => $this->productivity(date('Y').'-07'),
-                'productivityAug'           => $this->productivity(date('Y').'-08'),
-                'productivitySep'           => $this->productivity(date('Y').'-09'),
-                'productivityOct'           => $this->productivity(date('Y').'-10'),
-                'productivityNov'           => $this->productivity(date('Y').'-11'),
-                'productivityDes'           => $this->productivity(date('Y').'-12'),
+                'productivityJan'           => $this->productivity(date('Y') . '-01'),
+                'productivityFeb'           => $this->productivity(date('Y') . '-02'),
+                'productivityMar'           => $this->productivity(date('Y') . '-03'),
+                'productivityApr'           => $this->productivity(date('Y') . '-04'),
+                'productivityMei'           => $this->productivity(date('Y') . '-05'),
+                'productivityJun'           => $this->productivity(date('Y') . '-06'),
+                'productivityJul'           => $this->productivity(date('Y') . '-07'),
+                'productivityAug'           => $this->productivity(date('Y') . '-08'),
+                'productivitySep'           => $this->productivity(date('Y') . '-09'),
+                'productivityOct'           => $this->productivity(date('Y') . '-10'),
+                'productivityNov'           => $this->productivity(date('Y') . '-11'),
+                'productivityDes'           => $this->productivity(date('Y') . '-12'),
                 'bukanPrioritas'            => $this->ModelProyek->jumlah('Bukan Prioritas'),
                 'prioritas1'                => $this->ModelProyek->jumlah('Prioritas 1'),
                 'prioritas2'                => $this->ModelProyek->jumlah('Prioritas 2'),
@@ -207,18 +207,18 @@ class Dashboard extends Controller
                 'persen_30_50'              => $persen_30_50,
                 'persen_50_70'              => $persen_50_70,
                 'persen_70_100'             => $persen_70_100,
-                'productivityJan'           => $this->productivity(date('Y').'-01'),
-                'productivityFeb'           => $this->productivity(date('Y').'-02'),
-                'productivityMar'           => $this->productivity(date('Y').'-03'),
-                'productivityApr'           => $this->productivity(date('Y').'-04'),
-                'productivityMei'           => $this->productivity(date('Y').'-05'),
-                'productivityJun'           => $this->productivity(date('Y').'-06'),
-                'productivityJul'           => $this->productivity(date('Y').'-07'),
-                'productivityAug'           => $this->productivity(date('Y').'-08'),
-                'productivitySep'           => $this->productivity(date('Y').'-09'),
-                'productivityOct'           => $this->productivity(date('Y').'-10'),
-                'productivityNov'           => $this->productivity(date('Y').'-11'),
-                'productivityDes'           => $this->productivity(date('Y').'-12'),
+                'productivityJan'           => $this->productivity(date('Y') . '-01'),
+                'productivityFeb'           => $this->productivity(date('Y') . '-02'),
+                'productivityMar'           => $this->productivity(date('Y') . '-03'),
+                'productivityApr'           => $this->productivity(date('Y') . '-04'),
+                'productivityMei'           => $this->productivity(date('Y') . '-05'),
+                'productivityJun'           => $this->productivity(date('Y') . '-06'),
+                'productivityJul'           => $this->productivity(date('Y') . '-07'),
+                'productivityAug'           => $this->productivity(date('Y') . '-08'),
+                'productivitySep'           => $this->productivity(date('Y') . '-09'),
+                'productivityOct'           => $this->productivity(date('Y') . '-10'),
+                'productivityNov'           => $this->productivity(date('Y') . '-11'),
+                'productivityDes'           => $this->productivity(date('Y') . '-12'),
                 'bukanPrioritas'            => $this->ModelProyek->jumlah('Bukan Prioritas'),
                 'prioritas1'                => $this->ModelProyek->jumlah('Prioritas 1'),
                 'prioritas2'                => $this->ModelProyek->jumlah('Prioritas 2'),
@@ -235,9 +235,9 @@ class Dashboard extends Controller
         return view($route, $data);
     }
 
-    public function progress($tipe) 
+    public function progress($tipe)
     {
-        if($tipe === 'Technical Support') {
+        if ($tipe === 'Technical Support') {
             $dataRencanaTechnicalSupport = $this->ModelRencana->checkData('Technical Supporting', date('Y'));
             $detailProgress = $this->ModelTechnicalSupporting->progress(date('Y'));
 
@@ -254,46 +254,46 @@ class Dashboard extends Controller
             $realisasiNov = $realisasiOkt + $detailProgress['november']->realisasi;
             $realisasiDes = $realisasiNov + $detailProgress['desember']->realisasi;
 
-            if(date('m') == '01') {
+            if (date('m') == '01') {
                 $rencana = $dataRencanaTechnicalSupport->januari;
                 $realisasi = $realisasiJan;
-            } elseif(date('m') == '02') {
+            } elseif (date('m') == '02') {
                 $rencana = $dataRencanaTechnicalSupport->februari;
                 $realisasi = $realisasiFeb;
-            } elseif(date('m') == '03') {
+            } elseif (date('m') == '03') {
                 $rencana = $dataRencanaTechnicalSupport->maret;
                 $realisasi = $realisasiMar;
-            } elseif(date('m') == '04') {
+            } elseif (date('m') == '04') {
                 $rencana = $dataRencanaTechnicalSupport->april;
                 $realisasi = $realisasiApr;
-            } elseif(date('m') == '05') {
+            } elseif (date('m') == '05') {
                 $rencana = $dataRencanaTechnicalSupport->mei;
                 $realisasi = $realisasiMei;
-            } elseif(date('m') == '06') {
+            } elseif (date('m') == '06') {
                 $rencana = $dataRencanaTechnicalSupport->juni;
                 $realisasi = $realisasiJun;
-            } elseif(date('m') == '07') {
+            } elseif (date('m') == '07') {
                 $rencana = $dataRencanaTechnicalSupport->juli;
                 $realisasi = $realisasiJul;
-            } elseif(date('m') == '08') {
+            } elseif (date('m') == '08') {
                 $rencana = $dataRencanaTechnicalSupport->agustus;
                 $realisasi = $realisasiAgu;
-            } elseif(date('m') == '09') {
+            } elseif (date('m') == '09') {
                 $rencana = $dataRencanaTechnicalSupport->september;
                 $realisasi = $realisasiSep;
-            } elseif(date('m') == '10') {
+            } elseif (date('m') == '10') {
                 $rencana = $dataRencanaTechnicalSupport->oktober;
                 $realisasi = $realisasiOkt;
-            } elseif(date('m') == '11') {
+            } elseif (date('m') == '11') {
                 $rencana = $dataRencanaTechnicalSupport->november;
                 $realisasi = $realisasiNov;
-            } elseif(date('m') == '12') {
+            } elseif (date('m') == '12') {
                 $rencana = $dataRencanaTechnicalSupport->desember;
                 $realisasi = $realisasiDes;
             }
 
             return $rencana != 0 ? round($realisasi / $rencana * 100, 1) : 0;
-        } elseif($tipe === 'KI/KM') {
+        } elseif ($tipe === 'KI/KM') {
             $detailProgress = $this->ModelKiKm->progress(date('Y'));
             $rencanaKiKm = $this->ModelRencana->checkData('KI/KM', date('Y'));
 
@@ -310,7 +310,7 @@ class Dashboard extends Controller
             $realisasiNov = $realisasiOkt + $detailProgress['november']->realisasi;
             $realisasiDes = $realisasiNov + $detailProgress['desember']->realisasi;
 
-            if($rencanaKiKm) {
+            if ($rencanaKiKm) {
                 $rencanaKiKm = $rencanaKiKm;
             } else {
                 $rencanaKiKm = new stdClass();
@@ -328,40 +328,40 @@ class Dashboard extends Controller
                 $rencanaKiKm->desember = 0;
             }
 
-            if(date('m') == '01') {
+            if (date('m') == '01') {
                 $rencana = $rencanaKiKm->januari;
                 $realisasi = $realisasiJan;
-            } elseif(date('m') == '02') {
+            } elseif (date('m') == '02') {
                 $rencana = $rencanaKiKm->februari;
                 $realisasi = $realisasiFeb;
-            } elseif(date('m') == '03') {
+            } elseif (date('m') == '03') {
                 $rencana = $rencanaKiKm->maret;
                 $realisasi = $realisasiMar;
-            } elseif(date('m') == '04') {
+            } elseif (date('m') == '04') {
                 $rencana = $rencanaKiKm->april;
                 $realisasi = $realisasiApr;
-            } elseif(date('m') == '05') {
+            } elseif (date('m') == '05') {
                 $rencana = $rencanaKiKm->mei;
                 $realisasi = $realisasiMei;
-            } elseif(date('m') == '06') {
+            } elseif (date('m') == '06') {
                 $rencana = $rencanaKiKm->juni;
                 $realisasi = $realisasiJun;
-            } elseif(date('m') == '07') {
+            } elseif (date('m') == '07') {
                 $rencana = $rencanaKiKm->juli;
                 $realisasi = $realisasiJul;
-            } elseif(date('m') == '08') {
+            } elseif (date('m') == '08') {
                 $rencana = $rencanaKiKm->agustus;
                 $realisasi = $realisasiAgu;
-            } elseif(date('m') == '09') {
+            } elseif (date('m') == '09') {
                 $rencana = $rencanaKiKm->september;
                 $realisasi = $realisasiSep;
-            } elseif(date('m') == '10') {
+            } elseif (date('m') == '10') {
                 $rencana = $rencanaKiKm->oktober;
                 $realisasi = $realisasiOkt;
-            } elseif(date('m') == '11') {
+            } elseif (date('m') == '11') {
                 $rencana = $rencanaKiKm->november;
                 $realisasi = $realisasiNov;
-            } elseif(date('m') == '12') {
+            } elseif (date('m') == '12') {
                 $rencana = $rencanaKiKm->desember;
                 $realisasi = $realisasiDes;
             }
@@ -375,24 +375,26 @@ class Dashboard extends Controller
         $daftarKategoriPekerjaan = $this->ModelKategoriPekerjaan->dataFungsi();
         $masterActivity          = $this->ModelMasterActivity->masterFungsi($bulan);
         $activity                = $this->ModelEngineeringActivity->dataProductivityTeam($bulan);
-
+     //   dd($activity);
         $totalSubtotal = 0;
         $totalWork = 0;
-        foreach($daftarKategoriPekerjaan as $item) {
+        foreach ($daftarKategoriPekerjaan as $item) {
             if ($item->fungsi !== null) {
-                $subTotal = 0;   
+                $subTotal = 0;
                 $totalWorkHours = 0;
-                foreach($masterActivity as $row) {
-                    if($row->fungsi === $item->fungsi) {
+                foreach ($masterActivity as $row) {
+                    if ($row->fungsi === $item->fungsi) {
                         $totalWorkHours = $totalWorkHours + $row->work_hours;
                     }
                 }
-                foreach($activity as $row) {
-                    if ($row->fungsi === $item->fungsi) {
-                        $subTotal = $subTotal + $row->jumlah_durasi;
-                    }
+                foreach ($activity as $row) {
+                   if ($row->validasi == 1) {
+                        if ($row->fungsi === $item->fungsi) {
+                            $subTotal = $subTotal + $row->jumlah_durasi;
+                        }
+                   }
                 }
-                if ($totalWorkHours == 0){
+                if ($totalWorkHours == 0) {
                     $persen = 0;
                 } else {
                     $persen = round(($subTotal / $totalWorkHours) * 100, 1);
@@ -402,17 +404,17 @@ class Dashboard extends Controller
                 $totalWork = $totalWork + $totalWorkHours;
             }
         }
-        
-        return  round($totalWork == 0? 0 : ($totalSubtotal / $totalWork) * 100);
+
+        return  round($totalWork == 0 ? 0 : ($totalSubtotal / $totalWork) * 100);
     }
 
     public function prioritasProyek($prioritas)
     {
         $daftarProyek = $this->ModelProyek->prioritas($prioritas);
         $jumlahProyekByPrioritas = $this->ModelProyek->jumlah($prioritas);
-        
+
         $prioritas = 0;
-        foreach($daftarProyek as $item) {
+        foreach ($daftarProyek as $item) {
             $prioritas += $item->realisasi;
         }
 

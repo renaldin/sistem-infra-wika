@@ -87,16 +87,18 @@
                                                     }
                                                 @endphp
                                                 @foreach ($activity as $row)
+                                                @if ($row->validasi == 1) 
                                                     @if ($row->fungsi === $item->fungsi)
-                                                        <tr>
-                                                            <td>{{$no++}}</td>
-                                                            <td>{{$row->nama_user}}</td>
-                                                            <td>{{$row->jumlah_durasi}}</td>
-                                                        </tr>
-                                                        @php
-                                                            $subTotal = $subTotal + $row->jumlah_durasi;
-                                                        @endphp
-                                                    @endif
+                                                    <tr>
+                                                        <td>{{$no++}}</td>
+                                                        <td>{{$row->nama_user}}</td>
+                                                        <td>{{$row->jumlah_durasi}}</td>
+                                                    </tr>
+                                                    @php
+                                                        $subTotal = $subTotal + $row->jumlah_durasi;
+                                                    @endphp
+                                                   @endif
+                                                @endif
                                                 @endforeach
                                             </tbody>
                                         </table>

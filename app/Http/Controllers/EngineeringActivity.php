@@ -71,6 +71,38 @@ class EngineeringActivity extends Controller
         return back()->with('success', 'Data activity telah di-check!');
     }
 
+    public function validasi()
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = [
+            'title'             => 'Engineering Activity',
+            'subTitle'          => 'Validasi Activity',
+            'checked'           => false,
+            'daftar'            => $this->ModelEngineeringActivity->data(),
+            'user'              => $this->ModelUser->detail(Session()->get('id_user'))
+        ];
+
+        return view('validasi.index', $data);
+    }
+
+    public function validasiProses($id_engineering_activity) 
+    {
+        if (!Session()->get('role')) {
+            return redirect()->route('login');
+        }
+
+        $data = [
+            'id_engineering_activity'   => $id_engineering_activity,
+            'validasi'                   => 1
+        ];
+
+        $this->ModelEngineeringActivity->edit($data);
+        return back()->with('success', 'Data activity telah di-validasi!');
+    }
+
     public function tambah()
     {
         if (!Session()->get('role')) {

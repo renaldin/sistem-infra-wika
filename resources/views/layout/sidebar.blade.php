@@ -898,6 +898,16 @@
                             <span class="item-name">Check Activity</span>
                         </a>
                     </li>
+                    @if ($user->jabatan == 'Coordinator')
+                    <li class="nav-item">
+                        <a class="nav-link @if ($subTitle === 'Validasi Activity' || $subTitle === 'Edit Validasi Activity') active @endif" aria-current="page"  href="/validasi-activity">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-32" width="20" viewBox="0 0 24 24" fill="none">                                    <circle cx="12" cy="12" r="7.5" fill="currentColor" fill-opacity="0.4" stroke="currentColor"></circle>                                </svg>  
+                            </i>
+                            <span class="item-name">Validasi Activity</span>
+                        </a>
+                    </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link @if ($title === 'Technical Supporting') active @endif" data-bs-toggle="collapse" @if ($title === 'Technical Supporting') @endif href="#technical-supporting" role="button" aria-expanded="false" aria-controls="technical-supporting">
                             <i class="icon">

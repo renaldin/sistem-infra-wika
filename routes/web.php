@@ -136,6 +136,8 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/productivity-by-person', [Productivity::class, 'byPerson'])->name('productivity-by-person');
     Route::post('/productivity-by-person', [Productivity::class, 'byPerson']);
     Route::get('/productivity-by-person/{id_user}/{detail_bulan}', [Productivity::class, 'detailByPerson']);
+    Route::get('/validasi-activity', [EngineeringActivity::class, 'validasi'])->name('validasi-activity');
+    Route::get('/validasi-activity/{id}', [EngineeringActivity::class, 'validasiProses']);
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/data-activities', [Activity::class, 'index'])->name('data-activities');
         Route::get('/tambah-activities', [Activity::class, 'tambah']);
@@ -148,7 +150,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::post('/tambah-events', [Event::class, 'prosesTambah']);
         Route::post('/edit-events/{id}', [Event::class, 'prosesEdit']);
         Route::get('/hapus-events/{id}', [Event::class, 'prosesHapus']);
-        
+
         Route::get('/data-achievement', [Achievement::class, 'index'])->name('data-achievement');
         Route::post('/tambah-achievement', [Achievement::class, 'prosesTambah']);
         Route::post('/edit-achievement/{id}', [Achievement::class, 'prosesEdit']);
@@ -246,7 +248,7 @@ Route::group(['middleware' => 'revalidate'], function () {
         Route::get('/productivity-by-team', [Productivity::class, 'index'])->name('productivity-by-team');
         Route::post('/productivity-by-team', [Productivity::class, 'index']);
 
-       
+
         // Route::get('/review-rkp', [\App\Http\Controllers\Rkp::class, 'tambah'])->name('tambah');
         // Route::get('/receive-rkp/{id}', [Rkp::class, 'receive']);
         // Route::get('/edit-rkp/{id}', [\App\Http\Controllers\Rkp::class, 'edit']);

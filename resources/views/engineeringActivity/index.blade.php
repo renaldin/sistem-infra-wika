@@ -48,6 +48,7 @@
                             <th>Nama Lengkap</th>
                             <th>Status Kerja</th>
                             <th>Judul / Deskripsi Pekerjaan</th>
+                            <th>Validasi</th>
                             @if($checked === false)
                                 <th style="min-width: 100px">Aksi</th>
                             @endif
@@ -73,6 +74,7 @@
                                         <td>{{$item->nama_user}}</td>
                                         <td>{{$item->status_kerja}}</td>
                                         <td>{{$item->judul_pekerjaan}}</td>
+                                        <td>{{$item->validasi==1?'Validasi':'Belum Tervalidasi'}}</td>
                                         @if($checked === false)
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
