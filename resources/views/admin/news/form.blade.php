@@ -50,7 +50,7 @@
                             <div class="form-group col-md-6">
                                 <label class="form-label" for="foto_user"></label>
                                 <div class="profile-img-edit position-relative">
-                                    <img src="@if($form === 'Tambah'){{ asset('news/default1.jpg') }}@else{{ asset('news/'.$detail->gambar) }}@endif" alt="profile-pic" id="load_image" class="theme-color-default-img profile-pic rounded avatar-100">
+                                    <img src="@if($form === 'Tambah'){{ asset('image/default1.jpg') }}@else{{ asset('news/'.$detail->gambar) }}@endif" alt="profile-pic" id="load_image" class="theme-color-default-img profile-pic rounded avatar-100">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
