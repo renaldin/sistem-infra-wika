@@ -239,6 +239,7 @@ class Dashboard extends Controller
     {
         if ($tipe === 'Technical Support') {
             $dataRencanaTechnicalSupport = $this->ModelRencana->checkData('Technical Supporting', date('Y'));
+            // dd($dataRencanaTechnicalSupport);
             $detailProgress = $this->ModelTechnicalSupporting->progress(date('Y'));
 
             $realisasiJan = $detailProgress['januari']->realisasi;
@@ -255,42 +256,43 @@ class Dashboard extends Controller
             $realisasiDes = $realisasiNov + $detailProgress['desember']->realisasi;
 
             if (date('m') == '01') {
-                $rencana = $dataRencanaTechnicalSupport->januari;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->januari : 0;
                 $realisasi = $realisasiJan;
             } elseif (date('m') == '02') {
-                $rencana = $dataRencanaTechnicalSupport->februari;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->februari : 0;
                 $realisasi = $realisasiFeb;
             } elseif (date('m') == '03') {
-                $rencana = $dataRencanaTechnicalSupport->maret;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->maret : 0;
                 $realisasi = $realisasiMar;
             } elseif (date('m') == '04') {
-                $rencana = $dataRencanaTechnicalSupport->april;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->april : 0;
                 $realisasi = $realisasiApr;
             } elseif (date('m') == '05') {
-                $rencana = $dataRencanaTechnicalSupport->mei;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->mei : 0;
                 $realisasi = $realisasiMei;
             } elseif (date('m') == '06') {
-                $rencana = $dataRencanaTechnicalSupport->juni;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->juni : 0;
                 $realisasi = $realisasiJun;
             } elseif (date('m') == '07') {
-                $rencana = $dataRencanaTechnicalSupport->juli;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->juli : 0;
                 $realisasi = $realisasiJul;
             } elseif (date('m') == '08') {
-                $rencana = $dataRencanaTechnicalSupport->agustus;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->agustus : 0;
                 $realisasi = $realisasiAgu;
             } elseif (date('m') == '09') {
-                $rencana = $dataRencanaTechnicalSupport->september;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->september : 0;
                 $realisasi = $realisasiSep;
             } elseif (date('m') == '10') {
-                $rencana = $dataRencanaTechnicalSupport->oktober;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->oktober : 0;
                 $realisasi = $realisasiOkt;
             } elseif (date('m') == '11') {
-                $rencana = $dataRencanaTechnicalSupport->november;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->november : 0;
                 $realisasi = $realisasiNov;
             } elseif (date('m') == '12') {
-                $rencana = $dataRencanaTechnicalSupport->desember;
+                $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->desember : 0;
                 $realisasi = $realisasiDes;
             }
+            dd($rencana);
 
             return $rencana != 0 ? round($realisasi / $rencana * 100, 1) : 0;
         } elseif ($tipe === 'KI/KM') {
