@@ -292,7 +292,7 @@ class Dashboard extends Controller
                 $rencana = $dataRencanaTechnicalSupport ? $dataRencanaTechnicalSupport->desember : 0;
                 $realisasi = $realisasiDes;
             }
-            dd($rencana);
+          
 
             return $rencana != 0 ? round($realisasi / $rencana * 100, 1) : 0;
         } elseif ($tipe === 'KI/KM') {
