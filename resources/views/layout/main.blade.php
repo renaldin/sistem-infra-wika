@@ -776,7 +776,7 @@
                 const options = {
                 series: [{
                     name: '',
-                    data: ['74.00', productivityFeb, productivityMar, productivityApr, productivityMei, productivityJun, productivityJul, productivityAug, productivitySep, productivityOct, productivityNov, productivityDes]
+                    data: [productivityJan, productivityFeb, productivityMar, productivityApr, productivityMei, productivityJun, productivityJul, productivityAug, productivitySep, productivityOct, productivityNov, productivityDes]
                 }],
                 chart: {
                     fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',

@@ -457,9 +457,20 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="card" data-aos="fade-up" data-aos-delay="800">
+                     <div class="card-body">
+                        <form action="/dashboard" method="POST" class="d-flex align-items-center">
+                           @csrf
+                           <select name="tahun" id="tahun" class="selectpicker form-control" data-style="py-0">
+                              <option value="" selected>{{$tahun}}</option>
+                              <option value="2023">2023</option>
+                              <option value="2022">2022</option>
+                           </select>
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                     </div>
                      <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                         <div class="header-title">
-                           <h4 class="card-title text-primary">PRODUCTIVITY RATE {{date('Y')}}</h4>
+                           <h4 class="card-title text-primary">PRODUCTIVITY RATE {{$tahun}}</h4>
                            {{-- <p class="mb-0">Gross Sales</p>           --}}
                         </div>
                      </div>

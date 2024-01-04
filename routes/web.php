@@ -62,6 +62,7 @@ Route::group(['middleware' => 'revalidate'], function () {
     Route::get('/logout', [Login::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+    Route::post('/dashboard', [Dashboard::class, 'index']);
 
     Route::get('/profil', [User::class, 'profil'])->name('profil');
     Route::post('/edit-profil/{id}', [User::class, 'prosesEditProfil']);
