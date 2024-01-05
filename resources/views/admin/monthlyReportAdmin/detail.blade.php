@@ -19,31 +19,31 @@
                         <div class="form-group col-md-6">
                             <label class="form-label">Implementasi Bim</label>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="dua_d" id="dua_d" @if($detail->dua_d === 1) checked @endif disabled>
+                                <input class="form-check-input" type="checkbox" name="dua_d" id="dua_d" @if($detail->dua_d == 1) checked @endif disabled>
                                 <label class="form-check-label" for="dua_d">
                                     2D
                                 </label>
                             </div>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="tiga_d" id="tiga_d" @if($detail->tiga_d === 1) checked @endif disabled>
+                                <input class="form-check-input" type="checkbox" name="tiga_d" id="tiga_d" @if($detail->tiga_d == 1) checked @endif disabled>
                                 <label class="form-check-label" for="tiga_d">
                                     3D
                                 </label>
                             </div>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="empat_d" id="empat_d" @if($detail->empat_d === 1) checked @endif disabled>
+                                <input class="form-check-input" type="checkbox" name="empat_d" id="empat_d" @if($detail->empat_d == 1) checked @endif disabled>
                                 <label class="form-check-label" for="empat_d">
                                     4D
                                 </label>
                             </div>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="lima_d" id="lima_d" @if($detail->lima_d === 1) checked @endif disabled>
+                                <input class="form-check-input" type="checkbox" name="lima_d" id="lima_d" @if($detail->lima_d == 1) checked @endif disabled>
                                 <label class="form-check-label" for="lima_d">
                                     5D
                                 </label>
                             </div>
                             <div class="form-check d-block">
-                                <input class="form-check-input" type="checkbox" name="cde" id="cde" @if($detail->cde === 1) checked @endif disabled>
+                                <input class="form-check-input" type="checkbox" name="cde" id="cde" @if($detail->cde == 1) checked @endif disabled>
                                 <label class="form-check-label" for="cde">
                                     CDE
                                 </label>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label" for="id_proyek">Tanggal MUlai</label>
+                            <label class="form-label" for="id_proyek">Tanggal Mulai</label>
                             <input type="text" class="form-control" value="{{$detail->tanggal}}" readonly>
                         </div>
                         <div class="form-group col-md-6">

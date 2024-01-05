@@ -64,11 +64,11 @@
           <li class="dropdown"><a href="#"><span>Info</span> <i
             class="bi bi-chevron-down dropdown-indicator"></i></a>
         <ul>
-          <li><a href="#">Activities</a></li>
-          <li><a href="#">InfraNews</a></li>
+          <li><a href="#constructions">Activities</a></li>
+          <li><a href="#infra-news">InfraNews</a></li>
         </ul>
           </li>
-          <li><a href="#">Projects</a></li>
+          <li><a href="#projects">Projects</a></li>
         <li class="dropdown"><a href="#"><span>Sub Division</span>
           <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -113,6 +113,13 @@
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel2.jpeg') }})"></div>
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel3.jpeg') }})"></div>
       <div class="carousel-item" style="background-image: url({{ asset('image/carousel5.jpeg') }})"></div>
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline class="d-block w-100">
+          <source src="{{ asset('image/carousel7.mp4') }}" type="video/mp4">
+          Maaf, browser Anda tidak mendukung tag video.
+        </video>
+      </div>
+      
 
       <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
